@@ -1,0 +1,3 @@
+/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles/course_project.dir
+/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
