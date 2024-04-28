@@ -129,6 +129,102 @@ course_project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/build
 .PHONY : course_project/fast
 
+allocators/allocator_guardant.o: allocators/allocator_guardant.cpp.o
+.PHONY : allocators/allocator_guardant.o
+
+# target to build an object file
+allocators/allocator_guardant.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o
+.PHONY : allocators/allocator_guardant.cpp.o
+
+allocators/allocator_guardant.i: allocators/allocator_guardant.cpp.i
+.PHONY : allocators/allocator_guardant.i
+
+# target to preprocess a source file
+allocators/allocator_guardant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.i
+.PHONY : allocators/allocator_guardant.cpp.i
+
+allocators/allocator_guardant.s: allocators/allocator_guardant.cpp.s
+.PHONY : allocators/allocator_guardant.s
+
+# target to generate assembly for a file
+allocators/allocator_guardant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s
+.PHONY : allocators/allocator_guardant.cpp.s
+
+logger/logger.o: logger/logger.cpp.o
+.PHONY : logger/logger.o
+
+# target to build an object file
+logger/logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger.cpp.o
+.PHONY : logger/logger.cpp.o
+
+logger/logger.i: logger/logger.cpp.i
+.PHONY : logger/logger.i
+
+# target to preprocess a source file
+logger/logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger.cpp.i
+.PHONY : logger/logger.cpp.i
+
+logger/logger.s: logger/logger.cpp.s
+.PHONY : logger/logger.s
+
+# target to generate assembly for a file
+logger/logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger.cpp.s
+.PHONY : logger/logger.cpp.s
+
+logger/logger_builder.o: logger/logger_builder.cpp.o
+.PHONY : logger/logger_builder.o
+
+# target to build an object file
+logger/logger_builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_builder.cpp.o
+.PHONY : logger/logger_builder.cpp.o
+
+logger/logger_builder.i: logger/logger_builder.cpp.i
+.PHONY : logger/logger_builder.i
+
+# target to preprocess a source file
+logger/logger_builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_builder.cpp.i
+.PHONY : logger/logger_builder.cpp.i
+
+logger/logger_builder.s: logger/logger_builder.cpp.s
+.PHONY : logger/logger_builder.s
+
+# target to generate assembly for a file
+logger/logger_builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_builder.cpp.s
+.PHONY : logger/logger_builder.cpp.s
+
+logger/logger_guardant.o: logger/logger_guardant.cpp.o
+.PHONY : logger/logger_guardant.o
+
+# target to build an object file
+logger/logger_guardant.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o
+.PHONY : logger/logger_guardant.cpp.o
+
+logger/logger_guardant.i: logger/logger_guardant.cpp.i
+.PHONY : logger/logger_guardant.i
+
+# target to preprocess a source file
+logger/logger_guardant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_guardant.cpp.i
+.PHONY : logger/logger_guardant.cpp.i
+
+logger/logger_guardant.s: logger/logger_guardant.cpp.s
+.PHONY : logger/logger_guardant.s
+
+# target to generate assembly for a file
+logger/logger_guardant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/logger_guardant.cpp.s
+.PHONY : logger/logger_guardant.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... course_project"
+	@echo "... allocators/allocator_guardant.o"
+	@echo "... allocators/allocator_guardant.i"
+	@echo "... allocators/allocator_guardant.s"
+	@echo "... logger/logger.o"
+	@echo "... logger/logger.i"
+	@echo "... logger/logger.s"
+	@echo "... logger/logger_builder.o"
+	@echo "... logger/logger_builder.i"
+	@echo "... logger/logger_builder.s"
+	@echo "... logger/logger_guardant.o"
+	@echo "... logger/logger_guardant.i"
+	@echo "... logger/logger_guardant.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

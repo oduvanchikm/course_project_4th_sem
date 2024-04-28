@@ -8,11 +8,12 @@
 #include <mutex>
 #include <sstream>
 #include <thread>
+#include "../logger/logger_guardant.h"
 
 class allocator_buddies_system final:
         private allocator_guardant,
         public allocator_with_fit_mode,
-        private logger_guardant,
+        private logger_guardant
 {
 
 private:
@@ -55,14 +56,6 @@ public:
 public:
 
     inline void set_fit_mode(allocator_with_fit_mode::fit_mode mode) override;
-
-public:
-
-    std::vector<allocator_test_utils::block_info> get_blocks_info() const noexcept override;
-
-private:
-
-    inline std::string get_typename() const noexcept override;
 
 private:
 

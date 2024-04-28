@@ -1,4 +1,4 @@
-#include "../include/logger_guardant.h"
+#include "logger_guardant.h"
 
 logger_guardant const *logger_guardant::log_with_guard(
     std::string const &message,

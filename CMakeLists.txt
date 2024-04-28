@@ -6,13 +6,24 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(allocators)
 
 add_executable(course_project
-#        allocators/allocator.cpp
-#        allocators/allocator_buddies_system.cpp
+        allocators/allocator.h
+        allocators/allocator_guardant.h
+        allocators/allocator_guardant.cpp
+        logger/logger.h
+        logger/logger.cpp
+        logger/logger_builder.h
+        logger/logger_builder.cpp
+        logger/logger_guardant.h
+        logger/logger_guardant.cpp
+        #        allocators/allocator_buddies_system.cpp
         include/associative_container.h
         include/search_tree.h
         include/b_tree.h
+        include/binary_search_tree.h
         database.h
         pool.h
         scheme.h
         collection.h
-        main.cpp)
+        main.cpp
+        wb.h
+        comparer.h)

@@ -1,8 +1,0 @@
-#ifndef COURSE_PROJECT_ALLOCATOR_TYPE_H
-#define COURSE_PROJECT_ALLOCATOR_TYPE_H
-
-//class enam allocate_type {
-//
-//};
-
-#endif //COURSE_PROJECT_ALLOCATOR_TYPE_H

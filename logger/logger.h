@@ -1,6 +1,8 @@
 #ifndef COURSE_PROJECT_LOGGER_H
 #define COURSE_PROJECT_LOGGER_H
 
+#include <iostream>
+
 class logger
 {
 

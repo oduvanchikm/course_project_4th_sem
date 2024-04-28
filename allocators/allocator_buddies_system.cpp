@@ -1,4 +1,4 @@
-#include "../include/allocator_buddies_system.h"
+#include "allocator_buddies_system.h"
 
 size_t allocator_buddies_system::get_ancillary_space_size() const noexcept
 {
@@ -275,8 +275,6 @@ short allocator_buddies_system::get_power_of_two_up(size_t number)
     trace_with_guard("ALLOCATOR_BUDDIES_SYSTEM: memory allocate has finished");
     information_with_guard("ALLOCATOR_BUDDIES_SYSTEM: information about free size: " + std::to_string(*available_size));
 
-    get_blocks_info();
-
     return reinterpret_cast<void*>(reinterpret_cast<unsigned char*>(target_block) + sizeof(unsigned char) + sizeof(short) + sizeof(void*) + sizeof(void*));
 }
 
@@ -371,8 +369,6 @@ void allocator_buddies_system::deallocate(void *at)
 
     (*available_size) += (1 << target_block_size);
 
-    get_blocks_info();
-
     if (log != nullptr)
     {
         log->trace("ALLOCATOR_BUDDIES_SYSTEM: memory deallocate has finished");
@@ -394,61 +390,6 @@ inline void allocator_buddies_system::set_fit_mode(allocator_with_fit_mode::fit_
     {
         log->debug("ALLOCATOR_BUDDIES_SYSTEM: fit mode was changed");
     }
-}
-
-std::vector<allocator_test_utils::block_info> allocator_buddies_system::get_blocks_info() const noexcept
-{
-    logger* log = get_logger();
-    if (log != nullptr)
-    {
-        log->debug("ALLOCATOR_BUDDIES_SYSTEM: method get block info has started");
-    }
-
-    std::vector<allocator_test_utils::block_info> data_vector_block_info;
-
-    void** l_current_block = reinterpret_cast<void**>(reinterpret_cast<unsigned char*>(_trusted_memory) + sizeof(allocator*) + sizeof(logger*) + sizeof(size_t) + sizeof(allocator_with_fit_mode::fit_mode) + sizeof(std::mutex*) + sizeof(size_t));
-    void* current_block = reinterpret_cast<void*>(l_current_block + 1);
-
-    size_t current_size = 0;
-    size_t size_trusted_memory = 1 << (*reinterpret_cast<size_t*>(reinterpret_cast<unsigned char*>(_trusted_memory) + sizeof(allocator*) + sizeof(logger*)));
-
-    while (current_size < size_trusted_memory)
-    {
-        allocator_test_utils::block_info blocks_info;
-
-        blocks_info.is_block_occupied = *reinterpret_cast<unsigned char*>(current_block);
-        blocks_info.block_size =  1 << (*reinterpret_cast<short*>(reinterpret_cast<unsigned char*>(current_block) + sizeof(unsigned char)));
-
-        std::cout << blocks_info.block_size << std::endl;
-        std::cout << blocks_info.is_block_occupied << std::endl;
-
-        data_vector_block_info.push_back(blocks_info);
-        current_block = get_next_block(current_block);
-
-        current_size += blocks_info.block_size;
-    }
-
-    std::string data_str;
-
-    for (block_info value : data_vector_block_info)
-    {
-        std::string is_oc = value.is_block_occupied ? "YES" : "NO";
-        data_str += (is_oc + "  " + std::to_string(value.block_size) + " | ");
-    }
-
-    log_with_guard("ALLOCATOR_BUDDIES_SYSTEM: state blocks: " + data_str, logger::severity::debug);
-
-    if (log != nullptr)
-    {
-        log->debug("ALLOCATOR_BUDDIES_SYSTEM: method get block info has finished");
-    }
-
-    return data_vector_block_info;
-}
-
-inline std::string allocator_buddies_system::get_typename() const noexcept
-{
-    return "allocator_buddies_system ";
 }
 
 allocator_buddies_system::~allocator_buddies_system()

@@ -1,4 +1,4 @@
-#include "../include/logger_builder.h"
+#include "logger_builder.h"
 
 logger::severity logger_builder::string_to_severity(
     std::string const &severity_string)
