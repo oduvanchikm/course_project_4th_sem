@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.cpp" "CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o.d"
+  "/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp" "CMakeFiles/course_project.dir/logger/client_logger.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/client_logger.cpp.o.d"
+  "/home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.cpp" "CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/logger.cpp" "CMakeFiles/course_project.dir/logger/logger.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/logger.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/logger_builder.cpp" "CMakeFiles/course_project.dir/logger/logger_builder.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/logger_builder.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.cpp" "CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o.d"

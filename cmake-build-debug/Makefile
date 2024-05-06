@@ -153,6 +153,54 @@ allocators/allocator_guardant.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s
 .PHONY : allocators/allocator_guardant.cpp.s
 
+logger/client_logger.o: logger/client_logger.cpp.o
+.PHONY : logger/client_logger.o
+
+# target to build an object file
+logger/client_logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger.cpp.o
+.PHONY : logger/client_logger.cpp.o
+
+logger/client_logger.i: logger/client_logger.cpp.i
+.PHONY : logger/client_logger.i
+
+# target to preprocess a source file
+logger/client_logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger.cpp.i
+.PHONY : logger/client_logger.cpp.i
+
+logger/client_logger.s: logger/client_logger.cpp.s
+.PHONY : logger/client_logger.s
+
+# target to generate assembly for a file
+logger/client_logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger.cpp.s
+.PHONY : logger/client_logger.cpp.s
+
+logger/client_logger_builder.o: logger/client_logger_builder.cpp.o
+.PHONY : logger/client_logger_builder.o
+
+# target to build an object file
+logger/client_logger_builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o
+.PHONY : logger/client_logger_builder.cpp.o
+
+logger/client_logger_builder.i: logger/client_logger_builder.cpp.i
+.PHONY : logger/client_logger_builder.i
+
+# target to preprocess a source file
+logger/client_logger_builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.i
+.PHONY : logger/client_logger_builder.cpp.i
+
+logger/client_logger_builder.s: logger/client_logger_builder.cpp.s
+.PHONY : logger/client_logger_builder.s
+
+# target to generate assembly for a file
+logger/client_logger_builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.s
+.PHONY : logger/client_logger_builder.cpp.s
+
 logger/logger.o: logger/logger.cpp.o
 .PHONY : logger/logger.o
 
@@ -261,6 +309,12 @@ help:
 	@echo "... allocators/allocator_guardant.o"
 	@echo "... allocators/allocator_guardant.i"
 	@echo "... allocators/allocator_guardant.s"
+	@echo "... logger/client_logger.o"
+	@echo "... logger/client_logger.i"
+	@echo "... logger/client_logger.s"
+	@echo "... logger/client_logger_builder.o"
+	@echo "... logger/client_logger_builder.i"
+	@echo "... logger/client_logger_builder.s"
 	@echo "... logger/logger.o"
 	@echo "... logger/logger.i"
 	@echo "... logger/logger.s"

@@ -1,6 +1,9 @@
-CMakeFiles/course_project.dir/main.cpp.o: \
- /home/passwd/course_project/course_project_4th_sem/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/9/iostream \
+CMakeFiles/course_project.dir/logger/client_logger.cpp.o: \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp \
+ /usr/include/stdc-predef.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+ /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -137,62 +140,21 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc \
- /home/passwd/course_project/course_project_4th_sem/database.h \
- /home/passwd/course_project/course_project_4th_sem/pool.h \
- /home/passwd/course_project/course_project_4th_sem/scheme.h \
- /home/passwd/course_project/course_project_4th_sem/collection.h \
- /home/passwd/course_project/course_project_4th_sem/wb.h \
- /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
- /usr/include/c++/9/functional /usr/include/c++/9/tuple \
- /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
- /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
- /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/unordered_map \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/bits/enable_special_members.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/unordered_map \
  /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h \
- /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
- /usr/include/c++/9/bits/enable_special_members.h \
- /usr/include/c++/9/bits/unordered_map.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/vector \
- /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h \
- /usr/include/c++/9/bits/stl_vector.h \
- /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /usr/include/c++/9/bits/stl_algo.h \
- /usr/include/c++/9/bits/algorithmfwd.h \
- /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
- /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/stack \
- /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
- /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/bits/stl_stack.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /usr/include/c++/9/cstddef \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
- /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/comparer.h \
- /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
- /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
- /usr/include/c++/9/bits/allocated_ptr.h /usr/include/c++/9/bits/list.tcc \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/fstream \
- /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/c++/9/bits/unordered_map.h /usr/include/c++/9/set \
+ /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
  /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/cstdarg \
@@ -205,8 +167,4 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/mqueue.h /usr/include/c++/9/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/input_file_parse.h
+ /usr/include/string.h /usr/include/strings.h

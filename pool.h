@@ -1,6 +1,5 @@
 #ifndef COURSE_PROJECT_POOL_H
 #define COURSE_PROJECT_POOL_H
-
 #include "database.h"
 #include "scheme.h"
 #include "include/binary_search_tree.h"
@@ -10,11 +9,13 @@ class pool
 {
 
 public:
+
     associative_container<std::string, scheme>* _pool;
 
 public:
 
-    void gg() {
+    void gg()
+    {
         std::cout << "gg" << std::endl;
     }
 
@@ -25,46 +26,72 @@ public:
 
 public:
 
-    void add_scheme(std::string const& scheme_name)
+    void add_scheme(std::string const &scheme_name) const
     {
-        _pool->insert(scheme_name, std::move(scheme()));
+        try
+        {
+            _pool->insert(scheme_name, std::move(scheme()));
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+            std::cout << "[ERROR][POOL.H] scheme with name: " << scheme_name << " not found" << std::endl;
+        }
+    }
+
+    [[nodiscard]] scheme read_scheme(std::string const &scheme_name) const
+    {
+       return _pool->obtain(scheme_name);
+    }
+
+    void remove_scheme(std::string const & scheme_name) const
+    {
+        try
+        {
+            _pool->dispose(scheme_name);
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+            std::cout << "[ERROR][POOL.H] scheme with name: " << scheme_name << " can't delete" << std::endl;
+        }
     }
 
 public:
 
-    pool(pool const &other) : _pool(other._pool)
+    pool(pool const &other)
     {
-
+        this->_pool = other._pool;
     }
-
-
 
     pool &operator=(pool const &other)
     {
-        if (this == &other)
+        if (this != &other)
         {
-            return *this;
+            delete this->_pool;
+            this->_pool = other._pool;
         }
 
-        delete this->_pool;
+        return *this;
     }
 
     pool(pool&& other) noexcept
     {
         this->_pool = other._pool;
-//        this->_allocator = other._allocator;
-//        this->_tree_type = other._tree_type;
-
         other._pool = nullptr;
-//        other._allocator = nullptr;
-//        other._tree_type = tree_type::RED_BLACK_TREE;
     }
 
-    pool &operator=(pool const &&other)
+    pool &operator=(pool &&other) noexcept
     {
+        if (this != &other)
+        {
+            delete this->_pool;
+            this->_pool = other._pool;
+            other._pool = nullptr;
+        }
 
+        return *this;
     }
-
 };
 
 #endif //COURSE_PROJECT_POOL_H
