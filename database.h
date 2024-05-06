@@ -9,6 +9,15 @@
 #include "logger/logger.h"
 #include "logger/client_logger.h"
 #include "logger/client_logger_builder.h"
+#include "allocators/allocator.h"
+#include "allocators/allocator_guardant.h"
+#include "allocators/allocator_types.h"
+#include "allocators/allocator_with_fit_mode.h"
+#include "allocators/allocator_global_heap.h"
+#include "allocators/allocator_sorted_list.h"
+#include "allocators/allocator_boundary_tags.h"
+#include "allocators/allocator_buddies_system.h"
+#include "allocators/allocator_types.h"
 
 class data_base
 {
@@ -104,13 +113,6 @@ public:
         {
             logger_logger->log(message, severity);
         }
-    }
-
-private:
-
-    [[nodiscard]] std::string get_typename() const
-    {
-        return "DATA_BASE: ";
     }
 };
 

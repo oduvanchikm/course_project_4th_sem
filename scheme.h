@@ -9,21 +9,24 @@
 class scheme
 {
 
-public:
+private:
 
     associative_container<std::string, collection> *_scheme;
+//    allocator* _allocator_data_base;
 
 public:
 
-    void gg()
+    explicit scheme(allocator* allocator_data_base = nullptr) :
+            _scheme(new b_tree<std::string, collection>(3, key_comparer()))
+//            _allocator_data_base(allocator_data_base)
     {
-        std::cout << "gg" << std::endl;
-    }
 
-    scheme()
-    {
-        _scheme = new b_tree<std::string, collection>(3, key_comparer());
     }
+//
+//    [[nodiscard]] allocator* get_allocator()
+//    {
+//        return _allocator_data_base;
+//    }
 
 public:
 
@@ -32,17 +35,29 @@ public:
         _scheme->insert(name_collection, std::move(collection()));
     }
 
-    void remove_collection(std::string const & name_collection) const
+    void remove_collection(std::string const& name_collection) const
     {
         _scheme->dispose(name_collection);
+    }
+
+    [[nodiscard]] collection find_collection(std::string const& name_collection) const
+    {
+        return _scheme->obtain(name_collection);
     }
 
 
 public:
 
-    scheme(scheme const &other)
+    ~scheme()
     {
-        this->_scheme = other._scheme;
+        delete _scheme;
+    }
+
+    scheme(scheme const &other) :
+        _scheme(new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme)))
+//        _allocator_data_base(other._allocator_data_base)
+    {
+
     }
 
     scheme &operator=(scheme const &other)
@@ -50,7 +65,14 @@ public:
         if (this != &other)
         {
             delete this->_scheme;
-            this->_scheme = other._scheme;
+
+//            if (this->_allocator_data_base != other._allocator_data_base)
+//            {
+//                delete this->_allocator_data_base;
+//                this->_allocator_data_base = other._allocator_data_base;
+//            }
+
+            this->_scheme = new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme));
         }
 
         return *this;
@@ -60,6 +82,9 @@ public:
     {
         this->_scheme = other._scheme;
         other._scheme = nullptr;
+//
+//        this->_allocator_data_base = other._allocator_data_base;
+//        other._allocator_data_base = nullptr;
     }
 
     scheme &operator=(scheme &&other) noexcept
@@ -69,6 +94,10 @@ public:
             delete this->_scheme;
             this->_scheme = other._scheme;
             other._scheme = nullptr;
+//
+//            delete this->_allocator_data_base;
+//            this->_allocator_data_base = other._allocator_data_base;
+//            other._allocator_data_base = nullptr;
         }
 
         return *this;

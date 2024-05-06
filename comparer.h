@@ -40,7 +40,7 @@ public:
             key first,
             key second)
     {
-        return first.id - second.id;
+        return first._id - second._id;
     }
 
     int operator() (

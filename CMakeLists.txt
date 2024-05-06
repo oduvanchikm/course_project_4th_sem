@@ -32,4 +32,6 @@ add_executable(course_project
         logger/client_logger_builder.cpp
         logger/client_logger.cpp
         allocators/allocator_guardant.cpp
-        logger/logger_builder.cpp)
+        logger/logger_builder.cpp
+        allocators/allocator_types.h
+        allocators/allocator_with_fit_mode.h)

@@ -209,4 +209,54 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
+ /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
+ /usr/include/c++/9/ctime /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/mutex /usr/include/c++/9/bits/std_mutex.h \
+ /usr/include/c++/9/bits/unique_lock.h /usr/include/c++/9/thread \
+ /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/unique_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h \
+ /usr/include/c++/9/pstl/glue_memory_defs.h \
+ /usr/include/c++/9/pstl/execution_defs.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
+ /usr/include/c++/9/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/9/bits/specfun.h /usr/include/c++/9/tr1/gamma.tcc \
+ /usr/include/c++/9/tr1/special_function_util.h \
+ /usr/include/c++/9/tr1/bessel_function.tcc \
+ /usr/include/c++/9/tr1/beta_function.tcc \
+ /usr/include/c++/9/tr1/ell_integral.tcc \
+ /usr/include/c++/9/tr1/exp_integral.tcc \
+ /usr/include/c++/9/tr1/hypergeometric.tcc \
+ /usr/include/c++/9/tr1/legendre_function.tcc \
+ /usr/include/c++/9/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/9/tr1/poly_hermite.tcc \
+ /usr/include/c++/9/tr1/poly_laguerre.tcc \
+ /usr/include/c++/9/tr1/riemann_zeta.tcc \
  /home/passwd/course_project/course_project_4th_sem/input_file_parse.h

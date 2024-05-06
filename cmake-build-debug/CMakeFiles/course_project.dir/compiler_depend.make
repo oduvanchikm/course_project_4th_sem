@@ -1016,8 +1016,15 @@ CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o: /home/passwd/course_
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_project_4th_sem/main.cpp \
+  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h \
+  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
   /home/passwd/course_project/course_project_4th_sem/collection.h \
   /home/passwd/course_project/course_project_4th_sem/comparer.h \
   /home/passwd/course_project/course_project_4th_sem/database.h \
@@ -1043,11 +1050,14 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/c++/9/array \
+  /usr/include/c++/9/backward/auto_ptr.h \
   /usr/include/c++/9/backward/binders.h \
   /usr/include/c++/9/bits/algorithmfwd.h \
   /usr/include/c++/9/bits/alloc_traits.h \
   /usr/include/c++/9/bits/allocated_ptr.h \
   /usr/include/c++/9/bits/allocator.h \
+  /usr/include/c++/9/bits/atomic_base.h \
+  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
   /usr/include/c++/9/bits/basic_ios.h \
   /usr/include/c++/9/bits/basic_ios.tcc \
   /usr/include/c++/9/bits/basic_string.h \
@@ -1085,14 +1095,20 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/bits/node_handle.h \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/bits/ostream_insert.h \
+  /usr/include/c++/9/bits/parse_numbers.h \
   /usr/include/c++/9/bits/postypes.h \
   /usr/include/c++/9/bits/predefined_ops.h \
   /usr/include/c++/9/bits/ptr_traits.h \
   /usr/include/c++/9/bits/range_access.h \
   /usr/include/c++/9/bits/refwrap.h \
+  /usr/include/c++/9/bits/shared_ptr.h \
+  /usr/include/c++/9/bits/shared_ptr_atomic.h \
+  /usr/include/c++/9/bits/shared_ptr_base.h \
+  /usr/include/c++/9/bits/specfun.h \
   /usr/include/c++/9/bits/sstream.tcc \
   /usr/include/c++/9/bits/std_abs.h \
   /usr/include/c++/9/bits/std_function.h \
+  /usr/include/c++/9/bits/std_mutex.h \
   /usr/include/c++/9/bits/stl_algo.h \
   /usr/include/c++/9/bits/stl_algobase.h \
   /usr/include/c++/9/bits/stl_bvector.h \
@@ -1108,6 +1124,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/bits/stl_multimap.h \
   /usr/include/c++/9/bits/stl_multiset.h \
   /usr/include/c++/9/bits/stl_pair.h \
+  /usr/include/c++/9/bits/stl_raw_storage_iter.h \
   /usr/include/c++/9/bits/stl_relops.h \
   /usr/include/c++/9/bits/stl_set.h \
   /usr/include/c++/9/bits/stl_stack.h \
@@ -1120,18 +1137,23 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/bits/string_view.tcc \
   /usr/include/c++/9/bits/stringfwd.h \
   /usr/include/c++/9/bits/uniform_int_dist.h \
+  /usr/include/c++/9/bits/unique_lock.h \
+  /usr/include/c++/9/bits/unique_ptr.h \
   /usr/include/c++/9/bits/unordered_map.h \
   /usr/include/c++/9/bits/uses_allocator.h \
   /usr/include/c++/9/bits/vector.tcc \
   /usr/include/c++/9/cctype \
   /usr/include/c++/9/cerrno \
+  /usr/include/c++/9/chrono \
   /usr/include/c++/9/clocale \
+  /usr/include/c++/9/cmath \
   /usr/include/c++/9/cstdarg \
   /usr/include/c++/9/cstddef \
   /usr/include/c++/9/cstdint \
   /usr/include/c++/9/cstdio \
   /usr/include/c++/9/cstdlib \
   /usr/include/c++/9/cstring \
+  /usr/include/c++/9/ctime \
   /usr/include/c++/9/cwchar \
   /usr/include/c++/9/cwctype \
   /usr/include/c++/9/debug/assertions.h \
@@ -1141,6 +1163,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/ext/aligned_buffer.h \
   /usr/include/c++/9/ext/alloc_traits.h \
   /usr/include/c++/9/ext/atomicity.h \
+  /usr/include/c++/9/ext/concurrence.h \
   /usr/include/c++/9/ext/new_allocator.h \
   /usr/include/c++/9/ext/numeric_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
@@ -1155,10 +1178,15 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/limits \
   /usr/include/c++/9/list \
   /usr/include/c++/9/map \
+  /usr/include/c++/9/memory \
+  /usr/include/c++/9/mutex \
   /usr/include/c++/9/new \
   /usr/include/c++/9/optional \
   /usr/include/c++/9/ostream \
+  /usr/include/c++/9/pstl/execution_defs.h \
+  /usr/include/c++/9/pstl/glue_memory_defs.h \
   /usr/include/c++/9/pstl/pstl_config.h \
+  /usr/include/c++/9/ratio \
   /usr/include/c++/9/set \
   /usr/include/c++/9/sstream \
   /usr/include/c++/9/stack \
@@ -1167,6 +1195,19 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/string \
   /usr/include/c++/9/string_view \
   /usr/include/c++/9/system_error \
+  /usr/include/c++/9/thread \
+  /usr/include/c++/9/tr1/bessel_function.tcc \
+  /usr/include/c++/9/tr1/beta_function.tcc \
+  /usr/include/c++/9/tr1/ell_integral.tcc \
+  /usr/include/c++/9/tr1/exp_integral.tcc \
+  /usr/include/c++/9/tr1/gamma.tcc \
+  /usr/include/c++/9/tr1/hypergeometric.tcc \
+  /usr/include/c++/9/tr1/legendre_function.tcc \
+  /usr/include/c++/9/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/9/tr1/poly_hermite.tcc \
+  /usr/include/c++/9/tr1/poly_laguerre.tcc \
+  /usr/include/c++/9/tr1/riemann_zeta.tcc \
+  /usr/include/c++/9/tr1/special_function_util.h \
   /usr/include/c++/9/tuple \
   /usr/include/c++/9/type_traits \
   /usr/include/c++/9/typeinfo \
@@ -1181,6 +1222,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/linux/errno.h \
   /usr/include/linux/falloc.h \
   /usr/include/locale.h \
+  /usr/include/math.h \
   /usr/include/mqueue.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -1203,9 +1245,18 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/x86_64-linux-gnu/bits/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/mqueue.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1282,11 +1333,47 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
 /usr/include/c++/9/vector:
+
+/usr/include/c++/9/tr1/special_function_util.h:
+
+/usr/include/c++/9/tr1/poly_hermite.tcc:
+
+/usr/include/c++/9/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/9/tr1/legendre_function.tcc:
+
+/usr/include/c++/9/tr1/gamma.tcc:
+
+/usr/include/c++/9/tr1/exp_integral.tcc:
+
+/usr/include/c++/9/tr1/riemann_zeta.tcc:
+
+/usr/include/c++/9/tr1/ell_integral.tcc:
 
 /usr/include/c++/9/stack:
 
+/usr/include/c++/9/ratio:
+
 /usr/include/c++/9/list:
+
+/usr/include/c++/9/ext/concurrence.h:
+
+/usr/include/c++/9/cmath:
 
 /usr/include/c++/9/bits/vector.tcc:
 
@@ -1295,6 +1382,14 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/stl_uninitialized.h:
 
 /usr/include/c++/9/bits/stl_algo.h:
+
+/usr/include/c++/9/bits/shared_ptr_base.h:
+
+/usr/include/c++/9/bits/deque.tcc:
+
+/usr/include/c++/9/bits/allocated_ptr.h:
+
+/home/passwd/course_project/course_project_4th_sem/wb.h:
 
 /usr/include/c++/9/type_traits:
 
@@ -1314,8 +1409,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
-/usr/include/c++/9/iostream:
-
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h:
@@ -1325,6 +1418,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/std_abs.h:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/9/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/9/ext/string_conversions.h:
 
@@ -1336,6 +1431,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/ext/numeric_traits.h:
 
+/usr/include/c++/9/bits/std_mutex.h:
+
 /usr/include/c++/9/ext/new_allocator.h:
 
 /usr/include/c++/9/ext/alloc_traits.h:
@@ -1344,9 +1441,15 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/debug/debug.h:
 
+/home/passwd/course_project/course_project_4th_sem/pool.h:
+
+/usr/include/c++/9/cwchar:
+
 /usr/include/c++/9/ext/atomicity.h:
 
 /usr/include/c++/9/bits/range_access.h:
+
+/usr/include/c++/9/chrono:
 
 /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.cpp:
 
@@ -1374,6 +1477,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/clocale:
 
+/usr/include/c++/9/tr1/hypergeometric.tcc:
+
 /usr/include/c++/9/bits/uses_allocator.h:
 
 /usr/include/c++/9/pstl/pstl_config.h:
@@ -1385,6 +1490,10 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/pthread.h:
 
 /usr/include/c++/9/bits/streambuf.tcc:
+
+/usr/include/c++/9/bits/shared_ptr.h:
+
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h:
 
 /usr/include/c++/9/backward/binders.h:
 
@@ -1424,9 +1533,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/postypes.h:
 
-/usr/include/c++/9/cwchar:
-
-/home/passwd/course_project/course_project_4th_sem/pool.h:
+/usr/include/math.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
@@ -1442,17 +1549,19 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
+/usr/include/c++/9/backward/auto_ptr.h:
+
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /home/passwd/course_project/course_project_4th_sem/input_file_parse.h:
+
+/usr/include/c++/9/mutex:
 
 /usr/include/c++/9/bits/stringfwd.h:
 
 /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h:
 
 /usr/include/c++/9/map:
-
-/usr/include/c++/9/bits/deque.tcc:
 
 /usr/include/c++/9/bits/stl_algobase.h:
 
@@ -1464,6 +1573,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/deque:
 
+/usr/include/c++/9/bits/unique_lock.h:
+
 /usr/include/wchar.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h:
@@ -1473,6 +1584,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/invoke.h:
 
 /usr/include/c++/9/ext/aligned_buffer.h:
+
+/usr/include/c++/9/memory:
 
 /usr/include/c++/9/cerrno:
 
@@ -1518,6 +1631,12 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/cstring:
 
+/usr/include/c++/9/bits/list.tcc:
+
+/usr/include/c++/9/bits/algorithmfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
 /usr/include/c++/9/bits/basic_ios.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
@@ -1527,6 +1646,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /home/passwd/course_project/course_project_4th_sem/collection.h:
 
 /usr/include/c++/9/bits/concept_check.h:
+
+/usr/include/c++/9/pstl/glue_memory_defs.h:
 
 /usr/include/c++/9/bits/stl_iterator_base_types.h:
 
@@ -1545,6 +1666,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/char_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/9/tr1/bessel_function.tcc:
 
 /usr/include/c++/9/bits/stl_set.h:
 
@@ -1604,6 +1727,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/streambuf_iterator.h:
 
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h:
+
 /usr/include/c++/9/array:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
@@ -1635,6 +1760,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/ctype.h:
 
 /usr/include/fcntl.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/linux/falloc.h:
 
@@ -1694,6 +1821,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
@@ -1701,6 +1830,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/ios:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/9/bits/atomic_base.h:
 
 /usr/include/c++/9/bits/exception_defines.h:
 
@@ -1714,6 +1845,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
+/usr/include/c++/9/tr1/beta_function.tcc:
+
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
@@ -1721,6 +1854,14 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/c++/9/bits/parse_numbers.h:
+
+/usr/include/c++/9/iostream:
+
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h:
+
+/usr/include/c++/9/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/9/sstream:
 
@@ -1742,6 +1883,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
 /usr/include/c++/9/bits/locale_classes.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
@@ -1754,11 +1897,17 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
+/usr/include/c++/9/bits/shared_ptr_atomic.h:
+
 /usr/include/c++/9/bits/stl_iterator_base_funcs.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
+
+/usr/include/c++/9/pstl/execution_defs.h:
+
+/usr/include/c++/9/bits/specfun.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
@@ -1777,6 +1926,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h:
+
+/usr/include/c++/9/tr1/poly_laguerre.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h:
 
@@ -1798,21 +1949,17 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/locale_facets_nonio.tcc:
 
+/usr/include/c++/9/thread:
+
 /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
 
 /usr/include/c++/9/bits/quoted_string.h:
-
-/usr/include/c++/9/bits/stl_list.h:
-
-/usr/include/c++/9/bits/unique_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/9/bits/functional_hash.h:
 
 /usr/include/c++/9/iomanip:
-
-/home/passwd/course_project/course_project_4th_sem/wb.h:
 
 /usr/include/c++/9/locale:
 
@@ -1826,12 +1973,12 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /home/passwd/course_project/course_project_4th_sem/main.cpp:
 
+/usr/include/c++/9/bits/stl_list.h:
+
+/usr/include/c++/9/bits/unique_ptr.h:
+
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h:
+
+/home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h:
+
 /home/passwd/course_project/course_project_4th_sem/include/search_tree.h:
-
-/usr/include/c++/9/bits/list.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl.h:
-
-/usr/include/c++/9/bits/algorithmfwd.h:
-
-/usr/include/c++/9/bits/allocated_ptr.h:

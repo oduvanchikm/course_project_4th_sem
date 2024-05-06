@@ -93,6 +93,12 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/collection.h">
 			<Option target="course_project"/>
 		</Unit>

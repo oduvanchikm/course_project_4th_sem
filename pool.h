@@ -11,32 +11,31 @@ class pool
 public:
 
     associative_container<std::string, scheme>* _pool;
+    allocator* _allocator_data_base;
+
+
 
 public:
 
-    void gg()
+    explicit pool(allocator* allocator_data_base = nullptr) :
+            _pool(new b_tree<std::string, scheme>(3, key_comparer())),
+            _allocator_data_base(allocator_data_base)
     {
-        std::cout << "gg" << std::endl;
+
     }
 
-    pool()
+public:
+
+    [[nodiscard]] allocator* get_allocator() const
     {
-        _pool = new b_tree<std::string, scheme>(3, key_comparer());
+        return _allocator_data_base;
     }
 
 public:
 
     void add_scheme(std::string const &scheme_name) const
     {
-        try
-        {
-            _pool->insert(scheme_name, std::move(scheme()));
-        }
-        catch (const std::exception& e)
-        {
-            std::cout << e.what() << std::endl;
-            std::cout << "[ERROR][POOL.H] scheme with name: " << scheme_name << " not found" << std::endl;
-        }
+        _pool->insert(scheme_name, std::move(scheme()));
     }
 
     [[nodiscard]] scheme read_scheme(std::string const &scheme_name) const
@@ -46,22 +45,21 @@ public:
 
     void remove_scheme(std::string const & scheme_name) const
     {
-        try
-        {
-            _pool->dispose(scheme_name);
-        }
-        catch (const std::exception& e)
-        {
-            std::cout << e.what() << std::endl;
-            std::cout << "[ERROR][POOL.H] scheme with name: " << scheme_name << " can't delete" << std::endl;
-        }
+        _pool->dispose(scheme_name);
     }
 
 public:
 
-    pool(pool const &other)
+    ~pool()
     {
-        this->_pool = other._pool;
+        delete _pool;
+    }
+
+    pool(pool const &other) :
+        _pool(new b_tree<std::string, scheme>(*reinterpret_cast<b_tree<std::string, scheme>*>(other._pool))),
+        _allocator_data_base(other._allocator_data_base)
+    {
+
     }
 
     pool &operator=(pool const &other)
@@ -69,7 +67,14 @@ public:
         if (this != &other)
         {
             delete this->_pool;
-            this->_pool = other._pool;
+
+            if (this->_allocator_data_base != other._allocator_data_base)
+            {
+                delete this->_allocator_data_base;
+                this->_allocator_data_base = other._allocator_data_base;
+            }
+
+            this->_pool = new b_tree<std::string, scheme>(*reinterpret_cast<b_tree<std::string, scheme>*>(other._pool));
         }
 
         return *this;
@@ -79,6 +84,9 @@ public:
     {
         this->_pool = other._pool;
         other._pool = nullptr;
+
+        this->_allocator_data_base = other._allocator_data_base;
+        other._allocator_data_base = nullptr;
     }
 
     pool &operator=(pool &&other) noexcept
@@ -88,6 +96,10 @@ public:
             delete this->_pool;
             this->_pool = other._pool;
             other._pool = nullptr;
+
+            delete this->_allocator_data_base;
+            this->_allocator_data_base = other._allocator_data_base;
+            other._allocator_data_base = nullptr;
         }
 
         return *this;
