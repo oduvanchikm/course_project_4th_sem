@@ -1,7 +1,7 @@
 #ifndef MATH_PRACTICE_AND_OPERATING_SYSTEMS_LOGGER_GUARDANT_H
 #define MATH_PRACTICE_AND_OPERATING_SYSTEMS_LOGGER_GUARDANT_H
 
-#include "logger.h"
+#include "../logger.h"
 #include <string>
 
 class logger_guardant

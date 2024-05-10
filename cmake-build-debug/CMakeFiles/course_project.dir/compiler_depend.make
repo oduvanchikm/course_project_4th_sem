@@ -19,8 +19,8 @@ CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o: /home/passwd/
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h
 
 CMakeFiles/course_project.dir/logger/client_logger.cpp.o: /home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -240,9 +240,9 @@ CMakeFiles/course_project.dir/logger/client_logger.cpp.o: /home/passwd/course_pr
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o: /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.cpp \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -463,7 +463,7 @@ CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o: /home/passwd/c
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 CMakeFiles/course_project.dir/logger/logger.cpp.o: /home/passwd/course_project/course_project_4th_sem/logger/logger.cpp \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -660,7 +660,7 @@ CMakeFiles/course_project.dir/logger/logger.cpp.o: /home/passwd/course_project/c
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 CMakeFiles/course_project.dir/logger/logger_builder.cpp.o: /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.cpp \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -838,7 +838,7 @@ CMakeFiles/course_project.dir/logger/logger_builder.cpp.o: /home/passwd/course_p
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o: /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.cpp \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -1030,7 +1030,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/database.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
@@ -1038,9 +1039,10 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
   /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
   /home/passwd/course_project/course_project_4th_sem/input_file_parse.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
+  /home/passwd/course_project/course_project_4th_sem/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/pool.h \
@@ -1403,8 +1405,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/stdexcept:
 
-/usr/include/c++/9/ostream:
-
 /usr/include/c++/9/istream:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
@@ -1519,6 +1519,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/stl_iterator.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
+
 /usr/include/c++/9/bits/unordered_map.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
@@ -1566,6 +1568,26 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/stl_algobase.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/c++/9/ostream:
+
+/usr/include/c++/9/cstring:
+
+/usr/include/c++/9/bits/list.tcc:
+
+/usr/include/c++/9/bits/algorithmfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
+/usr/include/c++/9/bits/basic_ios.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
+
+/home/passwd/course_project/course_project_4th_sem/scheme.h:
+
+/home/passwd/course_project/course_project_4th_sem/collection.h:
+
+/usr/include/c++/9/bits/concept_check.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -1615,12 +1637,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/stl_multiset.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
-
-/home/passwd/course_project/course_project_4th_sem/logger/logger.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
-
 /usr/include/c++/9/initializer_list:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
@@ -1628,24 +1644,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/c++/9/cstring:
-
-/usr/include/c++/9/bits/list.tcc:
-
-/usr/include/c++/9/bits/algorithmfwd.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl.h:
-
-/usr/include/c++/9/bits/basic_ios.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
-
-/home/passwd/course_project/course_project_4th_sem/scheme.h:
-
-/home/passwd/course_project/course_project_4th_sem/collection.h:
-
-/usr/include/c++/9/bits/concept_check.h:
 
 /usr/include/c++/9/pstl/glue_memory_defs.h:
 
@@ -1701,6 +1699,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/bits/exception_ptr.h:
 
+/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
+
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++locale.h:
 
 /home/passwd/course_project/course_project_4th_sem/include/associative_container.h:
@@ -1710,6 +1710,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/sstream.tcc:
 
 /home/passwd/course_project/course_project_4th_sem/include/b_tree.h:
+
+/home/passwd/course_project/course_project_4th_sem/logger.h:
 
 /usr/include/c++/9/bits/hash_bytes.h:
 

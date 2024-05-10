@@ -121,7 +121,9 @@
 				20,
 				21,
 				25,
-				26
+				26,
+				27,
+				28
 			]
 		},
 		{
@@ -152,7 +154,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "logger/logger.h",
+			"path" : "logger.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -280,6 +282,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "allocators/allocator_with_fit_mode.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "file.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "logger_for_use.h",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -12,6 +12,14 @@ int main(int argc, char* argv[])
 
     data_base *db = new data_base();
 
+    logger_builder* builder = new client_logger_builder();
+
+    logger *constructed_logger = builder
+            ->add_console_stream(logger::severity::information)
+            ->add_console_stream(logger::severity::debug)
+            ->add_console_stream(logger::severity::error)
+            ->build();
+
     std::ifstream input_file(argv[1]);
 
     if (!input_file.is_open())

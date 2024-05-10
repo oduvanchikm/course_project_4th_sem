@@ -4,6 +4,19 @@
 #include "include/search_tree.h"
 #include "include/b_tree.h"
 #include "comparer.h"
+#include "allocators/allocator_types.h"
+#include "allocators/allocator.h"
+#include "allocators/allocator_guardant.h"
+#include "allocators/allocator_with_fit_mode.h"
+#include "allocators/allocator_global_heap.h"
+#include "allocators/allocator_sorted_list.h"
+#include "allocators/allocator_boundary_tags.h"
+#include "allocators/allocator_buddies_system.h"
+
+//size_t space_size,
+//allocator *parent_allocator = nullptr,
+//logger *logger = nullptr,
+//allocator_with_fit_mode::fit_mode allocate_fit_mode
 
 class collection
 {
@@ -11,15 +24,34 @@ class collection
 public:
 
     associative_container<key, value*> *_data;
-    allocator* _allocator_data_base;
+//    allocator* _allocator_data_base;
+//    allocator_types _type_of_allocator;
+
 
 public:
 
-    explicit collection(allocator* allocator_data_base = nullptr) :
-            _data(new b_tree<key, value*>(3, key_comparer_new())),
-            _allocator_data_base(allocator_data_base)
+    explicit collection() :
+            _data(new b_tree<key, value*>(3, key_comparer_new()))
+//            _type_of_allocator(type)
     {
+//        switch (_type_of_allocator)
+//        {
+//            case allocator_types::GLOBAL_HEAP:
+//                _allocator_data_base = new allocator_global_heap(nullptr);
+//                break;
 
+//            case allocator_types::SORTED_LIST:
+//                _allocator_data_base = new allocator_sorted_list(nullptr);
+//                break;
+//
+//            case allocator_types::BOUNDARY_TAGS:
+//                _allocator_data_base = new allocator_boundary_tags(nullptr);
+//                break;
+//
+//            case allocator_types::BUDDIE_SYSTEM:
+//                _allocator_data_base = new allocator_buddies_system(nullptr);
+//                break;
+//        }
     }
 
 public:
@@ -34,7 +66,7 @@ public:
         _data->dispose(key_collection);
     }
 
-    [[nodiscard]] const value* find_value(key const &key_collection) const
+    const value* find_value(key const &key_collection) const
     {
         try
         {
@@ -55,7 +87,7 @@ public:
         _data->insert(key_collection, value_collection_new);
     }
 
-    [[nodiscard]] const value* find_value_between(key const &key_collection) const
+    const value* find_value_between(key const &key_collection) const
     {
         // TODO write this in b tree
     }
@@ -69,8 +101,8 @@ public:
     }
 
     collection(collection const &other) :
-            _data(new b_tree<key, value*>(*reinterpret_cast<b_tree<key, value*>*>(other._data))),
-            _allocator_data_base(other._allocator_data_base)
+            _data(new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data)))
+//            _allocator_data_base(other._allocator_data_base)
     {
 
     }
@@ -81,13 +113,13 @@ public:
         {
             delete this->_data;
 
-            if (this->_allocator_data_base != other._allocator_data_base)
-            {
-                delete this->_allocator_data_base;
-                this->_allocator_data_base = other._allocator_data_base;
-            }
+//            if (this->_allocator_data_base != other._allocator_data_base)
+//            {
+//                delete this->_allocator_data_base;
+//                this->_allocator_data_base = other._allocator_data_base;
+//            }
 
-            this->_data = new b_tree<key, value*>(*reinterpret_cast<b_tree<key, value*>*>(other._data));;
+            this->_data = new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data));;
         }
 
         return *this;
@@ -98,8 +130,8 @@ public:
         this->_data = other._data;
         other._data = nullptr;
 
-        this->_allocator_data_base = other._allocator_data_base;
-        other._allocator_data_base = nullptr;
+//        this->_allocator_data_base = other._allocator_data_base;
+//        other._allocator_data_base = nullptr;
     }
 
     collection &operator=(collection &&other) noexcept
@@ -110,9 +142,9 @@ public:
             this->_data = other._data;
             other._data = nullptr;
 
-            delete this->_allocator_data_base;
-            this->_allocator_data_base = other._allocator_data_base;
-            other._allocator_data_base = nullptr;
+//            delete this->_allocator_data_base;
+//            this->_allocator_data_base = other._allocator_data_base;
+//            other._allocator_data_base = nullptr;
         }
 
         return *this;

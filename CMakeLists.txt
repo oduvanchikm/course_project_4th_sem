@@ -8,7 +8,7 @@ include_directories(allocators)
 add_executable(course_project
         allocators/allocator.h
         allocators/allocator_guardant.h
-        logger/logger.h
+        logger.h
         logger/logger_builder.h
         logger/logger_guardant.h
         logger/logger.cpp
@@ -34,4 +34,11 @@ add_executable(course_project
         allocators/allocator_guardant.cpp
         logger/logger_builder.cpp
         allocators/allocator_types.h
-        allocators/allocator_with_fit_mode.h)
+        allocators/allocator_with_fit_mode.h
+        file.h
+        logger.h
+        logger.h
+        logger.h
+        logger.h
+        logger_for_use.h
+        logger_for_use.h)

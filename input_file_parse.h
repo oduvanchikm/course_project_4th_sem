@@ -12,7 +12,7 @@ class input_file_parse
 {
 private:
 
-    logger* logger_logger;
+    logger* log;
 
 public:
 
@@ -42,9 +42,9 @@ public:
 
     void log_with_guard(std::string const &message, logger::severity severity) const
     {
-        if (logger_logger != nullptr)
+        if (log != nullptr)
         {
-            logger_logger->log(message, severity);
+            log->log(message, severity);
         }
     }
 
@@ -61,14 +61,14 @@ public:
 
     input_file_parse()
     {
-        logger_logger = create_logger(std::vector<std::pair<std::string, logger::severity>>{{"/wsl.localhost/Ubuntu/home/passwd/course_project/course_project_4th_sem/log_file.txt", logger::severity::debug}});
+        log = create_logger(std::vector<std::pair<std::string, logger::severity>>{{"log_file.txt", logger::severity::debug}});
     }
 
 public:
 
     void parse_input_file(std::ifstream& input_file, data_base* data_base_parse)
     {
-        log_with_guard("[input_file_parse] start parse input file method", logger::severity::trace);
+        log->trace("[input_file_parse] start parse input file method");
         std::cout << "[input_file_parse] start parse input file method" << std::endl;
 
         std::string line;
@@ -166,10 +166,16 @@ public:
                 std::cout << "[add_collection] find ADD_COLLECTION function" << std::endl;
 
                 input_file >> pool_name >> scheme_name >> collection_name;
-                std::cout << line << " " << collection_name << std::endl;
+                std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << std::endl;
 
                 _pool_key = data_base_parse->_database_entrypoint->obtain(pool_name);
+                std::cout << "find _pool_key" << std::endl;
+
+                std::cout << "scheme name " << scheme_name << std::endl;
+
                 _scheme_key = _pool_key._pool->obtain(scheme_name);
+
+                std::cout << "find _scheme_key" << std::endl;
 
                 try
                 {

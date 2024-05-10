@@ -108,6 +108,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/database.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/file.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/associative_container.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -121,6 +124,9 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/input_file_parse.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp">
@@ -138,9 +144,6 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger.cpp">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger.h">
-			<Option target="course_project"/>
-		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger_builder.cpp">
 			<Option target="course_project"/>
 		</Unit>
@@ -151,6 +154,9 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger_for_use.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">

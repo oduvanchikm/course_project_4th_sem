@@ -1,7 +1,7 @@
 CMakeFiles/course_project.dir/logger/logger.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/logger/logger.cpp \
  /usr/include/stdc-predef.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/../logger.h \
  /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \

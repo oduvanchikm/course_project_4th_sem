@@ -171,47 +171,16 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
  /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/include/../logger.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/include/../logger/../logger.h \
  /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/comparer.h \
- /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
- /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
- /usr/include/c++/9/bits/allocated_ptr.h /usr/include/c++/9/bits/list.tcc \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/fstream \
- /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/cstdarg \
- /usr/include/c++/9/sstream /usr/include/c++/9/bits/sstream.tcc \
- /usr/include/mqueue.h /usr/include/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
- /usr/include/x86_64-linux-gnu/bits/mqueue.h /usr/include/c++/9/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
@@ -226,6 +195,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/unique_ptr.h \
  /usr/include/c++/9/bits/shared_ptr.h \
  /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
  /usr/include/c++/9/bits/shared_ptr_atomic.h \
  /usr/include/c++/9/bits/atomic_base.h \
  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
@@ -258,5 +228,36 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/tr1/modified_bessel_func.tcc \
  /usr/include/c++/9/tr1/poly_hermite.tcc \
  /usr/include/c++/9/tr1/poly_laguerre.tcc \
- /usr/include/c++/9/tr1/riemann_zeta.tcc \
+ /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
+ /usr/include/c++/9/bits/sstream.tcc \
+ /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
+ /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
+ /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
+ /usr/include/c++/9/bits/list.tcc \
+ /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator.h \
+ /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/../logger.h \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
+ /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/fstream \
+ /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/cstdarg \
+ /usr/include/mqueue.h /usr/include/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/mqueue.h /usr/include/c++/9/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
  /home/passwd/course_project/course_project_4th_sem/input_file_parse.h
