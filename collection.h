@@ -31,7 +31,7 @@ public:
 public:
 
     explicit collection() :
-            _data(new b_tree<key, value*>(3, key_comparer_new()))
+            _data(new b_tree<key, value*>(3, key_comparer()))
 //            _type_of_allocator(type)
     {
 //        switch (_type_of_allocator)

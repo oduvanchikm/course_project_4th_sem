@@ -28,6 +28,8 @@ int main(int argc, char* argv[])
         return 0;
     }
 
+    std::cout << "uch" << std::endl;
+
     input_file_parse parse;
 
 

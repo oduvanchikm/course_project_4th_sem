@@ -50,12 +50,12 @@ public:
 
 public:
 
-    std::string pool_name;
-    std::string scheme_name;
-    std::string collection_name;
-    pool _pool_key;
-    scheme _scheme_key;
-    collection _collection_key;
+//    std::string pool_name;
+//    std::string scheme_name;
+//    std::string collection_name;
+//    pool _pool_key;
+//    scheme _scheme_key;
+//    collection _collection_key;
 
 public:
 
@@ -81,6 +81,8 @@ public:
                 log_with_guard("[add_pool] find ADD_POOL function", logger::severity::debug);
                 std::cout << "[add_pool] find ADD_POOL function" << std::endl;
 
+                std::string pool_name;
+
                 input_file >> pool_name;
                 std::cout << line << " " << pool_name << std::endl;
 
@@ -100,6 +102,8 @@ public:
             {
                 log_with_guard("[delete_pool] find DELETE_POOL function", logger::severity::debug);
                 std::cout << "[delete_pool] find DELETE_POOL function" << std::endl;
+
+                std::string pool_name;
 
                 input_file >> pool_name;
                 std::cout << line << " " << pool_name << std::endl;
@@ -121,10 +125,13 @@ public:
                 log_with_guard("[add_scheme] find ADD_SCHEME function", logger::severity::debug);
                 std::cout << "[add_scheme] find ADD_SCHEME function" << std::endl;
 
+                std::string pool_name;
+                std::string scheme_name;
+
                 input_file >> pool_name >> scheme_name;
                 std::cout << line << " " << scheme_name << std::endl;
 
-                _pool_key = data_base_parse->_database_entrypoint->obtain(pool_name);
+                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
 
                 try
                 {
@@ -143,10 +150,13 @@ public:
                 log_with_guard("[delete_scheme] find DELETE_SCHEME function", logger::severity::debug);
                 std::cout << "[delete_scheme] find DELETE_SCHEME function" << std::endl;
 
+                std::string pool_name;
+                std::string scheme_name;
+
                 input_file >> pool_name >> scheme_name;
                 std::cout << line << " " << scheme_name << std::endl;
 
-                _pool_key = data_base_parse->_database_entrypoint->obtain(pool_name);
+                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
 
                 try
                 {
@@ -165,15 +175,19 @@ public:
                 log_with_guard("[add_collection] find ADD_COLLECTION function", logger::severity::debug);
                 std::cout << "[add_collection] find ADD_COLLECTION function" << std::endl;
 
+                std::string pool_name;
+                std::string scheme_name;
+                std::string collection_name;
+
                 input_file >> pool_name >> scheme_name >> collection_name;
                 std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << std::endl;
 
-                _pool_key = data_base_parse->_database_entrypoint->obtain(pool_name);
+                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
                 std::cout << "find _pool_key" << std::endl;
 
                 std::cout << "scheme name " << scheme_name << std::endl;
 
-                _scheme_key = _pool_key._pool->obtain(scheme_name);
+                auto& _scheme_key = const_cast<scheme&>(_pool_key._pool->obtain(scheme_name));
 
                 std::cout << "find _scheme_key" << std::endl;
 
