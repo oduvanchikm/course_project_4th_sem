@@ -66,7 +66,7 @@ public:
 
 public:
 
-    void parse_input_file(std::ifstream& input_file, data_base* data_base_parse)
+    void parse_input_file(std::ifstream& input_file, database* data_base_parse)
     {
         log->trace("[input_file_parse] start parse input file method");
         std::cout << "[input_file_parse] start parse input file method" << std::endl;
@@ -187,7 +187,7 @@ public:
 
                 std::cout << "scheme name " << scheme_name << std::endl;
 
-                auto& _scheme_key = const_cast<scheme&>(_pool_key._pool->obtain(scheme_name));
+                auto& _scheme_key = const_cast<scheme&>(_pool_key.get_pool()->obtain(scheme_name));
 
                 std::cout << "find _scheme_key" << std::endl;
 
@@ -231,6 +231,31 @@ public:
             {
                 log_with_guard("[add_value] find ADD_VALUE function", logger::severity::debug);
                 std::cout << "[add_value] find ADD_VALUE function" << std::endl;
+
+                // info about buyer: key - id_buyer, value - name, date, address, id_oder
+
+                std::string pool_name;
+                std::string scheme_name;
+                std::string collection_name;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_buyer;
+                int id_oder;
+                std::string path_filename = "database_input.txt";
+
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> id_oder >> name >> date >> address;
+                std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << id_oder << " " << name << " " << date << " " << address << std::endl;
+
+                // find pos id_oder
+
+                std::pair<long, long> information_for_file_system = read_byte_number(input_file,
+                                                    name, address, id_oder, date);
+
+                std::cout << "hello debil" << std::endl;
+
+                std::cout << "position: " << information_for_file_system.first << " size: " << information_for_file_system.second << std::endl;
+
             }
             else if (line == "UPDATE_VALUE")
             {
@@ -257,9 +282,39 @@ public:
 
 public:
 
+    // TODO file_system
+
+    std::pair<long, long> read_byte_number(std::ifstream& input_file,
+                                                       std::string& name, std::string& address,
+                                                       int id_oder, std::string& date)
+    {
+        std::pair<long, long> information_for_file_system;
+
+        input_file.seekg(0, std::ios::end);
+
+        long position = input_file.tellg();
+
+        information_for_file_system.first = position;
+
+        long size_value = std::to_string(id_oder).size();
+
+        information_for_file_system.second = size_value;
+
+        return information_for_file_system;
+    }
+
+
+public:
+
     ~input_file_parse() = default;
 
+    input_file_parse(input_file_parse const &other) = delete;
 
+    input_file_parse(input_file_parse const &&other) = delete;
+
+    input_file_parse& operator=(input_file_parse const &other) = delete;
+
+    input_file_parse& operator=(input_file_parse const &&other) = delete;
 };
 
 

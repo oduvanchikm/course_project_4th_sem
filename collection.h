@@ -13,45 +13,24 @@
 #include "allocators/allocator_boundary_tags.h"
 #include "allocators/allocator_buddies_system.h"
 
-//size_t space_size,
-//allocator *parent_allocator = nullptr,
-//logger *logger = nullptr,
-//allocator_with_fit_mode::fit_mode allocate_fit_mode
-
 class collection
 {
 
-public:
+private:
 
     associative_container<key, value*> *_data;
-//    allocator* _allocator_data_base;
-//    allocator_types _type_of_allocator;
-
+    allocator* _allocator_for_data_base;
+    size_t _t;
 
 public:
 
-    explicit collection() :
-            _data(new b_tree<key, value*>(3, key_comparer()))
-//            _type_of_allocator(type)
-    {
-//        switch (_type_of_allocator)
-//        {
-//            case allocator_types::GLOBAL_HEAP:
-//                _allocator_data_base = new allocator_global_heap(nullptr);
-//                break;
+    explicit collection(allocator* allocator_for_data_base, size_t t) :
+            _t(t),
+            _data(new b_tree<key, value*>(t, key_comparer())),
+            _allocator_for_data_base(allocator_for_data_base)
 
-//            case allocator_types::SORTED_LIST:
-//                _allocator_data_base = new allocator_sorted_list(nullptr);
-//                break;
-//
-//            case allocator_types::BOUNDARY_TAGS:
-//                _allocator_data_base = new allocator_boundary_tags(nullptr);
-//                break;
-//
-//            case allocator_types::BUDDIE_SYSTEM:
-//                _allocator_data_base = new allocator_buddies_system(nullptr);
-//                break;
-//        }
+    {
+
     }
 
 public:
@@ -61,36 +40,53 @@ public:
         _data->insert(key_collection, value_collection);
     }
 
+    void add_value(int id_buyer, std::string& path_file, long start_value_bytes, long string_size)
+    {
+        auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
+                sizeof(value_file_system), 1)));
+
+        value_file->_path_file = path_file;
+        value_file->_start_value_bytes = start_value_bytes;
+        value_file->_string_size = string_size;
+
+        _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_file));
+    }
+
+    void add_value(int id_buyer, int id_oder, std::string& name,
+                   std::string& address, std::string& date)
+    {
+        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
+                sizeof(value_in_memory_cash), 1)));
+
+        value_memory->_id_order = id_oder;
+        value_memory->_address = address;
+        value_memory->_date = date;
+        value_memory->_name_buyer = name;
+
+        _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_memory));
+    }
+
     void delete_value(key const &key_collection) const
     {
         _data->dispose(key_collection);
+
+//        _allocator_for_data_base->deallocate()
     }
 
     const value* find_value(key const &key_collection) const
     {
-        try
-        {
-            const value* value_collection = _data->obtain(key_collection);
-            return value_collection;
-        }
-        catch (std::exception const& ex)
-        {
-            throw std::logic_error("Can't get value");
-        }
+        return _data->obtain(key_collection);
     }
 
     void update_value(key const &key_collection, value* value_collection_new) const
     {
-        value* value_collection = _data->obtain(key_collection);
-        delete value_collection;
-
-        _data->insert(key_collection, value_collection_new);
+        _data->update(key_collection, value_collection_new);
     }
 
-    const value* find_value_between(key const &key_collection) const
-    {
-        // TODO write this in b tree
-    }
+//    const value* find_value_between(key const &key_collection) const
+//    {
+//        return _data->
+//    }
 
 
 public:
@@ -101,8 +97,8 @@ public:
     }
 
     collection(collection const &other) :
-            _data(new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data)))
-//            _allocator_data_base(other._allocator_data_base)
+            _data(new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data))),
+            _allocator_for_data_base(other._allocator_for_data_base)
     {
 
     }
@@ -113,11 +109,11 @@ public:
         {
             delete this->_data;
 
-//            if (this->_allocator_data_base != other._allocator_data_base)
-//            {
-//                delete this->_allocator_data_base;
-//                this->_allocator_data_base = other._allocator_data_base;
-//            }
+            if (this->_allocator_for_data_base != other._allocator_for_data_base)
+            {
+                delete this->_allocator_for_data_base;
+                this->_allocator_for_data_base = other._allocator_for_data_base;
+            }
 
             this->_data = new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data));;
         }
@@ -130,8 +126,8 @@ public:
         this->_data = other._data;
         other._data = nullptr;
 
-//        this->_allocator_data_base = other._allocator_data_base;
-//        other._allocator_data_base = nullptr;
+        this->_allocator_for_data_base = other._allocator_for_data_base;
+        other._allocator_for_data_base = nullptr;
     }
 
     collection &operator=(collection &&other) noexcept
@@ -142,9 +138,9 @@ public:
             this->_data = other._data;
             other._data = nullptr;
 
-//            delete this->_allocator_data_base;
-//            this->_allocator_data_base = other._allocator_data_base;
-//            other._allocator_data_base = nullptr;
+            delete this->_allocator_for_data_base;
+            this->_allocator_for_data_base = other._allocator_for_data_base;
+            other._allocator_for_data_base = nullptr;
         }
 
         return *this;

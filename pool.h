@@ -5,17 +5,24 @@
 #include "include/binary_search_tree.h"
 #include "comparer.h"
 
-class pool
+class pool final
 {
 
+private:
+
+    b_tree<std::string, scheme>* _pool;
+    size_t _t;
+
 public:
 
-    associative_container<std::string, scheme>* _pool;
+    b_tree<std::string, scheme>* get_pool()
+    {
+        return _pool;
+    }
 
-public:
-
-    explicit pool() :
-            _pool(new b_tree<std::string, scheme>(3, key_comparer()))
+    explicit pool(size_t t) :
+            _t(t),
+            _pool(new b_tree<std::string, scheme>(t, key_comparer()))
     {
 
     }
@@ -25,7 +32,7 @@ public:
 
     void add_scheme(std::string const &scheme_name) const
     {
-        _pool->insert(scheme_name, std::move(scheme()));
+        _pool->insert(scheme_name, scheme(_t));
         std::cout << "scheme added uchu" << std::endl;
     }
 

@@ -21,8 +21,8 @@ CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o
 
 CMakeFiles/course_project.dir/logger/client_logger.cpp.o
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp
- /home/passwd/course_project/course_project_4th_sem/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -243,9 +243,9 @@ CMakeFiles/course_project.dir/logger/client_logger.cpp.o
 
 CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.cpp
- /home/passwd/course_project/course_project_4th_sem/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -467,7 +467,7 @@ CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o
 
 CMakeFiles/course_project.dir/logger/logger.cpp.o
  /home/passwd/course_project/course_project_4th_sem/logger/logger.cpp
- /home/passwd/course_project/course_project_4th_sem/logger.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -665,7 +665,7 @@ CMakeFiles/course_project.dir/logger/logger.cpp.o
 
 CMakeFiles/course_project.dir/logger/logger_builder.cpp.o
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.cpp
- /home/passwd/course_project/course_project_4th_sem/logger.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -844,7 +844,7 @@ CMakeFiles/course_project.dir/logger/logger_builder.cpp.o
 
 CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o
  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.cpp
- /home/passwd/course_project/course_project_4th_sem/logger.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -1037,8 +1037,7 @@ CMakeFiles/course_project.dir/main.cpp.o
  /home/passwd/course_project/course_project_4th_sem/database.h
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h
- /home/passwd/course_project/course_project_4th_sem/logger.h
- /home/passwd/course_project/course_project_4th_sem/logger.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h
  /home/passwd/course_project/course_project_4th_sem/include/associative_container.h
@@ -1046,10 +1045,9 @@ CMakeFiles/course_project.dir/main.cpp.o
  /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h
  /home/passwd/course_project/course_project_4th_sem/include/search_tree.h
  /home/passwd/course_project/course_project_4th_sem/input_file_parse.h
- /home/passwd/course_project/course_project_4th_sem/logger.h
- /home/passwd/course_project/course_project_4th_sem/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h
  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h
  /home/passwd/course_project/course_project_4th_sem/pool.h

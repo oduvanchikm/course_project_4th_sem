@@ -7,21 +7,14 @@ class key_comparer final
 
 public:
 
-    unsigned int operator() (
-            key first,
-            key second)
-    {
-        return first._id - second._id;
-    }
-
-    int operator() (
+    int operator()(
             int first,
             int second)
     {
         return first - second;
     }
 
-    int operator() (
+    int operator()(
             std::string const &first,
             std::string const &second)
     {
@@ -34,6 +27,20 @@ public:
             return 0;
         }
         return -1;
+    }
+
+    int operator()(
+            key key1,
+            key key2)
+    {
+        return key1._id_buyer - key2._id_buyer;
+    }
+
+    int operator()(
+            key& key1,
+            key& key2)
+    {
+        return key1._id_buyer - key2._id_buyer;
     }
 
 };

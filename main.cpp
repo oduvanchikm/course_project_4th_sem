@@ -10,7 +10,9 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    data_base *db = new data_base();
+    size_t t = 3;
+
+    database *db = new database(t);
 
     logger_builder* builder = new client_logger_builder();
 
@@ -45,17 +47,12 @@ int main(int argc, char* argv[])
 //
 //    pool pl = db->_database_entrypoint->obtain("gg");
 //    pl.add_scheme("aboba");
-//    scheme sc = pl._pool->obtain("aboba");
-//    sc.gg();
+//    scheme sc = pl.get_pool()->obtain("aboba");
 //    sc.add_collection(std::string("lol"));
-//    sc.gg();
-//    collection cl = sc._scheme->obtain("lol");
-//    cl.gg();
-
+//    collection cl = sc.get_scheme()->obtain("lol");
+//
 //    pool pl1 = db->_database_entrypoint->obtain("gg2");
-//    pl1.gg();
 //    pool pl2 = db->_database_entrypoint->obtain("gg3");
-//    pl2.gg();
 
     delete db;
 

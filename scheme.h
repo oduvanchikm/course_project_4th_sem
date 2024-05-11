@@ -13,11 +13,21 @@ class scheme
 private:
 
     associative_container<std::string, collection> *_scheme;
+    logger* log;
+    size_t _t;
 
 public:
 
-    explicit scheme() :
-            _scheme(new b_tree<std::string, collection>(3, key_comparer()))
+    allocator* allocator_database;
+
+    associative_container<std::string, collection>* get_scheme()
+    {
+        return _scheme;
+    }
+
+    explicit scheme(size_t t) :
+            _t(t),
+            _scheme(new b_tree<std::string, collection>(t, key_comparer()))
     {
 
     }
@@ -26,7 +36,7 @@ public:
 
     void add_collection(std::string const& name_collection) const
     {
-        _scheme->insert(name_collection, std::move(collection()));
+        _scheme->insert(name_collection, collection(allocator_database, _t));
         std::cout << "add collection" << std::endl;
     }
 
@@ -49,7 +59,7 @@ public:
     }
 
     scheme(scheme const &other) :
-        _scheme(new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme)))
+        _scheme(new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme)))
     {
 
     }
@@ -60,7 +70,7 @@ public:
         {
             delete this->_scheme;
 
-            this->_scheme = new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
+            this->_scheme = new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme));
         }
 
         return *this;

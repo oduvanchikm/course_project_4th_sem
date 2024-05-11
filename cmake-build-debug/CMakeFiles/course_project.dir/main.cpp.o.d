@@ -171,9 +171,9 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
  /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger.h \
+ /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/include/../logger/../logger.h \
+ /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
  /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_builder.h \
@@ -237,9 +237,9 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator.h \
  /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/../logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
  /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
