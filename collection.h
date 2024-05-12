@@ -1,6 +1,7 @@
 #ifndef COURSE_PROJECT_COLLECTION_H
 #define COURSE_PROJECT_COLLECTION_H
 #include "wb.h"
+#include "enums.h"
 #include "include/search_tree.h"
 #include "include/b_tree.h"
 #include "comparer.h"
@@ -12,6 +13,7 @@
 #include "allocators/allocator_sorted_list.h"
 #include "allocators/allocator_boundary_tags.h"
 #include "allocators/allocator_buddies_system.h"
+#include "allocator_with_fit_mode.h"
 
 class collection
 {
@@ -20,15 +22,18 @@ private:
 
     associative_container<key, value*> *_data;
     allocator* _allocator_for_data_base;
+    allocator_with_fit_mode* _fit_mode;
     size_t _t;
+    allocator_types _type;
 
 public:
 
-    explicit collection(allocator* allocator_for_data_base, size_t t) :
+    explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode* fit_mode, allocator_types type) :
             _t(t),
             _data(new b_tree<key, value*>(t, key_comparer())),
-            _allocator_for_data_base(allocator_for_data_base)
-
+            _allocator_for_data_base(allocator_for_data_base),
+            _fit_mode(fit_mode),
+            _type(type)
     {
 
     }
@@ -73,7 +78,7 @@ public:
 //        _allocator_for_data_base->deallocate()
     }
 
-    const value* find_value(key const &key_collection) const
+    value* find_value(key const &key_collection) const
     {
         return _data->obtain(key_collection);
     }

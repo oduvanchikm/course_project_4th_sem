@@ -1028,6 +1028,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/collection.h \
   /home/passwd/course_project/course_project_4th_sem/comparer.h \
   /home/passwd/course_project/course_project_4th_sem/database.h \
+  /home/passwd/course_project/course_project_4th_sem/enums.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
@@ -1391,6 +1392,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /home/passwd/course_project/course_project_4th_sem/wb.h:
 
+/home/passwd/course_project/course_project_4th_sem/input_file_parse.h:
+
 /usr/include/c++/9/type_traits:
 
 /usr/include/c++/9/system_error:
@@ -1548,12 +1551,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/stl_multimap.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/c++/9/backward/auto_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/home/passwd/course_project/course_project_4th_sem/input_file_parse.h:
 
 /usr/include/c++/9/mutex:
 
@@ -1980,5 +1977,11 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h:
 
 /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h:
+
+/usr/include/c++/9/backward/auto_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/home/passwd/course_project/course_project_4th_sem/enums.h:
 
 /home/passwd/course_project/course_project_4th_sem/include/search_tree.h:

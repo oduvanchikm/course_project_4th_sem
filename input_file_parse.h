@@ -50,15 +50,6 @@ public:
 
 public:
 
-//    std::string pool_name;
-//    std::string scheme_name;
-//    std::string collection_name;
-//    pool _pool_key;
-//    scheme _scheme_key;
-//    collection _collection_key;
-
-public:
-
     input_file_parse()
     {
         log = create_logger(std::vector<std::pair<std::string, logger::severity>>{{"log_file.txt", logger::severity::debug}});
@@ -131,11 +122,9 @@ public:
                 input_file >> pool_name >> scheme_name;
                 std::cout << line << " " << scheme_name << std::endl;
 
-                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
-
                 try
                 {
-                    _pool_key.add_scheme(pool_name);
+                    data_base_parse->add_scheme(pool_name, scheme_name);
                     log_with_guard("[add_scheme] the scheme has been added successfully", logger::severity::debug);
                     std::cout << "[add_scheme] the scheme has been added successfully" << std::endl;
                 }
@@ -156,11 +145,9 @@ public:
                 input_file >> pool_name >> scheme_name;
                 std::cout << line << " " << scheme_name << std::endl;
 
-                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
-
                 try
                 {
-                    _pool_key.remove_scheme(scheme_name);
+                    data_base_parse->delete_scheme(pool_name, scheme_name);
                     log_with_guard("[delete_scheme] the scheme has been deleted successfully", logger::severity::debug);
                     std::cout << "[delete_scheme] the scheme has been deleted successfully" << std::endl;
                 }
@@ -182,18 +169,9 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name;
                 std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << std::endl;
 
-                pool& _pool_key = const_cast<pool&>(data_base_parse->_database_entrypoint->obtain(pool_name));
-                std::cout << "find _pool_key" << std::endl;
-
-                std::cout << "scheme name " << scheme_name << std::endl;
-
-                auto& _scheme_key = const_cast<scheme&>(_pool_key.get_pool()->obtain(scheme_name));
-
-                std::cout << "find _scheme_key" << std::endl;
-
                 try
                 {
-                    _scheme_key.add_collection(collection_name);
+                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
                     log_with_guard("[add_collection] the collection has been added successfully", logger::severity::debug);
                     std::cout << "[add_collection] the collection has been added successfully" << std::endl;
                 }
@@ -209,23 +187,24 @@ public:
                 log_with_guard("[delete_collection] find DELETE_COLLECTION function", logger::severity::debug);
                 std::cout << "[delete_collection] find DELETE_COLLECTION function" << std::endl;
 
-//                input_file >> pool_name >> scheme_name >> collection_name;
-//                std::cout << line << " " << collection_name << std::endl;
-//
-//                _pool_key = data_base_parse->_database_entrypoint->obtain(pool_name);
-//                _scheme_key = _pool_key._pool->obtain(scheme_name);
-//
-//                try
-//                {
-//                    _scheme_key.remove_collection(scheme_name);
-//                    log_with_guard("[delete_collection] the collection has been deleted successfully", logger::severity::debug);
-//                    std::cout << "[delete_collection] the collection has been deleted successfully" << std::endl;
-//                }
-//                catch(const std::exception& error)
-//                {
-//                    log_with_guard("[delete_collection] error with delete collection", logger::severity::error);
-//                    std::cout << "[delete_collection] error with delete collection" << std::endl;
-//                }
+                std::string pool_name;
+                std::string scheme_name;
+                std::string collection_name;
+
+                input_file >> pool_name >> scheme_name >> collection_name;
+                std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << std::endl;
+
+                try
+                {
+                    data_base_parse->delete_collection(pool_name, scheme_name, collection_name);
+                    log_with_guard("[delete_collection] the collection has been deleted successfully", logger::severity::debug);
+                    std::cout << "[delete_collection] the collection has been deleted successfully" << std::endl;
+                }
+                catch(const std::exception& error)
+                {
+                    log_with_guard("[delete_collection] error with delete collection", logger::severity::error);
+                    std::cout << "[delete_collection] error with delete collection" << std::endl;
+                }
             }
             else if (line == "ADD_VALUE")
             {

@@ -18,7 +18,9 @@ private:
 
 public:
 
-    allocator* allocator_database;
+    allocator* _allocator_database;
+    allocator_with_fit_mode* _fit_mode;
+    allocator_types _type;
 
     associative_container<std::string, collection>* get_scheme()
     {
@@ -36,8 +38,7 @@ public:
 
     void add_collection(std::string const& name_collection) const
     {
-        _scheme->insert(name_collection, collection(allocator_database, _t));
-        std::cout << "add collection" << std::endl;
+        _scheme->insert(name_collection, collection(_allocator_database, _t, _fit_mode, _type));
     }
 
     void remove_collection(std::string const& name_collection) const
@@ -45,7 +46,7 @@ public:
         _scheme->dispose(name_collection);
     }
 
-    const collection& find_collection(std::string const& name_collection) const
+    collection& find_collection(std::string const& name_collection) const
     {
         return _scheme->obtain(name_collection);
     }
@@ -59,7 +60,7 @@ public:
     }
 
     scheme(scheme const &other) :
-        _scheme(new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme)))
+        _scheme(new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme)))
     {
 
     }
@@ -70,7 +71,7 @@ public:
         {
             delete this->_scheme;
 
-            this->_scheme = new b_tree<std::string, collection>(*reinterpret_cast<b_tree<std::string, collection>*>(other._scheme));
+            this->_scheme = new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
         }
 
         return *this;

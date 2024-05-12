@@ -35,10 +35,10 @@ public:
 public:
     
     explicit allocator_boundary_tags(
-        size_t space_size,
-        allocator *parent_allocator = nullptr,
-        logger *logger = nullptr,
-        allocator_with_fit_mode::fit_mode allocate_fit_mode = allocator_with_fit_mode::fit_mode::first_fit);
+            size_t space_size,
+            allocator *parent_allocator = nullptr,
+            logger *logger = nullptr,
+            fit_mode allocate_fit_mode = allocator_with_fit_mode::fit_mode::first_fit);
 
 public:
     

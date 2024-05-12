@@ -10,12 +10,12 @@ class pool final
 
 private:
 
-    b_tree<std::string, scheme>* _pool;
+    search_tree<std::string, scheme>* _pool;
     size_t _t;
 
 public:
 
-    b_tree<std::string, scheme>* get_pool()
+    search_tree<std::string, scheme>* get_pool()
     {
         return _pool;
     }
@@ -36,7 +36,7 @@ public:
         std::cout << "scheme added uchu" << std::endl;
     }
 
-    const scheme& find_scheme(std::string const &scheme_name) const
+    scheme& find_scheme(std::string const &scheme_name) const
     {
        return _pool->obtain(scheme_name);
     }

@@ -143,6 +143,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/scheme.h \
  /home/passwd/course_project/course_project_4th_sem/collection.h \
  /home/passwd/course_project/course_project_4th_sem/wb.h \
+ /home/passwd/course_project/course_project_4th_sem/enums.h \
  /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
  /usr/include/c++/9/functional /usr/include/c++/9/tuple \
  /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \

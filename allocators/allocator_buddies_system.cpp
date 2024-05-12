@@ -42,7 +42,7 @@ allocator_buddies_system::allocator_buddies_system(
         size_t space_size,
         allocator *parent_allocator,
         logger *logger,
-        allocator_with_fit_mode::fit_mode allocate_fit_mode)
+        fit_mode allocate_fit_mode)
 {
     if ((1 << space_size) < get_meta_block())
     {

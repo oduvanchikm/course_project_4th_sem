@@ -122,7 +122,8 @@
 				21,
 				25,
 				26,
-				27
+				27,
+				28
 			]
 		},
 		{
@@ -286,6 +287,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "file.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "enums.h",
 			"sourceGroupIndex" : 0
 		}
 	],

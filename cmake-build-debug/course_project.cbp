@@ -108,6 +108,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/database.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/file.h">
 			<Option target="course_project"/>
 		</Unit>

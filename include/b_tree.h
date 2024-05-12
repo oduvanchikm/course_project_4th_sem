@@ -38,7 +38,7 @@ public:
             tkey const &key,
             tvalue &&value) override;
 
-    tvalue const &obtain(
+    tvalue &obtain(
             tkey const &key) override;
 
     tvalue dispose(
@@ -440,10 +440,8 @@ void b_tree<tkey, tvalue>::insert(
     insert_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
 }
 
-template<
-        typename tkey,
-        typename tvalue>
-tvalue const &b_tree<tkey, tvalue>::obtain(
+template<typename tkey, typename tvalue>
+tvalue &b_tree<tkey, tvalue>::obtain(
         const tkey &key)
 {
     auto path = this->find_path(key);

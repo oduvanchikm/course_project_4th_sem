@@ -102,7 +102,7 @@ allocator_boundary_tags::allocator_boundary_tags(
         size_t space_size,
         allocator *parent_allocator,
         logger *logger,
-        allocator_with_fit_mode::fit_mode allocate_fit_mode)
+        fit_mode allocate_fit_mode)
 {
 //    if (logger != nullptr)
 //    {
