@@ -43,8 +43,8 @@ public:
 public:
 
     database(size_t t) :
-        _t(t),
-        _database_entrypoint(new b_tree<std::string, pool>(t, key_comparer()))
+            _t(t),
+            _database_entrypoint(new b_tree<std::string, pool>(t, key_comparer()))
     {
         _instance = this;
     }
@@ -118,8 +118,8 @@ public:
             int id_oder)
     {
         find_pool(pool_name).find_scheme(scheme_name)
-                            .find_collection(collection_name)
-                            .add_value(id_buyer, id_oder, name, address, date);
+                .find_collection(collection_name)
+                .add_value(id_buyer, id_oder, name, address, date);
     }
 
     // path_file, start_value_bytes, size_value
@@ -138,8 +138,8 @@ public:
         long size_value = first_byte_and_size.second;
 
         find_pool(pool_name).find_scheme(scheme_name)
-                            .find_collection(collection_name)
-                            .add_value(id_buyer, path_file, start_value_bytes, size_value);
+                .find_collection(collection_name)
+                .add_value(id_buyer, path_file, start_value_bytes, size_value);
     }
 
     void update_value(
@@ -153,8 +153,8 @@ public:
             int id_oder)
     {
         find_pool(pool_name).find_scheme(scheme_name)
-                            .find_collection(collection_name)
-                            .update_value(id_buyer, id_oder, name, address, date);
+                .find_collection(collection_name)
+                .update_value(id_buyer, id_oder, name, address, date);
     }
 
     void update_value(
@@ -171,8 +171,8 @@ public:
         long size_value = first_byte_and_size.second;
 
         find_pool(pool_name).find_scheme(scheme_name)
-                            .find_collection(collection_name)
-                            .update_value(id_buyer, path_file, start_value_bytes, size_value);
+                .find_collection(collection_name)
+                .update_value(id_buyer, path_file, start_value_bytes, size_value);
     }
 
     value* obtain_value(
@@ -182,8 +182,8 @@ public:
             int id_buyer)
     {
         return find_pool(pool_name).find_scheme(scheme_name)
-                                    .find_collection(collection_name)
-                                    .find_value(id_buyer);
+                .find_collection(collection_name)
+                .find_value(id_buyer);
     }
 
     void delete_value(
@@ -193,8 +193,8 @@ public:
             int id_buyer)
     {
         return find_pool(pool_name).find_scheme(scheme_name)
-                                    .find_collection(collection_name)
-                                    .delete_value(id_buyer);
+                .find_collection(collection_name)
+                .delete_value(id_buyer);
     }
 
 //    std::vector<typename associative_container<key, value>::key_value_pair> obtain_between_value(
@@ -238,12 +238,12 @@ public:
     {
         for (char symbol : sub_path)
         {
-            if (!std::isalnum(symbol))
+            if (std::isalnum(symbol) && symbol == '_')
             {
-                throw std::logic_error("path has invalid symbols");
+                return sub_path;
             }
         }
-        return sub_path;
+        throw std::logic_error("path has invalid symbols");
     }
 
 };

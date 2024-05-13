@@ -38,7 +38,7 @@ public:
 
     scheme& find_scheme(std::string const &scheme_name) const
     {
-       return _pool->obtain(scheme_name);
+        return _pool->obtain(scheme_name);
     }
 
     void remove_scheme(std::string const & scheme_name) const

@@ -304,7 +304,7 @@ public:
                 {
                     pool_name = data_base_parse->validate_path(pool_name);
                 }
-                catch (const std::invalid_argument& e)
+                catch (const std::logic_error& e)
                 {
                     std::cerr << "error " << e.what() << std::endl;
                 }
@@ -347,7 +347,14 @@ public:
 
                 std::cout << pool_name << std::endl;
 
-                pool_name = data_base_parse->validate_path(pool_name);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::string pool_directory_name = base_directory_name + "/" + pool_name;
 
@@ -388,8 +395,15 @@ public:
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << std::endl;
 
-                pool_name = data_base_parse->validate_path(pool_name);
-                scheme_name = data_base_parse->validate_path(scheme_name);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
@@ -430,8 +444,15 @@ public:
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << std::endl;
 
-                pool_name = data_base_parse->validate_path(pool_name);
-                scheme_name = data_base_parse->validate_path(scheme_name);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
@@ -474,9 +495,16 @@ public:
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
 
-                pool_name = data_base_parse->validate_path(pool_name);
-                scheme_name = data_base_parse->validate_path(scheme_name);
-                collection_name = data_base_parse->validate_path(collection_name);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                    collection_name = data_base_parse->validate_path(collection_name);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
 
@@ -519,9 +547,16 @@ public:
 
                 std::cout << "pool name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
 
-                pool_name = data_base_parse->validate_path(pool_name);
-                scheme_name = data_base_parse->validate_path(scheme_name);
-                collection_name = data_base_parse->validate_path(collection_name);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                    collection_name = data_base_parse->validate_path(collection_name);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
 
@@ -571,10 +606,17 @@ public:
 
                 std::string id_buyer_string = std::to_string(id_buyer);
 
-                pool_name = data_base_parse->validate_path(pool_name);
-                scheme_name = data_base_parse->validate_path(scheme_name);
-                collection_name = data_base_parse->validate_path(collection_name);
-                id_buyer_string = data_base_parse->validate_path(id_buyer_string);
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                    collection_name = data_base_parse->validate_path(collection_name);
+                    id_buyer_string = data_base_parse->validate_path(id_buyer_string);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
 
                 std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << name << " " << date << " " << address << " " << id_oder << " " << std::endl;
 

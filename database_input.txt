@@ -1,4 +1,4 @@
-ADD_PO%%%OL pool_1
-ADD_SCHEME pool_1 scheme_1
-ADD_COLLECTION pool_1 scheme_1 collection_1
-ADD_VALUE pool_1 scheme_1 collection_1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
+ADD_POOL pool1
+ADD_SCHEME pool1 scheme1
+ADD_COLLECTION pool1 scheme1 collection1
+ADD_VALUE pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
