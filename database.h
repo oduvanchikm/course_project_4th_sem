@@ -232,16 +232,18 @@ public:
         return _mode = mode_database;
     }
 
-private:
+public:
 
-    database& validate_path(std::string const &subpath)
+    std::string& validate_path(std::string &sub_path)
     {
-
-    }
-
-    database& validate_file_name(std::string const &file_name)
-    {
-
+        for (char symbol : sub_path)
+        {
+            if (!std::isalnum(symbol))
+            {
+                throw std::logic_error("path has invalid symbols");
+            }
+        }
+        return sub_path;
     }
 
 };

@@ -299,6 +299,16 @@ public:
                 input_file >> pool_name;
 
                 std::cout << pool_name << std::endl;
+
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                }
+                catch (const std::invalid_argument& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
+
                 std::string pool_directory_name = base_directory_name + "/" + pool_name;
 
                 if (!std::filesystem::exists(pool_directory_name))
@@ -336,6 +346,9 @@ public:
                 input_file >> pool_name;
 
                 std::cout << pool_name << std::endl;
+
+                pool_name = data_base_parse->validate_path(pool_name);
+
                 std::string pool_directory_name = base_directory_name + "/" + pool_name;
 
                 if (std::filesystem::exists(pool_directory_name))
@@ -374,6 +387,10 @@ public:
                 input_file >> pool_name >> scheme_name;
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << std::endl;
+
+                pool_name = data_base_parse->validate_path(pool_name);
+                scheme_name = data_base_parse->validate_path(scheme_name);
+
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
                 if (!std::filesystem::exists(scheme_directory_name))
@@ -412,6 +429,10 @@ public:
                 input_file >> pool_name >> scheme_name;
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << std::endl;
+
+                pool_name = data_base_parse->validate_path(pool_name);
+                scheme_name = data_base_parse->validate_path(scheme_name);
+
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
                 if (std::filesystem::exists(scheme_directory_name))
@@ -452,6 +473,11 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name;
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
+
+                pool_name = data_base_parse->validate_path(pool_name);
+                scheme_name = data_base_parse->validate_path(scheme_name);
+                collection_name = data_base_parse->validate_path(collection_name);
+
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
 
                 if (!std::filesystem::exists(collection_directory_name))
@@ -492,6 +518,11 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name;
 
                 std::cout << "pool name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
+
+                pool_name = data_base_parse->validate_path(pool_name);
+                scheme_name = data_base_parse->validate_path(scheme_name);
+                collection_name = data_base_parse->validate_path(collection_name);
+
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
 
                 if (std::filesystem::exists(collection_directory_name))
@@ -537,6 +568,14 @@ public:
                 int id_oder;
 
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+
+                std::string id_buyer_string = std::to_string(id_buyer);
+
+                pool_name = data_base_parse->validate_path(pool_name);
+                scheme_name = data_base_parse->validate_path(scheme_name);
+                collection_name = data_base_parse->validate_path(collection_name);
+                id_buyer_string = data_base_parse->validate_path(id_buyer_string);
+
                 std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << name << " " << date << " " << address << " " << id_oder << " " << std::endl;
 
                 std::string value_file_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name + "/" + std::to_string(id_buyer) + ".txt";

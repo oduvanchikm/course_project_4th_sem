@@ -1,4 +1,5 @@
-[13.05.2024 06:00:33][DEBUG][add_pool] the pool has been added successfully
-[13.05.2024 06:00:33][ERROR][add_scheme] error with add scheme
-[13.05.2024 06:00:33][ERROR][add_collection] error with add collection
-[13.05.2024 06:00:33][ERROR][add_value] error with add value
+[13.05.2024 06:21:24][DEBUG][add_scheme] find ADD_SCHEME function
+[13.05.2024 06:21:24][ERROR][add_scheme] error with add scheme
+[13.05.2024 06:21:24][DEBUG][add_collection] find ADD_COLLECTION function
+[13.05.2024 06:21:24][ERROR][add_collection] error with add collection
+[13.05.2024 06:21:24][DEBUG][add_value] find ADD_VALUE function
