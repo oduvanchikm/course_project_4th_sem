@@ -2,7 +2,7 @@
 #define COURSE_PROJECT_COLLECTION_H
 #include "wb.h"
 #include "enums.h"
-#include "include/search_tree.h"
+#include "include/associative_container.h"
 #include "include/b_tree.h"
 #include "comparer.h"
 #include "allocators/allocator_types.h"

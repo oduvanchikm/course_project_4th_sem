@@ -144,9 +144,15 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/collection.h \
  /home/passwd/course_project/course_project_4th_sem/wb.h \
  /home/passwd/course_project/course_project_4th_sem/enums.h \
+ /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h /usr/include/c++/9/utility \
+ /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
+ /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
  /usr/include/c++/9/functional /usr/include/c++/9/tuple \
- /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
  /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/unordered_map \
@@ -156,12 +162,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
  /usr/include/c++/9/bits/enable_special_members.h \
  /usr/include/c++/9/bits/unordered_map.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/vector \
- /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h \
- /usr/include/c++/9/bits/stl_vector.h \
- /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/stack \
@@ -175,8 +176,6 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
- /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
  /home/passwd/course_project/course_project_4th_sem/include/../logger/logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/comparer.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h \
@@ -231,34 +230,26 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/tr1/poly_laguerre.tcc \
  /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc \
- /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
- /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
- /usr/include/c++/9/bits/list.tcc \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/include/../allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
+ /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/input_file_parse.h \
  /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/set \
- /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/input_file_parse.h \
- /usr/include/c++/9/filesystem /usr/include/c++/9/bits/fs_fwd.h \
- /usr/include/c++/9/bits/fs_path.h /usr/include/c++/9/locale \
- /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/filesystem \
+ /usr/include/c++/9/bits/fs_fwd.h /usr/include/c++/9/bits/fs_path.h \
+ /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
  /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
  /usr/include/c++/9/bits/locale_conv.h /usr/include/c++/9/iomanip \
  /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/codecvt \
- /usr/include/c++/9/bits/fs_dir.h /usr/include/c++/9/bits/fs_ops.h
+ /usr/include/c++/9/bits/fs_dir.h /usr/include/c++/9/bits/fs_ops.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
+ /usr/include/c++/9/bits/stl_multiset.h

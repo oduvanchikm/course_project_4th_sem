@@ -11,7 +11,30 @@ public:
             int first,
             int second)
     {
-        return first - second;
+        if (first > second)
+        {
+            return 1;
+        }
+        else if (first == second)
+        {
+            return 0;
+        }
+        return -1;
+    }
+
+    int operator()(
+            int const &first,
+            int const &second)
+    {
+        if (first > second)
+        {
+            return 1;
+        }
+        else if (first == second)
+        {
+            return 0;
+        }
+        return -1;
     }
 
     int operator()(

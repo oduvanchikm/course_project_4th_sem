@@ -2,7 +2,7 @@
 #define COURSE_PROJECT_POOL_H
 #include "database.h"
 #include "scheme.h"
-#include "include/binary_search_tree.h"
+#include "include/search_tree.h"
 #include "comparer.h"
 
 class pool final

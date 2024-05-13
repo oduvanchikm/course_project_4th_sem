@@ -397,6 +397,18 @@ public:
 
                 try
                 {
+                    data_base_parse->add_scheme(pool_name, scheme_name);
+                    log->debug("[add_scheme] the scheme has been added successfully");
+                    std::cout << "[add_scheme] the scheme has been added successfully" << std::endl;
+                }
+                catch(const std::exception& error)
+                {
+                    log->error("[add_scheme] error with add scheme");
+                    std::cout << "[add_scheme] error with add scheme" << std::endl;
+                }
+
+                try
+                {
                     pool_name = data_base_parse->validate_path(pool_name);
                     scheme_name = data_base_parse->validate_path(scheme_name);
                 }
@@ -420,18 +432,6 @@ public:
                         std::cerr << "error creating the directory " + scheme_directory_name << e.what() << std::endl;
                     }
                 }
-
-                try
-                {
-                    data_base_parse->add_scheme(pool_name, scheme_name);
-                    log->debug("[add_scheme] the scheme has been added successfully");
-                    std::cout << "[add_scheme] the scheme has been added successfully" << std::endl;
-                }
-                catch(const std::exception& error)
-                {
-                    log->error("[add_scheme] error with add scheme");
-                    std::cout << "[add_scheme] error with add scheme" << std::endl;
-                }
             }
             else if (line == "DELETE_SCHEME")
             {
@@ -443,6 +443,18 @@ public:
                 input_file >> pool_name >> scheme_name;
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << std::endl;
+
+                try
+                {
+                    data_base_parse->delete_scheme(pool_name, scheme_name);
+                    log->debug("[add_scheme] the scheme has been deleted successfully");
+                    std::cout << "[add_scheme] the scheme has been deleted successfully" << std::endl;
+                }
+                catch(const std::exception& error)
+                {
+                    log->error("[add_scheme] error with delete scheme");
+                    std::cout << "[add_scheme] error with delete scheme" << std::endl;
+                }
 
                 try
                 {
@@ -469,18 +481,6 @@ public:
                         std::cerr << "error deleting the directory " + scheme_directory_name << e.what() << std::endl;
                     }
                 }
-
-                try
-                {
-                    data_base_parse->delete_scheme(pool_name, scheme_name);
-                    log->debug("[add_scheme] the scheme has been deleted successfully");
-                    std::cout << "[add_scheme] the scheme has been deleted successfully" << std::endl;
-                }
-                catch(const std::exception& error)
-                {
-                    log->error("[add_scheme] error with delete scheme");
-                    std::cout << "[add_scheme] error with delete scheme" << std::endl;
-                }
             }
             else if (line == "ADD_COLLECTION")
             {
@@ -494,6 +494,18 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name;
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
+
+                try
+                {
+                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
+                    log->debug("[add_collection] the collection has been added successfully");
+                    std::cout << "[add_collection] the collection has been added successfully" << std::endl;
+                }
+                catch(const std::exception& error)
+                {
+                    log->error("[add_collection] error with add collection");
+                    std::cout << "[add_collection] error with add collection" << std::endl;
+                }
 
                 try
                 {
@@ -520,18 +532,6 @@ public:
                         log->error("error creating the directory " + collection_directory_name);
                         std::cerr << "error creating the directory " + collection_directory_name << e.what() << std::endl;
                     }
-                }
-
-                try
-                {
-                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
-                    log->debug("[add_collection] the collection has been added successfully");
-                    std::cout << "[add_collection] the collection has been added successfully" << std::endl;
-                }
-                catch(const std::exception& error)
-                {
-                    log->error("[add_collection] error with add collection");
-                    std::cout << "[add_collection] error with add collection" << std::endl;
                 }
             }
             else if (line == "DELETE_COLLECTION")
@@ -634,6 +634,7 @@ public:
                         log->error("error opening the file" + value_file_name);
                         std::cerr << "error opening the file " + value_file_name << std::endl;
                     }
+
                     log->trace("file " + value_file_name + " has created");
                 }
                 catch (const std::exception& e)

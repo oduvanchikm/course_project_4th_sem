@@ -1,18 +1,9 @@
 #ifndef COURSE_PROJECT_DATABASE_H
 #define COURSE_PROJECT_DATABASE_H
 #include "pool.h"
-#include "scheme.h"
-#include "collection.h"
 #include "enums.h"
-#include "include/search_tree.h"
 #include "include/b_tree.h"
-#include "include/binary_search_tree.h"
-#include "include/associative_container.h"
 #include "comparer.h"
-#include "logger/logger_guardant.h"
-#include "logger/logger.h"
-#include "logger/client_logger.h"
-#include "logger/client_logger_builder.h"
 
 class database
 {
@@ -244,6 +235,19 @@ public:
             }
         }
         throw std::logic_error("path has invalid symbols");
+    }
+
+    bool validate_input_file_path(std::string &input_file_path)
+    {
+        std::string extension = ".txt";
+
+        if (input_file_path.length() >= extension.length() &&
+            input_file_path.compare(input_file_path.length() - extension.length(), extension.length(), extension) == 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 };

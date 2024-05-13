@@ -162,6 +162,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/new_comparer.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/pool.h">
 			<Option target="course_project"/>
 		</Unit>

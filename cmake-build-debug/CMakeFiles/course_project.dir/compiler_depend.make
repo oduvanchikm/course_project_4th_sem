@@ -997,21 +997,17 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/comparer.h \
   /home/passwd/course_project/course_project_4th_sem/database.h \
   /home/passwd/course_project/course_project_4th_sem/enums.h \
-  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
-  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/include/associative_container.h \
   /home/passwd/course_project/course_project_4th_sem/include/b_tree.h \
-  /home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h \
   /home/passwd/course_project/course_project_4th_sem/include/search_tree.h \
   /home/passwd/course_project/course_project_4th_sem/input_file_parse.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/pool.h \
   /home/passwd/course_project/course_project_4th_sem/scheme.h \
   /home/passwd/course_project/course_project_4th_sem/wb.h \
@@ -1056,7 +1052,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/ios_base.h \
   /usr/include/c++/9/bits/istream.tcc \
-  /usr/include/c++/9/bits/list.tcc \
   /usr/include/c++/9/bits/locale_classes.h \
   /usr/include/c++/9/bits/locale_classes.tcc \
   /usr/include/c++/9/bits/locale_conv.h \
@@ -1096,7 +1091,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/bits/stl_iterator.h \
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
-  /usr/include/c++/9/bits/stl_list.h \
   /usr/include/c++/9/bits/stl_map.h \
   /usr/include/c++/9/bits/stl_multimap.h \
   /usr/include/c++/9/bits/stl_multiset.h \
@@ -1154,7 +1148,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/include/c++/9/iostream \
   /usr/include/c++/9/istream \
   /usr/include/c++/9/limits \
-  /usr/include/c++/9/list \
   /usr/include/c++/9/locale \
   /usr/include/c++/9/map \
   /usr/include/c++/9/memory \
@@ -1339,8 +1332,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/ratio:
 
-/usr/include/c++/9/list:
-
 /usr/include/c++/9/ext/concurrence.h:
 
 /usr/include/c++/9/codecvt:
@@ -1358,8 +1349,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/bits/hashtable_policy.h:
 
 /usr/include/c++/9/bits/fs_path.h:
-
-/usr/include/c++/9/bits/fs_ops.h:
 
 /usr/include/c++/9/utility:
 
@@ -1380,8 +1369,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /usr/include/c++/9/istream:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
-
-/home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h:
 
 /usr/include/c++/9/ext/type_traits.h:
 
@@ -1917,8 +1904,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /home/passwd/course_project/course_project_4th_sem/main.cpp:
 
-/usr/include/c++/9/bits/stl_list.h:
-
 /usr/include/c++/9/bits/unique_ptr.h:
 
 /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h:
@@ -1933,8 +1918,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /usr/include/c++/9/backward/auto_ptr.h:
 
-/usr/include/c++/9/bits/list.tcc:
-
 /usr/include/c++/9/bits/algorithmfwd.h:
 
 /usr/include/c++/9/bits/allocated_ptr.h:
+
+/usr/include/c++/9/bits/fs_ops.h:

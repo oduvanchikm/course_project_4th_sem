@@ -1,6 +1,7 @@
 #include <iostream>
 #include "database.h"
 #include "input_file_parse.h"
+#include "logger/client_logger_builder.h"
 
 int main(int argc, char* argv[])
 {
@@ -11,6 +12,7 @@ int main(int argc, char* argv[])
     }
 
     size_t t = 3;
+    database* db = new database(t);
 
     logger_builder* builder = new client_logger_builder();
 
@@ -20,7 +22,20 @@ int main(int argc, char* argv[])
             ->add_file_stream("log.txt", logger::severity::error)
             ->build();
 
+    std::string file_path = argv[1];
+    if (!(db->validate_input_file_path(file_path)))
+    {
+        std::cerr << "error with file" << std::endl;
+        return 1;
+    }
+
     std::ifstream input_file(argv[1]);
+
+    if (!input_file.is_open())
+    {
+        std::cerr << "error with opening file" << std::endl;
+        return 1;
+    }
 
     // 0 - memory cache, 1 - file system
 
@@ -45,14 +60,6 @@ int main(int argc, char* argv[])
         std::cout << "wrong mode operating" << std::endl;
         return 1;
     }
-
-    if (!input_file.is_open())
-    {
-        std::cerr << "error with opening file" << std::endl;
-        return 0;
-    }
-
-    database* db = new database(t);
     input_file_parse parse;
 
     if (operating_mode_enum == db->get_mode(enums::mode::file_system))
