@@ -71,11 +71,46 @@ public:
         _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_memory));
     }
 
+    void update_value(key& key_collection, value* value_collection) const
+    {
+        _data->update(key_collection, value_collection);
+    }
+
+    void update_value(int id_buyer, std::string& path_file, long start_value_bytes,
+                      long string_size) const
+    {
+        auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
+                sizeof(value_file_system), 1)));
+
+        value_file->_path_file = path_file;
+        value_file->_start_value_bytes = start_value_bytes;
+        value_file->_string_size = string_size;
+
+        _data->update(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_file));
+    }
+
+    void update_value(int id_buyer, int id_oder, std::string& name,
+                      std::string& address, std::string& date) const
+    {
+        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
+                sizeof(value_in_memory_cash), 1)));
+
+        value_memory->_id_order = id_oder;
+        value_memory->_address = address;
+        value_memory->_date = date;
+        value_memory->_name_buyer = name;
+
+        _data->update(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_memory));
+    }
+
     void delete_value(key const &key_collection) const
     {
         _data->dispose(key_collection);
+    }
 
-//        _allocator_for_data_base->deallocate()
+    void delete_value(int id_buyer) const
+    {
+        _data->dispose(*reinterpret_cast<key*>(id_buyer));
     }
 
     value* find_value(key const &key_collection) const
@@ -83,9 +118,9 @@ public:
         return _data->obtain(key_collection);
     }
 
-    void update_value(key const &key_collection, value* value_collection_new) const
+    value* find_value(int id_buyer) const
     {
-        _data->update(key_collection, value_collection_new);
+        return _data->obtain(*reinterpret_cast<key*>(id_buyer));
     }
 
 //    const value* find_value_between(key const &key_collection) const

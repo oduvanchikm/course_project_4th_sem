@@ -1,18 +1,4 @@
 ADD_POOL pool_1
-ADD_POOL pool_2
-ADD_POOL pool_3
-ADD_POOL pool_4
-ADD_POOL pool_5
-ADD_POOL pool_6
-ADD_POOL pool_7
-ADD_POOL pool_8
-ADD_POOL 52_да_здравствует_санкт_петербург
-
 ADD_SCHEME pool_1 scheme_1
-ADD_SCHEME pool_1 scheme_2
-ADD_SCHEME pool_1 scheme_3
-ADD_SCHEME pool_1 scheme_4
-ADD_SCHEME pool_1 scheme_5
-
 ADD_COLLECTION pool_1 scheme_1 collection_1
-ADD_VALUE pool_1 scheme_1 collection_1 3 4 Ivanov 12.05.24 ul.BolshoyArbat
+ADD_VALUE pool_1 scheme_1 collection_1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6

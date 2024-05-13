@@ -1,127 +1,84 @@
+#include <vector>
 #include "client_logger.h"
+#include <iostream>
+#include <map>
+#include <fstream>
 
-std::map<std::string, std::pair<std::ofstream*, size_t>> client_logger::_global_streams =
-        std::map<std::string, std::pair<std::ofstream*, size_t>>();
+std::map<std::string, std::pair<std::ofstream*, size_t> > client_logger::_global_streams =
+        std::map<std::string, std::pair<std::ofstream*, size_t> >();
 
-client_logger::client_logger(std::map<std::string, std::set<severity>> const &builder)
+
+client_logger::client_logger(std::map<std::string, std::set<logger::severity>> const& builder_streams, std::string const& format_string) : _format_string(format_string)
 {
-    std::ofstream* stream = nullptr;
 
-    for (auto i = builder.begin(); i != builder.end(); ++i)
+    for (auto &builder_stream : builder_streams)
     {
-        auto global_stream = _global_streams.find(i->first);
+        auto stream = _global_streams.find(builder_stream.first);
+        std::ofstream* file = nullptr;
 
-        if (global_stream == _global_streams.end())
+        if(stream == _global_streams.end())
         {
-            if (global_stream->first != "console")
+            if(stream->first != "console")
             {
-                stream = new std::ofstream(i->first, std::ios::out);
-            }
-            else
-            {
-                stream = nullptr;
+                file = new std::ofstream;
+                file->open(builder_stream.first);
+
             }
 
-            _global_streams.insert(std::make_pair(i->first, std::make_pair(stream, 1)));
+            _global_streams.insert(std::make_pair(builder_stream.first, std::make_pair(file, 1)));
+
         }
+
         else
         {
-            stream = global_stream->second.first;
-            global_stream->second.second++;
+            file = stream->second.first;
+            stream->second.second++;
         }
 
-        auto streams_in_streams = _all_streams.find(i->first);
-
-        if (streams_in_streams == _all_streams.end())
-        {
-            _all_streams.insert(std::make_pair(i->first, std::make_pair(stream, i->second)));
-        }
+        _streams.insert(std::make_pair(builder_stream.first, std::make_pair(file, builder_stream.second)));
     }
 }
 
-client_logger::client_logger(client_logger const &other) :
-    _all_streams(other._all_streams)
-{
-    for (auto &map : _global_streams)
-    {
-        map.second.second++;
-    }
-}
 
-client_logger &client_logger::operator=(client_logger const &other)
-{
-    if (this != &other)
-    {
-        _all_streams = other._all_streams;
-
-        for (auto &map : _all_streams)
-        {
-            _global_streams[map.first].second++;
-        }
-
-    }
-    return *this;
-}
-
-client_logger::client_logger(client_logger &&other) noexcept :
-    _all_streams(std::move(other._all_streams))
-{
-
-}
-
-client_logger &client_logger::operator=(client_logger &&other) noexcept
-{
-    if (this != &other)
-    {
-        _all_streams = std::move(other._all_streams);
-    }
-    return *this;
-}
 
 client_logger::~client_logger() noexcept
 {
-    for (auto &stream : _all_streams)
+
+    for(auto &stream : _streams)
     {
-        auto global_logger = _global_streams[stream.first];
+        auto global_stream = _global_streams.find(stream.first);
 
-        global_logger.second--;
-
-        if(!global_logger.second)
+        if(--(global_stream->second.second) == 0)
         {
-            if (global_logger.first != nullptr)
+            if(global_stream->second.first != nullptr)
             {
-                if (global_logger.first->is_open())
-                {
-                    global_logger.first->close();
-                }
-                delete global_logger.first;
+                global_stream->second.first->flush();
+                global_stream->second.first->close();
+                delete global_stream->second.first;
             }
-            _global_streams.erase(stream.first);
+
+            _global_streams.erase(global_stream);
         }
     }
 }
 
+
 logger const *client_logger::log(const std::string &text, logger::severity severity) const noexcept
 {
-    auto string_severity = severity_to_string(severity);
-    auto string_date_time = current_datetime_to_string();
-
-    for (auto &stream : _all_streams)
+    for (auto &stream: _streams)
     {
         if (stream.second.second.find(severity) != stream.second.second.end())
         {
             if (stream.second.first == nullptr)
             {
-                std::cout << "[" << string_date_time << "][" << string_severity << "]" << text << std::endl;
+                std::cout << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text << std::endl;
             }
             else
             {
-                *(stream.second.first) << "[" << string_date_time << "][" << string_severity << "]" << text;
+                (*stream.second.first) << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text;
+                (*stream.second.first) << std::endl;
             }
         }
     }
     return this;
 }
-
-
-

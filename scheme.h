@@ -6,7 +6,6 @@
 #include "include/b_tree.h"
 #include "comparer.h"
 
-
 class scheme
 {
 
@@ -59,10 +58,9 @@ public:
         delete _scheme;
     }
 
-    scheme(scheme const &other) :
-        _scheme(new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme)))
+    scheme(scheme const &other)
     {
-
+        _scheme = new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
     }
 
     scheme &operator=(scheme const &other)
@@ -70,29 +68,27 @@ public:
         if (this != &other)
         {
             delete this->_scheme;
-
-            this->_scheme = new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
+            _scheme =  new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
         }
-
         return *this;
     }
 
-    scheme(scheme &&other) noexcept
+    scheme(scheme &&other)  noexcept: _scheme(other._scheme)
     {
-        this->_scheme = other._scheme;
         other._scheme = nullptr;
     }
 
     scheme &operator=(scheme &&other) noexcept
     {
-        if (this != &other)
+        if(this != &other)
         {
+
             delete this->_scheme;
-            this->_scheme = other._scheme;
+            _scheme = other._scheme;
             other._scheme = nullptr;
         }
-
         return *this;
     }
 };
+
 #endif //COURSE_PROJECT_SCHEME_H

@@ -66,6 +66,8 @@ public:
         return const_cast<pool&>(_database_entrypoint->obtain(pool_name));
     }
 
+public:
+
     void add_scheme(std::string const& pool_name, std::string const& scheme_name)
     {
         (find_pool(pool_name)).add_scheme(scheme_name);
@@ -80,6 +82,8 @@ public:
     {
         return const_cast<scheme&>((find_pool(pool_name)).find_scheme(scheme_name));
     }
+
+public:
 
     void add_collection(std::string const& pool_name, std::string const& scheme_name,
                         std::string const& collection_name)
@@ -99,102 +103,111 @@ public:
         return const_cast<collection&>((find_scheme(pool_name, scheme_name)).find_collection(collection_name));
     }
 
-//    void add_value(std::string const& pool_name, std::string const& scheme_name,
-//                        std::string const& collection_name, allocator_types type,
-//                        allocator_with_fit_mode* fit_mode)
-//    {
-//        collection& _collection = const_cast<collection&>(find_collection(pool_name, scheme_name, collection_name));
-//        allocator* allocator_database;
-//
-//        switch(type)
-//        {
-//            case allocator_types::BUDDIE_SYSTEM:
-//                allocator_database = new allocator_buddies_system(15, nullptr, nullptr, fit_mode);
-//                break;
-//
-//            case allocator_types::BOUNDARY_TAGS:
-//                allocator_database = new allocator_boundary_tags(1500, nullptr, nullptr, fit_mode);
-//                break;
-//
-//            case allocator_types::SORTED_LIST:
-//                allocator_database = new allocator_sorted_list(1500, nullptr, nullptr, fit_mode);
-//                break;
-//
-//            case allocator_types::GLOBAL_HEAP:
-//                allocator_database = new allocator_global_heap();
-//                break;
-//        }
-//    }
+public:
+
+//    info about buyer: key - id_buyer, value - name, date, address, id_oder
 
     void add_value(
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            key const &key_value,
-            value const &value_value)
+            int id_buyer,
+            std::string& name,
+            std::string& date,
+            std::string& address,
+            int id_oder)
     {
-        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+        find_pool(pool_name).find_scheme(scheme_name)
+                            .find_collection(collection_name)
+                            .add_value(id_buyer, id_oder, name, address, date);
     }
 
+    // path_file, start_value_bytes, size_value
+
     void add_value(
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            key const &key_value,
-            value &&value_value)
+            int id_buyer,
+            std::string &path_file,
+            std::pair<long, long> first_byte_and_size)
+//            long start_value_bytes,
+//            long size_value)
     {
-        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+        long start_value_bytes = first_byte_and_size.first;
+        long size_value = first_byte_and_size.second;
+
+        find_pool(pool_name).find_scheme(scheme_name)
+                            .find_collection(collection_name)
+                            .add_value(id_buyer, path_file, start_value_bytes, size_value);
     }
 
     void update_value(
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            key const &key_value,
-            value const &value_value)
+            int id_buyer,
+            std::string& name,
+            std::string& date,
+            std::string& address,
+            int id_oder)
     {
-        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+        find_pool(pool_name).find_scheme(scheme_name)
+                            .find_collection(collection_name)
+                            .update_value(id_buyer, id_oder, name, address, date);
     }
 
     void update_value(
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            key const &key_value,
-            value &&value_value)
+            int id_buyer,
+            std::string &path_file,
+            std::pair<long, long> first_byte_and_size)
+//            long start_value_bytes,
+//            long size_value)
     {
-        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+        long start_value_bytes = first_byte_and_size.first;
+        long size_value = first_byte_and_size.second;
+
+        find_pool(pool_name).find_scheme(scheme_name)
+                            .find_collection(collection_name)
+                            .update_value(id_buyer, path_file, start_value_bytes, size_value);
     }
 
-//    value &obtain_value(
-//            std::string const& pool_name,
-//            std::string const& scheme_name,
-//            std::string const& collection_name,
-//            key const &key_value)
-//    {
-//        return find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name).
-//    }
-//
-//    value dispose_value(
-//            std::string const& pool_name,
-//            std::string const& scheme_name,
-//            std::string const& collection_name,
-//            key const &key)
-//    {
-//        return find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
-//    }
-
-    std::vector<typename associative_container<key, value>::key_value_pair> obtain_between_value(
+    value* obtain_value(
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            key const &lower_bound,
-            key const &upper_bound,
-            bool lower_bound_inclusive,
-            bool upper_bound_inclusive)
+            int id_buyer)
     {
-        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+        return find_pool(pool_name).find_scheme(scheme_name)
+                                    .find_collection(collection_name)
+                                    .find_value(id_buyer);
     }
+
+    void delete_value(
+            std::string const& pool_name,
+            std::string const& scheme_name,
+            std::string const& collection_name,
+            int id_buyer)
+    {
+        return find_pool(pool_name).find_scheme(scheme_name)
+                                    .find_collection(collection_name)
+                                    .delete_value(id_buyer);
+    }
+
+//    std::vector<typename associative_container<key, value>::key_value_pair> obtain_between_value(
+//            std::string const& pool_name,
+//            std::string const& scheme_name,
+//            std::string const& collection_name,
+//            key const &lower_bound,
+//            key const &upper_bound,
+//            bool lower_bound_inclusive,
+//            bool upper_bound_inclusive)
+//    {
+//        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name);
+//    }
 
 
 public:
@@ -214,10 +227,9 @@ public:
 
 public:
 
-    void *set_mode(enums::mode mode_database)
+    enums::mode get_mode(enums::mode mode_database)
     {
-        _mode = mode_database;
-        return this;
+        return _mode = mode_database;
     }
 
 private:

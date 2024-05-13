@@ -241,24 +241,24 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
  /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/fstream \
- /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/cstdarg \
- /usr/include/mqueue.h /usr/include/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
- /usr/include/x86_64-linux-gnu/bits/mqueue.h /usr/include/c++/9/cstring \
- /usr/include/string.h /usr/include/strings.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/input_file_parse.h
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/set \
+ /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/input_file_parse.h \
+ /usr/include/c++/9/filesystem /usr/include/c++/9/bits/fs_fwd.h \
+ /usr/include/c++/9/bits/fs_path.h /usr/include/c++/9/locale \
+ /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/9/bits/locale_conv.h /usr/include/c++/9/iomanip \
+ /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/codecvt \
+ /usr/include/c++/9/bits/fs_dir.h /usr/include/c++/9/bits/fs_ops.h
