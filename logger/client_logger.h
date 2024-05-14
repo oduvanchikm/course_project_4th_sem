@@ -18,13 +18,9 @@ private:
 
     static std::map<std::string, std::pair<std::ofstream*, size_t >> _global_streams;
 
-private:
-
-    std::string _format_string;
-
 public:
 
-    explicit client_logger(std::map<std::string, std::set<logger::severity>> const &, std::string const& format_string);
+    explicit client_logger(std::map<std::string, std::set<logger::severity>> const &);
 
     client_logger(client_logger const &other) = delete;
 

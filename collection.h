@@ -57,8 +57,8 @@ public:
         _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_file));
     }
 
-    void add_value(int id_buyer, int id_oder, std::string& name,
-                   std::string& address, std::string& date)
+    void add_value(int id_buyer, std::string& name, std::string& date,
+                   std::string& address, int id_oder)
     {
         auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
                 sizeof(value_in_memory_cash), 1)));
@@ -140,13 +140,15 @@ public:
             _data(new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data))),
             _allocator_for_data_base(other._allocator_for_data_base)
     {
-
+        _t = other._t;
     }
 
     collection &operator=(collection const &other)
     {
         if (this != &other)
         {
+            _t = other._t;
+
             delete this->_data;
 
             if (this->_allocator_for_data_base != other._allocator_for_data_base)
@@ -163,6 +165,7 @@ public:
 
     collection(collection &&other) noexcept
     {
+        _t = other._t;
         this->_data = other._data;
         other._data = nullptr;
 
@@ -174,6 +177,7 @@ public:
     {
         if (this != &other)
         {
+            _t = other._t;
             delete this->_data;
             this->_data = other._data;
             other._data = nullptr;

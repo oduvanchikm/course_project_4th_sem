@@ -21,7 +21,6 @@ public:
     void parse_input_file(std::ifstream& input_file, database* data_base_parse, logger* log)
     {
         log->trace("[input_file_parse] start parse input file method");
-        std::cout << "[input_file_parse] start parse input file method" << std::endl;
 
         std::string line;
         while (input_file >> line)
@@ -31,7 +30,6 @@ public:
             if (line == "ADD_POOL")
             {
                 log->debug("[add_pool] find ADD_POOL function");
-                std::cout << "[add_pool] find ADD_POOL function" << std::endl;
 
                 std::string pool_name;
 
@@ -42,18 +40,15 @@ public:
                 {
                     data_base_parse->add_pool(pool_name);
                     log->debug("[add_pool] the pool has been added successfully");
-                    std::cout << "[add_pool] the pool has been added successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_pool] error with add pool");
-                    std::cout << "[add_pool] error with add pool" << std::endl;
                 }
             }
             else if (line == "DELETE_POOL")
             {
                 log->debug("[delete_pool] find DELETE_POOL function");
-                std::cout << "[delete_pool] find DELETE_POOL function" << std::endl;
 
                 std::string pool_name;
 
@@ -64,41 +59,35 @@ public:
                 {
                     data_base_parse->delete_pool(pool_name);
                     log->debug("[delete_pool] the pool has been deleted successfully");
-                    std::cout << "[delete_pool] the pool has been deleted successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[delete_pool] error with delete pool");
-                    std::cout << "[delete_pool] error with delete pool" << std::endl;
                 }
             }
             else if (line == "ADD_SCHEME")
             {
                 log->debug("[add_scheme] find ADD_SCHEME function");
-                std::cout << "[add_scheme] find ADD_SCHEME function" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
 
                 input_file >> pool_name >> scheme_name;
-                std::cout << line << " " << scheme_name << std::endl;
+                std::cout << line << " " << pool_name << " " << scheme_name << std::endl;
 
                 try
                 {
                     data_base_parse->add_scheme(pool_name, scheme_name);
                     log->debug("[add_scheme] the scheme has been added successfully");
-                    std::cout << "[add_scheme] the scheme has been added successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_scheme] error with add scheme");
-                    std::cout << "[add_scheme] error with add scheme" << std::endl;
                 }
             }
             else if (line == "DELETE_SCHEME")
             {
                 log->debug("[delete_scheme] find DELETE_SCHEME function");
-                std::cout << "[delete_scheme] find DELETE_SCHEME function" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -110,43 +99,39 @@ public:
                 {
                     data_base_parse->delete_scheme(pool_name, scheme_name);
                     log->debug("[delete_scheme] the scheme has been deleted successfully");
-                    std::cout << "[delete_scheme] the scheme has been deleted successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[delete_scheme] error with deleted scheme");
-                    std::cout << "[delete_scheme] error with deleted scheme" << std::endl;
                 }
             }
             else if (line == "ADD_COLLECTION")
             {
                 log->debug("[add_collection] find ADD_COLLECTION function");
-                std::cout << "[add_collection] find ADD_COLLECTION function" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
 
                 input_file >> pool_name >> scheme_name >> collection_name;
-                std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << std::endl;
+
+                log->debug(line + " " + pool_name + " " + scheme_name + " " + collection_name);
 
                 try
                 {
                     data_base_parse->add_collection(pool_name, scheme_name, collection_name);
                     log->debug("[add_collection] the collection has been added successfully");
-                    std::cout << "[add_collection] the collection has been added successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
+                    std::cout << error.what() << std::endl;
                     log->error("[add_collection] error with add collection");
-                    std::cout << "[add_collection] error with add collection" << std::endl;
                 }
 
             }
             else if (line == "DELETE_COLLECTION")
             {
                 log->debug("[delete_collection] find DELETE_COLLECTION function");
-                std::cout << "[delete_collection] find DELETE_COLLECTION function" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -159,18 +144,16 @@ public:
                 {
                     data_base_parse->delete_collection(pool_name, scheme_name, collection_name);
                     log->debug("[delete_collection] the collection has been deleted successfully");
-                    std::cout << "[delete_collection] the collection has been deleted successfully" << std::endl;
                 }
-                catch(const std::exception& error)
+                catch (const std::exception& error)
                 {
+                    std::cout << error.what() << std::endl;
                     log->error("[delete_collection] error with delete collection");
-                    std::cout << "[delete_collection] error with delete collection" << std::endl;
                 }
             }
             else if (line == "ADD_VALUE")
             {
-                log->debug("[add_value] find ADD_VALUE function");
-                std::cout << "[add_value] find ADD_VALUE function" << std::endl;
+                log->trace("[add_value] find ADD_VALUE function");
 
 //                 info about buyer: key - id_buyer, value - name, date, address, id_oder
 
@@ -178,70 +161,137 @@ public:
                 std::string scheme_name;
                 std::string collection_name;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                int id_buyer;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
 
-//                std::string name;
-//                std::string date;
-//                std::string address;
-//                int id_buyer;
-//                int id_oder;
-//                std::string path_filename = "database_input.txt";
-//
-//                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> id_oder >> name >> date >> address;
-//                std::cout << line << " " << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << id_oder << " " << name << " " << date << " " << address << std::endl;
-//
-//                // find pos id_oder
-//
-//                std::pair<long, long> information_for_file_system = read_byte_number(input_file, id_oder);
-//
-//                std::cout << "hello debil" << std::endl;
-//
-//                std::cout << "position: " << information_for_file_system.first << " size: " << information_for_file_system.second << std::endl;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
 
+                try
+                {
+                    data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_oder);
+                    log->trace("[add_value] value has added");
+                }
+                catch (const std::exception& error)
+                {
+                    std::cout << error.what() << std::endl;
+                    log->error("[add_value] error with add value");
+                }
             }
             else if (line == "UPDATE_VALUE")
             {
                 log->debug("[update_value] find UPDATE_VALUE function");
-                std::cout << "[update_value] find UPDATE_VALUE function" << std::endl;
+
+//                 info about buyer: key - id_buyer, value - name, date, address, id_oder
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+
+                try
+                {
+
+                }
+                catch (const std::exception& error)
+                {
+                    std::cout << error.what() << std::endl;
+                    log->error("[update_value] error with update value");
+                }
             }
             else if (line == "FIND_VALUE")
             {
                 log->debug("[find_value] find FIND_VALUE function");
-                std::cout << "[find_value] find FIND_VALUE function" << std::endl;
+
+//                 info about buyer: key - id_buyer, value - name, date, address, id_oder
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+
+                try
+                {
+
+                }
+                catch (const std::exception& error)
+                {
+                    std::cout << error.what() << std::endl;
+                    log->error("[find_value] error with find_value");
+                }
             }
             else if (line == "DELETE_VALUE")
             {
                 log->debug("[delete_value] find DELETE_VALUE function");
-                std::cout << "[delete_value] find DELETE_VALUE function" << std::endl;
+
+//                 info about buyer: key - id_buyer, value - name, date, address, id_oder
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+
+                try
+                {
+
+                }
+                catch (const std::exception& error)
+                {
+                    std::cout << error.what() << std::endl;
+                    log->error("[delete_value] error with delete value");
+                }
             }
             else if (line == "FIND_BETWEEN_VALUE")
             {
                 log->debug("[find_between_value] find FIND_BETWEEN_VALUE function");
-                std::cout << "[find_between_value] find FIND_BETWEEN_VALUE function" << std::endl;
+
+//                 info about buyer: key - id_buyer, value - name, date, address, id_oder
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+
+                try
+                {
+
+                }
+                catch (const std::exception& error)
+                {
+                    std::cout << error.what() << std::endl;
+                    log->error("[find_between_value] error with find between value");
+                }
             }
         }
     }
@@ -250,24 +300,64 @@ public:
 
     // TODO file_system
 
-    std::pair<long, long> read_byte_number(std::ifstream& input_file, int id_oder)
+    std::pair<long, long> serialization(std::ifstream& input_file, std::string name, int id_oder)
     {
+//        std::pair<long, long> positions;
+//
+//        if (input_file.is_open())
+//        {
+//            std::string word;
+//            long position = 0;
+//            while (input_file >> word)
+//            {
+//                if (word == name)
+//                {
+//                    positions.first = position;
+//                }
+//                if (std::stoi(word) == id_oder)
+//                {
+//                    positions.second = position;
+//                }
+//                position = input_file.tellg();
+//            }
+//        }
+//
+//        return positions;
+
         std::pair<long, long> information_for_file_system;
 
-        input_file.seekg(0, std::ios::end);
+//        input_file.seekg(0, std::ios::end); // to the end of file
         long position = input_file.tellg();
         information_for_file_system.first = position;
 
-        long size_value = std::to_string(id_oder).size();
-        information_for_file_system.second = size_value;
+//        long size_value = std::to_string(id_oder).size();
+//        information_for_file_system.second = size_value;
 
         return information_for_file_system;
+    }
+
+    value_in_memory_cash deserialization(long first_byte, long size_value, std::ifstream& input_file, value_in_memory_cash& buffer_memory)
+    {
+        input_file.seekg(first_byte, std::ios::beg);
+        char* buffer = new char[size_value];
+
+        input_file.read(buffer, size_value);
+
+        for (int i = 0; i < size_value; ++i)
+        {
+            std::cout << buffer[i];
+        }
+
+        buffer_memory = *reinterpret_cast<value_in_memory_cash*>(buffer);
+
+        delete[] buffer;
+
+        return buffer_memory;
     }
 
     void parse_input_file_for_file_system(std::ifstream& input_file, database* data_base_parse, logger* log)
     {
         log->trace("[input_file_parse] start parse input file method");
-        std::cout << "[input_file_parse] start parse input file method" << std::endl;
 
         std::string base_directory_name = "data_base";
 
@@ -276,7 +366,7 @@ public:
             try
             {
                 std::filesystem::create_directory(base_directory_name);
-                log->trace("directory 'data_base' has created");
+                log->trace("directory " + base_directory_name + " has created");
             }
             catch (const std::exception& e)
             {
@@ -293,7 +383,6 @@ public:
             if (line == "ADD_POOL")
             {
                 log->trace("[add_pool] find add_pool");
-                std::cout << "[add_pool] find add_pool" << std::endl;
 
                 std::string pool_name;
                 input_file >> pool_name;
@@ -329,18 +418,15 @@ public:
                 {
                     data_base_parse->add_pool(pool_name);
                     log->debug("[add_pool] the pool has been added successfully");
-                    std::cout << "[add_pool] the pool has been added successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_pool] error with add pool");
-                    std::cout << "[add_pool] error with add pool" << std::endl;
                 }
             }
             else if (line == "DELETE_POOL")
             {
                 log->trace("[delete_pool] find delete_pool");
-                std::cout << "[delete_pool] find delete_pool" << std::endl;
 
                 std::string pool_name;
                 input_file >> pool_name;
@@ -376,18 +462,15 @@ public:
                 {
                     data_base_parse->delete_pool(pool_name);
                     log->debug("[add_pool] the pool has been deleted successfully");
-                    std::cout << "[add_pool] the pool has been deleted successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_pool] error with add pool");
-                    std::cout << "[add_pool] error with add pool" << std::endl;
                 }
             }
             else if (line == "ADD_SCHEME")
             {
                 log->trace("[add_scheme] find add_scheme");
-                std::cout << "[add_scheme] find add_scheme" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -399,12 +482,10 @@ public:
                 {
                     data_base_parse->add_scheme(pool_name, scheme_name);
                     log->debug("[add_scheme] the scheme has been added successfully");
-                    std::cout << "[add_scheme] the scheme has been added successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_scheme] error with add scheme");
-                    std::cout << "[add_scheme] error with add scheme" << std::endl;
                 }
 
                 try
@@ -436,7 +517,6 @@ public:
             else if (line == "DELETE_SCHEME")
             {
                 log->trace("[delete_scheme] find delete_scheme");
-                std::cout << "[delete_scheme] find delete_scheme" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -448,12 +528,10 @@ public:
                 {
                     data_base_parse->delete_scheme(pool_name, scheme_name);
                     log->debug("[add_scheme] the scheme has been deleted successfully");
-                    std::cout << "[add_scheme] the scheme has been deleted successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[add_scheme] error with delete scheme");
-                    std::cout << "[add_scheme] error with delete scheme" << std::endl;
                 }
 
                 try
@@ -485,7 +563,6 @@ public:
             else if (line == "ADD_COLLECTION")
             {
                 log->trace("[add_collection] find add_collection");
-                std::cout << "[add_collection] find add_collection" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -495,17 +572,15 @@ public:
 
                 std::cout << "pool_name: " << pool_name << " scheme_name: " << scheme_name << " collection_name: " << collection_name << std::endl;
 
-                try
-                {
-                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
-                    log->debug("[add_collection] the collection has been added successfully");
-                    std::cout << "[add_collection] the collection has been added successfully" << std::endl;
-                }
-                catch(const std::exception& error)
-                {
-                    log->error("[add_collection] error with add collection");
-                    std::cout << "[add_collection] error with add collection" << std::endl;
-                }
+//                try
+//                {
+//                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
+//                    log->debug("[add_collection] the collection has been added successfully");
+//                }
+//                catch(const std::exception& error)
+//                {
+//                    log->error("[add_collection] error with add collection");
+//                }
 
                 try
                 {
@@ -537,7 +612,6 @@ public:
             else if (line == "DELETE_COLLECTION")
             {
                 log->trace("[delete_collection] find delete_collection");
-                std::cout << "[delete_collection] find delete_collection" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -578,18 +652,15 @@ public:
                 {
                     data_base_parse->delete_collection(pool_name, scheme_name, collection_name);
                     log->debug("[delete_collection] the collection has been deleted successfully");
-                    std::cout << "[delete_collection] the collection has been deleted successfully" << std::endl;
                 }
                 catch(const std::exception& error)
                 {
                     log->error("[delete_collection] error with add collection");
-                    std::cout << "[delete_collection] error with add collection" << std::endl;
                 }
             }
             else if (line == "ADD_VALUE")
             {
                 log->trace("[add_value] find add_value");
-                std::cout << "[add_value] find add_value" << std::endl;
 
 //                 info about buyer: key - id_buyer, value - name, date, address, id_oder
                 std::string pool_name;
@@ -643,22 +714,23 @@ public:
                     std::cerr << "error creating the file " + value_file_name << e.what() << std::endl;
                 }
 
-                std::pair<long, long> first_byte_and_size = read_byte_number(input_file, id_oder);
+                std::pair<long, long> first_byte_and_size = serialization(input_file, name, id_oder);
+                std::cout << "first_byte: " << first_byte_and_size.first << " size: " << first_byte_and_size.second << std::endl;
 
-                try
-                {
-                    data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, first_byte_and_size);
-                    log->debug("[add_value] the value has been added successfully");
-                    std::cout << "[add_value] the value has been added successfully" << std::endl;
-                }
-                catch(const std::exception& error)
-                {
-                    log->error("[add_value] error with add value");
-                    std::cout << "[add_value] error with add value" << std::endl;
-                }
+//                try
+//                {
+//                    data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, first_byte_and_size);
+//                    log->debug("[add_value] the value has been added successfully");
+//                }
+//                catch(const std::exception& error)
+//                {
+//                    log->error("[add_value] error with add value");
+//                }
             }
             else if (line == "UPDATE_VALUE")
             {
+                log->trace("[update_value] find update_value");
+
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
@@ -668,11 +740,42 @@ public:
             }
             else if (line == "FIND_VALUE")
             {
+                log->trace("[find_value] find find_value");
+
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
+
+                std::string id_buyer_string = std::to_string(id_buyer);
+
+                std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << std::endl;
+
+                try
+                {
+                    pool_name = data_base_parse->validate_path(pool_name);
+                    scheme_name = data_base_parse->validate_path(scheme_name);
+                    collection_name = data_base_parse->validate_path(collection_name);
+                    id_buyer_string = data_base_parse->validate_path(id_buyer_string);
+                }
+                catch (const std::logic_error& e)
+                {
+                    std::cerr << "error " << e.what() << std::endl;
+                }
+
+                try
+                {
+                    std::cout << "hello world" << std::endl;
+
+                }
+                catch (const std::exception& e)
+                {
+                    log->error("[find_value] error with find value");
+                }
+
+
 
             }
             else if (line == "DELETE_VALUE")

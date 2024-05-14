@@ -17,10 +17,15 @@ int main(int argc, char* argv[])
     logger_builder* builder = new client_logger_builder();
 
     logger *constructed_logger = builder
+            ->add_console_stream(logger::severity::information)
+            ->add_console_stream(logger::severity::debug)
+            ->add_console_stream(logger::severity::error)
             ->add_file_stream("log.txt", logger::severity::information)
             ->add_file_stream("log.txt", logger::severity::debug)
             ->add_file_stream("log.txt", logger::severity::error)
             ->build();
+
+
 
     std::string file_path = argv[1];
     if (!(db->validate_input_file_path(file_path)))

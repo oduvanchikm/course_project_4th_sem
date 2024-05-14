@@ -41,5 +41,4 @@ add_executable(course_project
         logger/logger.h
         logger/logger.h
         enums.h
-        new_comparer.h
 )

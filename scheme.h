@@ -47,7 +47,9 @@ public:
 
     collection& find_collection(std::string const& name_collection) const
     {
-        return _scheme->obtain(name_collection);
+        collection& cl = const_cast<collection&>(_scheme->obtain(name_collection));
+        std::cout << "find collection" << std::endl;
+        return cl;
     }
 
 
@@ -60,6 +62,7 @@ public:
 
     scheme(scheme const &other)
     {
+        _t = other._t;
         _scheme = new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
     }
 
@@ -67,6 +70,7 @@ public:
     {
         if (this != &other)
         {
+            _t = other._t;
             delete this->_scheme;
             _scheme =  new b_tree<std::string, collection>(*dynamic_cast<b_tree<std::string, collection>*>(other._scheme));
         }
@@ -75,6 +79,7 @@ public:
 
     scheme(scheme &&other)  noexcept: _scheme(other._scheme)
     {
+        _t = other._t;
         other._scheme = nullptr;
     }
 
@@ -82,7 +87,7 @@ public:
     {
         if(this != &other)
         {
-
+            _t = other._t;
             delete this->_scheme;
             _scheme = other._scheme;
             other._scheme = nullptr;

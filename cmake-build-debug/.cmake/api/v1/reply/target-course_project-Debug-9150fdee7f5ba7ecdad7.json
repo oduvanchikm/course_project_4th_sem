@@ -123,8 +123,7 @@
 				25,
 				26,
 				27,
-				28,
-				29
+				28
 			]
 		},
 		{
@@ -293,11 +292,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "enums.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "new_comparer.h",
 			"sourceGroupIndex" : 0
 		}
 	],

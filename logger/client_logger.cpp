@@ -7,10 +7,8 @@
 std::map<std::string, std::pair<std::ofstream*, size_t> > client_logger::_global_streams =
         std::map<std::string, std::pair<std::ofstream*, size_t> >();
 
-
-client_logger::client_logger(std::map<std::string, std::set<logger::severity>> const& builder_streams, std::string const& format_string) : _format_string(format_string)
+client_logger::client_logger(std::map<std::string, std::set<logger::severity>> const& builder_streams)
 {
-
     for (auto &builder_stream : builder_streams)
     {
         auto stream = _global_streams.find(builder_stream.first);
@@ -18,17 +16,13 @@ client_logger::client_logger(std::map<std::string, std::set<logger::severity>> c
 
         if(stream == _global_streams.end())
         {
-            if(stream->first != "console")
+            if(builder_stream.first != "console")
             {
                 file = new std::ofstream;
                 file->open(builder_stream.first);
-
             }
-
             _global_streams.insert(std::make_pair(builder_stream.first, std::make_pair(file, 1)));
-
         }
-
         else
         {
             file = stream->second.first;
@@ -38,8 +32,6 @@ client_logger::client_logger(std::map<std::string, std::set<logger::severity>> c
         _streams.insert(std::make_pair(builder_stream.first, std::make_pair(file, builder_stream.second)));
     }
 }
-
-
 
 client_logger::~client_logger() noexcept
 {
@@ -69,14 +61,21 @@ logger const *client_logger::log(const std::string &text, logger::severity sever
     {
         if (stream.second.second.find(severity) != stream.second.second.end())
         {
-            if (stream.second.first == nullptr)
+            if (stream.first == "console")
             {
                 std::cout << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text << std::endl;
             }
             else
             {
-                (*stream.second.first) << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text;
-                (*stream.second.first) << std::endl;
+                if (stream.second.first == nullptr)
+                {
+                    std::cout << "be" << std::endl;
+                    std::cout << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text << std::endl;
+                }
+                else
+                {
+                    (*stream.second.first) << "[" << current_datetime_to_string() << "][" << severity_to_string(severity) << "]" << text << std::endl;
+                }
             }
         }
     }

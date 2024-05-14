@@ -1,7 +1,8 @@
-[13.05.2024 07:40:27][DEBUG][add_pool] find ADD_POOL function
-[13.05.2024 07:40:27][DEBUG][add_pool] the pool has been added successfully
-[13.05.2024 07:40:27][DEBUG][add_scheme] find ADD_SCHEME function
-[13.05.2024 07:40:27][DEBUG][add_scheme] the scheme has been added successfully
-[13.05.2024 07:40:27][DEBUG][add_collection] find ADD_COLLECTION function
-[13.05.2024 07:40:27][ERROR][add_collection] error with add collection
-[13.05.2024 07:40:27][DEBUG][add_value] find ADD_VALUE function
+[14.05.2024 13:39:16][DEBUG][add_pool] find ADD_POOL function
+[14.05.2024 13:39:16][DEBUG][add_pool] the pool has been added successfully
+[14.05.2024 13:39:16][DEBUG][add_scheme] find ADD_SCHEME function
+[14.05.2024 13:39:16][DEBUG][add_scheme] the scheme has been added successfully
+[14.05.2024 13:39:16][DEBUG][add_collection] find ADD_COLLECTION function
+[14.05.2024 13:39:16][DEBUG]ADD_COLLECTION pool1 scheme1 collection1
+[14.05.2024 13:39:16][DEBUG][add_collection] the collection has been added successfully
+[14.05.2024 13:39:16][DEBUG]pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6

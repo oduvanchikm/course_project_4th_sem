@@ -54,7 +54,9 @@ public:
 
     pool& find_pool(std::string const& pool_name) const
     {
-        return const_cast<pool&>(_database_entrypoint->obtain(pool_name));
+        pool& p = const_cast<pool&>(_database_entrypoint->obtain(pool_name));
+        std::cout << "find pool" << std::endl;
+        return p;
     }
 
 public:
@@ -71,7 +73,9 @@ public:
 
     scheme& find_scheme(std::string const& pool_name, std::string const& scheme_name) const
     {
-        return const_cast<scheme&>((find_pool(pool_name)).find_scheme(scheme_name));
+        scheme& s = const_cast<scheme&>((find_pool(pool_name)).find_scheme(scheme_name));
+        std::cout << "find scheme" << std::endl;
+        return s;
     }
 
 public:
@@ -79,7 +83,8 @@ public:
     void add_collection(std::string const& pool_name, std::string const& scheme_name,
                         std::string const& collection_name)
     {
-        (find_scheme(pool_name, scheme_name)).add_collection(collection_name);
+        find_pool(pool_name).find_scheme(scheme_name).add_collection(collection_name);
+//        (find_scheme(pool_name, scheme_name)).add_collection(collection_name);
     }
 
     void delete_collection(std::string const& pool_name, std::string const& scheme_name,
@@ -110,7 +115,7 @@ public:
     {
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
-                .add_value(id_buyer, id_oder, name, address, date);
+                .add_value(id_buyer, name, date, address, id_oder);
     }
 
     // path_file, start_value_bytes, size_value

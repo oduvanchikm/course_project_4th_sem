@@ -33,12 +33,13 @@ public:
     void add_scheme(std::string const &scheme_name) const
     {
         _pool->insert(scheme_name, scheme(_t));
-        std::cout << "scheme added uchu" << std::endl;
     }
 
     scheme& find_scheme(std::string const &scheme_name) const
     {
-        return _pool->obtain(scheme_name);
+        scheme& p = const_cast<scheme&>(_pool->obtain(scheme_name));
+        std::cout << "find scheme" << std::endl;
+        return p;
     }
 
     void remove_scheme(std::string const & scheme_name) const
@@ -56,12 +57,14 @@ public:
     pool(pool const &other) :
             _pool(new b_tree<std::string, scheme>(*dynamic_cast<b_tree<std::string, scheme>*>(other._pool)))
     {
+        _t = other._t;
     }
 
     pool &operator=(pool const &other)
     {
         if (this != &other)
         {
+            _t = other._t;
             delete this->_pool;
             this->_pool = new b_tree<std::string, scheme>(*dynamic_cast<b_tree<std::string, scheme>*>(other._pool));
         }
@@ -71,6 +74,7 @@ public:
 
     pool(pool&& other) noexcept
     {
+        _t = other._t;
         this->_pool = other._pool;
         other._pool = nullptr;
     }
@@ -79,6 +83,7 @@ public:
     {
         if (this != &other)
         {
+            _t = other._t;
             delete this->_pool;
             this->_pool = other._pool;
             other._pool = nullptr;

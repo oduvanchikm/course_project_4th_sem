@@ -1,4 +1,4 @@
-C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec "/mnt/c/Program Files/JetBrains/CLion 2024.1/bin/ttyfix" /bin/sh -c "export CLION_IDE=TRUE && export CMAKE_COLOR_DIAGNOSTICS=ON && export JETBRAINS_IDE=TRUE && cd /home/passwd/course_project/course_project_4th_sem/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /home/passwd/course_project/course_project_4th_sem -B /home/passwd/course_project/course_project_4th_sem/cmake-build-debug"
+C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec "/mnt/c/Program Files/JetBrains/CLion 2024.1/bin/ttyfix" /bin/bash -c "export CLION_IDE=TRUE && export CMAKE_COLOR_DIAGNOSTICS=ON && export JETBRAINS_IDE=TRUE && cd /home/passwd/course_project/course_project_4th_sem/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /home/passwd/course_project/course_project_4th_sem -B /home/passwd/course_project/course_project_4th_sem/cmake-build-debug"
 CMake Deprecation Warning:
   Support for "Extra Generators" like
 
