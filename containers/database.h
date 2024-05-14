@@ -1,9 +1,9 @@
 #ifndef COURSE_PROJECT_DATABASE_H
 #define COURSE_PROJECT_DATABASE_H
 #include "pool.h"
-#include "enums.h"
-#include "include/b_tree.h"
-#include "comparer.h"
+#include "../enums/enums.h"
+#include "../include/b_tree.h"
+#include "../comparator/comparer.h"
 
 class database
 {
@@ -81,10 +81,31 @@ public:
 public:
 
     void add_collection(std::string const& pool_name, std::string const& scheme_name,
-                        std::string const& collection_name)
+                        std::string const& collection_name, allocator_types
+                         type, allocator_with_fit_mode::fit_mode fit_mode)
     {
-        find_pool(pool_name).find_scheme(scheme_name).add_collection(collection_name);
-//        (find_scheme(pool_name, scheme_name)).add_collection(collection_name);
+        scheme& scheme_db = const_cast<scheme&>(find_pool(pool_name).find_scheme(scheme_name));
+
+        switch (type)
+        {
+            case allocator_types::BOUNDARY_TAGS:
+                _allocator_database = new allocator_boundary_tags(500, nullptr, nullptr, fit_mode);
+                break;
+
+            case allocator_types::BUDDIE_SYSTEM:
+                _allocator_database = new allocator_buddies_system(500, nullptr, nullptr, fit_mode);
+                break;
+
+            case allocator_types::SORTED_LIST:
+                _allocator_database = new allocator_sorted_list(500, nullptr, nullptr, fit_mode);
+                break;
+
+            case allocator_types::GLOBAL_HEAP:
+                _allocator_database = new allocator_global_heap();
+                break;
+        }
+
+        scheme_db.add_collection(collection_name, type, fit_mode, _allocator_database);
     }
 
     void delete_collection(std::string const& pool_name, std::string const& scheme_name,
@@ -113,6 +134,7 @@ public:
             std::string& address,
             int id_oder)
     {
+        std::cout << "start add value in db" << std::endl;
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .add_value(id_buyer, name, date, address, id_oder);

@@ -1,9 +1,9 @@
 #ifndef COURSE_PROJECT_INPUT_FILE_PARSE_H
 #define COURSE_PROJECT_INPUT_FILE_PARSE_H
-#include "database.h"
-#include "pool.h"
-#include "scheme.h"
-#include "collection.h"
+#include "../containers/database.h"
+#include "../containers/pool.h"
+#include "../containers/scheme.h"
+#include "../containers/collection.h"
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -113,13 +113,58 @@ public:
                 std::string scheme_name;
                 std::string collection_name;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                std::string allocator_type;
+                std::string allocator_fit_mode;
 
-                log->debug(line + " " + pool_name + " " + scheme_name + " " + collection_name);
+                allocator* allocator_database;
+                allocator_types type;
+                allocator_with_fit_mode::fit_mode fit_mode;
+
+                input_file >> pool_name >> scheme_name >> collection_name >> allocator_fit_mode >> allocator_type;
+
+                log->debug(line + " " + pool_name + " " + scheme_name + " " + collection_name + " " + allocator_fit_mode + " " + allocator_type);
+
+                if (allocator_fit_mode == "the_best_fit")
+                {
+                    fit_mode = allocator_with_fit_mode::fit_mode::the_best_fit;
+                }
+                else if (allocator_fit_mode == "the_worst_fit")
+                {
+                    fit_mode = allocator_with_fit_mode::fit_mode::the_worst_fit;
+                }
+                else if (allocator_fit_mode == "first_fit")
+                {
+                    fit_mode = allocator_with_fit_mode::fit_mode::first_fit;
+                }
+                else
+                {
+                    log->error("[add_collection] wrong allocator fit mode");
+                }
+
+                if (allocator_type == "sorted_list")
+                {
+                    type = allocator_types::SORTED_LIST;
+                }
+                else if (allocator_type == "global_heap")
+                {
+                    type = allocator_types::GLOBAL_HEAP;
+                }
+                else if (allocator_type == "buddie_system")
+                {
+                    type = allocator_types::BUDDIE_SYSTEM;
+                }
+                else if (allocator_type == "boundary_tags")
+                {
+                    type = allocator_types::BOUNDARY_TAGS;
+                }
+                else
+                {
+                    log->error("[add_collection] wrong allocator type");
+                }
 
                 try
                 {
-                    data_base_parse->add_collection(pool_name, scheme_name, collection_name);
+                    data_base_parse->add_collection(pool_name, scheme_name, collection_name, type, fit_mode);
                     log->debug("[add_collection] the collection has been added successfully");
                 }
                 catch(const std::exception& error)

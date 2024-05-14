@@ -150,6 +150,12 @@ class key
 public:
 
     int _id_buyer;
+
+    key(int id_buyer) :
+        _id_buyer(id_buyer)
+    {
+
+    }
 };
 
 

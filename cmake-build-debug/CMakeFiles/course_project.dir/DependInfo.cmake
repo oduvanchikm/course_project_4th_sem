@@ -8,7 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp" "CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o.d"
+  "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp" "CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o.d"
+  "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp" "CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.cpp" "CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o.d"
+  "/home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp" "CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o" "gcc" "CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp" "CMakeFiles/course_project.dir/logger/client_logger.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/client_logger.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.cpp" "CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o.d"
   "/home/passwd/course_project/course_project_4th_sem/logger/logger.cpp" "CMakeFiles/course_project.dir/logger/logger.cpp.o" "gcc" "CMakeFiles/course_project.dir/logger/logger.cpp.o.d"

@@ -2,9 +2,9 @@
 #define COURSE_PROJECT_SCHEME_H
 #include "database.h"
 #include "collection.h"
-#include "include/associative_container.h"
-#include "include/b_tree.h"
-#include "comparer.h"
+#include "../include/associative_container.h"
+#include "../include/b_tree.h"
+#include "../comparator/comparer.h"
 
 class scheme
 {
@@ -16,10 +16,6 @@ private:
     size_t _t;
 
 public:
-
-    allocator* _allocator_database;
-    allocator_with_fit_mode* _fit_mode;
-    allocator_types _type;
 
     associative_container<std::string, collection>* get_scheme()
     {
@@ -35,9 +31,9 @@ public:
 
 public:
 
-    void add_collection(std::string const& name_collection) const
+    void add_collection(std::string const& name_collection, allocator_types type, allocator_with_fit_mode::fit_mode fit_mode, allocator* allocator_database) const
     {
-        _scheme->insert(name_collection, collection(_allocator_database, _t, _fit_mode, _type));
+        _scheme->insert(name_collection, collection(allocator_database, _t, fit_mode, type));
     }
 
     void remove_collection(std::string const& name_collection) const

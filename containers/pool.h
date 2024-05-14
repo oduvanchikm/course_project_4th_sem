@@ -2,8 +2,8 @@
 #define COURSE_PROJECT_POOL_H
 #include "database.h"
 #include "scheme.h"
-#include "include/search_tree.h"
-#include "comparer.h"
+#include "../include/search_tree.h"
+#include "../comparator/comparer.h"
 
 class pool final
 {

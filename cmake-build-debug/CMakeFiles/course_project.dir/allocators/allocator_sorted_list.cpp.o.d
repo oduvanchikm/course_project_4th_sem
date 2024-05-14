@@ -1,6 +1,10 @@
-CMakeFiles/course_project.dir/main.cpp.o: \
- /home/passwd/course_project/course_project_4th_sem/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/9/iostream \
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o: \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp \
+ /usr/include/stdc-predef.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
+ /usr/include/c++/9/cstddef \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -9,7 +13,12 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h \
- /usr/include/c++/9/pstl/pstl_config.h /usr/include/c++/9/ostream \
+ /usr/include/c++/9/pstl/pstl_config.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger.h \
+ /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/iosfwd \
  /usr/include/c++/9/bits/stringfwd.h /usr/include/c++/9/bits/memoryfwd.h \
  /usr/include/c++/9/bits/postypes.h /usr/include/c++/9/cwchar \
@@ -17,7 +26,6 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
@@ -137,122 +145,28 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/containers/pool.h \
- /home/passwd/course_project/course_project_4th_sem/containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/containers/scheme.h \
- /home/passwd/course_project/course_project_4th_sem/containers/collection.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../parse/wb.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../enums/enums.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/associative_container.h \
- /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h \
- /usr/include/c++/9/bits/stl_vector.h \
- /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/b_tree.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/search_tree.h \
- /usr/include/c++/9/functional /usr/include/c++/9/tuple \
- /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
- /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/unordered_map \
- /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/hashtable.h \
- /usr/include/c++/9/bits/hashtable_policy.h \
- /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
- /usr/include/c++/9/bits/enable_special_members.h \
- /usr/include/c++/9/bits/unordered_map.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/bits/stl_algo.h \
- /usr/include/c++/9/bits/algorithmfwd.h \
- /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
- /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/stack \
- /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
- /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/bits/stl_stack.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /usr/include/c++/9/cstddef \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../comparator/comparer.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../enums/allocator_types.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h \
- /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
- /usr/include/c++/9/ctime /usr/include/c++/9/bits/parse_numbers.h \
- /usr/include/c++/9/mutex /usr/include/c++/9/bits/std_mutex.h \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/chrono \
+ /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
+ /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/mutex \
+ /usr/include/c++/9/tuple /usr/include/c++/9/utility \
+ /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
+ /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/std_mutex.h \
  /usr/include/c++/9/bits/unique_lock.h /usr/include/c++/9/thread \
- /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/stl_raw_storage_iter.h \
  /usr/include/c++/9/ext/concurrence.h \
  /usr/include/c++/9/bits/unique_ptr.h \
  /usr/include/c++/9/bits/shared_ptr.h \
  /usr/include/c++/9/bits/shared_ptr_base.h \
  /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
  /usr/include/c++/9/bits/shared_ptr_atomic.h \
  /usr/include/c++/9/bits/atomic_base.h \
  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
  /usr/include/c++/9/backward/auto_ptr.h \
  /usr/include/c++/9/pstl/glue_memory_defs.h \
- /usr/include/c++/9/pstl/execution_defs.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
- /usr/include/c++/9/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/9/bits/specfun.h /usr/include/c++/9/tr1/gamma.tcc \
- /usr/include/c++/9/tr1/special_function_util.h \
- /usr/include/c++/9/tr1/bessel_function.tcc \
- /usr/include/c++/9/tr1/beta_function.tcc \
- /usr/include/c++/9/tr1/ell_integral.tcc \
- /usr/include/c++/9/tr1/exp_integral.tcc \
- /usr/include/c++/9/tr1/hypergeometric.tcc \
- /usr/include/c++/9/tr1/legendre_function.tcc \
- /usr/include/c++/9/tr1/modified_bessel_func.tcc \
- /usr/include/c++/9/tr1/poly_hermite.tcc \
- /usr/include/c++/9/tr1/poly_laguerre.tcc \
- /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
- /usr/include/c++/9/bits/sstream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/search_tree.h \
- /home/passwd/course_project/course_project_4th_sem/parse/input_file_parse.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/pool.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/scheme.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/collection.h \
- /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/filesystem \
- /usr/include/c++/9/bits/fs_fwd.h /usr/include/c++/9/bits/fs_path.h \
- /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
- /usr/include/c++/9/bits/locale_conv.h /usr/include/c++/9/iomanip \
- /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/codecvt \
- /usr/include/c++/9/bits/fs_dir.h /usr/include/c++/9/bits/fs_ops.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/cstring \
- /usr/include/string.h /usr/include/strings.h
+ /usr/include/c++/9/pstl/execution_defs.h

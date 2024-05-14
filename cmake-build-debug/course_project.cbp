@@ -87,31 +87,61 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.cpp">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_types.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/collection.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/comparator/comparer.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/comparer.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/collection.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/database.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/database.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/pool.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/file.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/scheme.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/dialog/dialog.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums/allocator_types.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums/enums.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/associative_container.h">
@@ -124,9 +154,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/search_tree.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/input_file_parse.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp">
@@ -162,13 +189,10 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/pool.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/input_file_parse.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/scheme.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/wb.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/wb.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/CMakeLists.txt">

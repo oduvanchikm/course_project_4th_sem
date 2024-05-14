@@ -1,7 +1,8 @@
 #include <iostream>
-#include "database.h"
-#include "input_file_parse.h"
+#include "containers/database.h"
+#include "parse/input_file_parse.h"
 #include "logger/client_logger_builder.h"
+#include <cstring>
 
 int main(int argc, char* argv[])
 {
@@ -25,25 +26,6 @@ int main(int argc, char* argv[])
             ->add_file_stream("log.txt", logger::severity::error)
             ->build();
 
-
-
-    std::string file_path = argv[1];
-    if (!(db->validate_input_file_path(file_path)))
-    {
-        std::cerr << "error with file" << std::endl;
-        return 1;
-    }
-
-    std::ifstream input_file(argv[1]);
-
-    if (!input_file.is_open())
-    {
-        std::cerr << "error with opening file" << std::endl;
-        return 1;
-    }
-
-    // 0 - memory cache, 1 - file system
-
     std::string operating_mode = argv[2];
     enums::mode operating_mode_enum;
 
@@ -65,6 +47,37 @@ int main(int argc, char* argv[])
         std::cout << "wrong mode operating" << std::endl;
         return 1;
     }
+
+//    std::cout << "Dialog with user has started\nPlease choose an action:\n"
+//                 "1) Enter commands in a file - please enter 'file'\n"
+//                 "2) Enter commands in console - please enter 'console'\n"
+//                 "3) Exit - please enter exit" << std::endl;
+//
+//    char* command;
+//
+//    std::cin >> command;
+
+//    while(true)
+//    {
+//        if (strcmp(command, "file") == 0)
+//        {
+    std::string file_path = argv[1];
+    if (!(db->validate_input_file_path(file_path)))
+    {
+        std::cerr << "error with file" << std::endl;
+        return 1;
+    }
+
+    std::ifstream input_file(argv[1]);
+
+    if (!input_file.is_open())
+    {
+        std::cerr << "error with opening file" << std::endl;
+        return 1;
+    }
+
+    // 0 - memory cache, 1 - file system
+
     input_file_parse parse;
 
     if (operating_mode_enum == db->get_mode(enums::mode::file_system))
@@ -77,19 +90,25 @@ int main(int argc, char* argv[])
         constructed_logger->trace("get memory cache operating mode");
         parse.parse_input_file(input_file, db, constructed_logger);
     }
-
-//    db->add_pool("gg");
+//        }
+//        else if (command == "console")
+//        {
 //
-//    pool pl = db->_database_entrypoint->obtain("gg");
-//    pl.add_scheme("aboba");
-//    scheme sc = pl.get_pool()->obtain("aboba");
-//    sc.add_collection(std::string("lol"));
-//    collection cl = sc.get_scheme()->obtain("lol");
+//        }
+//        else if (command == "exit")
+//        {
 //
-//    pool pl1 = db->_database_entrypoint->obtain("gg2");
-//    pool pl2 = db->_database_entrypoint->obtain("gg3");
+//        }
+//        else
+//        {
+//            std::cout << "you enter wrong command" << std::endl;
+//            break;
+//        }
+//    }
 
+    delete constructed_logger;
     delete db;
+
 
     return 0;
 }

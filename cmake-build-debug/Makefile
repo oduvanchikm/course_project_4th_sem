@@ -129,6 +129,78 @@ course_project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/build
 .PHONY : course_project/fast
 
+allocators/allocator_boundary_tags.o: allocators/allocator_boundary_tags.cpp.o
+.PHONY : allocators/allocator_boundary_tags.o
+
+# target to build an object file
+allocators/allocator_boundary_tags.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o
+.PHONY : allocators/allocator_boundary_tags.cpp.o
+
+allocators/allocator_boundary_tags.i: allocators/allocator_boundary_tags.cpp.i
+.PHONY : allocators/allocator_boundary_tags.i
+
+# target to preprocess a source file
+allocators/allocator_boundary_tags.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.i
+.PHONY : allocators/allocator_boundary_tags.cpp.i
+
+allocators/allocator_boundary_tags.s: allocators/allocator_boundary_tags.cpp.s
+.PHONY : allocators/allocator_boundary_tags.s
+
+# target to generate assembly for a file
+allocators/allocator_boundary_tags.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.s
+.PHONY : allocators/allocator_boundary_tags.cpp.s
+
+allocators/allocator_buddies_system.o: allocators/allocator_buddies_system.cpp.o
+.PHONY : allocators/allocator_buddies_system.o
+
+# target to build an object file
+allocators/allocator_buddies_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o
+.PHONY : allocators/allocator_buddies_system.cpp.o
+
+allocators/allocator_buddies_system.i: allocators/allocator_buddies_system.cpp.i
+.PHONY : allocators/allocator_buddies_system.i
+
+# target to preprocess a source file
+allocators/allocator_buddies_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.i
+.PHONY : allocators/allocator_buddies_system.cpp.i
+
+allocators/allocator_buddies_system.s: allocators/allocator_buddies_system.cpp.s
+.PHONY : allocators/allocator_buddies_system.s
+
+# target to generate assembly for a file
+allocators/allocator_buddies_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.s
+.PHONY : allocators/allocator_buddies_system.cpp.s
+
+allocators/allocator_global_heap.o: allocators/allocator_global_heap.cpp.o
+.PHONY : allocators/allocator_global_heap.o
+
+# target to build an object file
+allocators/allocator_global_heap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o
+.PHONY : allocators/allocator_global_heap.cpp.o
+
+allocators/allocator_global_heap.i: allocators/allocator_global_heap.cpp.i
+.PHONY : allocators/allocator_global_heap.i
+
+# target to preprocess a source file
+allocators/allocator_global_heap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.i
+.PHONY : allocators/allocator_global_heap.cpp.i
+
+allocators/allocator_global_heap.s: allocators/allocator_global_heap.cpp.s
+.PHONY : allocators/allocator_global_heap.s
+
+# target to generate assembly for a file
+allocators/allocator_global_heap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.s
+.PHONY : allocators/allocator_global_heap.cpp.s
+
 allocators/allocator_guardant.o: allocators/allocator_guardant.cpp.o
 .PHONY : allocators/allocator_guardant.o
 
@@ -152,6 +224,30 @@ allocators/allocator_guardant.s: allocators/allocator_guardant.cpp.s
 allocators/allocator_guardant.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s
 .PHONY : allocators/allocator_guardant.cpp.s
+
+allocators/allocator_sorted_list.o: allocators/allocator_sorted_list.cpp.o
+.PHONY : allocators/allocator_sorted_list.o
+
+# target to build an object file
+allocators/allocator_sorted_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o
+.PHONY : allocators/allocator_sorted_list.cpp.o
+
+allocators/allocator_sorted_list.i: allocators/allocator_sorted_list.cpp.i
+.PHONY : allocators/allocator_sorted_list.i
+
+# target to preprocess a source file
+allocators/allocator_sorted_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.i
+.PHONY : allocators/allocator_sorted_list.cpp.i
+
+allocators/allocator_sorted_list.s: allocators/allocator_sorted_list.cpp.s
+.PHONY : allocators/allocator_sorted_list.s
+
+# target to generate assembly for a file
+allocators/allocator_sorted_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/course_project.dir/build.make CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.s
+.PHONY : allocators/allocator_sorted_list.cpp.s
 
 logger/client_logger.o: logger/client_logger.cpp.o
 .PHONY : logger/client_logger.o
@@ -306,9 +402,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... course_project"
+	@echo "... allocators/allocator_boundary_tags.o"
+	@echo "... allocators/allocator_boundary_tags.i"
+	@echo "... allocators/allocator_boundary_tags.s"
+	@echo "... allocators/allocator_buddies_system.o"
+	@echo "... allocators/allocator_buddies_system.i"
+	@echo "... allocators/allocator_buddies_system.s"
+	@echo "... allocators/allocator_global_heap.o"
+	@echo "... allocators/allocator_global_heap.i"
+	@echo "... allocators/allocator_global_heap.s"
 	@echo "... allocators/allocator_guardant.o"
 	@echo "... allocators/allocator_guardant.i"
 	@echo "... allocators/allocator_guardant.s"
+	@echo "... allocators/allocator_sorted_list.o"
+	@echo "... allocators/allocator_sorted_list.i"
+	@echo "... allocators/allocator_sorted_list.s"
 	@echo "... logger/client_logger.o"
 	@echo "... logger/client_logger.i"
 	@echo "... logger/client_logger.s"

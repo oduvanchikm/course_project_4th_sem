@@ -167,6 +167,62 @@ CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.cpp -o CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.s
 
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o: CMakeFiles/course_project.dir/flags.make
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o: /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o: CMakeFiles/course_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o -MF CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o.d -o CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o -c /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp
+
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp > CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.i
+
+CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.cpp -o CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.s
+
+CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o: CMakeFiles/course_project.dir/flags.make
+CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o: /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp
+CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o: CMakeFiles/course_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o -MF CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o.d -o CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o -c /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp
+
+CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp > CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.i
+
+CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.cpp -o CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.s
+
+CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o: CMakeFiles/course_project.dir/flags.make
+CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o: /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp
+CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o: CMakeFiles/course_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o -MF CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o.d -o CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o -c /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp
+
+CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp > CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.i
+
+CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.cpp -o CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.s
+
+CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o: CMakeFiles/course_project.dir/flags.make
+CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o: /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp
+CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o: CMakeFiles/course_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o -MF CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o.d -o CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o -c /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp
+
+CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp > CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.i
+
+CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.cpp -o CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.s
+
 # Object files for target course_project
 course_project_OBJECTS = \
 "CMakeFiles/course_project.dir/logger/logger.cpp.o" \
@@ -175,7 +231,11 @@ course_project_OBJECTS = \
 "CMakeFiles/course_project.dir/main.cpp.o" \
 "CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o" \
 "CMakeFiles/course_project.dir/logger/client_logger.cpp.o" \
-"CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o"
+"CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o" \
+"CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o" \
+"CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o" \
+"CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o" \
+"CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o"
 
 # External object files for target course_project
 course_project_EXTERNAL_OBJECTS =
@@ -187,9 +247,13 @@ course_project: CMakeFiles/course_project.dir/main.cpp.o
 course_project: CMakeFiles/course_project.dir/logger/client_logger_builder.cpp.o
 course_project: CMakeFiles/course_project.dir/logger/client_logger.cpp.o
 course_project: CMakeFiles/course_project.dir/allocators/allocator_guardant.cpp.o
+course_project: CMakeFiles/course_project.dir/allocators/allocator_sorted_list.cpp.o
+course_project: CMakeFiles/course_project.dir/allocators/allocator_global_heap.cpp.o
+course_project: CMakeFiles/course_project.dir/allocators/allocator_buddies_system.cpp.o
+course_project: CMakeFiles/course_project.dir/allocators/allocator_boundary_tags.cpp.o
 course_project: CMakeFiles/course_project.dir/build.make
 course_project: CMakeFiles/course_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable course_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/passwd/course_project/course_project_4th_sem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable course_project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/course_project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

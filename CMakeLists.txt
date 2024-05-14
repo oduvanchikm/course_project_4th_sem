@@ -19,26 +19,30 @@ add_executable(course_project
         include/search_tree.h
         include/b_tree.h
         include/binary_search_tree.h
-        database.h
-        pool.h
-        scheme.h
-        collection.h
+        containers/database.h
+        containers/pool.h
+        containers/scheme.h
+        containers/collection.h
         main.cpp
-        wb.h
-        comparer.h
-        input_file_parse.h
+        parse/wb.h
+        comparator/comparer.h
+        parse/input_file_parse.h
         logger/client_logger_builder.h
         logger/client_logger.h
         logger/client_logger_builder.cpp
         logger/client_logger.cpp
         allocators/allocator_guardant.cpp
         logger/logger_builder.cpp
-        allocators/allocator_types.h
+        enums/allocator_types.h
         allocators/allocator_with_fit_mode.h
-        file.h
         logger/logger.h
         logger/logger.h
         logger/logger.h
         logger/logger.h
-        enums.h
+        enums/enums.h
+        allocators/allocator_sorted_list.cpp
+        allocators/allocator_global_heap.cpp
+        allocators/allocator_buddies_system.cpp
+        allocators/allocator_boundary_tags.cpp
+        dialog/dialog.h
 )

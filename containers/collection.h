@@ -1,18 +1,18 @@
 #ifndef COURSE_PROJECT_COLLECTION_H
 #define COURSE_PROJECT_COLLECTION_H
-#include "wb.h"
-#include "enums.h"
-#include "include/associative_container.h"
-#include "include/b_tree.h"
-#include "comparer.h"
-#include "allocators/allocator_types.h"
-#include "allocators/allocator.h"
-#include "allocators/allocator_guardant.h"
-#include "allocators/allocator_with_fit_mode.h"
-#include "allocators/allocator_global_heap.h"
-#include "allocators/allocator_sorted_list.h"
-#include "allocators/allocator_boundary_tags.h"
-#include "allocators/allocator_buddies_system.h"
+#include "../parse/wb.h"
+#include "../enums/enums.h"
+#include "../include/associative_container.h"
+#include "../include/b_tree.h"
+#include "../comparator/comparer.h"
+#include "../enums/allocator_types.h"
+#include "allocator.h"
+#include "allocator_guardant.h"
+#include "allocator_with_fit_mode.h"
+#include "allocator_global_heap.h"
+#include "allocator_sorted_list.h"
+#include "allocator_boundary_tags.h"
+#include "allocator_buddies_system.h"
 #include "allocator_with_fit_mode.h"
 
 class collection
@@ -22,20 +22,19 @@ private:
 
     associative_container<key, value*> *_data;
     allocator* _allocator_for_data_base;
-    allocator_with_fit_mode* _fit_mode;
+    allocator_with_fit_mode::fit_mode _fit_mode;
     size_t _t;
     allocator_types _type;
 
 public:
 
-    explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode* fit_mode, allocator_types type) :
+    explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode::fit_mode fit_mode, allocator_types type) :
             _t(t),
-            _data(new b_tree<key, value*>(t, key_comparer())),
-            _allocator_for_data_base(allocator_for_data_base),
             _fit_mode(fit_mode),
-            _type(type)
+            _type(type),
+            _allocator_for_data_base(allocator_for_data_base)
     {
-
+        _data = new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base);
     }
 
 public:
@@ -45,30 +44,50 @@ public:
         _data->insert(key_collection, value_collection);
     }
 
+    void add_value(int id_buyer, value* value)
+    {
+        _data->insert(key(id_buyer), value);
+    }
+
     void add_value(int id_buyer, std::string& path_file, long start_value_bytes, long string_size)
     {
-        auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
-                sizeof(value_file_system), 1)));
+        try
+        {
+            auto *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
+                    ->allocate(sizeof(value_file_system), 1)));
+//            value_file_system* value_file = new
 
-        value_file->_path_file = path_file;
-        value_file->_start_value_bytes = start_value_bytes;
-        value_file->_string_size = string_size;
+            value_file->_path_file = path_file;
+            value_file->_start_value_bytes = start_value_bytes;
+            value_file->_string_size = string_size;
 
-        _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_file));
+            _data->insert(*reinterpret_cast<key *>(id_buyer), dynamic_cast<value *>(value_file));
+        }
+        catch (const std::exception& error)
+        {
+            std::cout << error.what() << std::endl;
+        }
     }
 
     void add_value(int id_buyer, std::string& name, std::string& date,
                    std::string& address, int id_oder)
     {
-        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
-                sizeof(value_in_memory_cash), 1)));
+        std::cout << "add value in collection.h" << std::endl;
+
+        value_in_memory_cash *value_memory = reinterpret_cast<value_in_memory_cash *>(
+                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1));
+
+        std::cout << "hello world" << std::endl;
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;
         value_memory->_date = date;
         value_memory->_name_buyer = name;
 
-        _data->insert(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_memory));
+        std::cout << "bebbe" << std::endl;
+
+        _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
+        std::cout << "hohohoh" << std::endl;
     }
 
     void update_value(key& key_collection, value* value_collection) const
@@ -92,8 +111,8 @@ public:
     void update_value(int id_buyer, int id_oder, std::string& name,
                       std::string& address, std::string& date) const
     {
-        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
-                sizeof(value_in_memory_cash), 1)));
+        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(
+                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1)));
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;
