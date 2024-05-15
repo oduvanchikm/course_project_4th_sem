@@ -15,10 +15,10 @@ add_executable(course_project
         logger/logger_builder.cpp
         logger/logger_guardant.cpp
         #        allocators/allocator_buddies_system.cpp
-        include/associative_container.h
-        include/search_tree.h
-        include/b_tree.h
-        include/binary_search_tree.h
+        tree/associative_container.h
+        tree/search_tree.h
+        tree/b_tree.h
+        tree/binary_search_tree.h
         containers/database.h
         containers/pool.h
         containers/scheme.h
@@ -46,4 +46,5 @@ add_executable(course_project
         allocators/allocator_boundary_tags.cpp
         dialog/dialog.h
         validate/validate_parameters.h
+        parse/file_system_parse.h
 )

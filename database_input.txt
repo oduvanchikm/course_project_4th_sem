@@ -2,4 +2,3 @@ ADD_POOL pool1
 ADD_SCHEME pool1 scheme1
 ADD_COLLECTION pool1 scheme1 collection1 first_fit global_heap
 ADD_VALUE pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
-UPDATE_VALUE pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6

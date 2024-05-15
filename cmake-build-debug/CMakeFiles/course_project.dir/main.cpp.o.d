@@ -145,14 +145,14 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/containers/collection.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../parse/wb.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../enums/enums.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/associative_container.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/associative_container.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
  /usr/include/c++/9/bits/stl_uninitialized.h /usr/include/c++/9/utility \
  /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/b_tree.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/search_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/b_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
  /usr/include/c++/9/functional /usr/include/c++/9/tuple \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
@@ -173,11 +173,11 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/cstddef \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/../logger/logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/associative_container.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../comparator/comparer.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../enums/allocator_types.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
@@ -228,7 +228,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/tr1/poly_laguerre.tcc \
  /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../include/search_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
  /home/passwd/course_project/course_project_4th_sem/parse/input_file_parse.h \
  /home/passwd/course_project/course_project_4th_sem/parse/../containers/database.h \
  /home/passwd/course_project/course_project_4th_sem/parse/../containers/pool.h \
@@ -258,4 +258,5 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/string.h /usr/include/strings.h \
  /home/passwd/course_project/course_project_4th_sem/dialog/dialog.h \
  /home/passwd/course_project/course_project_4th_sem/dialog/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h
+ /home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h \
+ /home/passwd/course_project/course_project_4th_sem/parse/file_system_parse.h

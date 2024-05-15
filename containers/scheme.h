@@ -2,8 +2,8 @@
 #define COURSE_PROJECT_SCHEME_H
 #include "database.h"
 #include "collection.h"
-#include "../include/associative_container.h"
-#include "../include/b_tree.h"
+#include "../tree/associative_container.h"
+#include "../tree/b_tree.h"
 #include "../comparator/comparer.h"
 
 class scheme

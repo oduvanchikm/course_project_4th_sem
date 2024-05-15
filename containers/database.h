@@ -2,7 +2,7 @@
 #define COURSE_PROJECT_DATABASE_H
 #include "pool.h"
 #include "../enums/enums.h"
-#include "../include/b_tree.h"
+#include "../tree/b_tree.h"
 #include "../comparator/comparer.h"
 
 class database

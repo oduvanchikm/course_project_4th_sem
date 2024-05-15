@@ -8,7 +8,7 @@
 #include "../logger/logger_guardant.h"
 #include "../allocators/allocator.h"
 #include "../allocators/allocator_guardant.h"
-//#include "not_implemented.h"
+//#tree "not_implemented.h"
 #include "search_tree.h"
 
 template<typename tkey, typename tvalue>

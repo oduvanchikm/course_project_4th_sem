@@ -128,7 +128,8 @@
 				26,
 				27,
 				32,
-				33
+				33,
+				34
 			]
 		},
 		{
@@ -196,22 +197,22 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/associative_container.h",
+			"path" : "tree/associative_container.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/search_tree.h",
+			"path" : "tree/search_tree.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/b_tree.h",
+			"path" : "tree/b_tree.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/binary_search_tree.h",
+			"path" : "tree/binary_search_tree.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -330,6 +331,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "validate/validate_parameters.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "parse/file_system_parse.h",
 			"sourceGroupIndex" : 0
 		}
 	],

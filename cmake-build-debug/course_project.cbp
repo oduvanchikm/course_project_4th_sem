@@ -144,18 +144,6 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums/enums.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/associative_container.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/b_tree.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/binary_search_tree.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/include/search_tree.h">
-			<Option target="course_project"/>
-		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp">
 			<Option target="course_project"/>
 		</Unit>
@@ -189,10 +177,25 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/file_system_parse.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/input_file_parse.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/wb.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/associative_container.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/b_tree.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/binary_search_tree.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/search_tree.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h">

@@ -6,6 +6,7 @@
 #include "dialog/dialog.h"
 #include <string>
 #include "validate/validate_parameters.h"
+#include "parse/file_system_parse.h"
 
 int main(int argc, char* argv[])
 {
@@ -79,15 +80,17 @@ int main(int argc, char* argv[])
 
         // 0 - memory cache, 1 - file system
 
-        input_file_parse parse;
+
 
         if (operating_mode_enum == db->get_mode(enums::mode::file_system))
         {
+            file_system_parse file_system;
             constructed_logger->trace("get file system operating mode");
-            parse.parse_input_file_for_file_system(input_file, db, constructed_logger);
+            file_system.parse_input_file_for_file_system(input_file, db, constructed_logger);
         }
         else
         {
+            input_file_parse parse;
             constructed_logger->trace("get memory cache operating mode");
             parse.parse_input_file(input_file, db, constructed_logger);
         }

@@ -1,11 +1,4 @@
-[15.05.2024 14:49:30][DEBUG][add_pool] find ADD_POOL function
-[15.05.2024 14:49:30][DEBUG][add_pool] the pool has been added successfully
-[15.05.2024 14:49:30][DEBUG][add_scheme] find ADD_SCHEME function
-[15.05.2024 14:49:30][DEBUG][add_scheme] the scheme has been added successfully
-[15.05.2024 14:49:30][DEBUG][add_collection] find ADD_COLLECTION function
-[15.05.2024 14:49:30][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit global_heap
-[15.05.2024 14:49:30][DEBUG][add_collection] the collection has been added successfully
-[15.05.2024 14:49:30][DEBUG]pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
-[15.05.2024 14:49:30][DEBUG][update_value] find UPDATE_VALUE function
-[15.05.2024 14:49:30][DEBUG]pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
-[15.05.2024 14:49:30][DEBUG][update_value] value has updated
+[15.05.2024 20:22:01][DEBUG][add_pool] the pool has been added successfully
+[15.05.2024 20:22:01][DEBUG][add_scheme] the scheme has been added successfully
+[15.05.2024 20:22:01][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit global_heap
+[15.05.2024 20:22:01][DEBUG][add_collection] the collection has been added successfully
