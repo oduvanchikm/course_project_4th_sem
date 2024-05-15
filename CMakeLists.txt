@@ -45,4 +45,5 @@ add_executable(course_project
         allocators/allocator_buddies_system.cpp
         allocators/allocator_boundary_tags.cpp
         dialog/dialog.h
+        validate/validate_parameters.h
 )

@@ -127,7 +127,8 @@
 				25,
 				26,
 				27,
-				32
+				32,
+				33
 			]
 		},
 		{
@@ -324,6 +325,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "dialog/dialog.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "validate/validate_parameters.h",
 			"sourceGroupIndex" : 0
 		}
 	],

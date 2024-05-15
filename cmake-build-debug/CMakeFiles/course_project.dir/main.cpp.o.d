@@ -255,4 +255,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
  /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/cstring \
- /usr/include/string.h /usr/include/strings.h
+ /usr/include/string.h /usr/include/strings.h \
+ /home/passwd/course_project/course_project_4th_sem/dialog/dialog.h \
+ /home/passwd/course_project/course_project_4th_sem/dialog/../containers/database.h \
+ /home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h

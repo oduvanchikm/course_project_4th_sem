@@ -195,6 +195,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/wb.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

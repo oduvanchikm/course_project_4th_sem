@@ -246,7 +246,8 @@ public:
 
                 try
                 {
-
+                    data_base_parse->update_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_oder);
+                    log->debug("[update_value] value has updated");
                 }
                 catch (const std::exception& error)
                 {
@@ -274,7 +275,8 @@ public:
 
                 try
                 {
-
+                    data_base_parse->obtain_value(pool_name, scheme_name, collection_name, id_buyer);
+                    log->debug("[find_value] value has found");
                 }
                 catch (const std::exception& error)
                 {
@@ -302,7 +304,8 @@ public:
 
                 try
                 {
-
+                    data_base_parse->delete_value(pool_name, scheme_name, collection_name, id_buyer);
+                    log->debug("[delete_value] value has deleted");
                 }
                 catch (const std::exception& error)
                 {

@@ -13,7 +13,6 @@
 #include "allocator_sorted_list.h"
 #include "allocator_boundary_tags.h"
 #include "allocator_buddies_system.h"
-#include "allocator_with_fit_mode.h"
 
 class collection
 {
@@ -32,9 +31,10 @@ public:
             _t(t),
             _fit_mode(fit_mode),
             _type(type),
-            _allocator_for_data_base(allocator_for_data_base)
+            _allocator_for_data_base(allocator_for_data_base),
+            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base))
     {
-        _data = new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base);
+
     }
 
 public:
@@ -51,43 +51,28 @@ public:
 
     void add_value(int id_buyer, std::string& path_file, long start_value_bytes, long string_size)
     {
-        try
-        {
-            auto *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
+        auto *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
                     ->allocate(sizeof(value_file_system), 1)));
-//            value_file_system* value_file = new
 
-            value_file->_path_file = path_file;
-            value_file->_start_value_bytes = start_value_bytes;
-            value_file->_string_size = string_size;
+        value_file->_path_file = path_file;
+        value_file->_start_value_bytes = start_value_bytes;
+        value_file->_string_size = string_size;
 
-            _data->insert(*reinterpret_cast<key *>(id_buyer), dynamic_cast<value *>(value_file));
-        }
-        catch (const std::exception& error)
-        {
-            std::cout << error.what() << std::endl;
-        }
+        _data->insert(key(id_buyer), dynamic_cast<value *>(value_file));
     }
 
     void add_value(int id_buyer, std::string& name, std::string& date,
                    std::string& address, int id_oder)
     {
-        std::cout << "add value in collection.h" << std::endl;
-
         value_in_memory_cash *value_memory = reinterpret_cast<value_in_memory_cash *>(
                 _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1));
-
-        std::cout << "hello world" << std::endl;
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;
         value_memory->_date = date;
         value_memory->_name_buyer = name;
 
-        std::cout << "bebbe" << std::endl;
-
         _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
-        std::cout << "hohohoh" << std::endl;
     }
 
     void update_value(key& key_collection, value* value_collection) const
@@ -105,21 +90,21 @@ public:
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
 
-        _data->update(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_file));
+        _data->update(key(id_buyer), dynamic_cast<value*>(value_file));
     }
 
     void update_value(int id_buyer, int id_oder, std::string& name,
                       std::string& address, std::string& date) const
     {
-        auto* value_memory = static_cast<value_in_memory_cash*>(reinterpret_cast<value*>(
-                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1)));
+        value_in_memory_cash *value_memory = reinterpret_cast<value_in_memory_cash *>(
+                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1));
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;
         value_memory->_date = date;
         value_memory->_name_buyer = name;
 
-        _data->update(*reinterpret_cast<key*>(id_buyer), dynamic_cast<value*>(value_memory));
+        _data->update(key(id_buyer), dynamic_cast<value*>(value_memory));
     }
 
     void delete_value(key const &key_collection) const
@@ -129,7 +114,7 @@ public:
 
     void delete_value(int id_buyer) const
     {
-        _data->dispose(*reinterpret_cast<key*>(id_buyer));
+        _data->dispose(key(id_buyer));
     }
 
     value* find_value(key const &key_collection) const
@@ -139,7 +124,7 @@ public:
 
     value* find_value(int id_buyer) const
     {
-        return _data->obtain(*reinterpret_cast<key*>(id_buyer));
+        return _data->obtain(key(id_buyer));
     }
 
 //    const value* find_value_between(key const &key_collection) const
@@ -152,7 +137,7 @@ public:
 
     ~collection()
     {
-        delete _data;
+//        delete _data;
     }
 
     collection(collection const &other) :
