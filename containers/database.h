@@ -148,13 +148,9 @@ public:
             std::string const& collection_name,
             int id_buyer,
             std::string &path_file,
-            std::pair<long, long> first_byte_and_size)
-//            long start_value_bytes,
-//            long size_value)
+            long start_value_bytes,
+            long size_value)
     {
-        long start_value_bytes = first_byte_and_size.first;
-        long size_value = first_byte_and_size.second;
-
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .add_value(id_buyer, path_file, start_value_bytes, size_value);
@@ -181,13 +177,9 @@ public:
             std::string const& collection_name,
             int id_buyer,
             std::string &path_file,
-            std::pair<long, long> first_byte_and_size)
-//            long start_value_bytes,
-//            long size_value)
+            long start_value_bytes,
+            long size_value)
     {
-        long start_value_bytes = first_byte_and_size.first;
-        long size_value = first_byte_and_size.second;
-
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .update_value(id_buyer, path_file, start_value_bytes, size_value);
@@ -197,11 +189,11 @@ public:
             std::string const& pool_name,
             std::string const& scheme_name,
             std::string const& collection_name,
-            int id_buyer)
+            key key_value)
     {
         return find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
-                .find_value(id_buyer);
+                .find_value(key_value);
     }
 
     void delete_value(

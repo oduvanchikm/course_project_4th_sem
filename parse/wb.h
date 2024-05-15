@@ -94,6 +94,11 @@ public:
 
     }
 
+    value_in_memory_cash()
+    {
+
+    }
+
     ~value_in_memory_cash()
     {
     }

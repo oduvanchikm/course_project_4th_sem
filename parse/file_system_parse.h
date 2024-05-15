@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 #include <filesystem>
+#include <vector>
 
 class file_system_parse
 {
@@ -65,37 +66,43 @@ public:
         return result;
     }
 
-    std::string deserialization(std::ifstream& input_file, long position, logger* log)
+    value_in_memory_cash deserialization(std::ifstream& input_file, long position, long size, logger* log)
     {
         log->trace("[deserialization] start deserialization");
 
-        std::string file_name;
+        std::string result;
+        value_in_memory_cash value_memory;
+
+        if (!input_file.is_open())
+        {
+            log->error("[serialization] error with opening file");
+        }
+
         input_file.seekg(position);
-        input_file.read(reinterpret_cast<char*>(&file_name), sizeof(file_name));
 
-        input_file.close();
+        char buffer_with_values[size + 1];
+        input_file.read(buffer_with_values, size);
+        buffer_with_values[size] = '\0';
 
-        return file_name;
+        result.assign(buffer_with_values);
+
+        std::istringstream iss(result);
+        std::vector<std::string> words;
+
+        std::string word;
+
+        while (iss >> word)
+        {
+            words.push_back(word);
+        }
+
+        value_memory._name_buyer = words[0];
+        value_memory._date = words[1];
+        value_memory._address = words[2];
+        value_memory._id_order = std::stoi(words[3]);
+
+        return value_memory;
     }
-
-//    void deserialization(long first_byte, long size_value, std::ifstream& input_file)
-//    {
-//        input_file.seekg(first_byte, std::ios::beg);
-//        char* buffer = new char[size_value];
-//
-//        input_file.read(buffer, 4);
-//
-//        for (int i = 0; i < 4; ++i)
-//        {
-//            std::cout << buffer[i];
-//        }
-
-//        buffer_memory = *reinterpret_cast<value_in_memory_cash*>(buffer);
-//
-//        delete[] buffer;
-//
-//        return buffer_memory;
-//    }
 
     void parse_input_file_for_file_system(std::ifstream& input_file, database* data_base_parse, logger* log)
     {
@@ -458,7 +465,7 @@ public:
                 std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file, log);
 
                 long position = std::get<0>(result);
-                long size = std::get<1>(result);
+                long size = std::get<1>(result) + 1;
                 std::string name = std::get<2>(result);
                 std::string date = std::get<3>(result);
                 std::string address = std::get<4>(result);
@@ -476,29 +483,19 @@ public:
                     }
                     else
                     {
-                        log->error("error opening the file" + value_file_name);
-                        std::cerr << "error opening the file " + value_file_name << std::endl;
+                        log->error("[add_value] error opening the file" + value_file_name);
                     }
 
-                    log->trace("file " + value_file_name + " has created");
+                    log->trace("[add_value] file " + value_file_name + " has created");
+
+                    data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, position, size);
+
+                    log->debug("[add_value] the value has been added successfully");
                 }
-                catch (const std::exception& e)
+                catch(const std::exception& error)
                 {
-                    log->error("error creating the file" + value_file_name);
-                    std::cerr << "error creating the file " + value_file_name << e.what() << std::endl;
+                    log->error("[add_value] error with add value");
                 }
-
-//                deserialization(first_byte_and_size.first, first_byte_and_size.second, input_file);
-
-//                try
-//                {
-//                    data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, first_byte_and_size);
-//                    log->debug("[add_value] the value has been added successfully");
-//                }
-//                catch(const std::exception& error)
-//                {
-//                    log->error("[add_value] error with add value");
-//                }
             }
             else if (line == "UPDATE_VALUE")
             {
@@ -507,8 +504,43 @@ public:
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
+                std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file, log);
+
+                long position = std::get<0>(result);
+                long size = std::get<1>(result) + 1;
+                std::string name = std::get<2>(result);
+                std::string date = std::get<3>(result);
+                std::string address = std::get<4>(result);
+                int id_oder = std::get<5>(result);
+
+                std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << name << " " << date << " " << address << " " << id_oder << " " << std::endl;
+                std::string value_file_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name + "/" + std::to_string(id_buyer) + ".txt";
+
+                try
+                {
+                    std::ofstream file(value_file_name);
+                    if (file.is_open())
+                    {
+                        file << name << " " << date << " " << address << " " << id_oder << std::endl;
+                    }
+                    else
+                    {
+                        log->error("[update_value] error opening the file" + value_file_name);
+                    }
+
+                    log->trace("[update_value] file " + value_file_name + " has created");
+
+                    data_base_parse->update_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, position, size);
+
+                    log->debug("[update_value] the value has been updated successfully");
+                }
+                catch(const std::exception& error)
+                {
+                    log->error("[update_value] error with update value");
+                }
 
             }
             else if (line == "FIND_VALUE")
@@ -520,36 +552,40 @@ public:
                 std::string collection_name;
                 int id_buyer;
 
+                std::string name;
+                std::string date;
+                std::string address;
+                int id_oder;
+
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
 
                 std::string id_buyer_string = std::to_string(id_buyer);
 
                 std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << std::endl;
 
-                try
-                {
-                    pool_name = data_base_parse->validate_path(pool_name);
-                    scheme_name = data_base_parse->validate_path(scheme_name);
-                    collection_name = data_base_parse->validate_path(collection_name);
-                    id_buyer_string = data_base_parse->validate_path(id_buyer_string);
-                }
-                catch (const std::logic_error& e)
-                {
-                    std::cerr << "error " << e.what() << std::endl;
-                }
+//                try
+//                {
+//                    pool_name = data_base_parse->validate_path(pool_name);
+//                    scheme_name = data_base_parse->validate_path(scheme_name);
+//                    collection_name = data_base_parse->validate_path(collection_name);
+//                    id_buyer_string = data_base_parse->validate_path(id_buyer_string);
+//                }
+//                catch (const std::logic_error& e)
+//                {
+//                    std::cerr << "error " << e.what() << std::endl;
+//                }
 
                 try
                 {
-                    std::cout << "hello world" << std::endl;
+                    value_file_system* value_file = reinterpret_cast<value_file_system*>(data_base_parse->obtain_value(pool_name, scheme_name, collection_name, key(id_buyer)));
+                    value_in_memory_cash value_memory = deserialization(input_file, value_file->_start_value_bytes, value_file->_string_size, log);
 
+                    log->information("[find_value] name: " + value_memory._name_buyer + ", date: " + value_memory._date + ", address: " + value_memory._address + ", id_oder: " + std::to_string(value_memory._id_order));
                 }
                 catch (const std::exception& e)
                 {
                     log->error("[find_value] error with find value");
                 }
-
-
-
             }
             else if (line == "DELETE_VALUE")
             {

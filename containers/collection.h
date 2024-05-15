@@ -51,10 +51,11 @@ public:
 
     void add_value(int id_buyer, std::string& path_file, long start_value_bytes, long string_size)
     {
-        auto *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
+        value_file_system *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
                     ->allocate(sizeof(value_file_system), 1)));
 
-        value_file->_path_file = path_file;
+        std::cout << "hello debil" << std::endl;
+
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
 
@@ -86,7 +87,6 @@ public:
         auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
                 sizeof(value_file_system), 1)));
 
-        value_file->_path_file = path_file;
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
 
@@ -124,6 +124,7 @@ public:
 
     value* find_value(int id_buyer) const
     {
+
         return _data->obtain(key(id_buyer));
     }
 

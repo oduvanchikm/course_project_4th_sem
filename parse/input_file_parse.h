@@ -275,7 +275,7 @@ public:
 
                 try
                 {
-                    data_base_parse->obtain_value(pool_name, scheme_name, collection_name, id_buyer);
+                    data_base_parse->obtain_value(pool_name, scheme_name, collection_name, key(id_buyer));
                     log->debug("[find_value] value has found");
                 }
                 catch (const std::exception& error)
