@@ -58,10 +58,10 @@ public:
         std::get<3>(result) = date;
         std::get<4>(result) = address;
         std::get<5>(result) = id_oder;
-
-        std::cout << "size: " << data_size << std::endl;
-        std::cout << "first byte: " << position << std::endl;
-        std::cout << "last byte: " << new_position << std::endl;
+//
+//        std::cout << "size: " << data_size << std::endl;
+//        std::cout << "first byte: " << position << std::endl;
+//        std::cout << "last byte: " << new_position << std::endl;
 
         return result;
     }
@@ -70,36 +70,26 @@ public:
     {
         log->trace("[deserialization] start deserialization");
 
-        std::string result;
-        value_in_memory_cash value_memory;
-
-        if (!input_file.is_open())
-        {
-            log->error("[serialization] error with opening file");
-        }
+        std::cout << position << " " << size << std::endl;
 
         input_file.seekg(position);
 
-        char buffer_with_values[size + 1];
-        input_file.read(buffer_with_values, size);
-        buffer_with_values[size] = '\0';
+        char* buffer = new char[size];
+        input_file.read(buffer, size);
 
-        result.assign(buffer_with_values);
+        std::string serialized_data(buffer, size);
+        std::istringstream iss(serialized_data);
+        std::string name, date, address, id_oder;
+        iss >> name >> date >> address >> id_oder;
 
-        std::istringstream iss(result);
-        std::vector<std::string> words;
+        delete[] buffer;
 
-        std::string word;
+        value_in_memory_cash value_memory;
 
-        while (iss >> word)
-        {
-            words.push_back(word);
-        }
-
-        value_memory._name_buyer = words[0];
-        value_memory._date = words[1];
-        value_memory._address = words[2];
-        value_memory._id_order = std::stoi(words[3]);
+        value_memory._name_buyer = name;
+        value_memory._date = date;
+        value_memory._address = address;
+        value_memory._id_order = std::stoi(id_oder);
 
         return value_memory;
     }
@@ -487,9 +477,7 @@ public:
                     }
 
                     log->trace("[add_value] file " + value_file_name + " has created");
-
                     data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, position, size);
-
                     log->debug("[add_value] the value has been added successfully");
                 }
                 catch(const std::exception& error)
@@ -532,9 +520,7 @@ public:
                     }
 
                     log->trace("[update_value] file " + value_file_name + " has created");
-
                     data_base_parse->update_value(pool_name, scheme_name, collection_name, id_buyer, value_file_name, position, size);
-
                     log->debug("[update_value] the value has been updated successfully");
                 }
                 catch(const std::exception& error)
@@ -546,40 +532,23 @@ public:
             else if (line == "FIND_VALUE")
             {
                 log->trace("[find_value] find find_value");
+                std::cout << "find find_value" << std::endl;
 
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
                 int id_buyer;
 
-                std::string name;
-                std::string date;
-                std::string address;
-                int id_oder;
-
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
-
-                std::string id_buyer_string = std::to_string(id_buyer);
-
                 std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << std::endl;
-
-//                try
-//                {
-//                    pool_name = data_base_parse->validate_path(pool_name);
-//                    scheme_name = data_base_parse->validate_path(scheme_name);
-//                    collection_name = data_base_parse->validate_path(collection_name);
-//                    id_buyer_string = data_base_parse->validate_path(id_buyer_string);
-//                }
-//                catch (const std::logic_error& e)
-//                {
-//                    std::cerr << "error " << e.what() << std::endl;
-//                }
 
                 try
                 {
                     value_file_system* value_file = reinterpret_cast<value_file_system*>(data_base_parse->obtain_value(pool_name, scheme_name, collection_name, key(id_buyer)));
+                    std::cout << "ohh nooo" << std::endl;
+                    std::streampos original_position = input_file.tellg();
                     value_in_memory_cash value_memory = deserialization(input_file, value_file->_start_value_bytes, value_file->_string_size, log);
-
+                    input_file.seekg(original_position);
                     log->information("[find_value] name: " + value_memory._name_buyer + ", date: " + value_memory._date + ", address: " + value_memory._address + ", id_oder: " + std::to_string(value_memory._id_order));
                 }
                 catch (const std::exception& e)

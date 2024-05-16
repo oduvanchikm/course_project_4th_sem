@@ -1,6 +1,6 @@
-[15.05.2024 22:38:49][DEBUG][add_pool] the pool has been added successfully
-[15.05.2024 22:38:49][DEBUG][add_scheme] the scheme has been added successfully
-[15.05.2024 22:38:49][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit global_heap
-[15.05.2024 22:38:49][DEBUG][add_collection] the collection has been added successfully
-[15.05.2024 22:38:49][DEBUG][add_value] the value has been added successfully
-[15.05.2024 22:38:49][DEBUG][update_value] the value has been added successfully
+[16.05.2024 15:08:18][DEBUG][add_pool] the pool has been added successfully
+[16.05.2024 15:08:18][DEBUG][add_scheme] the scheme has been added successfully
+[16.05.2024 15:08:18][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit sorted_list
+[16.05.2024 15:08:18][DEBUG][add_collection] the collection has been added successfully
+[16.05.2024 15:08:18][DEBUG][add_value] the value has been added successfully
+[16.05.2024 15:08:18][INFORMATION][find_value] name: Ivanov, date: 12.05.24, address: ul.BolshoyArbat, id_oder: 6
