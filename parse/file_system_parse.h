@@ -539,7 +539,17 @@ public:
                 std::string collection_name;
                 int id_buyer;
 
-                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
+                std::string line;
+                std::getline(input_file, line);
+
+                if (!line.empty())
+                {
+                    line = line.substr(0, line.size() - 1);
+                }
+
+                std::istringstream line_stream(line);
+
+                line_stream >> pool_name >> scheme_name >> collection_name >> id_buyer;
                 std::cout << pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << std::endl;
 
                 try
@@ -561,20 +571,33 @@ public:
                 std::string pool_name;
                 std::string scheme_name;
                 std::string collection_name;
+                int id_buyer;
 
-                input_file >> pool_name >> scheme_name >> collection_name;
+                std::string id_buyer_string = std::to_string(id_buyer);
 
-//                if (std::remove(collection_file_name.c_str()) != 0)
-//                {
-//                    log->error("error deleting the file: " + collection_file_name);
-//                    std::cerr << "error deleting the file: " << collection_file_name << std::endl;
-//                }
-//                else
-//                {
-//                    log->trace("file has deleted successfully: " + collection_file_name);
-//                    std::cout << "file has deleted successfully: " << collection_file_name << std::endl;
-//                }
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
 
+                std::string value_file_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name + "/" + id_buyer_string + ".txt";
+
+                try
+                {
+                    data_base_parse->obtain_value(pool_name, scheme_name, collection_name, key(id_buyer));
+                }
+                catch (const std::exception& e)
+                {
+                    log->error("[find_value] error with find value");
+                }
+
+                if (std::remove(value_file_name.c_str()) != 0)
+                {
+                    log->error("error deleting the file: " + value_file_name);
+                    std::cerr << "error deleting the file: " << value_file_name << std::endl;
+                }
+                else
+                {
+                    log->trace("file has deleted successfully: " + value_file_name);
+                    std::cout << "file has deleted successfully: " << value_file_name << std::endl;
+                }
             }
             else if (line == "FIND_BETWEEN_VALUE")
             {
