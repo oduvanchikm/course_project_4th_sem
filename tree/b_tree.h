@@ -363,9 +363,7 @@ std::tuple<size_t, size_t, tkey const &, tvalue const &> b_tree<tkey, tvalue>::i
     return std::tuple<size_t, size_t, tkey const &, tvalue const &>(std::get<0>(data), std::get<1>(data), std::cref(std::get<2>(data)), std::cref(std::get<3>(data)));
 }
 
-template<
-        typename tkey,
-        typename tvalue>
+template<typename tkey, typename tvalue>
 void b_tree<tkey, tvalue>::insert_inner(
         typename associative_container<tkey, tvalue>::key_value_pair &&kvp)
 {
@@ -426,7 +424,7 @@ void b_tree<tkey, tvalue>::insert(
         const tkey &key,
         const tvalue &value)
 {
-    int x =5;
+//    int x =5;
     insert_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, value)));
 }
 
@@ -594,7 +592,7 @@ std::vector<typename associative_container<tkey, tvalue>::key_value_pair> b_tree
         bool upper_bound_inclusive)
 {
     return std::vector<typename associative_container<tkey, tvalue>::key_value_pair>();
-  //  throw not_implemented("template<typename tkey, typename tvalue> std::vector<typename associative_container<tkey, tvalue>::key_value_pair> b_tree<tkey, tvalue>::obtain_between(tkey const &, tkey const &, bool, bool)", "your code should be here...");
+    //  throw not_implemented("template<typename tkey, typename tvalue> std::vector<typename associative_container<tkey, tvalue>::key_value_pair> b_tree<tkey, tvalue>::obtain_between(tkey const &, tkey const &, bool, bool)", "your code should be here...");
 }
 
 template<

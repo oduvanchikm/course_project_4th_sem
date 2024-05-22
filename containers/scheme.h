@@ -31,7 +31,8 @@ public:
 
 public:
 
-    void add_collection(std::string const& name_collection, allocator_types type, allocator_with_fit_mode::fit_mode fit_mode, allocator* allocator_database) const
+    void add_collection(std::string const& name_collection, allocator_types type,
+                        allocator_with_fit_mode::fit_mode fit_mode, allocator* allocator_database) const
     {
         _scheme->insert(name_collection, collection(allocator_database, _t, fit_mode, type));
     }
@@ -73,7 +74,8 @@ public:
         return *this;
     }
 
-    scheme(scheme &&other)  noexcept: _scheme(other._scheme)
+    scheme(scheme &&other) noexcept:
+        _scheme(other._scheme)
     {
         _t = other._t;
         other._scheme = nullptr;

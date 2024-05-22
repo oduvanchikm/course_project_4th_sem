@@ -1,6 +1,6 @@
 #ifndef COURSE_PROJECT_COLLECTION_H
 #define COURSE_PROJECT_COLLECTION_H
-#include "../parse/wb.h"
+#include "wb.h"
 #include "../enums/enums.h"
 #include "../tree/associative_container.h"
 #include "../tree/b_tree.h"
@@ -13,6 +13,8 @@
 #include "allocator_sorted_list.h"
 #include "allocator_boundary_tags.h"
 #include "allocator_buddies_system.h"
+#include "../persistance/chain_of_responsibility.h"
+#include "key_values.h"
 
 class collection
 {
@@ -25,6 +27,10 @@ private:
     size_t _t;
     allocator_types _type;
 
+    // std::share ptr
+// value: ass cont<tvalue, std::vector<>>
+    b_tree<std::string, associative_container<tdata*, std::vector<chain_of_responsibility>>> *_secondary_indexing;
+
 public:
 
     explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode::fit_mode fit_mode, allocator_types type) :
@@ -32,12 +38,30 @@ public:
             _fit_mode(fit_mode),
             _type(type),
             _allocator_for_data_base(allocator_for_data_base),
-            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base))
+            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base)),
+            _secondary_indexing(new b_tree<std::string, associative_container<tdata*,>>(t, key_comparer(), allocator_for_data_base))
     {
 
     }
 
 public:
+
+    // TODO secondary indexing
+
+//    void add_secondary_index(std::string& name_value, value* value_collection) const
+//    {
+//        _secondary_indexing->insert(name_value, value_collection);
+//    }
+//
+//    value* obtain_secondary_index(std::string& name_value) const
+//    {
+//        return _secondary_indexing->obtain(name_value);
+//    }
+//
+//    void delete_secondary_index(std::string& name_value) const
+//    {
+//        _secondary_indexing->dispose(name_value);
+//    }
 
     void add_value(key& key_collection, value* value_collection) const
     {
@@ -53,8 +77,6 @@ public:
     {
         value_file_system *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
                     ->allocate(sizeof(value_file_system), 1)));
-
-        std::cout << "hello debil" << std::endl;
 
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
@@ -74,6 +96,12 @@ public:
         value_memory->_name_buyer = name;
 
         _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
+
+//        _secondary_indexing->insert(name, dynamic_cast<value*>(value_memory));
+//
+//        _secondary_indexing->insert(address, dynamic_cast<value*>(value_memory));
+//        _secondary_indexing->insert(date, dynamic_cast<value*>(value_memory));
+//        _secondary_indexing->insert(std::to_string(id_oder), dynamic_cast<value*>(value_memory));
     }
 
     void update_value(key& key_collection, value* value_collection) const

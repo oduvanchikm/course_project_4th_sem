@@ -4,10 +4,19 @@
 #include "../containers/pool.h"
 #include "../containers/scheme.h"
 #include "../containers/collection.h"
+#include "../command/command.h"
+#include "../command/command_add_value.h"
+#include "../command/command_dispose_value.h"
+#include "../command/command_find_between_value.h"
+#include "../command/command_find_value.h"
+#include "../command/command_update_value.h"
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <vector>
 
 class input_file_parse
 {
@@ -22,14 +31,22 @@ public:
     {
         log->trace("[input_file_parse] start parse input file method");
 
+        std::fstream output_file_with_scheme_data("output_file.txt");
+
+        if (!output_file_with_scheme_data.is_open())
+        {
+            std::cout << "error with opening file" << std::endl;
+        }
+
         std::string line;
+
         while (input_file >> line)
         {
             std::cout << line << std::endl;
 
             if (line == "ADD_POOL")
             {
-                log->debug("[add_pool] find ADD_POOL function");
+                log->debug("[command_add_value] find ADD_POOL function");
 
                 std::string pool_name;
 
@@ -39,11 +56,11 @@ public:
                 try
                 {
                     data_base_parse->add_pool(pool_name);
-                    log->debug("[add_pool] the pool has been added successfully");
+                    log->debug("[command_add_value] the pool has been added successfully");
                 }
                 catch(const std::exception& error)
                 {
-                    log->error("[add_pool] error with add pool");
+                    log->error("[command_add_value] error with add pool");
                 }
             }
             else if (line == "DELETE_POOL")
@@ -215,9 +232,14 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
                 log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
 
+                output_file_with_scheme_data << scheme_name << " " << id_buyer << " " << name << " " << date << " " << address << " " << id_oder << std::endl;
+
                 try
                 {
+                    command* command_parse_memory_cache = new command_add_value(tdata);
+                    // TODO
                     data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_oder);
+                    std::cout << "[add_value] value has added" << std::endl;
                     log->trace("[add_value] value has added");
                 }
                 catch (const std::exception& error)
@@ -239,14 +261,16 @@ public:
                 std::string name;
                 std::string date;
                 std::string address;
-                int id_oder;
+                int id_order;
 
-                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
-                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+                input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_order;
+                log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_order));
+
+//                change_value_for_update_command(scheme_name, id_buyer, name, date, address, id_order, output_file_with_scheme_data);
 
                 try
                 {
-                    data_base_parse->update_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_oder);
+                    data_base_parse->update_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_order);
                     log->debug("[update_value] value has updated");
                 }
                 catch (const std::exception& error)
@@ -286,7 +310,6 @@ public:
             }
             else if (line == "DELETE_VALUE")
             {
-                // TODO SEGMENTATION FAULT CHEEEEEEEEEEECK
                 log->debug("[delete_value] find DELETE_VALUE function");
 
 //                 info about buyer: key - id_buyer, value - name, date, address, id_oder
@@ -332,18 +355,108 @@ public:
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_oder;
                 log->debug(pool_name + " " +  scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
 
-                try
-                {
+//                try
+//                {
+//
+//                }
+//                catch (const std::exception& error)
+//                {
+//                    std::cout << error.what() << std::endl;
+//                    log->error("[find_between_value] error with find between value");
+//                }
+            }
+            else if (line == "FIND_VALUE_S_I")
+            {
+                log->debug("[find_value_s_i] find FIND_VALUE_S_I function");
 
-                }
-                catch (const std::exception& error)
+                std::string pool_name;
+                std::string scheme_name;
+
+                input_file >> pool_name >> scheme_name;
+                std::cout << pool_name << " " << scheme_name << std::endl;
+
+                std::streampos original_position = output_file_with_scheme_data.tellg();
+
+                std::string current_scheme_name;
+                int current_id_buyer;
+                std::string current_name;
+                std::string current_date;
+                std::string current_address;
+                int current_id_order;
+
+                bool found = false;
+
+                output_file_with_scheme_data.seekg(0);
+
+                while (output_file_with_scheme_data >> current_scheme_name >> current_id_buyer >> current_name >> current_date >> current_address >> current_id_order)
                 {
-                    std::cout << error.what() << std::endl;
-                    log->error("[find_between_value] error with find between value");
+                    if (current_scheme_name == scheme_name)
+                    {
+                        found = true;
+                        std::cout << current_scheme_name << " " << scheme_name << " " << current_id_buyer << " " << current_name << " " << current_address << " " << current_date << " " << current_id_order << std::endl;
+                    }
+                }
+
+                output_file_with_scheme_data.clear();
+                output_file_with_scheme_data.seekg(original_position);
+
+                if (!found)
+                {
+                    std::cout << "not found" << std::endl;
                 }
             }
         }
     }
+
+public:
+
+    void change_value_for_update_command(const std::string& scheme_name, int id_buyer,
+                                         const std::string& name, const std::string& date,
+                                         const std::string& address, int id_order,
+                                         std::fstream& output_file)
+    {
+        std::vector<std::string> lines;
+        std::string line;
+
+        std::string current_scheme_name;
+        int current_id_buyer;
+        std::string current_name;
+        std::string current_date;
+        std::string current_address;
+        int current_id_order;
+
+        std::streampos original_position;
+
+        while (output_file >> current_scheme_name >> current_id_buyer >> current_name >> current_date >> current_address >> current_id_order)
+        {
+            original_position = output_file.tellg();
+            std::cout << current_scheme_name << current_id_buyer << current_name << current_date << current_address << current_id_order << std::endl;
+
+            if (current_scheme_name == scheme_name && current_id_buyer == id_buyer)
+            {
+                current_name = name;
+                current_date = date;
+                current_address = address;
+                current_id_order = id_order;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+//        line = current_scheme_name + " " + std::to_string(current_id_buyer) + " " + current_name + " " + current_date + " " + current_address + " " + std::to_string(current_id_order) + "\n";
+//        lines.push_back(line);
+//
+//        output_file.clear();
+//        output_file.seekp(original_position);
+//
+//        for (const auto& l : lines)
+//        {
+//            output_file << l;
+//        }
+    }
+
 
 public:
 

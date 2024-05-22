@@ -2,9 +2,9 @@ ADD_POOL pool1
 ADD_SCHEME pool1 scheme1
 ADD_COLLECTION pool1 scheme1 collection1 first_fit sorted_list
 ADD_VALUE pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
-UPDATE_VALUE pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 7
-FIND_VALUE pool1 scheme1 collection1 3656565
-DELETE_VALUE pool1 scheme1 collection1 3656565
-DELETE_COLLECTION pool1 scheme1 collection1
-DELETE_SCHEME pool1 scheme1
-DELETE_POOL pool1
+ADD_SCHEME pool1 scheme2
+ADD_COLLECTION pool1 scheme2 collection1 first_fit global_heap
+ADD_VALUE pool1 scheme2 collection1 4654 Ivanov 12.05.24 ul.BolshoyArbat 6
+UPDATE_VALUE pool1 scheme2 collection1 4654 New 20.05.24 ul.BolshoyArbat 6
+FIND_VALUE_S_I pool1 scheme2
+

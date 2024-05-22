@@ -24,7 +24,7 @@ add_executable(course_project
         containers/scheme.h
         containers/collection.h
         main.cpp
-        parse/wb.h
+        containers/wb.h
         comparator/comparer.h
         parse/input_file_parse.h
         logger/client_logger_builder.h
@@ -44,7 +44,17 @@ add_executable(course_project
         allocators/allocator_global_heap.cpp
         allocators/allocator_buddies_system.cpp
         allocators/allocator_boundary_tags.cpp
-        dialog/dialog.h
+        dialog/dialog_file_system.h
         validate/validate_parameters.h
         parse/file_system_parse.h
+        dialog/dialog_memory_cache.h
+        containers/key_values.h
+        command/command.h
+        command/command_add_value.h
+        command/command_find_value.h
+        command/command_update_value.h
+        command/command_update_value.h
+        command/command_find_between_value.h
+        command/command_dispose_value.h
+        command/command_dispose_value.h
 )

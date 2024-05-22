@@ -28,10 +28,6 @@ public:
     {
         for (char symbol : t)
         {
-            if (!std::isalnum(symbol))
-            {
-                return false;
-            }
             if (symbol < '1' || symbol > '9')
             {
                 return false;
@@ -46,7 +42,20 @@ public:
     {
         for (char symbol : p)
         {
-            if (symbol != '1' || symbol != '0')
+            if (symbol == '1' || symbol == '0')
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    static bool validate_file_for_file_system(const std::string &input_value)
+    {
+        for (char symbol : input_value)
+        {
+            if (!std::isalnum(symbol) && symbol != '_')
             {
                 return false;
             }

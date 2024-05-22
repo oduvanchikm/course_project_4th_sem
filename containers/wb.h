@@ -148,7 +148,6 @@ public:
     }
 };
 
-
 class key
 {
 
@@ -156,11 +155,21 @@ public:
 
     int _id_buyer;
 
-    key(int id_buyer) :
-        _id_buyer(id_buyer)
+    explicit key(int id_buyer) :
+            _id_buyer(id_buyer)
     {
 
     }
+};
+
+class tdata final
+{
+
+public:
+
+    key key;
+    value value;
+
 };
 
 

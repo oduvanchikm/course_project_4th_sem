@@ -1,0 +1,7 @@
+scheme1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
+scheme2 4654 Ivanov 12.05.24 ul.BolshoyArbat 6
+scheme2 4658 Ivanov 12.05.24 ul.BolshoyArbat 6
+scheme2 4653 Ivanov 12.05.24 ul.BolshoyArbat 6
+scheme2 4656 Ivanov 12.05.24 ul.BolshoyArbat 6
+scheme2 4655 Ivanov 12.05.24 ul.BolshoyArbat 6
+

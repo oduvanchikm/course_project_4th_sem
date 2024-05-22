@@ -54,14 +54,14 @@ public:
     virtual ~associative_container() noexcept = default;
 
 public:
-    
+
     virtual void insert(
-        tkey const &key,
-        tvalue const &value) = 0;
-    
+            tkey const &key,
+            tvalue const &value) = 0;
+
     virtual void insert(
-        tkey const &key,
-        tvalue &&value) = 0;
+            tkey const &key,
+            tvalue &&value) = 0;
 
     virtual void update(
             tkey const &key,
@@ -70,13 +70,13 @@ public:
     virtual void update(
             tkey const &key,
             tvalue &&value) = 0;
-    
+
     virtual tvalue &obtain(
-        tkey const &key) = 0;
-    
+            tkey const &key) = 0;
+
     virtual tvalue dispose(
-        tkey const &key) = 0;
-    
+            tkey const &key) = 0;
+
 };
 
 #endif //MATH_PRACTICE_AND_OPERATING_SYSTEMS_ASSOCIATIVE_CONTAINER_H

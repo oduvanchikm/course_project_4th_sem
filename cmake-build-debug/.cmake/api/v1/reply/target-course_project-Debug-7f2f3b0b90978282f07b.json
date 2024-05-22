@@ -129,7 +129,15 @@
 				27,
 				32,
 				33,
-				34
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42
 			]
 		},
 		{
@@ -243,7 +251,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "parse/wb.h",
+			"path" : "containers/wb.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -325,7 +333,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "dialog/dialog.h",
+			"path" : "dialog/dialog_file_system.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -336,6 +344,46 @@
 		{
 			"backtrace" : 1,
 			"path" : "parse/file_system_parse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "dialog/dialog_memory_cache.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "containers/key_values.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command_add_value.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command_find_value.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command_update_value.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command_find_between_value.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/command_dispose_value.h",
 			"sourceGroupIndex" : 0
 		}
 	],

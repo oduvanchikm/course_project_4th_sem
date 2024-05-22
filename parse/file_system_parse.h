@@ -58,10 +58,6 @@ public:
         std::get<3>(result) = date;
         std::get<4>(result) = address;
         std::get<5>(result) = id_oder;
-//
-//        std::cout << "size: " << data_size << std::endl;
-//        std::cout << "first byte: " << position << std::endl;
-//        std::cout << "last byte: " << new_position << std::endl;
 
         return result;
     }
@@ -70,7 +66,7 @@ public:
     {
         log->trace("[deserialization] start deserialization");
 
-        std::cout << position << " " << size << std::endl;
+//        std::cout << position << " " << size << std::endl;
 
         input_file.seekg(position);
 
@@ -115,13 +111,14 @@ public:
         }
 
         std::string line;
+
         while (input_file >> line)
         {
             std::cout << line << std::endl;
 
             if (line == "ADD_POOL")
             {
-                log->trace("[add_pool] find add_pool");
+                log->trace("[command_add_value] find command_add_value");
 
                 std::string pool_name;
                 input_file >> pool_name;
@@ -144,23 +141,23 @@ public:
                     try
                     {
                         std::filesystem::create_directory(pool_directory_name);
-                        log->trace("[add_pool] directory " + pool_directory_name + " has created");
+                        log->trace("[command_add_value] directory " + pool_directory_name + " has created");
                     }
                     catch (const std::exception& e)
                     {
-                        log->error("[add_pool] error creating the directory " + pool_directory_name);
-                        std::cerr << "[add_pool] error creating the directory " + pool_directory_name << e.what() << std::endl;
+                        log->error("[command_add_value] error creating the directory " + pool_directory_name);
+                        std::cerr << "[command_add_value] error creating the directory " + pool_directory_name << e.what() << std::endl;
                     }
                 }
 
                 try
                 {
                     data_base_parse->add_pool(pool_name);
-                    log->debug("[add_pool] the pool has been added successfully");
+                    log->debug("[command_add_value] the pool has been added successfully");
                 }
                 catch(const std::exception& error)
                 {
-                    log->error("[add_pool] error with add pool");
+                    log->error("[command_add_value] error with add pool");
                 }
             }
             else if (line == "DELETE_POOL")
@@ -200,11 +197,11 @@ public:
                 try
                 {
                     data_base_parse->delete_pool(pool_name);
-                    log->debug("[add_pool] the pool has been deleted successfully");
+                    log->debug("[command_add_value] the pool has been deleted successfully");
                 }
                 catch(const std::exception& error)
                 {
-                    log->error("[add_pool] error with add pool");
+                    log->error("[command_add_value] error with add pool");
                 }
             }
             else if (line == "ADD_SCHEME")
@@ -555,7 +552,6 @@ public:
                 try
                 {
                     value_file_system* value_file = reinterpret_cast<value_file_system*>(data_base_parse->obtain_value(pool_name, scheme_name, collection_name, key(id_buyer)));
-                    std::cout << "ohh nooo" << std::endl;
                     std::streampos original_position = input_file.tellg();
                     value_in_memory_cash value_memory = deserialization(input_file, value_file->_start_value_bytes, value_file->_string_size, log);
                     input_file.seekg(original_position);

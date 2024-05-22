@@ -143,7 +143,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/containers/database.h \
  /home/passwd/course_project/course_project_4th_sem/containers/scheme.h \
  /home/passwd/course_project/course_project_4th_sem/containers/collection.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../parse/wb.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/wb.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../enums/enums.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../tree/associative_container.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
@@ -256,7 +256,5 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
  /usr/include/c++/9/bits/stl_multiset.h /usr/include/c++/9/cstring \
  /usr/include/string.h /usr/include/strings.h \
- /home/passwd/course_project/course_project_4th_sem/dialog/dialog.h \
- /home/passwd/course_project/course_project_4th_sem/dialog/../containers/database.h \
  /home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h \
  /home/passwd/course_project/course_project_4th_sem/parse/file_system_parse.h

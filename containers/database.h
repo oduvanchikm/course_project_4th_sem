@@ -42,6 +42,10 @@ public:
 
 public:
 
+
+
+public:
+
     void add_pool(std::string const& pool_name) const
     {
         _database_entrypoint->insert(pool_name, pool(_t));
@@ -55,7 +59,6 @@ public:
     pool& find_pool(std::string const& pool_name) const
     {
         pool& p = const_cast<pool&>(_database_entrypoint->obtain(pool_name));
-        std::cout << "find pool" << std::endl;
         return p;
     }
 
@@ -63,18 +66,17 @@ public:
 
     void add_scheme(std::string const& pool_name, std::string const& scheme_name)
     {
-        (find_pool(pool_name)).add_scheme(scheme_name);
+        find_pool(pool_name).add_scheme(scheme_name);
     }
 
     void delete_scheme(std::string const& pool_name, std::string const& scheme_name) const
     {
-        (find_pool(pool_name)).remove_scheme(scheme_name);
+        find_pool(pool_name).remove_scheme(scheme_name);
     }
 
     scheme& find_scheme(std::string const& pool_name, std::string const& scheme_name) const
     {
-        scheme& s = const_cast<scheme&>((find_pool(pool_name)).find_scheme(scheme_name));
-        std::cout << "find scheme" << std::endl;
+        scheme& s = const_cast<scheme&>(find_pool(pool_name).find_scheme(scheme_name));
         return s;
     }
 
@@ -89,15 +91,15 @@ public:
         switch (type)
         {
             case allocator_types::BOUNDARY_TAGS:
-                _allocator_database = new allocator_boundary_tags(500, nullptr, nullptr, fit_mode);
+                _allocator_database = new allocator_boundary_tags(2000, nullptr, nullptr, fit_mode);
                 break;
 
             case allocator_types::BUDDIE_SYSTEM:
-                _allocator_database = new allocator_buddies_system(500, nullptr, nullptr, fit_mode);
+                _allocator_database = new allocator_buddies_system(24, nullptr, nullptr, fit_mode);
                 break;
 
             case allocator_types::SORTED_LIST:
-                _allocator_database = new allocator_sorted_list(500, nullptr, nullptr, fit_mode);
+                _allocator_database = new allocator_sorted_list(2000, nullptr, nullptr, fit_mode);
                 break;
 
             case allocator_types::GLOBAL_HEAP:
@@ -134,11 +136,34 @@ public:
             std::string& address,
             int id_oder)
     {
-        std::cout << "start add value in db" << std::endl;
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .add_value(id_buyer, name, date, address, id_oder);
     }
+
+    value* obtain_secondary_value(std::string const& pool_name,
+                                  std::string const& scheme_name,
+                                  std::string const& collection_name,
+                                  int id_buyer,
+                                  std::string& name,
+                                  std::string& date,
+                                  std::string& address,
+                                  int id_oder)
+    {
+
+    }
+
+//    void add_secondary_value(std::string const& pool_name,
+//                                  std::string const& scheme_name,
+//                                  std::string const& collection_name,
+//                                  int id_buyer,
+//                                  std::string& name,
+//                                  std::string& date,
+//                                  std::string& address,
+//                                  int id_oder)
+//    {
+//        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name).add_secondary_index()
+//    }
 
     // path_file, start_value_bytes, size_value
 

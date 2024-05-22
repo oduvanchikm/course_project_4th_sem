@@ -1,10 +1,8 @@
-[16.05.2024 15:43:30][DEBUG][add_pool] the pool has been added successfully
-[16.05.2024 15:43:30][DEBUG][add_scheme] the scheme has been added successfully
-[16.05.2024 15:43:30][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit sorted_list
-[16.05.2024 15:43:30][DEBUG][add_collection] the collection has been added successfully
-[16.05.2024 15:43:30][DEBUG][add_value] the value has been added successfully
-[16.05.2024 15:43:30][DEBUG][update_value] the value has been updated successfully
-[16.05.2024 15:43:30][INFORMATION][find_value] name: Ivanov, date: 12.05.24, address: ul.BolshoyArbat, id_oder: 7
-[16.05.2024 15:43:30][DEBUG][delete_collection] the collection has been deleted successfully
-[16.05.2024 15:43:30][DEBUG][add_scheme] the scheme has been deleted successfully
-[16.05.2024 15:43:30][DEBUG][add_pool] the pool has been deleted successfully
+[21.05.2024 17:51:36][DEBUG][add_pool] find ADD_POOL function
+[21.05.2024 17:51:36][DEBUG][add_pool] the pool has been added successfully
+[21.05.2024 17:51:36][DEBUG][add_scheme] find ADD_SCHEME function
+[21.05.2024 17:51:36][DEBUG][add_scheme] the scheme has been added successfully
+[21.05.2024 17:51:36][DEBUG][add_collection] find ADD_COLLECTION function
+[21.05.2024 17:51:36][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit sorted_list
+[21.05.2024 17:51:36][DEBUG][add_collection] the collection has been added successfully
+[21.05.2024 17:51:36][DEBUG]pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
