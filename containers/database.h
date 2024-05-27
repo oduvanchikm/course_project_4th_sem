@@ -42,7 +42,10 @@ public:
 
 public:
 
-
+    size_t get_t() const
+    {
+        return _t;
+    }
 
 public:
 
@@ -131,39 +134,15 @@ public:
             std::string const& scheme_name,
             std::string const& collection_name,
             int id_buyer,
-            std::string& name,
-            std::string& date,
-            std::string& address,
+            std::string const& name,
+            std::string const& date,
+            std::string const& address,
             int id_oder)
     {
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .add_value(id_buyer, name, date, address, id_oder);
     }
-
-    value* obtain_secondary_value(std::string const& pool_name,
-                                  std::string const& scheme_name,
-                                  std::string const& collection_name,
-                                  int id_buyer,
-                                  std::string& name,
-                                  std::string& date,
-                                  std::string& address,
-                                  int id_oder)
-    {
-
-    }
-
-//    void add_secondary_value(std::string const& pool_name,
-//                                  std::string const& scheme_name,
-//                                  std::string const& collection_name,
-//                                  int id_buyer,
-//                                  std::string& name,
-//                                  std::string& date,
-//                                  std::string& address,
-//                                  int id_oder)
-//    {
-//        find_pool(pool_name).find_scheme(scheme_name).find_collection(collection_name).add_secondary_index()
-//    }
 
     // path_file, start_value_bytes, size_value
 
@@ -172,13 +151,12 @@ public:
             std::string const& scheme_name,
             std::string const& collection_name,
             int id_buyer,
-            std::string &path_file,
             long start_value_bytes,
             long size_value)
     {
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
-                .add_value(id_buyer, path_file, start_value_bytes, size_value);
+                .add_value(id_buyer, start_value_bytes, size_value);
     }
 
     void update_value(
@@ -201,13 +179,12 @@ public:
             std::string const& scheme_name,
             std::string const& collection_name,
             int id_buyer,
-            std::string &path_file,
             long start_value_bytes,
             long size_value)
     {
         find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
-                .update_value(id_buyer, path_file, start_value_bytes, size_value);
+                .update_value(id_buyer, start_value_bytes, size_value);
     }
 
     value* obtain_value(
@@ -219,6 +196,17 @@ public:
         return find_pool(pool_name).find_scheme(scheme_name)
                 .find_collection(collection_name)
                 .find_value(key_value);
+    }
+
+    value* obtain_value(
+            std::string const& pool_name,
+            std::string const& scheme_name,
+            std::string const& collection_name,
+            int id_buyer)
+    {
+        return find_pool(pool_name).find_scheme(scheme_name)
+                .find_collection(collection_name)
+                .find_value(key(id_buyer));
     }
 
     void delete_value(
@@ -262,9 +250,14 @@ public:
 
 public:
 
-    enums::mode get_mode(enums::mode mode_database)
+    enums::mode get_mode()
     {
-        return _mode = mode_database;
+        return this->_mode;
+    }
+
+    enums::mode set_mode(enums::mode mode)
+    {
+        _mode = mode;
     }
 
 public:

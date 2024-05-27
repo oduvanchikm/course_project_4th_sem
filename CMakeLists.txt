@@ -55,6 +55,18 @@ add_executable(course_project
         command/command_update_value.h
         command/command_update_value.h
         command/command_find_between_value.h
-        command/command_dispose_value.h
-        command/command_dispose_value.h
+        command/command_delete_value.h
+        command/command_delete_value.h
+        chain_of_responsibility/chain_of_responsibility_handler.h
+        command/command_delete_pool.h
+        command/command_add_scheme.h
+        command/command_delete_scheme.h
+        command/command_add_collection.h
+        command/command_delete_collection.h
+        command/command_add_pool.h
+        work_with_file/work_with_file.h
+        chain_of_responsibility/handler.h
+        chain_of_responsibility/handler.h
+        chain_of_responsibility/chain_of_responsibility.h
+        chain_of_responsibility/chain_of_responsibility.h
 )

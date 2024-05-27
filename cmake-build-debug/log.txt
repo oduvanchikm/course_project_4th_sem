@@ -1,8 +1,71 @@
-[21.05.2024 17:51:36][DEBUG][add_pool] find ADD_POOL function
-[21.05.2024 17:51:36][DEBUG][add_pool] the pool has been added successfully
-[21.05.2024 17:51:36][DEBUG][add_scheme] find ADD_SCHEME function
-[21.05.2024 17:51:36][DEBUG][add_scheme] the scheme has been added successfully
-[21.05.2024 17:51:36][DEBUG][add_collection] find ADD_COLLECTION function
-[21.05.2024 17:51:36][DEBUG]ADD_COLLECTION pool1 scheme1 collection1 first_fit sorted_list
-[21.05.2024 17:51:36][DEBUG][add_collection] the collection has been added successfully
-[21.05.2024 17:51:36][DEBUG]pool1 scheme1 collection1 3656565 Ivanov 12.05.24 ul.BolshoyArbat 6
+[27.05.2024 16:53:28][TRACE]operating mode is file_system
+[27.05.2024 16:53:28][TRACE][input_file_parse] start parse input file method
+[27.05.2024 16:53:28][TRACE][command_add_value] find command_add_value
+[27.05.2024 16:53:28][INFORMATION]pool name: pool1
+[27.05.2024 16:53:28][TRACE]start execute add pool
+[27.05.2024 16:53:28][TRACE]finish execute add pool
+[27.05.2024 16:53:28][TRACE][add_scheme] find add_scheme
+[27.05.2024 16:53:28][INFORMATION]pool name: pool1, scheme_name: scheme1
+[27.05.2024 16:53:28][TRACE]start execute add scheme
+[27.05.2024 16:53:28][TRACE]finish execute add scheme
+[27.05.2024 16:53:28][TRACE][command_add_value] find command_add_value
+[27.05.2024 16:53:28][INFORMATION]pool name: pool2
+[27.05.2024 16:53:28][TRACE]start execute add pool
+[27.05.2024 16:53:28][TRACE]finish execute add pool
+[27.05.2024 16:53:28][TRACE][add_scheme] find add_scheme
+[27.05.2024 16:53:28][INFORMATION]pool name: pool2, scheme_name: scheme2
+[27.05.2024 16:53:28][TRACE]directory data_base/pool2/scheme2 has created
+[27.05.2024 16:53:28][TRACE]start execute add scheme
+[27.05.2024 16:53:28][TRACE]finish execute add scheme
+[27.05.2024 16:53:28][TRACE][delete_scheme] find delete_scheme
+[27.05.2024 16:53:28][INFORMATION]pool_name: pool2 scheme_name: scheme2
+[27.05.2024 16:53:28][TRACE]directory data_base/pool2/scheme2 has deleted
+[27.05.2024 16:53:28][TRACE]start execute delete scheme
+[27.05.2024 16:53:28][TRACE]finish execute delete scheme
+[27.05.2024 16:53:28][TRACE][command_add_value] find command_add_value
+[27.05.2024 16:53:28][INFORMATION]pool name: pool3
+[27.05.2024 16:53:28][TRACE]start execute add pool
+[27.05.2024 16:53:28][TRACE]finish execute add pool
+[27.05.2024 16:53:28][TRACE][add_scheme] find add_scheme
+[27.05.2024 16:53:28][INFORMATION]pool name: pool3, scheme_name: scheme3
+[27.05.2024 16:53:28][TRACE]start execute add scheme
+[27.05.2024 16:53:28][TRACE]finish execute add scheme
+[27.05.2024 16:53:28][TRACE][add_collection] find add_collection
+[27.05.2024 16:53:28][INFORMATION]ADD_COLLECTION pool3 scheme3 collection1 sorted_list the_best_fit
+[27.05.2024 16:53:28][ERROR][add_collection] wrong allocator fit mode
+[27.05.2024 16:53:28][ERROR][add_collection] wrong allocator type
+[27.05.2024 16:53:28][TRACE]start execute add collection
+[27.05.2024 16:53:28][TRACE]finish execute add collection
+[27.05.2024 16:53:28][TRACE][add_value] find add_value
+[27.05.2024 16:53:28][TRACE][serialization] start serialization
+[27.05.2024 16:53:28][INFORMATION]pool3 scheme3 collection1 34 sonya 45 LA 456
+[27.05.2024 16:53:28][TRACE][add_value] file data_base/pool3/scheme3/collection1/34.txt has created
+[27.05.2024 16:53:28][TRACE]start execute add value
+[27.05.2024 16:53:28][TRACE]finish execute add value
+[27.05.2024 16:53:28][DEBUG][add_value] the value has been added successfully
+[27.05.2024 16:53:28][TRACE][add_value] find add_value
+[27.05.2024 16:53:28][TRACE][serialization] start serialization
+[27.05.2024 16:53:28][INFORMATION]pool3 scheme3 collection1 8 sasha 45 NY 56
+[27.05.2024 16:53:28][TRACE][add_value] file data_base/pool3/scheme3/collection1/8.txt has created
+[27.05.2024 16:53:28][TRACE]start execute add value
+[27.05.2024 16:53:28][TRACE]finish execute add value
+[27.05.2024 16:53:28][DEBUG][add_value] the value has been added successfully
+[27.05.2024 16:53:28][TRACE][add_value] find add_value
+[27.05.2024 16:53:28][TRACE][serialization] start serialization
+[27.05.2024 16:53:28][INFORMATION]pool3 scheme3 collection1 9 sonechka 45 Bali 456
+[27.05.2024 16:53:28][TRACE][add_value] file data_base/pool3/scheme3/collection1/9.txt has created
+[27.05.2024 16:53:28][TRACE]start execute add value
+[27.05.2024 16:53:28][TRACE]finish execute add value
+[27.05.2024 16:53:28][DEBUG][add_value] the value has been added successfully
+[27.05.2024 16:53:28][TRACE][update_value] find update_value
+[27.05.2024 16:53:28][TRACE][serialization] start serialization
+[27.05.2024 16:53:28][INFORMATION]pool3 scheme3 collection1 9 sonechka 78 Bali 456
+[27.05.2024 16:53:28][TRACE][update_value] file data_base/pool3/scheme3/collection1/9.txt has created
+[27.05.2024 16:53:28][TRACE]start execute add value
+[27.05.2024 16:53:28][TRACE]finish execute add value
+[27.05.2024 16:53:28][DEBUG][update_value] the value has been updated successfully
+[27.05.2024 16:53:28][TRACE][find_value] find find_value
+[27.05.2024 16:53:28][TRACE]start execute add value
+[27.05.2024 16:53:28][TRACE]finish execute add value
+[27.05.2024 16:53:28][TRACE][deserialization] start deserialization
+[27.05.2024 16:53:28][ERROR][find_value] error with find value

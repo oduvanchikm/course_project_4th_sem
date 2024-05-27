@@ -13,7 +13,7 @@
 #include "allocator_sorted_list.h"
 #include "allocator_boundary_tags.h"
 #include "allocator_buddies_system.h"
-#include "../persistance/chain_of_responsibility.h"
+//#include "../persistance/chain_of_responsibility_handler.h"
 #include "key_values.h"
 
 class collection
@@ -29,7 +29,7 @@ private:
 
     // std::share ptr
 // value: ass cont<tvalue, std::vector<>>
-    b_tree<std::string, associative_container<tdata*, std::vector<chain_of_responsibility>>> *_secondary_indexing;
+//    b_tree<std::string, associative_container<tdata*, std::vector<chain_of_responsibility_handler>>> *_secondary_indexing;
 
 public:
 
@@ -38,8 +38,8 @@ public:
             _fit_mode(fit_mode),
             _type(type),
             _allocator_for_data_base(allocator_for_data_base),
-            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base)),
-            _secondary_indexing(new b_tree<std::string, associative_container<tdata*,>>(t, key_comparer(), allocator_for_data_base))
+            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base))
+//            _secondary_indexing(new b_tree<std::string, associative_container<tdata*,>>(t, key_comparer(), allocator_for_data_base))
     {
 
     }
@@ -73,7 +73,7 @@ public:
         _data->insert(key(id_buyer), value);
     }
 
-    void add_value(int id_buyer, std::string& path_file, long start_value_bytes, long string_size)
+    void add_value(int id_buyer, long start_value_bytes, long string_size)
     {
         value_file_system *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
                     ->allocate(sizeof(value_file_system), 1)));
@@ -84,11 +84,11 @@ public:
         _data->insert(key(id_buyer), dynamic_cast<value *>(value_file));
     }
 
-    void add_value(int id_buyer, std::string& name, std::string& date,
-                   std::string& address, int id_oder)
+    void add_value(int id_buyer, std::string const& name, std::string const& date,
+                   std::string const& address, int id_oder)
     {
-        value_in_memory_cash *value_memory = reinterpret_cast<value_in_memory_cash *>(
-                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1));
+        value_in_memory_cache *value_memory = reinterpret_cast<value_in_memory_cache *>(
+                _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;
@@ -96,12 +96,6 @@ public:
         value_memory->_name_buyer = name;
 
         _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
-
-//        _secondary_indexing->insert(name, dynamic_cast<value*>(value_memory));
-//
-//        _secondary_indexing->insert(address, dynamic_cast<value*>(value_memory));
-//        _secondary_indexing->insert(date, dynamic_cast<value*>(value_memory));
-//        _secondary_indexing->insert(std::to_string(id_oder), dynamic_cast<value*>(value_memory));
     }
 
     void update_value(key& key_collection, value* value_collection) const
@@ -109,7 +103,7 @@ public:
         _data->update(key_collection, value_collection);
     }
 
-    void update_value(int id_buyer, std::string& path_file, long start_value_bytes,
+    void update_value(int id_buyer, long start_value_bytes,
                       long string_size) const
     {
         auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
@@ -124,8 +118,8 @@ public:
     void update_value(int id_buyer, int id_oder, std::string& name,
                       std::string& address, std::string& date) const
     {
-        value_in_memory_cash *value_memory = reinterpret_cast<value_in_memory_cash *>(
-                _allocator_for_data_base->allocate(sizeof(value_in_memory_cash), 1));
+        value_in_memory_cache *value_memory = reinterpret_cast<value_in_memory_cache *>(
+                _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
         value_memory->_address = address;

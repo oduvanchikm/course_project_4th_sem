@@ -6,7 +6,7 @@
 #include "../containers/collection.h"
 #include "../command/command.h"
 #include "../command/command_add_value.h"
-#include "../command/command_dispose_value.h"
+#include "../command/command_delete_value.h"
 #include "../command/command_find_between_value.h"
 #include "../command/command_find_value.h"
 #include "../command/command_update_value.h"
@@ -236,7 +236,7 @@ public:
 
                 try
                 {
-                    command* command_parse_memory_cache = new command_add_value(tdata);
+//                    command* command_parse_memory_cache = new command_add_value(tdata);
                     // TODO
                     data_base_parse->add_value(pool_name, scheme_name, collection_name, id_buyer, name, date, address, id_oder);
                     std::cout << "[add_value] value has added" << std::endl;
