@@ -1,3 +1,0 @@
-/home/passwd/MAI/mp/lab4/n_10/cmake-build-debug/CMakeFiles/n_10.dir
-/home/passwd/MAI/mp/lab4/n_10/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/passwd/MAI/mp/lab4/n_10/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -14,7 +14,6 @@ add_executable(course_project
         logger/logger.cpp
         logger/logger_builder.cpp
         logger/logger_guardant.cpp
-        #        allocators/allocator_buddies_system.cpp
         tree/associative_container.h
         tree/search_tree.h
         tree/b_tree.h
@@ -44,11 +43,8 @@ add_executable(course_project
         allocators/allocator_global_heap.cpp
         allocators/allocator_buddies_system.cpp
         allocators/allocator_boundary_tags.cpp
-        dialog/dialog_file_system.h
         validate/validate_parameters.h
         parse/file_system_parse.h
-        dialog/dialog_memory_cache.h
-        containers/key_values.h
         command/command.h
         command/command_add_value.h
         command/command_find_value.h
@@ -64,9 +60,10 @@ add_executable(course_project
         command/command_add_collection.h
         command/command_delete_collection.h
         command/command_add_pool.h
-        work_with_file/work_with_file.h
-        chain_of_responsibility/handler.h
-        chain_of_responsibility/handler.h
         chain_of_responsibility/chain_of_responsibility.h
-        chain_of_responsibility/chain_of_responsibility.h
+        chain_of_responsibility/handler.h
+        chain_of_responsibility/request_with_command_chain.h
+        chain_of_responsibility/request_with_command.h
+        command/file_save.h
+        logger/logger_singleton.h
 )

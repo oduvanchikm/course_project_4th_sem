@@ -9,15 +9,13 @@ class command_add_collection final :
 
 private:
 
-//    logger_guardant* _logger_guardant_command;
-    logger* _logger;
-
     std::string _pool_name;
     std::string _scheme_name;
     std::string _collection_name;
 
     allocator_types _type;
     allocator_with_fit_mode::fit_mode _fit_mode;
+    std::string fit_mode_;
 
 public:
 
@@ -27,9 +25,7 @@ public:
     }
 
     command_add_collection(std::string& pool_name, std::string& scheme_name,
-                           std::string& collection_name, allocator_types type, allocator_with_fit_mode::fit_mode fit_mode,
-                           logger* log) :
-                                _logger(log),
+                           std::string& collection_name, allocator_types type, allocator_with_fit_mode::fit_mode fit_mode) :
                                 _type(type),
                                 _fit_mode(fit_mode),
                                 _scheme_name(scheme_name),
@@ -43,7 +39,7 @@ public:
 
     bool can_execute(std::string const& request) noexcept override
     {
-        _logger->trace("start can_execute add collection");
+        logger_singleton::get_instance()->get_logger()->trace("start can_execute add collection");
 
         std::istringstream string_with_commands(request);
         std::string command;
@@ -54,7 +50,7 @@ public:
             std::ofstream file_save(FILE_SAVE, std::ios::app);
             if (!file_save.is_open())
             {
-                _logger->error("error with opening file for saving data");
+                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
                 return false;
             }
 
@@ -71,25 +67,28 @@ public:
 
             string_with_commands >> pool_name >> scheme_name >> collection_name >> allocator_fit_mode >> allocator_type;
 
-            _logger->information("pool name: " + pool_name + ", scheme name: " + scheme_name +
+            logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name + ", scheme name: " + scheme_name +
                                     ", collection name: " + collection_name + ", allocator fit mode: " + allocator_fit_mode +
                                     ", allocator type: " + allocator_type);
 
             if (allocator_fit_mode == "the_best_fit")
             {
+                fit_mode_ = "the_best_fit";
                 fit_mode = allocator_with_fit_mode::fit_mode::the_best_fit;
             }
             else if (allocator_fit_mode == "the_worst_fit")
             {
+                fit_mode_ = "the_worst_fit";
                 fit_mode = allocator_with_fit_mode::fit_mode::the_worst_fit;
             }
             else if (allocator_fit_mode == "first_fit")
             {
+                fit_mode_ = "first_fit";
                 fit_mode = allocator_with_fit_mode::fit_mode::first_fit;
             }
             else
             {
-                _logger->error("[add_collection] wrong allocator fit mode");
+                logger_singleton::get_instance()->get_logger()->error("[add_collection] wrong allocator fit mode");
             }
 
             if (allocator_type == "sorted_list")
@@ -110,7 +109,7 @@ public:
             }
             else
             {
-                _logger->error("[add_collection] wrong allocator type");
+                logger_singleton::get_instance()->get_logger()->error("[add_collection] wrong allocator type");
             }
 
             _pool_name = pool_name;
@@ -121,16 +120,20 @@ public:
 
             file_save << command << " " << pool_name << " " << scheme_name << " " << allocator_type << " " << allocator_fit_mode << std::endl;
             file_save.close();
-        }
 
-        return true;
+            return true;
+        }
     }
 
     void execute(std::string const& request) noexcept override
     {
-        _logger->trace("start execute add collection");
+        logger_singleton::get_instance()->get_logger()->trace("start execute add collection");
         database::get_instance(3)->add_collection(_pool_name, _scheme_name, _collection_name, _type, _fit_mode);
-        _logger->trace("finish execute add collection");
+
+        file_save file;
+        file.file_for_save("ADD_COLLECTION " + _pool_name + " " + _collection_name + " " + std::to_string(_type) + " " + fit_mode_);
+
+        logger_singleton::get_instance()->get_logger()->trace("finish execute add collection");
     }
 };
 

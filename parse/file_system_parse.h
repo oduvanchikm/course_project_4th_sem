@@ -18,6 +18,11 @@
 #include "../command/command_add_collection.h"
 #include "../command/command_delete_collection.h"
 #include "../command/command.h"
+#include "../command/command_add_value.h"
+#include "../command/command_update_value.h"
+#include "../command/command_find_value.h"
+#include "../command/command_delete_value.h"
+#include "../logger/logger_singleton.h"
 
 class file_system_parse
 {
@@ -28,16 +33,16 @@ public:
 
 public:
 
-    std::tuple<long, long, std::string, std::string, std::string, int> serialization(std::ifstream& input_file,
-                                        logger* logger)
+    std::tuple<long, long, std::string, std::string, std::string, int> serialization(std::ifstream& input_file)
     {
-        logger->trace("[serialization] start serialization");
+        logger_singleton::get_instance()->get_logger()->trace("start serialization work");
 
         std::tuple<long, long, std::string, std::string, std::string, int> result;
 
         if (!input_file.is_open())
         {
-            logger->error("[serialization] error with opening file");
+            logger_singleton::get_instance()->get_logger()->trace("error with file opening");
+
         }
 
         std::string name;
@@ -47,7 +52,8 @@ public:
 
         std::streampos position = input_file.tellg();
         input_file >> name >> date >> address;
-        std::cout << name << " " << date << " " << address << std::endl;
+
+        logger_singleton::get_instance()->get_logger()->information(name + " " + date + " " + address);
 
         std::streampos new_position = input_file.tellg();
 
@@ -70,9 +76,9 @@ public:
         return result;
     }
 
-    value_in_memory_cache deserialization(std::ifstream& input_file, long position, long size, logger* logger)
+    value_in_memory_cache deserialization(std::ifstream& input_file, long position, long size)
     {
-        logger->trace("[deserialization] start deserialization");
+        logger_singleton::get_instance()->get_logger()->trace("start deserialization method");
 
         input_file.seekg(position);
 
@@ -96,12 +102,9 @@ public:
         return value_memory;
     }
 
-    void parse_input_file_for_file_system(std::ifstream& input_file, database* data_base_parse, logger* constructed_logger)
+    void parse_input_file_for_file_system(std::ifstream& input_file, database* data_base_parse)
     {
-        if (constructed_logger != nullptr)
-        {
-            constructed_logger->trace("[input_file_parse] start parse input file method");
-        }
+        logger_singleton::get_instance()->get_logger()->trace("start parse file");
 
         std::string base_directory_name = "data_base";
 
@@ -110,11 +113,11 @@ public:
             try
             {
                 std::filesystem::create_directory(base_directory_name);
-                constructed_logger->trace("directory " + base_directory_name + " has created");
+                logger_singleton::get_instance()->get_logger()->trace("directory " + base_directory_name + " has created");
             }
             catch (const std::exception& e)
             {
-                constructed_logger->error("error creating the directory");
+                logger_singleton::get_instance()->get_logger()->error("error creating the directory");
                 std::cerr << "error creating the directory" << e.what() << std::endl;
             }
         }
@@ -127,18 +130,12 @@ public:
 
             if (line == "ADD_POOL")
             {
-                if (constructed_logger != nullptr)
-                {
-                    constructed_logger->trace("[command_add_value] find command_add_value");
-                }
+                logger_singleton::get_instance()->get_logger()->trace("[command_add_value] find command_add_value");
 
                 std::string pool_name;
                 input_file >> pool_name;
 
-                if (constructed_logger != nullptr)
-                {
-                    constructed_logger->information("pool name: " + pool_name);
-                }
+                logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name);
 
                 std::string pool_directory_name = base_directory_name + "/" + pool_name;
 
@@ -146,36 +143,30 @@ public:
                 {
                     try
                     {
-                        std::filesystem::create_directory(pool_directory_name);
-                        if (constructed_logger != nullptr)
-                        {
-                            constructed_logger->trace(
+                        logger_singleton::get_instance()->get_logger()->trace(
                                     "[command_add_value] directory " + pool_directory_name + " has created");
-                        }
                     }
                     catch (const std::exception &e)
                     {
-                        if (constructed_logger != nullptr)
-                        {
-                            constructed_logger->error(
+                        logger_singleton::get_instance()->get_logger()->error(
                                     "[command_add_value] error creating the directory " + pool_directory_name);
-                        }
+
                         std::cerr << "[command_add_value] error creating the directory " + pool_directory_name
                                   << e.what() << std::endl;
                     }
                 }
 
-                command* new_command = new command_add_pool(pool_name, constructed_logger);
+                command* new_command = new command_add_pool();
                 new_command->execute(line);
             }
             else if (line == "DELETE_POOL")
             {
-                constructed_logger->trace("[delete_pool] find delete_pool");
+                logger_singleton::get_instance()->get_logger()->trace("[delete_pool] find delete_pool");
 
                 std::string pool_name;
                 input_file >> pool_name;
 
-                constructed_logger->information("pool name: " + pool_name);
+                logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name);
 
                 std::string pool_directory_name = base_directory_name + "/" + pool_name;
 
@@ -184,27 +175,27 @@ public:
                     try
                     {
                         std::filesystem::remove_all(pool_directory_name);
-                        constructed_logger->trace("directory " + pool_directory_name + " has deleted");
+                        logger_singleton::get_instance()->get_logger()->trace("directory " + pool_directory_name + " has deleted");
                     }
                     catch (const std::exception &e)
                     {
-                        constructed_logger->error("error deleting the directory " + pool_directory_name);
+                        logger_singleton::get_instance()->get_logger()->error("error deleting the directory " + pool_directory_name);
                         std::cerr << "error deleting the directory " + pool_directory_name << e.what() << std::endl;
                     }
                 }
 
-                command* new_command = new command_delete_pool(pool_name, constructed_logger);
+                command* new_command = new command_delete_pool(pool_name);
                 new_command->execute(line);
             }
             else if (line == "ADD_SCHEME")
             {
-                constructed_logger->trace("[add_scheme] find add_scheme");
+                logger_singleton::get_instance()->get_logger()->trace("[add_scheme] find add_scheme");
 
                 std::string pool_name;
                 std::string scheme_name;
                 input_file >> pool_name >> scheme_name;
 
-                constructed_logger->information("pool name: " + pool_name + ", scheme_name: " + scheme_name);
+                logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name + ", scheme_name: " + scheme_name);
 
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
@@ -213,27 +204,28 @@ public:
                     try
                     {
                         std::filesystem::create_directory(scheme_directory_name);
-                        constructed_logger->trace("directory " + scheme_directory_name + " has created");
+                        logger_singleton::get_instance()->get_logger()->trace("directory " + scheme_directory_name + " has created");
                     }
                     catch (const std::exception& e)
                     {
-                        constructed_logger->error("error creating the directory " + scheme_directory_name);
+                        logger_singleton::get_instance()->get_logger()->error("error creating the directory " + scheme_directory_name);
                         std::cerr << "error creating the directory " + scheme_directory_name << e.what() << std::endl;
                     }
                 }
 
-                command* new_command = new command_add_scheme(pool_name, scheme_name, constructed_logger);
+                command* new_command = new command_add_scheme(pool_name, scheme_name);
+//                command* new_command = new command_add_scheme();
                 new_command->execute(line);
             }
             else if (line == "DELETE_SCHEME")
             {
-                constructed_logger->trace("[delete_scheme] find delete_scheme");
+                logger_singleton::get_instance()->get_logger()->trace("[delete_scheme] find delete_scheme");
 
                 std::string pool_name;
                 std::string scheme_name;
                 input_file >> pool_name >> scheme_name;
 
-                constructed_logger->information("pool_name: " + pool_name + " scheme_name: " + scheme_name);
+                logger_singleton::get_instance()->get_logger()->information("pool_name: " + pool_name + " scheme_name: " + scheme_name);
 
                 std::string scheme_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name;
 
@@ -242,21 +234,21 @@ public:
                     try
                     {
                         std::filesystem::remove_all(scheme_directory_name);
-                        constructed_logger->trace("directory " + scheme_directory_name + " has deleted");
+                        logger_singleton::get_instance()->get_logger()->trace("directory " + scheme_directory_name + " has deleted");
                     }
                     catch (const std::exception& e)
                     {
-                        constructed_logger->error("error deleting the directory " + scheme_directory_name);
+                        logger_singleton::get_instance()->get_logger()->error("error deleting the directory " + scheme_directory_name);
                         std::cerr << "error deleting the directory " + scheme_directory_name << e.what() << std::endl;
                     }
                 }
 
-                command* new_command = new command_delete_scheme(pool_name, scheme_name, constructed_logger);
+                command* new_command = new command_delete_scheme(pool_name, scheme_name);
                 new_command->execute(line);
             }
             else if (line == "ADD_COLLECTION")
             {
-                constructed_logger->trace("[add_collection] find add_collection");
+                logger_singleton::get_instance()->get_logger()->trace("[add_collection] find add_collection");
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -271,7 +263,7 @@ public:
 
                 input_file >> pool_name >> scheme_name >> collection_name >> allocator_fit_mode >> allocator_type;
 
-                constructed_logger->information(line + " " + pool_name + " " + scheme_name + " " + collection_name + " " + allocator_fit_mode + " " + allocator_type);
+                logger_singleton::get_instance()->get_logger()->information(line + " " + pool_name + " " + scheme_name + " " + collection_name + " " + allocator_fit_mode + " " + allocator_type);
 
                 if (allocator_fit_mode == "the_best_fit")
                 {
@@ -287,7 +279,7 @@ public:
                 }
                 else
                 {
-                    constructed_logger->error("[add_collection] wrong allocator fit mode");
+                    logger_singleton::get_instance()->get_logger()->error("[add_collection] wrong allocator fit mode");
                 }
 
                 if (allocator_type == "sorted_list")
@@ -308,7 +300,7 @@ public:
                 }
                 else
                 {
-                    constructed_logger->error("[add_collection] wrong allocator type");
+                    logger_singleton::get_instance()->get_logger()->error("[add_collection] wrong allocator type");
                 }
 
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
@@ -318,22 +310,22 @@ public:
                     try
                     {
                         std::filesystem::create_directory(collection_directory_name);
-                        constructed_logger->trace("directory " + collection_directory_name + " has created");
+                        logger_singleton::get_instance()->get_logger()->trace("directory " + collection_directory_name + " has created");
                     }
                     catch (const std::exception& e)
                     {
-                        constructed_logger->error("error creating the directory " + collection_directory_name);
+                        logger_singleton::get_instance()->get_logger()->error("error creating the directory " + collection_directory_name);
                         std::cerr << "error creating the directory " + collection_directory_name << e.what() << std::endl;
                     }
                 }
 
                 command* new_command = new command_add_collection(pool_name, scheme_name,
-                                                              collection_name, type, fit_mode, constructed_logger);
+                                                              collection_name, type, fit_mode);
                 new_command->execute(line);
             }
             else if (line == "DELETE_COLLECTION")
             {
-                constructed_logger->trace("[delete_collection] find delete_collection");
+                logger_singleton::get_instance()->get_logger()->trace("[delete_collection] find delete_collection");
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -341,7 +333,7 @@ public:
 
                 input_file >> pool_name >> scheme_name >> collection_name;
 
-                constructed_logger->information("pool name: " + pool_name + " scheme_name: " + scheme_name + " collection_name: " + collection_name);
+                logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name + " scheme_name: " + scheme_name + " collection_name: " + collection_name);
 
                 std::string collection_directory_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name;
 
@@ -350,22 +342,22 @@ public:
                     try
                     {
                         std::filesystem::remove_all(collection_directory_name);
-                        constructed_logger->trace("directory " + collection_directory_name + " has deleted");
+                        logger_singleton::get_instance()->get_logger()->trace("directory " + collection_directory_name + " has deleted");
                     }
                     catch (const std::exception& e)
                     {
-                        constructed_logger->error("error deleting the directory " + collection_directory_name);
+                        logger_singleton::get_instance()->get_logger()->error("error deleting the directory " + collection_directory_name);
                         std::cerr << "error deleting the directory " + collection_directory_name << e.what() << std::endl;
                     }
                 }
 
                 command* new_command = new command_delete_collection(pool_name, scheme_name,
-                                                                  collection_name, constructed_logger);
+                                                                  collection_name);
                 new_command->execute(line);
             }
             else if (line == "ADD_VALUE")
             {
-                constructed_logger->trace("[add_value] find add_value");
+                logger_singleton::get_instance()->get_logger()->trace("[add_value] find add_value");
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -373,7 +365,7 @@ public:
                 int id_buyer;
 
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
-                std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file, constructed_logger);
+                std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file);
 
                 long position = std::get<0>(result);
                 long size = std::get<1>(result) + 1;
@@ -382,7 +374,7 @@ public:
                 std::string address = std::get<4>(result);
                 int id_oder = std::get<5>(result);
 
-                constructed_logger->information(pool_name + " " + scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+                logger_singleton::get_instance()->get_logger()->information(pool_name + " " + scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
                 std::string value_file_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name + "/" + std::to_string(id_buyer) + ".txt";
 
                 try
@@ -394,22 +386,22 @@ public:
                     }
                     else
                     {
-                        constructed_logger->error("[add_value] error opening the file" + value_file_name);
+                        logger_singleton::get_instance()->get_logger()->error("[add_value] error opening the file" + value_file_name);
                     }
 
-                    constructed_logger->trace("[add_value] file " + value_file_name + " has created");
-                    command* new_command = new command_add_value(pool_name, scheme_name, collection_name, id_buyer, position, size, constructed_logger);
+                    logger_singleton::get_instance()->get_logger()->trace("[add_value] file " + value_file_name + " has created");
+                    command* new_command = new command_add_value(pool_name, scheme_name, collection_name, id_buyer, position, size);
                     new_command->execute(line);
-                    constructed_logger->debug("[add_value] the value has been added successfully");
+                    logger_singleton::get_instance()->get_logger()->debug("[add_value] the value has been added successfully");
                 }
                 catch(const std::exception& error)
                 {
-                    constructed_logger->error("[add_value] error with add value");
+                    logger_singleton::get_instance()->get_logger()->error("[add_value] error with add value");
                 }
             }
             else if (line == "UPDATE_VALUE")
             {
-                constructed_logger->trace("[update_value] find update_value");
+                logger_singleton::get_instance()->get_logger()->trace("[update_value] find update_value");
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -417,7 +409,7 @@ public:
                 int id_buyer;
 
                 input_file >> pool_name >> scheme_name >> collection_name >> id_buyer;
-                std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file, constructed_logger);
+                std::tuple<long, long, std::string, std::string, std::string, int> result = serialization(input_file);
 
                 long position = std::get<0>(result);
                 long size = std::get<1>(result) + 1;
@@ -426,7 +418,7 @@ public:
                 std::string address = std::get<4>(result);
                 int id_oder = std::get<5>(result);
 
-                constructed_logger->information(pool_name + " " + scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
+                logger_singleton::get_instance()->get_logger()->information(pool_name + " " + scheme_name + " " + collection_name + " " + std::to_string(id_buyer) + " " + name + " " + date + " " + address + " " + std::to_string(id_oder));
                 std::string value_file_name = base_directory_name + "/" + pool_name + "/" + scheme_name + "/" + collection_name + "/" + std::to_string(id_buyer) + ".txt";
 
                 try
@@ -438,23 +430,23 @@ public:
                     }
                     else
                     {
-                        constructed_logger->error("[update_value] error opening the file" + value_file_name);
+                        logger_singleton::get_instance()->get_logger()->error("[update_value] error opening the file" + value_file_name);
                     }
 
-                    constructed_logger->trace("[update_value] file " + value_file_name + " has created");
-                    command* new_command = new command_update_value(pool_name, scheme_name, collection_name, id_buyer, position, size, constructed_logger);
+                    logger_singleton::get_instance()->get_logger()->trace("[update_value] file " + value_file_name + " has created");
+                    command* new_command = new command_update_value(pool_name, scheme_name, collection_name, id_buyer, position, size);
                     new_command->execute(line);
-                    constructed_logger->debug("[update_value] the value has been updated successfully");
+                    logger_singleton::get_instance()->get_logger()->debug("[update_value] the value has been updated successfully");
                 }
                 catch(const std::exception& error)
                 {
-                    constructed_logger->error("[update_value] error with update value");
+                    logger_singleton::get_instance()->get_logger()->error("[update_value] error with update value");
                 }
 
             }
             else if (line == "FIND_VALUE")
             {
-                constructed_logger->trace("[find_value] find find_value");
+                logger_singleton::get_instance()->get_logger()->trace("[find_value] find find_value");
 
                 std::string pool_name;
                 std::string scheme_name;
@@ -476,7 +468,7 @@ public:
 
                 try
                 {
-                    command* new_command = new command_find_value(pool_name, scheme_name, collection_name, id_buyer, constructed_logger);
+                    command* new_command = new command_find_value(pool_name, scheme_name, collection_name, id_buyer);
                     new_command->execute(line);
                     value* result = reinterpret_cast<command_find_value*>(new_command)->get_result();
 
@@ -485,14 +477,14 @@ public:
                     value_file_system* value_file = reinterpret_cast<value_file_system*>(result);
                     std::streampos original_position = input_file.tellg();
 
-                    value_in_memory_cache value_memory = deserialization(input_file, value_file->_start_value_bytes, value_file->_string_size, constructed_logger);
+                    value_in_memory_cache value_memory = deserialization(input_file, value_file->_start_value_bytes, value_file->_string_size);
                     input_file.seekg(original_position);
 
-                    constructed_logger->information("[find_value] name: " + value_memory._name_buyer + ", date: " + value_memory._date + ", address: " + value_memory._address + ", id_oder: " + std::to_string(value_memory._id_order));
+                    logger_singleton::get_instance()->get_logger()->information("[find_value] name: " + value_memory._name_buyer + ", date: " + value_memory._date + ", address: " + value_memory._address + ", id_oder: " + std::to_string(value_memory._id_order));
                 }
                 catch (const std::exception& e)
                 {
-                    constructed_logger->error("[find_value] error with find value");
+                    logger_singleton::get_instance()->get_logger()->error("[find_value] error with find value");
                 }
             }
             else if (line == "DELETE_VALUE")
@@ -510,17 +502,17 @@ public:
 
                 if (std::remove(value_file_name.c_str()) != 0)
                 {
-                    constructed_logger->error("error deleting the file: " + value_file_name);
+                    logger_singleton::get_instance()->get_logger()->error("error deleting the file: " + value_file_name);
                     std::cerr << "error deleting the file: " << value_file_name << std::endl;
                 }
                 else
                 {
-                    constructed_logger->trace("file has deleted successfully: " + value_file_name);
+                    logger_singleton::get_instance()->get_logger()->trace("file has deleted successfully: " + value_file_name);
                     std::cout << "file has deleted successfully: " << value_file_name << std::endl;
                 }
 
                 command* new_command = new command_delete_value(pool_name, scheme_name, collection_name,
-                                                                id_buyer, constructed_logger);
+                                                                id_buyer);
                 new_command->execute(line);
             }
             else if (line == "FIND_BETWEEN_VALUE")

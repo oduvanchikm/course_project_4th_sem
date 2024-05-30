@@ -9,10 +9,6 @@ class command_update_value final :
 
 private:
 
-//    logger_guardant* _logger_guardant_command;
-
-    logger* _logger;
-
     std::string _pool_name;
     std::string _scheme_name;
     std::string _collection_name;
@@ -34,8 +30,7 @@ public:
     }
 
     command_update_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                      int key, long position, long size, logger* logger_command) :
-                            _logger(logger_command),
+                      int key, long position, long size) :
                             _key(key),
                             _position(position),
                             _size(size),
@@ -48,8 +43,7 @@ public:
 
     command_update_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
                       int key, std::string& name, std::string& date, std::string& address,
-                      int id_order, logger* logger_command) :
-                            _logger(logger_command),
+                      int id_order) :
                             _key(key),
                             _address(address),
                             _date(date),
@@ -66,7 +60,7 @@ public:
 
     bool can_execute(std::string const& request) noexcept override
     {
-        _logger->trace("start can_execute add value");
+        logger_singleton::get_instance()->get_logger()->trace("start can_execute add value");
 
         std::istringstream string_with_commands(request);
         std::string command;
@@ -77,7 +71,7 @@ public:
             std::ofstream file_save(FILE_SAVE, std::ios::app);
             if (!file_save.is_open())
             {
-                _logger->error("error with opening file for saving data");
+                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
                 return false;
             }
 
@@ -121,8 +115,7 @@ public:
 
     void execute(std::string const& request) noexcept override
     {
-        _logger->trace("start execute add value");
-
+        logger_singleton::get_instance()->get_logger()->trace("start execute add value");
         if (database::get_instance(3)->get_mode() == enums::mode::file_system)
         {
             database::get_instance(3)->update_value(_pool_name, _scheme_name, _collection_name, _key, _position, _size);
@@ -133,7 +126,11 @@ public:
                            _name, _date, _address, _id_order);
         }
 
-        _logger->trace("finish execute add value");
+        file_save file;
+        file.file_for_save("UPDATE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
+                           " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+
+        logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
     }
 };
 

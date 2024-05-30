@@ -2,12 +2,12 @@
 #define COURSE_PROJECT_COMMAND_H
 #define FILE_SAVE "file_save_data.txt"
 #include <iostream>
-#include <optional>
 #include "../containers/wb.h"
 #include "../containers/database.h"
 #include "../validate/validate_parameters.h"
 #include <filesystem>
 #include <fstream>
+#include "../logger/logger_singleton.h"
 
 class command
 {

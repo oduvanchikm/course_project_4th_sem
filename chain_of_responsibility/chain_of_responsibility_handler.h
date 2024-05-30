@@ -25,27 +25,67 @@ public:
 
 public:
 
-    bool handle(std::string const &request,
-                std::int64_t date_time_target) const noexcept
+    [[nodiscard]] bool handle(std::string const &request) const noexcept
     {
-        if (date_time_target <= _date_time_activity_started)
-        {
-            return false;
-        }
+//        std::cout << "request: " << request << std::endl;
+//
+//        if (_command_action->can_execute(request))
+//        {
+//            std::cout << "first beee" << std::endl;
+//            _command_action->execute(request);
+//            return true;
+//        }
+//
+//        std::cout << "beee" << std::endl;
+//
+//        if (_next_handler != nullptr)
+//        {
+//            std::cout << "second beee" << std::endl;
+//            return _next_handler->handle(request);
+//        }
+//
+//        std::cout << "third beee" << std::endl;
+//
+//        return false;
+        std::cout << "start handle in chain of responsibility handler" << std::endl;
+//        if (date_time_target <= _date_time_activity_started)
+//        {
+//            return false;
+//        }
 
-        if (!_command_action->can_execute(request))
+
+        if (_command_action->can_execute(request))
         {
-            if (_next_handler == nullptr)
+            _command_action->execute(request);
+            return true;
+        }
+        else
+        {
+            if (this->_next_handler == nullptr)
             {
                 return false;
             }
 
-            return _next_handler->handle(request, date_time_target);
+            return this->_next_handler->handle(request);
         }
 
-        _command_action->execute(request);
-
-        return true;
+//        if (!_command_action->can_execute(request))
+//        {
+//            std::cout << "error1" << std::endl;
+//            if (this->_next_handler == nullptr)
+//            {
+//                std::cout << "error2" << std::endl;
+//                return false;
+//            }
+//
+//            return _next_handler->handle(request);
+//        }
+//
+//        _command_action->execute(request);
+//
+        std::cout << "finish handle in chain of responsibility handler" << std::endl;
+//
+//        return true;
     }
 
 public:

@@ -1,8 +1,3 @@
-ADD_POOL pool1
-ADD_SCHEME pool1 scheme1
-ADD_POOL pool2
-ADD_SCHEME pool2 scheme2
-DELETE_SCHEME pool2 scheme2
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
 ADD_COLLECTION pool3 scheme3 collection1 sorted_list the_best_fit

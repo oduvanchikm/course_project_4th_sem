@@ -343,27 +343,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "dialog/dialog_file_system.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "validate/validate_parameters.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"path" : "parse/file_system_parse.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "dialog/dialog_memory_cache.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "containers/key_values.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -433,7 +418,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "work_with_file/work_with_file.h",
+			"path" : "chain_of_responsibility/chain_of_responsibility.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -443,7 +428,22 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "chain_of_responsibility/chain_of_responsibility.h",
+			"path" : "chain_of_responsibility/request_with_command_chain.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "chain_of_responsibility/request_with_command.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "command/file_save.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "logger/logger_singleton.h",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -8,8 +8,6 @@ class command_delete_scheme final :
 
 private:
 
-//    logger_guardant* _logger_guardant_command;
-    logger* _logger;
     std::string _pool_name;
     std::string _scheme_name;
 
@@ -20,9 +18,8 @@ public:
 
     }
 
-    command_delete_scheme(std::string& pool_name, std::string& scheme_name, logger* log) :
+    command_delete_scheme(std::string& pool_name, std::string& scheme_name) :
                         _pool_name(pool_name),
-                        _logger(log),
                         _scheme_name(scheme_name)
     {
 
@@ -32,10 +29,7 @@ public:
 
     bool can_execute(std::string const& request) noexcept override
     {
-        if (_logger != nullptr)
-        {
-            _logger->trace("start can_execute delete scheme");
-        }
+        logger_singleton::get_instance()->get_logger()->trace("start can_execute delete scheme");
 
         std::istringstream string_with_commands(request);
         std::string command;
@@ -46,10 +40,7 @@ public:
             std::ofstream file_save(FILE_SAVE, std::ios::app);
             if (!file_save.is_open())
             {
-                if (_logger != nullptr)
-                {
-                    _logger->error("error with opening file for saving data");
-                }
+                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
                 return false;
             }
 
@@ -57,10 +48,7 @@ public:
             std::string scheme_name;
             string_with_commands >> pool_name >> scheme_name;
 
-            if (_logger != nullptr)
-            {
-                _logger->information("pool name: " + pool_name + ", scheme name: " + scheme_name);
-            }
+            logger_singleton::get_instance()->get_logger()->information("pool name: " + pool_name + ", scheme name: " + scheme_name);
             _pool_name = pool_name;
 
             file_save << command << " " <<  pool_name << " " << scheme_name << std::endl;
@@ -72,18 +60,13 @@ public:
 
     void execute(std::string const& request) noexcept override
     {
-        if (_logger != nullptr)
-        {
-            _logger->trace("start execute delete scheme");
-        }
-
+        logger_singleton::get_instance()->get_logger()->trace("start execute delete scheme");
         database::get_instance(3)->delete_scheme(_pool_name, _scheme_name);
 
-        if (_logger != nullptr)
-        {
-            _logger->trace("finish execute delete scheme");
-        }
+        file_save file;
+        file.file_for_save("DELETE_SCHEME " + _pool_name + " " + _scheme_name);
 
+        logger_singleton::get_instance()->get_logger()->trace("finish execute delete scheme");
     }
 };
 

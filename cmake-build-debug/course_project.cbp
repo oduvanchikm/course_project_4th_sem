@@ -129,6 +129,12 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -165,6 +171,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_update_value.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/file_save.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/comparator/comparer.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -174,9 +183,6 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/database.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/key_values.h">
-			<Option target="course_project"/>
-		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/pool.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -184,12 +190,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/containers/wb.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/dialog/dialog_file_system.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/dialog/dialog_memory_cache.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums/allocator_types.h">
@@ -228,6 +228,9 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/logger_singleton.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">
 			<Option target="course_project"/>
 		</Unit>
@@ -250,9 +253,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/work_with_file/work_with_file.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/CMakeLists.txt">

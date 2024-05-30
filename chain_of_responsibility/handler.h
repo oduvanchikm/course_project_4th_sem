@@ -1,15 +1,14 @@
 #ifndef COURSE_PROJECT_HANDLER_H
 #define COURSE_PROJECT_HANDLER_H
-
 #include <iostream>
 
 class handler
 {
-    friend class chain_of_responsibility;
+    friend class request_handler_with_command_chain;
 
-protected:
+public:
 
-    handler *_next_handler;
+    handler* _next_handler;
 
 public:
 
@@ -22,8 +21,6 @@ public:
 
 public:
 
-    virtual bool handle(std::string const &request) const noexcept = 0;
-
+    virtual bool handle(std::string const &request) = 0;
 };
-
 #endif //COURSE_PROJECT_HANDLER_H

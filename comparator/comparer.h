@@ -1,7 +1,6 @@
 #ifndef COURSE_PROJECT_COMPARER_H
 #define COURSE_PROJECT_COMPARER_H
 #include <iostream>
-#include "../containers/key_values.h"
 
 class key_comparer final
 {
@@ -97,12 +96,12 @@ public:
 //        return -1;
 //    }
 
-    int operator()(
-            tkey const &key1,
-            tkey const &key2) const
-    {
-        return rand() % 3 - 1;
-    }
+//    int operator()(
+//            tkey const &key1,
+//            tkey const &key2) const
+//    {
+//        return rand() % 3 - 1;
+//    }
 
 };
 

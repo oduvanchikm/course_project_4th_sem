@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/n_10.dir/check/check.c.o CMakeFiles/n_10.dir/configuration/configuration.c.o CMakeFiles/n_10.dir/gets/gets.c.o CMakeFiles/n_10.dir/interpreter/interpreter.c.o CMakeFiles/n_10.dir/operations/operations.c.o CMakeFiles/n_10.dir/string/string.c.o CMakeFiles/n_10.dir/variables/variables.c.o CMakeFiles/n_10.dir/main.c.o -o n_10 
