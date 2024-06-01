@@ -14,6 +14,7 @@
 #include "command/command_update_value.h"
 #include "command/command_find_value.h"
 #include "command/command_find_between_value.h"
+#include "command/command_find_time_value.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
 
     size_t t = 3;
     std::string operating_mode = argv[1];
+    database::get_instance(t)->set_t(t);
     database *db = database::get_instance(t);
 
     request_handler_with_command_chain _chain;
@@ -38,6 +40,7 @@ int main(int argc, char *argv[])
             .add_handler(new command_update_value())
             .add_handler(new command_find_value())
             .add_handler(new command_find_between_value())
+            .add_handler(new command_find_time_value())
             .add_handler(new command_delete_value())
             .add_handler(new command_delete_collection())
             .add_handler(new command_delete_scheme())
@@ -127,6 +130,29 @@ int main(int argc, char *argv[])
             }
         }
     }
+
+    std::string word;
+    do
+    {
+        std::cout << "Do you want to save the data? Please write 'yes' or 'no':" << std::endl;
+        std::cin >> word;
+
+        if (word == "no")
+        {
+            std::cout << "Data will not be save" << std::endl;
+            file_save file;
+            file.clean_file();
+        }
+        else if (word == "yes" )
+        {
+            std::cout << "Data will be save" << std::endl;
+        }
+        else if (word != "yes" && word != "no")
+        {
+            std::cout << "You entered an invalid answer. Please try again." << std::endl;
+        }
+
+    } while (word != "yes" && word != "no");
 
     return 0;
 }

@@ -264,6 +264,8 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
  /usr/include/c++/9/bits/stl_multiset.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/file_save.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../validate/errors.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../validate/errors.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
@@ -272,8 +274,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/command/../additional_function/file_save.h \
- /home/passwd/course_project/course_project_4th_sem/command/../additional_function/../logger/logger_singleton.h \
+ /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_scheme.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_scheme.h \
@@ -285,4 +286,5 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h
+ /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_find_time_value.h

@@ -84,12 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/additional_function/file_save.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/additional_function/persistence_singleton.h">
-			<Option target="course_project"/>
-		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -165,10 +159,16 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_find_time_value.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_find_value.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_update_value.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/file_save.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/comparator/comparer.h">

@@ -7,6 +7,8 @@
 #include <filesystem>
 #include <fstream>
 #include "../logger/logger_singleton.h"
+#include "file_save.h"
+#include "../validate/errors.h"
 
 class command
 {

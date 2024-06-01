@@ -50,6 +50,11 @@ public:
         return _t;
     }
 
+    void set_t(size_t t)
+    {
+        _t = t;
+    }
+
 public:
 
     void add_pool(std::string const& pool_name) const

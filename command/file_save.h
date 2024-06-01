@@ -133,6 +133,7 @@ public:
     void clean_file()
     {
         std::ofstream ofs;
+        _file_name = "file_save.txt";
         ofs.open(_file_name, std::ofstream::out | std::ofstream::trunc);
         ofs.close();
     }

@@ -62,10 +62,11 @@ add_executable(course_project
         chain_of_responsibility/handler.h
         chain_of_responsibility/request_with_command_chain.h
         chain_of_responsibility/request_with_command.h
-        additional_function/file_save.h
+        command/file_save.h
         logger/logger_singleton.h
         validate/errors.h
         flyweight/flyweight_string.h
         flyweight/flyweight_fabric.h
-        additional_function/persistence_singleton.h
+        command/command_find_time_value.h
+        command/command_find_time_value.h
 )

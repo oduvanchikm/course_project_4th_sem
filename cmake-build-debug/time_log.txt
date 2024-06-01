@@ -3,3 +3,63 @@
 [2024-06-01 22:05:31] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
 [2024-06-01 22:05:31] FIND_VALUE pool3 scheme3 collection1 34
 [2024-06-01 22:05:31] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-01 22:46:11] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-01 22:46:11] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-01 22:46:11] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-01 22:46:11] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-01 22:46:11] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-01 22:55:24] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-01 22:55:24] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-01 22:55:24] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-01 22:55:24] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-01 22:55:24] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-01 22:56:28] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-01 22:56:28] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-01 22:56:28] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-01 22:56:28] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-01 22:56:28] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:00:54] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:00:54] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:00:54] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:00:54] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:00:54] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:01:41] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:01:41] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:01:41] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:01:41] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:01:41] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:02:33] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:02:33] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:02:33] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:02:33] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:02:33] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:04:47] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:04:47] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:04:47] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:04:47] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:04:47] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:05:08] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:05:08] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:05:08] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:05:08] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:05:08] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:12:51] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:12:51] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:12:51] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:12:51] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:12:51] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:13:21] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:13:21] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:13:21] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:13:21] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:13:21] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:13:44] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:13:44] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:13:44] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:13:44] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:13:44] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[2024-06-02 01:17:34] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-02 01:17:34] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-02 01:17:34] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-02 01:17:34] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-02 01:17:34] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
