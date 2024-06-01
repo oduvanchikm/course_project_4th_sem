@@ -71,7 +71,7 @@ public:
             tkey const &key,
             tvalue &&value) = 0;
 
-    virtual tvalue &obtain(
+    virtual tvalue const &obtain(
             tkey const &key) = 0;
 
     virtual tvalue dispose(

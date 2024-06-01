@@ -1,24 +1,22 @@
 #ifndef COURSE_PROJECT_LOGGER_SINGLETON_H
 #define COURSE_PROJECT_LOGGER_SINGLETON_H
+
 #include "logger.h"
 #include "logger_builder.h"
 #include "client_logger_builder.h"
 #include "client_logger.h"
 
-class logger_singleton
-{
+class logger_singleton {
 
 private:
 
-    static logger_singleton* _logger_singleton;
-    logger* _logger;
+    static logger_singleton *_logger_singleton;
+    logger *_logger;
 
 public:
 
-    static logger_singleton* get_instance()
-    {
-        if (_logger_singleton == nullptr)
-        {
+    static logger_singleton *get_instance() {
+        if (_logger_singleton == nullptr) {
             _logger_singleton = new logger_singleton("log.txt");
         }
 
@@ -27,9 +25,8 @@ public:
 
 private:
 
-    logger_singleton(std::string const& logger_file_path)
-    {
-        logger_builder* builder = new client_logger_builder();
+    logger_singleton(std::string const &logger_file_path) {
+        logger_builder *builder = new client_logger_builder();
 
         logger *constructed_logger = builder
                 ->add_console_stream(logger::severity::information)
@@ -48,28 +45,26 @@ private:
 
 public:
 
-    logger* get_logger() const noexcept
-    {
+    logger *get_logger() const noexcept {
         return _logger;
     }
 
 public:
 
-    ~logger_singleton()
-    {
+    ~logger_singleton() {
         delete _logger;
     }
 
-    logger_singleton(logger_singleton const& other) = delete;
+    logger_singleton(logger_singleton const &other) = delete;
 
-    logger_singleton(logger_singleton const&& other) = delete;
+    logger_singleton(logger_singleton const &&other) = delete;
 
-    logger_singleton& operator=(logger_singleton const& other) = delete;
+    logger_singleton &operator=(logger_singleton const &other) = delete;
 
-    logger_singleton& operator=(logger_singleton const&& other) = delete;
+    logger_singleton &operator=(logger_singleton const &&other) = delete;
 
 };
 
-logger_singleton* logger_singleton::_logger_singleton = nullptr;
+logger_singleton *logger_singleton::_logger_singleton = nullptr;
 
 #endif //COURSE_PROJECT_LOGGER_SINGLETON_H

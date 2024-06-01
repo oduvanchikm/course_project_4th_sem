@@ -1,8 +1,8 @@
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 scheme3 collection1 sorted_list the_best_fit
-ADD_VALUE pool3 scheme3 collection1 34 sonya 45 LA 456
-ADD_VALUE pool3 scheme3 collection1 8 sasha 45 NY 56
-ADD_VALUE pool3 scheme3 collection1 9 sonechka 45 Bali 456
-UPDATE_VALUE pool3 scheme3 collection1 9 sonechka 78 Bali 456
-FIND_VALUE pool3 scheme3 collection1 9
+ADD_COLLECTION pool3 scheme3 collection1 first_fit sorted_list
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+FIND_VALUE pool3 scheme3 collection1 34
+FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1

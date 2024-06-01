@@ -229,6 +229,9 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/tr1/poly_laguerre.tcc \
  /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc \
+ /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_string.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_fabric.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_string.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/chain_of_responsibility_handler.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/command.h \
@@ -266,30 +269,13 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../validate/errors.h \
  /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/parse/file_system_parse.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/pool.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/scheme.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../containers/collection.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_add_pool.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/file_save.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/../logger/logger_singleton.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_delete_pool.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_add_scheme.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_delete_scheme.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_add_collection.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_delete_collection.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_add_value.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_update_value.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_find_value.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../command/command_delete_value.h \
- /home/passwd/course_project/course_project_4th_sem/parse/../logger/logger_singleton.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
+ /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/logger_singleton.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_scheme.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_scheme.h \
@@ -299,4 +285,5 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_singleton.h
+ /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_singleton.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h

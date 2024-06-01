@@ -147,7 +147,10 @@
 				49,
 				50,
 				51,
-				52
+				52,
+				53,
+				54,
+				55
 			]
 		},
 		{
@@ -444,6 +447,21 @@
 		{
 			"backtrace" : 1,
 			"path" : "logger/logger_singleton.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "validate/errors.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "flyweight/flyweight_string.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "flyweight/flyweight_fabric.h",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -1,6 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_FIND_VALUE_H
 #define COURSE_PROJECT_COMMAND_FIND_VALUE_H
 #include "command.h"
+#include "file_save.h"
 
 class command_find_value final :
         public command
@@ -11,34 +12,7 @@ private:
     std::string _pool_name;
     std::string _scheme_name;
     std::string _collection_name;
-
     int _key;
-
-    value* _result;
-
-public:
-
-    value* get_result() const
-    {
-        return _result;
-    }
-
-public:
-
-    command_find_value()
-    {
-
-    }
-
-    command_find_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                         int key) :
-                                _key(key),
-                                _pool_name(pool_name),
-                                _scheme_name(scheme_name),
-                                _collection_name(collection_name)
-    {
-        _result = nullptr;
-    }
 
 public:
 
@@ -52,32 +26,48 @@ public:
 
         if (command == "FIND_VALUE")
         {
-            std::ofstream file_save(FILE_SAVE, std::ios::app);
-            if (!file_save.is_open())
-            {
-                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-                return false;
-            }
-
             std::string pool_name;
             std::string scheme_name;
             std::string collection_name;
             int id_buyer;
 
+            string_with_commands >> pool_name >> scheme_name >> collection_name >> id_buyer;
+
+            _pool_name = pool_name;
+            _scheme_name = scheme_name;
+            _collection_name = collection_name;
             _key = id_buyer;
 
-            file_save << command << " " <<  pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << std::endl;
-            file_save.close();
+            return true;
         }
+        else return false;
     }
 
     void execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start execute add value");
-        _result = database::get_instance(3)->obtain_value(_pool_name, _scheme_name, _collection_name, _key);
-
         file_save file;
-        file.file_for_save("FIND_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
+
+        if (database::get_instance(3)->get_mode() == enums::mode::file_system)
+        {
+            auto new_command = database::get_instance(3)->obtain_value(_pool_name, _scheme_name, _collection_name, _key);
+            auto* result = reinterpret_cast<command_find_value*>(new_command);
+
+            value_file_system* value_file = reinterpret_cast<value_file_system*>(result);
+
+            value_in_memory_cache value_memory = file.deserialization(_pool_name, _scheme_name, _collection_name, std::to_string(_key), value_file->_start_value_bytes, value_file->_string_size);
+
+            logger_singleton::get_instance()->get_logger()->information("[find_value] name: " + value_memory._name_buyer + ", date: " + value_memory._date + ", address: " + value_memory._address + ", id_oder: " + std::to_string(value_memory._id_order));
+        }
+        else
+        {
+            file.file_for_save("FIND_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
+
+            logger_singleton::get_instance()->get_logger()->trace("execute command update value, memory cache mode");
+            auto* value_memory = reinterpret_cast<value_in_memory_cache*>(database::get_instance(3)->obtain_value(_pool_name, _scheme_name, _collection_name, _key));
+
+            logger_singleton::get_instance()->get_logger()->information("[find_value] name: " + value_memory->_name_buyer + ", date: " + value_memory->_date + ", address: " + value_memory->_address + ", id_oder: " + std::to_string(value_memory->_id_order));
+        }
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
     }

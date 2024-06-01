@@ -12,7 +12,6 @@ class scheme
 private:
 
     associative_container<std::string, collection> *_scheme;
-    logger* log;
     size_t _t;
 
 public:
@@ -34,19 +33,39 @@ public:
     void add_collection(std::string const& name_collection, allocator_types type,
                         allocator_with_fit_mode::fit_mode fit_mode, allocator* allocator_database) const
     {
-        _scheme->insert(name_collection, collection(allocator_database, _t, fit_mode, type));
+        try
+        {
+            _scheme->insert(name_collection, collection(allocator_database, _t, fit_mode, type));
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void remove_collection(std::string const& name_collection) const
     {
-        _scheme->dispose(name_collection);
+        try
+        {
+            _scheme->dispose(name_collection);
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
-    collection& find_collection(std::string const& name_collection) const
+    [[nodiscard]] collection& find_collection(std::string const& name_collection) const
     {
-        collection& cl = const_cast<collection&>(_scheme->obtain(name_collection));
-        std::cout << "find collection" << std::endl;
-        return cl;
+        std::cout << "be collection" << std::endl;
+        try
+        {
+            return const_cast<collection&>(_scheme->obtain(name_collection));
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
 

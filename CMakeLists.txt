@@ -66,4 +66,7 @@ add_executable(course_project
         chain_of_responsibility/request_with_command.h
         command/file_save.h
         logger/logger_singleton.h
+        validate/errors.h
+        flyweight/flyweight_string.h
+        flyweight/flyweight_fabric.h
 )

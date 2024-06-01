@@ -13,17 +13,6 @@ private:
 
 public:
 
-    command_add_scheme() = default;
-
-    command_add_scheme(std::string& pool_name, std::string& scheme_name) :
-                    _pool_name(pool_name),
-                    _scheme_name(scheme_name)
-    {
-
-    }
-
-public:
-
     bool can_execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start can execute in command add scheme");
@@ -54,6 +43,25 @@ public:
     {
         logger_singleton::get_instance()->get_logger()->trace("execute has started in command add scheme");
         database::get_instance(3)->add_scheme(_pool_name, _scheme_name);
+
+        if (database::get_instance(3)->get_mode() == enums::mode::file_system)
+        {
+            std::string scheme_directory_name = _pool_name + "/" + _scheme_name;
+
+            if (!std::filesystem::exists(scheme_directory_name))
+            {
+                try
+                {
+                    std::filesystem::create_directory(scheme_directory_name);
+                    logger_singleton::get_instance()->get_logger()->trace("directory " + scheme_directory_name + " has created");
+                }
+                catch (const std::exception& e)
+                {
+                    logger_singleton::get_instance()->get_logger()->error("error creating the directory " + scheme_directory_name);
+                    std::cerr << "error creating the directory " + scheme_directory_name << e.what() << std::endl;
+                }
+            }
+        }
 
         file_save file;
         file.file_for_save("ADD_SCHEME " + _pool_name + " " + _scheme_name);

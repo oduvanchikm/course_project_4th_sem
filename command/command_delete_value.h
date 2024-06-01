@@ -12,36 +12,7 @@ private:
     std::string _pool_name;
     std::string _scheme_name;
     std::string _collection_name;
-
     int _key;
-
-public:
-
-    command_delete_value()
-    {
-
-    }
-
-    command_delete_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                         int key) :
-                                _key(key),
-                                _pool_name(pool_name),
-                                _scheme_name(scheme_name),
-                                _collection_name(collection_name)
-    {
-
-    }
-
-    command_delete_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                         int key, std::string& name, std::string& date, std::string& address,
-                         int id_order) :
-                                _key(key),
-                                _pool_name(pool_name),
-                                _scheme_name(scheme_name),
-                                _collection_name(collection_name)
-    {
-
-    }
 
 public:
 
@@ -55,32 +26,39 @@ public:
 
         if (command == "DELETE_VALUE")
         {
-            std::ofstream file_save(FILE_SAVE, std::ios::app);
-            if (!file_save.is_open())
-            {
-                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-                return false;
-            }
-
             std::string pool_name;
             std::string scheme_name;
             std::string collection_name;
             int id_buyer;
-
             string_with_commands >> pool_name >> scheme_name >> collection_name >> id_buyer;
 
+            _pool_name = pool_name;
+            _scheme_name = scheme_name;
+            _collection_name = collection_name;
             _key = id_buyer;
 
-
-            file_save << command << " " <<  pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer;
-            file_save.close();
+            return true;
         }
+        else return false;
     }
 
     void execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start execute add value");
         database::get_instance(3)->delete_value(_pool_name, _scheme_name, _collection_name, _key);
+
+        std::string value_file_name = _pool_name + "/" + _scheme_name + "/" + _collection_name + "/" + std::to_string(_key) + ".txt";
+
+        if (std::remove(value_file_name.c_str()) != 0)
+        {
+            logger_singleton::get_instance()->get_logger()->error("error deleting the file: " + value_file_name);
+            std::cerr << "error deleting the file: " << value_file_name << std::endl;
+        }
+        else
+        {
+            logger_singleton::get_instance()->get_logger()->trace("file has deleted successfully: " + value_file_name);
+            std::cout << "file has deleted successfully: " << value_file_name << std::endl;
+        }
 
         file_save file;
         file.file_for_save("DELETE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));

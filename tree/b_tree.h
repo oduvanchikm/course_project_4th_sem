@@ -5,19 +5,26 @@
 #include <allocator.h>
 #include "../logger/logger_builder.h"
 
+enum class insertion_of_existent_key_attempt_strategy
+{
+    update_value,
+    throw_an_exception
+};
+enum class value_or_container
+{
+    value,
+    throw_an_exception
+};
 template<
         typename tkey,
         typename tvalue>
-class b_tree final:
+class b_tree:
         public search_tree<tkey, tvalue>
 {
 
 private:
 
     void insert_inner(
-            typename associative_container<tkey, tvalue>::key_value_pair &&kvp);
-
-    void update_inner(
             typename associative_container<tkey, tvalue>::key_value_pair &&kvp);
 
 public:
@@ -30,15 +37,15 @@ public:
             tkey const &key,
             tvalue &&value) override;
 
-    void update(
-            tkey const &key,
-            tvalue const &value) override;
+//    void update(
+//            tkey const &key,
+//            tvalue const &value) override;
+//
+//    void update(
+//            tkey const &key,
+//            tvalue &&value) override;
 
-    void update(
-            tkey const &key,
-            tvalue &&value) override;
-
-    tvalue &obtain(
+    tvalue const &obtain(
             tkey const &key) override;
 
     tvalue dispose(
@@ -50,10 +57,23 @@ public:
             bool lower_bound_inclusive,
             bool upper_bound_inclusive) override;
 
+    void update(tkey const& key, tvalue const &value) override;
+
+    void update(tkey const& key, tvalue &&value) override;
+
+    void update_inner(typename associative_container<tkey, tvalue>::key_value_pair &&kvp);
+
 public:
+
+
+
+    insertion_of_existent_key_attempt_strategy _insert_strategy;
+
+
 
     class infix_iterator final
     {
+        friend class b_tree<tkey, tvalue>;
 
     private:
 
@@ -63,6 +83,8 @@ public:
 
         explicit infix_iterator(
                 typename search_tree<tkey, tvalue>::common_node *subtree_root);
+
+        explicit infix_iterator(std::stack<std::pair<typename search_tree<tkey, tvalue>::common_node *, int>> &path);
 
     public:
 
@@ -119,6 +141,7 @@ public:
     explicit b_tree(
             size_t t,
             std::function<int(tkey const &, tkey const &)> keys_comparer = std::less<tkey>(),
+            insertion_of_existent_key_attempt_strategy strategy = insertion_of_existent_key_attempt_strategy::throw_an_exception,
             allocator *allocator = nullptr,
             logger *logger = nullptr);
 
@@ -168,31 +191,6 @@ private:
 
 };
 
-template<typename tkey, typename tvalue>
-void b_tree<tkey, tvalue>::update_inner(typename associative_container<tkey, tvalue>::key_value_pair &&kvp)
-{
-    auto path = this->find_path(kvp.key);
-
-    if (path.top().second < 0)
-    {
-        throw std::logic_error("key not found");
-    }
-
-    (*path.top().first)->keys_and_values[path.top().second].value = std::move(kvp.value);
-}
-
-template<typename tkey, typename tvalue>
-void b_tree<tkey, tvalue>::update(const tkey &key, const tvalue &value)
-{
-    update_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
-}
-
-template<typename tkey, typename tvalue>
-void b_tree<tkey, tvalue>::update(const tkey &key, tvalue &&value)
-{
-    update_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
-}
-
 template<
         typename tkey,
         typename tvalue>
@@ -204,6 +202,13 @@ b_tree<tkey, tvalue>::infix_iterator::infix_iterator(
         _path.push(std::make_pair(subtree_root, 0));
         subtree_root = subtree_root->subtrees[0];
     }
+}
+
+template<typename tkey, typename tvalue>
+b_tree<tkey, tvalue>::infix_iterator::infix_iterator(std::stack<std::pair<typename search_tree<tkey, tvalue>::common_node *, int>> &path):
+        _path(path)
+{
+
 }
 
 template<
@@ -363,7 +368,9 @@ std::tuple<size_t, size_t, tkey const &, tvalue const &> b_tree<tkey, tvalue>::i
     return std::tuple<size_t, size_t, tkey const &, tvalue const &>(std::get<0>(data), std::get<1>(data), std::cref(std::get<2>(data)), std::cref(std::get<3>(data)));
 }
 
-template<typename tkey, typename tvalue>
+template<
+        typename tkey,
+        typename tvalue>
 void b_tree<tkey, tvalue>::insert_inner(
         typename associative_container<tkey, tvalue>::key_value_pair &&kvp)
 {
@@ -375,18 +382,19 @@ void b_tree<tkey, tvalue>::insert_inner(
         *path.top().first = new_node = this->create_node(_t);
         allocator::construct(new_node->keys_and_values, std::move(kvp));
         ++new_node->virtual_size;
-
         return;
     }
-
     if (path.top().second >= 0)
     {
-        // TODO: update mechanics o_O
-        throw std::logic_error("duplicate key");
+        if (_insert_strategy == insertion_of_existent_key_attempt_strategy::throw_an_exception) throw std::logic_error("duplicate key");
+        else
+        {
+            int index = path.top().second;
+            node->keys_and_values[index].value = kvp.value;
+            return;
+        }
     }
-
     size_t subtree_index = -path.top().second - 1;
-
     typename search_tree<tkey, tvalue>::common_node *right_subtree = nullptr;
     while (true)
     {
@@ -417,6 +425,46 @@ void b_tree<tkey, tvalue>::insert_inner(
     }
 }
 
+
+template<
+        typename tkey,
+        typename tvalue>
+void b_tree<tkey, tvalue>::update_inner(
+        typename associative_container<tkey, tvalue>::key_value_pair &&kvp)
+{
+    auto path = this->find_path(kvp.key);
+    auto *node = *path.top().first;
+    if (node == nullptr && path.size() == 1)
+    {
+        typename search_tree<tkey ,tvalue>::common_node *new_node;
+        *path.top().first = new_node = this->create_node(_t);
+        allocator::construct(new_node->keys_and_values, std::move(kvp));
+        ++new_node->virtual_size;
+        return;
+    }
+    if (path.top().second >= 0)
+    {
+        int index = path.top().second;
+        node->keys_and_values[index].value = kvp.value;
+    }
+    else
+    {
+        throw std::logic_error("Value doesn't exist");
+    }
+}
+
+template<typename tkey, typename tvalue>
+void b_tree<tkey, tvalue>::update(const tkey &key, const tvalue &value)
+{
+    update_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
+}
+
+template<typename tkey, typename tvalue>
+void b_tree<tkey, tvalue>::update(const tkey &key, tvalue &&value)
+{
+    update_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
+}
+
 template<
         typename tkey,
         typename tvalue>
@@ -424,8 +472,7 @@ void b_tree<tkey, tvalue>::insert(
         const tkey &key,
         const tvalue &value)
 {
-//    int x =5;
-    insert_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, value)));
+    insert_inner(typename associative_container<tkey, tvalue>::key_value_pair(key, value));
 }
 
 template<
@@ -435,17 +482,19 @@ void b_tree<tkey, tvalue>::insert(
         const tkey &key,
         tvalue &&value)
 {
-    insert_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, std::move(value))));
+    insert_inner(std::move(typename associative_container<tkey, tvalue>::key_value_pair(key, value)));
 }
 
-template<typename tkey, typename tvalue>
-tvalue &b_tree<tkey, tvalue>::obtain(
+template<
+        typename tkey,
+        typename tvalue>
+tvalue const &b_tree<tkey, tvalue>::obtain(
         const tkey &key)
 {
     auto path = this->find_path(key);
     if (path.top().second < 0)
     {
-        throw std::logic_error("key not found");
+        throw std::logic_error("Key not found");
     }
 
     return (*path.top().first)->keys_and_values[path.top().second].value;
@@ -469,7 +518,6 @@ tvalue b_tree<tkey, tvalue>::dispose(
         path.pop();
         typename search_tree<tkey, tvalue>::common_node **iterator = non_terminal_node_with_key_found_info.first;
 
-        // TODO: configure this for min of right subtree
         while (*iterator != nullptr)
         {
             auto index = *iterator == *non_terminal_node_with_key_found_info.first
@@ -591,8 +639,81 @@ std::vector<typename associative_container<tkey, tvalue>::key_value_pair> b_tree
         bool lower_bound_inclusive,
         bool upper_bound_inclusive)
 {
-    return std::vector<typename associative_container<tkey, tvalue>::key_value_pair>();
-    //  throw not_implemented("template<typename tkey, typename tvalue> std::vector<typename associative_container<tkey, tvalue>::key_value_pair> b_tree<tkey, tvalue>::obtain_between(tkey const &, tkey const &, bool, bool)", "your code should be here...");
+    std::vector<typename associative_container<tkey, tvalue>::key_value_pair> range;
+
+    std::stack<std::pair<typename search_tree<tkey, tvalue>::common_node *, int>> path;
+
+    int index = -1;
+    if (this->_root == nullptr)
+    {
+        path.push(std::make_pair(this->_root, index));
+    }
+
+    typename search_tree<tkey, tvalue>::common_node **iterator = &(this->_root);
+    while (*iterator != nullptr && index < 0)
+    {
+        size_t left_bound_inclusive = 0;
+        size_t right_bound_inclusive = (*iterator)->virtual_size - 1;
+
+        bool found = true;
+        while (true)
+        {
+            index = (left_bound_inclusive + right_bound_inclusive) / 2;
+            auto comparison_result = this->_keys_comparer(lower_bound, (*iterator)->keys_and_values[index].key);
+            if (comparison_result == 0)
+            {
+                if (!lower_bound_inclusive)
+                {
+                    index = index + 1 == (*iterator)->virtual_size
+                            ? -(index + (comparison_result < 0 ? 0 : 1) + 1)
+                            : index + 1;
+                }
+                break;
+            }
+
+            if (left_bound_inclusive == right_bound_inclusive)
+            {
+                found = false;
+                index = -(index + (comparison_result < 0 ? 0 : 1) + 1);
+                break;
+            }
+
+            if (comparison_result < 0)
+            {
+                right_bound_inclusive = index;
+            }
+            else
+            {
+                left_bound_inclusive = index + 1;
+            }
+        }
+
+        path.push(std::make_pair(*iterator, index < 0 ? -index - 1 : index));
+
+        if (!found)
+        {
+            break;
+        }
+
+        if (index < 0)
+        {
+            iterator = (*iterator)->subtrees - index - 1;
+        }
+
+        if (*iterator == nullptr && this->_keys_comparer((path.top().first)->keys_and_values[index].key, upper_bound) < (lower_bound_inclusive ? 0 : 1))
+        {
+            path = std::move(std::stack<std::pair<typename search_tree<tkey, tvalue>::common_node *, int>>());
+        }
+    }
+
+    auto it = infix_iterator(path);
+    while (it != this->end_infix() && this->_keys_comparer(upper_bound, std::get<2>(*it)) > (upper_bound_inclusive ? -1 : 0))
+    {
+        range.push_back(std::move(typename associative_container<tkey, tvalue>::key_value_pair(std::get<2>(*it), std::get<3>(*it))));
+        ++it;
+    }
+
+    return range;
 }
 
 template<
@@ -633,10 +754,12 @@ template<
 b_tree<tkey, tvalue>::b_tree(
         size_t t,
         std::function<int(tkey const &, tkey const &)> keys_comparer,
+        insertion_of_existent_key_attempt_strategy strategy,
         allocator *allocator,
         logger *logger):
-        search_tree<tkey, tvalue>(keys_comparer, logger, allocator)
+        search_tree<tkey, tvalue>(keys_comparer, logger, allocator), _insert_strategy(strategy)
 {
+
     if ((_t = t) < 2)
     {
         throw std::logic_error("Invalid value of t parameter");
@@ -652,6 +775,7 @@ b_tree<tkey, tvalue>::b_tree(
         _t(other._t)
 {
     this->_root = copy(other._root);
+    this->_insert_strategy = other._insert_strategy;
 }
 
 template<
@@ -666,6 +790,7 @@ b_tree<tkey, tvalue> &b_tree<tkey, tvalue>::operator=(
         this->_logger = other.get_logger();
         this->_allocator = other.get_allocator();
         this->_root = copy(other._root);
+        this->_insert_strategy = other._insert_strategy;
     }
 
     return *this;
@@ -684,6 +809,7 @@ b_tree<tkey, tvalue>::b_tree(
     other._allocator = nullptr;
 
     this->_root = other._root;
+    this->_insert_strategy = other._insert_strategy;
     other._root = nullptr;
 }
 
@@ -703,6 +829,7 @@ b_tree<tkey, tvalue> &b_tree<tkey, tvalue>::operator=(
         other._logger = nullptr;
 
         this->_allocator = other._allocator;
+        this->_insert_strategy = other._insert_strategy;
         other._allocator = nullptr;
 
         this->_root = other._root;

@@ -24,40 +24,6 @@ private:
 
 public:
 
-    command_update_value()
-    {
-
-    }
-
-    command_update_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                      int key, long position, long size) :
-                            _key(key),
-                            _position(position),
-                            _size(size),
-                            _pool_name(pool_name),
-                            _scheme_name(scheme_name),
-                            _collection_name(collection_name)
-    {
-
-    }
-
-    command_update_value(std::string& pool_name, std::string& scheme_name, std::string& collection_name,
-                      int key, std::string& name, std::string& date, std::string& address,
-                      int id_order) :
-                            _key(key),
-                            _address(address),
-                            _date(date),
-                            _name(name),
-                            _id_order(id_order),
-                            _pool_name(pool_name),
-                            _scheme_name(scheme_name),
-                            _collection_name(collection_name)
-    {
-
-    }
-
-public:
-
     bool can_execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start can_execute add value");
@@ -68,13 +34,6 @@ public:
 
         if (command == "UPDATE_VALUE")
         {
-            std::ofstream file_save(FILE_SAVE, std::ios::app);
-            if (!file_save.is_open())
-            {
-                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-                return false;
-            }
-
             std::string pool_name;
             std::string scheme_name;
             std::string collection_name;
@@ -85,52 +44,69 @@ public:
             std::string date;
             int id_order;
 
-            if (database::get_instance(3)->get_mode() == enums::mode::file_system)
-            {
-                string_with_commands >> pool_name >> scheme_name >> collection_name >> id_buyer;
+            string_with_commands >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_order;
 
-                _name = name;
-                _date = date;
-                _address = address;
-                _key = id_buyer;
-                _id_order = id_order;
+            _pool_name = pool_name;
+            _scheme_name = scheme_name;
+            _collection_name = collection_name;
+            _name = name;
+            _date = date;
+            _address = address;
+            _key = id_buyer;
+            _id_order = id_order;
 
-                string_with_commands >> name >> date >> address >> id_order;
-            }
-            else
-            {
-                string_with_commands >> pool_name >> scheme_name >> collection_name >> id_buyer >> name >> date >> address >> id_order;
-
-                _name = name;
-                _date = date;
-                _address = address;
-                _key = id_buyer;
-                _id_order = id_order;
-            }
-
-            file_save << command << " " <<  pool_name << " " << scheme_name << " " << collection_name << " " << id_buyer << " " << name << " " << date << " " << address << " " << std::to_string(id_order) << std::endl;
-            file_save.close();
+            return true;
         }
+        else return false;
     }
 
     void execute(std::string const& request) noexcept override
     {
-        logger_singleton::get_instance()->get_logger()->trace("start execute add value");
+        logger_singleton::get_instance()->get_logger()->trace("start execute update value");
+        file_save file;
+
         if (database::get_instance(3)->get_mode() == enums::mode::file_system)
         {
-            database::get_instance(3)->update_value(_pool_name, _scheme_name, _collection_name, _key, _position, _size);
+            std::string command = "UPDATE_VALUE";
+            std::pair<long, long> result = file.file_for_save_with_serialization(command, _pool_name, _scheme_name, _collection_name,
+                                                                                 std::to_string(_key), _name, _date, _address, std::to_string(_id_order));
+            _position = result.first;
+            _size = result.second;
+
+            std::string value_file_name = _pool_name + "/" + _scheme_name + "/" + _collection_name + "/" + std::to_string(_key) + ".txt";
+
+            try
+            {
+                std::ofstream file_other(value_file_name, std::ios::trunc);
+                if (file_other.is_open())
+                {
+                    file_other << _name << " " << _date << " " << _address << " " << _id_order << std::endl;
+                }
+                else
+                {
+                    logger_singleton::get_instance()->get_logger()->error("[update_value] error opening the file" + value_file_name);
+                }
+
+                logger_singleton::get_instance()->get_logger()->trace("[update_value] file " + value_file_name + " has created");
+                database::get_instance(3)->update_value(_pool_name, _scheme_name, _collection_name, _key, _position, _size);
+                logger_singleton::get_instance()->get_logger()->debug("[add_value] the value has been added successfully");
+            }
+            catch(const std::exception& error)
+            {
+                logger_singleton::get_instance()->get_logger()->error("[update_value] error with add value");
+            }
         }
         else
         {
+            file.file_for_save("UPDATE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
+                               " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+
+            logger_singleton::get_instance()->get_logger()->trace("execute command update value, memory cache mode");
             database::get_instance(3)->update_value(_pool_name, _scheme_name, _collection_name, _key,
-                           _name, _date, _address, _id_order);
+                                                 _name, _date, _address, _id_order);
         }
 
-        file_save file;
-        file.file_for_save("UPDATE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
-                           " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
-
-        logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
+        logger_singleton::get_instance()->get_logger()->trace("finish execute update value");
     }
 };
 

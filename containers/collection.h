@@ -13,7 +13,8 @@
 #include "allocator_sorted_list.h"
 #include "allocator_boundary_tags.h"
 #include "allocator_buddies_system.h"
-//#include "../persistance/chain_of_responsibility_handler.h"
+#include "../flyweight/flyweight_string.h"
+#include "../flyweight/flyweight_fabric.h"
 
 class collection
 {
@@ -26,10 +27,6 @@ private:
     size_t _t;
     allocator_types _type;
 
-    // std::share ptr
-// value: ass cont<tvalue, std::vector<>>
-//    b_tree<std::string, associative_container<tdata*, std::vector<chain_of_responsibility_handler>>> *_secondary_indexing;
-
 public:
 
     explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode::fit_mode fit_mode, allocator_types type) :
@@ -37,69 +34,88 @@ public:
             _fit_mode(fit_mode),
             _type(type),
             _allocator_for_data_base(allocator_for_data_base),
-            _data(new b_tree<key, value*>(t, key_comparer(), allocator_for_data_base))
-//            _secondary_indexing(new b_tree<std::string, associative_container<tdata*,>>(t, key_comparer(), allocator_for_data_base))
+            _data(new b_tree<key, value*>(t, key_comparer()))
     {
 
     }
 
 public:
 
-    // TODO secondary indexing
-
-//    void add_secondary_index(std::string& name_value, value* value_collection) const
-//    {
-//        _secondary_indexing->insert(name_value, value_collection);
-//    }
-//
-//    value* obtain_secondary_index(std::string& name_value) const
-//    {
-//        return _secondary_indexing->obtain(name_value);
-//    }
-//
-//    void delete_secondary_index(std::string& name_value) const
-//    {
-//        _secondary_indexing->dispose(name_value);
-//    }
-
     void add_value(key& key_collection, value* value_collection) const
     {
-        _data->insert(key_collection, value_collection);
+        try
+        {
+            _data->insert(key_collection, value_collection);
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void add_value(int id_buyer, value* value)
     {
-        _data->insert(key(id_buyer), value);
+        try
+        {
+            _data->insert(key(id_buyer), value);
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void add_value(int id_buyer, long start_value_bytes, long string_size)
     {
-        value_file_system *value_file = reinterpret_cast<value_file_system *>(reinterpret_cast<value *>(_allocator_for_data_base
-                    ->allocate(sizeof(value_file_system), 1)));
+        auto* value_file = const_cast<value_file_system*>(reinterpret_cast<value_file_system*>(_allocator_for_data_base->allocate(
+                sizeof(value_file_system), 1)));
 
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
 
-        _data->insert(key(id_buyer), dynamic_cast<value *>(value_file));
+        try
+        {
+            _data->insert(key(id_buyer), dynamic_cast<value *>(value_file));
+        }
+        catch (const std::exception& e)
+        {
+            _allocator_for_data_base->deallocate(value_file);
+            throw std::logic_error(e.what());
+        }
     }
 
     void add_value(int id_buyer, std::string const& name, std::string const& date,
                    std::string const& address, int id_oder)
     {
-        value_in_memory_cache *value_memory = reinterpret_cast<value_in_memory_cache *>(
+        auto *value_memory = reinterpret_cast<value_in_memory_cache *>(
                 _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
-        value_memory->_address = address;
-        value_memory->_date = date;
-        value_memory->_name_buyer = name;
+        value_memory->_address = *(string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value());
+        value_memory->_date = *(string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value());
+        value_memory->_name_buyer = *(string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value());
 
-        _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
+        try
+        {
+            _data->insert(key(id_buyer), dynamic_cast<value*>(value_memory));
+        }
+        catch (const std::exception& e)
+        {
+            _allocator_for_data_base->deallocate(value_memory);
+            throw std::logic_error(e.what());
+        }
     }
 
     void update_value(key& key_collection, value* value_collection) const
     {
-        _data->update(key_collection, value_collection);
+        try
+        {
+            _data->update(key_collection, value_collection);
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void update_value(int id_buyer, long start_value_bytes,
@@ -111,55 +127,118 @@ public:
         value_file->_start_value_bytes = start_value_bytes;
         value_file->_string_size = string_size;
 
-        _data->update(key(id_buyer), dynamic_cast<value*>(value_file));
+        try
+        {
+            _data->update(key(id_buyer), dynamic_cast<value*>(value_file));
+        }
+        catch (const std::exception& e)
+        {
+            _allocator_for_data_base->deallocate(value_file);
+            throw std::logic_error(e.what());
+        }
     }
 
     void update_value(int id_buyer, int id_oder, std::string& name,
                       std::string& address, std::string& date) const
     {
-        value_in_memory_cache *value_memory = reinterpret_cast<value_in_memory_cache *>(
+        auto *value_memory = reinterpret_cast<value_in_memory_cache *>(
                 _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
-        value_memory->_address = address;
-        value_memory->_date = date;
-        value_memory->_name_buyer = name;
+        value_memory->_address = *(string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value());
+        value_memory->_date = *(string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value());
+        value_memory->_name_buyer = *(string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value());
 
-        _data->update(key(id_buyer), dynamic_cast<value*>(value_memory));
+        try
+        {
+            _data->update(key(id_buyer), dynamic_cast<value*>(value_memory));
+        }
+        catch (const std::exception& e)
+        {
+            _allocator_for_data_base->deallocate(value_memory);
+            throw std::logic_error(e.what());
+        }
     }
 
     void delete_value(key const &key_collection) const
     {
-        _data->dispose(key_collection);
+        try
+        {
+            _data->dispose(key_collection);
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void delete_value(int id_buyer) const
     {
-        _data->dispose(key(id_buyer));
+        try
+        {
+            _data->dispose(key(id_buyer));
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
-    value* find_value(key const &key_collection) const
+    [[nodiscard]] value* find_value(key const &key_collection) const
     {
-        return _data->obtain(key_collection);
+        try
+        {
+            return _data->obtain(key_collection);
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
-    value* find_value(int id_buyer) const
+    [[nodiscard]] value* find_value(int id_buyer) const
     {
-
-        return _data->obtain(key(id_buyer));
+        try
+        {
+            return _data->obtain(key(id_buyer));
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
-//    const value* find_value_between(key const &key_collection) const
-//    {
-//        return _data->
-//    }
+    [[nodiscard]] std::vector<value*> obtain_between(key min_bound, key max_bound,
+                                bool is_inclusive_lower, bool is_inclusive_upper) const
+    {
+        try
+        {
+            b_tree<key, value *> *tree = reinterpret_cast<b_tree<key, value *> *>(_data);
+            std::vector<associative_container<key, value *>::key_value_pair> res = tree->obtain_between(min_bound,
+                                                                                                        max_bound,
+                                                                                                        is_inclusive_lower,
+                                                                                                        is_inclusive_upper);
+            std::vector<value *> result;
+
+            for (auto each: res)
+            {
+                result.push_back(each.value);
+            }
+
+            return result;
+        }
+        catch (const std::exception& e)
+        {
+            throw std::logic_error(e.what());
+        }
+    }
 
 
 public:
 
     ~collection()
     {
-//        delete _data;
+        delete _data;
     }
 
     collection(collection const &other) :
@@ -179,7 +258,7 @@ public:
 
             if (this->_allocator_for_data_base != other._allocator_for_data_base)
             {
-                delete this->_allocator_for_data_base;
+//                delete this->_allocator_for_data_base;
                 this->_allocator_for_data_base = other._allocator_for_data_base;
             }
 

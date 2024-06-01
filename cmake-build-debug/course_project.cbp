@@ -198,6 +198,12 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/enums/enums.h">
 			<Option target="course_project"/>
 		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/flyweight/flyweight_fabric.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/flyweight/flyweight_string.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/logger/client_logger.cpp">
 			<Option target="course_project"/>
 		</Unit>
@@ -250,6 +256,9 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/search_tree.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/validate/errors.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h">

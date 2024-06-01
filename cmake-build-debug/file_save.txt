@@ -1,45 +1,66 @@
 ADD_POOL pool3
-ADD_POOL pool3
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
-ADD_POOL 
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_COLLECTION pool3 scheme3 collection1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 -1435098336 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_COLLECTION pool3 scheme3 collection1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 -1788693728 
-ADD_POOL pool3
-ADD_POOL pool3
-ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
-ADD_POOL pool3
-ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 -1088609504 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_COLLECTION pool3 scheme3 collection1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_COLLECTION pool3 scheme3 collection1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 318087968 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 collection1 1432076064 
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+FIND_VALUE pool3 scheme3 collection1 34
+FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+ADD_POOL pool3
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+FIND_VALUE pool3 scheme3 collection1 34
+FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+ADD_POOL pool3
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 sorted_list first_fit
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1

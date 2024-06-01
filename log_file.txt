@@ -1,8 +1,0 @@
-scheme1 5 Ivanov M 19.05.2024
-scheme1 6 Ivanov N 19.05.2024
-scheme1 7 Ivanov B 19.05.2024
-scheme1 8 Ivanov V 19.05.2024
-scheme2 5 Ivanov M 19.05.2024
-scheme2 6 Ivanov N 19.05.2024
-scheme3 7 Ivanov B 19.05.2024
-scheme4 8 Ivanov V 19.05.2024

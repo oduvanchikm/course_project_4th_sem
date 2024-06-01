@@ -32,19 +32,39 @@ public:
 
     void add_scheme(std::string const &scheme_name) const
     {
-        _pool->insert(scheme_name, scheme(_t));
+        try
+        {
+            _pool->insert(scheme_name, scheme(_t));
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
-    scheme& find_scheme(std::string const &scheme_name) const
+    [[nodiscard]] scheme& find_scheme(std::string const &scheme_name) const
     {
-        scheme& p = const_cast<scheme&>(_pool->obtain(scheme_name));
-        std::cout << "find scheme" << std::endl;
-        return p;
+        std::cout << "be scheme" << std::endl;
+        try
+        {
+            return const_cast<scheme&>(_pool->obtain(scheme_name));
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
     void remove_scheme(std::string const & scheme_name) const
     {
-        _pool->dispose(scheme_name);
+        try
+        {
+            _pool->dispose(scheme_name);
+        }
+        catch (std::exception const &e)
+        {
+            throw std::logic_error(e.what());
+        }
     }
 
 public:

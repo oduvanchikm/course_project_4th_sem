@@ -14,22 +14,6 @@ private:
 
 public:
 
-    command_delete_collection()
-    {
-
-    }
-
-    command_delete_collection(std::string& pool_name, std::string& scheme_name,
-                                std::string& collection_name) :
-                                    _scheme_name(scheme_name),
-                                    _pool_name(pool_name),
-                                    _collection_name(collection_name)
-    {
-
-    }
-
-public:
-
     bool can_execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start can_execute delete scheme");
@@ -40,13 +24,6 @@ public:
 
         if (command == "DELETE_COLLECTION")
         {
-            std::ofstream file_save(FILE_SAVE, std::ios::app);
-            if (!file_save.is_open())
-            {
-                logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-                return false;
-            }
-
             std::string pool_name;
             std::string scheme_name;
             std::string collection_name;
@@ -58,9 +35,6 @@ public:
             _pool_name = pool_name;
             _scheme_name = scheme_name;
             _collection_name = collection_name;
-
-            file_save << command << " " <<  pool_name << " " << scheme_name << " " << collection_name << std::endl;
-            file_save.close();
         }
 
         return true;
@@ -71,8 +45,27 @@ public:
         logger_singleton::get_instance()->get_logger()->trace("start execute delete collection");
         database::get_instance(3)->delete_collection(_pool_name, _scheme_name, _collection_name);
 
+        if (database::get_instance(3)->get_mode() == enums::mode::file_system)
+        {
+            std::string collection_directory_name = _pool_name + "/" + _scheme_name + "/" + _collection_name;
+
+            if (std::filesystem::exists(collection_directory_name))
+            {
+                try
+                {
+                    std::filesystem::remove_all(collection_directory_name);
+                    logger_singleton::get_instance()->get_logger()->trace("directory " + collection_directory_name + " has deleted");
+                }
+                catch (const std::exception& e)
+                {
+                    logger_singleton::get_instance()->get_logger()->error("error deleting the directory " + collection_directory_name);
+                    std::cerr << "error deleting the directory " + collection_directory_name << e.what() << std::endl;
+                }
+            }
+        }
+
         file_save file;
-        file.file_for_save("DELETE_COLLECTION " + _pool_name + " " + _collection_name);
+        file.file_for_save("DELETE_COLLECTION " + _pool_name + " " + _scheme_name + " " + _collection_name);
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute delete collection");
     }

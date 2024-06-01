@@ -1,6 +1,5 @@
 #ifndef COURSE_PROJECT_COMMAND_H
 #define COURSE_PROJECT_COMMAND_H
-#define FILE_SAVE "file_save_data.txt"
 #include <iostream>
 #include "../containers/wb.h"
 #include "../containers/database.h"

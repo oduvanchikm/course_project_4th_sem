@@ -3,8 +3,7 @@
 #include "command.h"
 #include "../containers/database.h"
 #include "file_save.h"
-
-class database;
+#include <filesystem>
 
 class command_add_pool final :
         public command
@@ -18,12 +17,6 @@ public:
 
     command_add_pool() = default;
 
-    command_add_pool(std::string& pool_name) :
-            _pool_name(pool_name)
-    {
-
-    }
-
 public:
 
     bool can_execute(std::string const& request) noexcept override
@@ -31,8 +24,11 @@ public:
         logger_singleton::get_instance()->get_logger()->trace("can_execute has started in command_add_pool");
 
         std::istringstream string_with_commands(request);
+//        std::istringstream string_with_commands("ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456");
         std::string command;
         string_with_commands >> command;
+
+        std::cout << "command in pool " << command << std::endl;
 
         if (command == "ADD_POOL")
         {
@@ -53,8 +49,31 @@ public:
         logger_singleton::get_instance()->get_logger()->trace("execute has started in command add pool");
         database::get_instance(3)->add_pool(_pool_name);
 
+        if (database::get_instance(3)->get_mode() == enums::mode::file_system)
+        {
+            std::string pool_directory_name = _pool_name;
+
+            if (!std::filesystem::exists(pool_directory_name))
+            {
+                try
+                {
+                    std::filesystem::create_directory(pool_directory_name);
+                    logger_singleton::get_instance()->get_logger()->trace(
+                            "[command_add_pool] directory " + pool_directory_name + " has created");
+                }
+                catch (const std::exception &e)
+                {
+                    logger_singleton::get_instance()->get_logger()->error(
+                            "[command_add_pool] error creating the directory " + pool_directory_name);
+                    std::cerr << "[command_add_value] error creating the directory " + pool_directory_name + " "
+                              << e.what() << std::endl;
+                }
+            }
+        }
+
         file_save file;
         file.file_for_save("ADD_POOL " + _pool_name);
+        std::cout << "ADD_POOL " + _pool_name << std::endl;
 
         logger_singleton::get_instance()->get_logger()->trace("execute has finished in command add pool");
     }
