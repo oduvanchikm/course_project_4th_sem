@@ -53,20 +53,19 @@ add_executable(course_project
         command/command_find_between_value.h
         command/command_delete_value.h
         command/command_delete_value.h
-        chain_of_responsibility/chain_of_responsibility_handler.h
         command/command_delete_pool.h
         command/command_add_scheme.h
         command/command_delete_scheme.h
         command/command_add_collection.h
         command/command_delete_collection.h
         command/command_add_pool.h
-        chain_of_responsibility/chain_of_responsibility.h
         chain_of_responsibility/handler.h
         chain_of_responsibility/request_with_command_chain.h
         chain_of_responsibility/request_with_command.h
-        command/file_save.h
+        additional_function/file_save.h
         logger/logger_singleton.h
         validate/errors.h
         flyweight/flyweight_string.h
         flyweight/flyweight_fabric.h
+        additional_function/persistence_singleton.h
 )

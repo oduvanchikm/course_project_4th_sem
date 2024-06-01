@@ -4,8 +4,6 @@
 #include "../enums/enums.h"
 #include "../tree/b_tree.h"
 #include "../comparator/comparer.h"
-#include "../chain_of_responsibility/chain_of_responsibility_handler.h"
-#include "../chain_of_responsibility/chain_of_responsibility.h"
 #include "../chain_of_responsibility/request_with_command_chain.h"
 #include "../chain_of_responsibility/request_with_command.h"
 #include "../chain_of_responsibility/handler.h"

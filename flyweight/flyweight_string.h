@@ -10,7 +10,7 @@ private:
 
 public:
 
-    std::string* get_value()
+    std::string const* get_value()
     {
         return &_value;
     }

@@ -1,6 +1,5 @@
 #ifndef COURSE_PROJECT_FLYWEIGHT_FABRIC_H
 #define COURSE_PROJECT_FLYWEIGHT_FABRIC_H
-
 #include <unordered_map>
 #include <memory>
 #include "flyweight_string.h"

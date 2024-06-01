@@ -63,6 +63,11 @@ public:
         file_save file;
         file.file_for_save("DELETE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
 
+        command* new_command = new command_delete_value();
+        request_handler_with_command handler(new_command);
+
+        handler.write_time_to_file(request);
+
         logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
     }
 };

@@ -1,0 +1,5 @@
+[2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[2024-06-01 22:05:31] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[2024-06-01 22:05:31] FIND_VALUE pool3 scheme3 collection1 34
+[2024-06-01 22:05:31] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1

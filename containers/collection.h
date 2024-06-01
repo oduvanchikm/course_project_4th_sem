@@ -258,7 +258,6 @@ public:
 
             if (this->_allocator_for_data_base != other._allocator_for_data_base)
             {
-//                delete this->_allocator_for_data_base;
                 this->_allocator_for_data_base = other._allocator_for_data_base;
             }
 

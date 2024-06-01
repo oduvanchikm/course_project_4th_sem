@@ -1,7 +1,10 @@
 #ifndef COURSE_PROJECT_COMMAND_ADD_VALUE_H
 #define COURSE_PROJECT_COMMAND_ADD_VALUE_H
 #include "command.h"
+#include <chrono>
 #include "../containers/database.h"
+#include "../chain_of_responsibility/request_with_command_chain.h"
+#include "../chain_of_responsibility/request_with_command.h"
 
 class command_add_value final :
         public command
@@ -64,6 +67,7 @@ public:
 
     void execute(std::string const& request) noexcept override
     {
+        std::cout << "request     " << request << std::endl;
         logger_singleton::get_instance()->get_logger()->trace("start execute add value");
         file_save file;
 
@@ -113,6 +117,11 @@ public:
             database::get_instance(3)->add_value(_pool_name, _scheme_name, _collection_name, _key,
                            _name, _date, _address, _id_order);
         }
+
+        command* new_command = new command_add_value();
+        request_handler_with_command handler(new_command);
+
+        handler.write_time_to_file(request);
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
     }

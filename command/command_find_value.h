@@ -1,7 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_FIND_VALUE_H
 #define COURSE_PROJECT_COMMAND_FIND_VALUE_H
 #include "command.h"
-#include "file_save.h"
+#include "../additional_function/file_save.h"
 
 class command_find_value final :
         public command
@@ -68,6 +68,11 @@ public:
 
             logger_singleton::get_instance()->get_logger()->information("[find_value] name: " + value_memory->_name_buyer + ", date: " + value_memory->_date + ", address: " + value_memory->_address + ", id_oder: " + std::to_string(value_memory->_id_order));
         }
+
+        command* new_command = new command_find_value();
+        request_handler_with_command handler(new_command);
+
+        handler.write_time_to_file(request);
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute add value");
     }

@@ -106,6 +106,11 @@ public:
                                                  _name, _date, _address, _id_order);
         }
 
+        command* new_command = new command_update_value();
+        request_handler_with_command handler(new_command);
+
+        handler.write_time_to_file(request);
+
         logger_singleton::get_instance()->get_logger()->trace("finish execute update value");
     }
 };

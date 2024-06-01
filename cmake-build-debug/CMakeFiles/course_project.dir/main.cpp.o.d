@@ -233,7 +233,9 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_fabric.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_string.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/chain_of_responsibility_handler.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command_chain.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../containers/wb.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../containers/database.h \
@@ -262,11 +264,7 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
  /usr/include/c++/9/bits/stl_multiset.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/chain_of_responsibility.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/chain_of_responsibility_handler.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command_chain.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../validate/errors.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
  /home/passwd/course_project/course_project_4th_sem/containers/../validate/errors.h \
@@ -274,16 +272,17 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
- /home/passwd/course_project/course_project_4th_sem/command/../logger/logger_singleton.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../additional_function/file_save.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../additional_function/../logger/logger_singleton.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_scheme.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_scheme.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_collection.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_collection.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain_of_responsibility/request_with_command_chain.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain_of_responsibility/request_with_command.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h \
- /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_singleton.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h

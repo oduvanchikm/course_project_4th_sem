@@ -1818,7 +1818,6 @@ CMakeFiles/course_project.dir/logger/logger_guardant.cpp.o: /home/passwd/course_
 
 CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_project_4th_sem/main.cpp \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_guardant.h \
-  /home/passwd/course_project/course_project_4th_sem/logger/logger_singleton.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_boundary_tags.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_buddies_system.h \
@@ -1826,8 +1825,11 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_sorted_list.h \
   /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
-  /home/passwd/course_project/course_project_4th_sem/containers/database.h \
   /home/passwd/course_project/course_project_4th_sem/logger/logger_singleton.h \
+  /home/passwd/course_project/course_project_4th_sem/additional_function/file_save.h \
+  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h \
+  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h \
+  /home/passwd/course_project/course_project_4th_sem/containers/database.h \
   /home/passwd/course_project/course_project_4th_sem/command/command.h \
   /home/passwd/course_project/course_project_4th_sem/command/command_add_collection.h \
   /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
@@ -1840,7 +1842,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h \
   /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h \
   /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h \
-  /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
   /home/passwd/course_project/course_project_4th_sem/containers/database.h \
   /home/passwd/course_project/course_project_4th_sem/containers/wb.h \
   /home/passwd/course_project/course_project_4th_sem/logger/client_logger.h \
@@ -1850,8 +1851,7 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/logger/logger_singleton.h \
   /home/passwd/course_project/course_project_4th_sem/validate/validate_parameters.h \
   /home/passwd/course_project/course_project_4th_sem/command/command.h \
-  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility.h \
-  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility_handler.h \
+  /home/passwd/course_project/course_project_4th_sem/validate/errors.h \
   /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h \
   /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h \
   /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h \
@@ -2198,25 +2198,17 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 
 /home/passwd/course_project/course_project_4th_sem/containers/collection.h:
 
-/home/passwd/course_project/course_project_4th_sem/validate/errors.h:
-
 /home/passwd/course_project/course_project_4th_sem/tree/search_tree.h:
 
 /home/passwd/course_project/course_project_4th_sem/tree/associative_container.h:
 
 /home/passwd/course_project/course_project_4th_sem/comparator/comparer.h:
 
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h:
-
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h:
-
 /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h:
 
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility_handler.h:
+/home/passwd/course_project/course_project_4th_sem/validate/errors.h:
 
 /home/passwd/course_project/course_project_4th_sem/containers/wb.h:
-
-/home/passwd/course_project/course_project_4th_sem/command/file_save.h:
 
 /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h:
 
@@ -2227,6 +2219,12 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h:
 
 /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h:
+
+/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h:
+
+/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h:
+
+/home/passwd/course_project/course_project_4th_sem/additional_function/file_save.h:
 
 /home/passwd/course_project/course_project_4th_sem/logger/logger_singleton.h:
 
@@ -2265,8 +2263,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /home/passwd/course_project/course_project_4th_sem/logger/logger.cpp:
 
 /usr/include/c++/9/fstream:
-
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility.h:
 
 /usr/include/c++/9/bits/vector.tcc:
 

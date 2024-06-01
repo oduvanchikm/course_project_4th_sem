@@ -149,8 +149,7 @@
 				51,
 				52,
 				53,
-				54,
-				55
+				54
 			]
 		},
 		{
@@ -386,11 +385,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "chain_of_responsibility/chain_of_responsibility_handler.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "command/command_delete_pool.h",
 			"sourceGroupIndex" : 0
 		},
@@ -421,11 +415,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "chain_of_responsibility/chain_of_responsibility.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "chain_of_responsibility/handler.h",
 			"sourceGroupIndex" : 0
 		},
@@ -441,7 +430,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "command/file_save.h",
+			"path" : "additional_function/file_save.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -462,6 +451,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "flyweight/flyweight_fabric.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "additional_function/persistence_singleton.h",
 			"sourceGroupIndex" : 0
 		}
 	],

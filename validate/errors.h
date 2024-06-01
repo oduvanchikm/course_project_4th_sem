@@ -42,5 +42,15 @@ public:
     }
 };
 
+class file_error : public std::logic_error
+{
+public:
+
+    file_error(const std::string& msg) : std::logic_error(msg)
+    {
+
+    }
+};
+
 
 #endif //COURSE_PROJECT_ERRORS_H

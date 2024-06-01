@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/additional_function/file_save.h">
+			<Option target="course_project"/>
+		</Unit>
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/additional_function/persistence_singleton.h">
+			<Option target="course_project"/>
+		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator.h">
 			<Option target="course_project"/>
 		</Unit>
@@ -118,12 +124,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/chain_of_responsibility_handler.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h">
@@ -169,9 +169,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command_update_value.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/file_save.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/comparator/comparer.h">
