@@ -1,6 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_H
 #define COURSE_PROJECT_COMMAND_H
 #include <iostream>
+#include "file_save.h"
 #include "../containers/wb.h"
 #include "../containers/database.h"
 #include "../validate/validate_parameters.h"
@@ -9,6 +10,11 @@
 #include "../logger/logger_singleton.h"
 #include "file_save.h"
 #include "../validate/errors.h"
+#include <chrono>
+#include "iostream"
+#include "fstream"
+#include <string>
+#include <cstring>
 
 class command
 {

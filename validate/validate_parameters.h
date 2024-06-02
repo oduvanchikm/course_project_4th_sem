@@ -24,20 +24,6 @@ public:
 
 public:
 
-    static bool validate_t(std::string const& t)
-    {
-        for (char symbol : t)
-        {
-            if (symbol < '1' || symbol > '9')
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-public:
-
     static bool validate_file_system_or_memory_cache(std::string const &p)
     {
         for (char symbol : p)

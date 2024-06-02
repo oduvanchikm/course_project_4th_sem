@@ -1,7 +1,8 @@
 #ifndef COURSE_PROJECT_COMMAND_FIND_BETWEEN_VALUE_H
 #define COURSE_PROJECT_COMMAND_FIND_BETWEEN_VALUE_H
 #include "command.h"
-#include "file_save.h"
+#include "../chain__of_resposibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command_chain.h"
 
 class command_find_between_value final :
         public command
@@ -96,7 +97,7 @@ public:
         file.file_for_save("FIND_BETWEEN_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_id_min) + " " + std::to_string(_id_max) + " " + std::to_string(_is_inclusive_lower) + " " + std::to_string(_is_inclusive_upper));
 
         command* new_command = new command_find_between_value();
-        request_handler_with_command handler(new_command);
+        request_with_command handler(new_command);
 
         handler.write_time_to_file(request);
 

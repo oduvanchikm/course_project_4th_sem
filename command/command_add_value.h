@@ -1,10 +1,9 @@
 #ifndef COURSE_PROJECT_COMMAND_ADD_VALUE_H
 #define COURSE_PROJECT_COMMAND_ADD_VALUE_H
 #include "command.h"
-#include <chrono>
-#include "../containers/database.h"
-#include "../chain_of_responsibility/request_with_command_chain.h"
-#include "../chain_of_responsibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command_chain.h"
+
 
 class command_add_value final :
         public command
@@ -119,7 +118,7 @@ public:
         }
 
         command* new_command = new command_add_value();
-        request_handler_with_command handler(new_command);
+        request_with_command handler(new_command);
 
         handler.write_time_to_file(request);
 

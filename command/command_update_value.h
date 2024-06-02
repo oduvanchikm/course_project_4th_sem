@@ -1,7 +1,8 @@
 #ifndef COURSE_PROJECT_COMMAND_UPDATE_VALUE_H
 #define COURSE_PROJECT_COMMAND_UPDATE_VALUE_H
-#include "../containers/database.h"
 #include "command.h"
+#include "../chain__of_resposibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command_chain.h"
 
 class command_update_value final :
         public command
@@ -107,7 +108,7 @@ public:
         }
 
         command* new_command = new command_update_value();
-        request_handler_with_command handler(new_command);
+        request_with_command handler(new_command);
 
         handler.write_time_to_file(request);
 

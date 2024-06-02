@@ -1,17 +1,14 @@
 #ifndef MATH_PRACTICE_AND_OPERATING_SYSTEMS_SEARCH_TREE_H
 #define MATH_PRACTICE_AND_OPERATING_SYSTEMS_SEARCH_TREE_H
-
 #include <iostream>
 #include <functional>
 #include <stack>
 #include <vector>
-
 #include <allocator.h>
 #include <allocator_guardant.h>
 #include "associative_container.h"
 #include "../logger/logger.h"
 #include "../logger/logger_guardant.h"
-//#tree <not_implemented.h>
 
 template<
         typename tkey,

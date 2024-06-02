@@ -1,20 +1,21 @@
-#include <iostream>
-#include "containers/database.h"
-#include "logger/client_logger_builder.h"
-#include <cstring>
-#include <string>
-#include "command/command_add_pool.h"
-#include "command/command_delete_pool.h"
-#include "command/command_add_scheme.h"
-#include "command/command_delete_scheme.h"
-#include "command/command_add_collection.h"
+#include "command/command_find_between_value.h"
+#include "chain_of_responsibility/request_handler_with_command_chain.h"
 #include "command/command_delete_collection.h"
-#include "command/command_add_value.h"
+#include "command/command_find_time_value.h"
+#include "command/command_add_collection.h"
+#include "command/command_delete_scheme.h"
+#include "logger/client_logger_builder.h"
 #include "command/command_delete_value.h"
 #include "command/command_update_value.h"
+#include "command/command_delete_pool.h"
 #include "command/command_find_value.h"
-#include "command/command_find_between_value.h"
-#include "command/command_find_time_value.h"
+#include "command/command_add_scheme.h"
+#include "command/command_add_value.h"
+#include "command/command_add_pool.h"
+#include "containers/database.h"
+#include <iostream>
+#include <cstring>
+#include <string>
 
 int main(int argc, char *argv[])
 {
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
     database::get_instance(t)->set_t(t);
     database *db = database::get_instance(t);
 
-    request_handler_with_command_chain _chain;
+    request_with_command_chain _chain;
     _chain
             .add_handler(new command_add_pool())
             .add_handler(new command_add_scheme())
@@ -132,6 +133,8 @@ int main(int argc, char *argv[])
     }
 
     std::string word;
+    std::string restore;
+
     do
     {
         std::cout << "Do you want to save the data? Please write 'yes' or 'no':" << std::endl;
@@ -139,20 +142,40 @@ int main(int argc, char *argv[])
 
         if (word == "no")
         {
-            std::cout << "Data will not be save" << std::endl;
+            std::cout << "Data will not be saved" << std::endl;
             file_save file;
             file.clean_file();
         }
-        else if (word == "yes" )
+        else if (word == "yes")
         {
-            std::cout << "Data will be save" << std::endl;
+            std::cout << "Data will be saved" << std::endl;
+            std::cout << "Do you want to restore data?" << std::endl;
+            do
+            {
+                std::cout << "Do you want to restore data?" << std::endl;
+                std::cin >> restore;
+
+                if (restore == "no")
+                {
+                    std::cout << "Data will not be restore" << std::endl;
+                }
+                else if (restore == "yes")
+                {
+                    std::cout << "Data will be saved" << std::endl;
+                    std::cout << "Do you want to restore data?" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You entered an invalid answer. Please try again." << std::endl;
+                }
+            } while (word != "yes" && word != "no");
         }
-        else if (word != "yes" && word != "no")
+        else
         {
             std::cout << "You entered an invalid answer. Please try again." << std::endl;
         }
 
-    } while (word != "yes" && word != "no");
+    } while (word != "yes" && word != "no" && word != "restore");
 
     return 0;
 }

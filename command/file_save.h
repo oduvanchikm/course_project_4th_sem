@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "../logger/logger_singleton.h"
+#include "../containers/database.h"
 
 class file_save
 {

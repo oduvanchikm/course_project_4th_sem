@@ -181,8 +181,6 @@ unsigned char* allocator_boundary_tags::get_start_of_block(void* block_address) 
     std::mutex* mutex_boundary_tags = get_mutex();
     std::lock_guard<std::mutex> lock(*mutex_boundary_tags);
 
-//    trace_with_guard(get_typename() + "method of allocate has started");
-
     size_t requested_size = value_size * values_count + get_small_meta_size();
 
     allocator_with_fit_mode::fit_mode mode = get_fit_mode();

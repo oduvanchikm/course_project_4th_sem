@@ -80,29 +80,6 @@ public:
     {
         return key1._id_buyer - key2._id_buyer;
     }
-
-//    int operator()(
-//            key_for_secondary_indexing& key1,
-//            key_for_secondary_indexing& key2)
-//    {
-//        if (key1._id_buyer > key2._id_buyer)
-//        {
-//            return 1;
-//        }
-//        else if (key1._id_buyer == key2._id_buyer)
-//        {
-//            return 0;
-//        }
-//        return -1;
-//    }
-
-//    int operator()(
-//            tkey const &key1,
-//            tkey const &key2) const
-//    {
-//        return rand() % 3 - 1;
-//    }
-
 };
 
 #endif //COURSE_PROJECT_COMPARER_H

@@ -2,8 +2,9 @@
 #define COURSE_PROJECT_REQUEST_WITH_COMMAND_CHAIN_H
 #include "handler.h"
 #include "request_with_command.h"
+#include "../command/command.h"
 
-class request_handler_with_command_chain
+class request_with_command_chain
 {
 
 private:
@@ -13,13 +14,13 @@ private:
 
 public:
 
-    request_handler_with_command_chain() :
+    request_with_command_chain() :
             _first_handler(nullptr), _last_handler(nullptr)
     {
 
     }
 
-    ~request_handler_with_command_chain()
+    ~request_with_command_chain()
     {
         while(_first_handler != nullptr)
         {
@@ -29,13 +30,13 @@ public:
         }
     }
 
-    request_handler_with_command_chain(request_handler_with_command_chain const& other) = delete;
+    request_with_command_chain(request_with_command_chain const& other) = delete;
 
-    request_handler_with_command_chain(request_handler_with_command_chain&& other) = delete;
+    request_with_command_chain(request_with_command_chain&& other) = delete;
 
-    request_handler_with_command_chain& operator=(request_handler_with_command_chain const& other) = delete;
+    request_with_command_chain& operator=(request_with_command_chain const& other) = delete;
 
-    request_handler_with_command_chain& operator=(request_handler_with_command_chain&& other) = delete;
+    request_with_command_chain& operator=(request_with_command_chain&& other) = delete;
 
 public:
 
@@ -51,15 +52,14 @@ public:
 
 public:
 
-    request_handler_with_command_chain& add_handler(command* cmd)
+    request_with_command_chain& add_handler(command* cmd)
     {
         _last_handler = _first_handler == nullptr
-                ? _first_handler = new request_handler_with_command(cmd)
-                : _last_handler->_next_handler = new request_handler_with_command(cmd);
+                        ? _first_handler = new request_with_command(cmd)
+                        : _last_handler->_next_handler = new request_with_command(cmd);
 
         return *this;
     }
 };
-
 
 #endif //COURSE_PROJECT_REQUEST_WITH_COMMAND_CHAIN_H

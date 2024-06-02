@@ -120,13 +120,13 @@
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/handler.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/request_with_command.h">
 			<Option target="course_project"/>
 		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_with_command_chain.h">
+		<Unit filename="/home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/request_with_command_chain.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/command/command.h">
@@ -235,12 +235,6 @@
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/main.cpp">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/file_system_parse.h">
-			<Option target="course_project"/>
-		</Unit>
-		<Unit filename="/home/passwd/course_project/course_project_4th_sem/parse/input_file_parse.h">
 			<Option target="course_project"/>
 		</Unit>
 		<Unit filename="/home/passwd/course_project/course_project_4th_sem/tree/associative_container.h">

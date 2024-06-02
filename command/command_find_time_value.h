@@ -1,10 +1,9 @@
 #ifndef COURSE_PROJECT_COMMAND_FIND_TIME_VALUE_H
 #define COURSE_PROJECT_COMMAND_FIND_TIME_VALUE_H
 #include "command.h"
-#include "iostream"
-#include "fstream"
-#include <string>
-#include <cstring>
+#include "../chain__of_resposibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command_chain.h"
+
 
 class command_find_time_value final :
         public command

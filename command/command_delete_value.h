@@ -1,7 +1,8 @@
 #ifndef COURSE_PROJECT_COMMAND_DELETE_VALUE_H
 #define COURSE_PROJECT_COMMAND_DELETE_VALUE_H
 #include "command.h"
-#include "../containers/database.h"
+#include "../chain__of_resposibility/request_with_command.h"
+#include "../chain__of_resposibility/request_with_command_chain.h"
 
 class command_delete_value final :
         public command
@@ -64,7 +65,7 @@ public:
         file.file_for_save("DELETE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
 
         command* new_command = new command_delete_value();
-        request_handler_with_command handler(new_command);
+        request_with_command handler(new_command);
 
         handler.write_time_to_file(request);
 

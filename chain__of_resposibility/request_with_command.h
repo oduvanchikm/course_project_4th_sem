@@ -1,10 +1,16 @@
 #ifndef COURSE_PROJECT_REQUEST_WITH_COMMAND_H
 #define COURSE_PROJECT_REQUEST_WITH_COMMAND_H
-#include "handler.h"
-#include "../command/command.h"
 #include "../validate/errors.h"
+#include "handler.h"
+#include <chrono>
+#include <fstream>
+#include <iostream>
+#include <ctime>
+#include <sstream>
+#include "../command/command.h"
 
-class request_handler_with_command : public handler
+class request_with_command
+        : public handler
 {
 
 private:
@@ -22,25 +28,25 @@ public:
 
 public:
 
-    explicit request_handler_with_command(command* target_action) :
-                _target_action(target_action),
-                _date_time_activity_started(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count())
+    explicit request_with_command(command* target_action) :
+            _target_action(target_action),
+            _date_time_activity_started(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count())
     {
 
     }
 
-    ~request_handler_with_command() override
+    ~request_with_command() override
     {
         delete _target_action;
     }
 
-    request_handler_with_command(request_handler_with_command const& other) = delete;
+    request_with_command(request_with_command const& other) = delete;
 
-    request_handler_with_command(request_handler_with_command&& other) = delete;
+    request_with_command(request_with_command&& other) = delete;
 
-    request_handler_with_command& operator=(request_handler_with_command const& other) = delete;
+    request_with_command& operator=(request_with_command const& other) = delete;
 
-    request_handler_with_command& operator=(request_handler_with_command const&& other) = delete;
+    request_with_command& operator=(request_with_command const&& other) = delete;
 
 public:
 
@@ -70,7 +76,7 @@ public:
 
     void write_time_to_file(std::string const& request) const
     {
-        std::cout << "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffuck" << std::endl;
+        std::cout << "fuck" << std::endl;
         std::string first_word;
         std::istringstream iss(request);
         iss >> first_word;
@@ -90,23 +96,8 @@ public:
             throw file_error("error with open file");
         }
 
-        if (first_word == "ADD_VALUE")
-        {
-            file << formatted_time << " " << request << std::endl;
-        }
-        else if (first_word == "UPDATE_VALUE")
-        {
-            file << formatted_time << " " << request << std::endl;
-        }
-        else if (first_word == "FIND_VALUE")
-        {
-            file << formatted_time << " " << request << std::endl;
-        }
-        else if (first_word == "FIND_BETWEEN_VALUE")
-        {
-            file << formatted_time << " " << request << std::endl;
-        }
-        else if (first_word == "FIND_VALUE")
+        if (first_word == "ADD_VALUE" && first_word == "UPDATE_VALUE" && first_word == "FIND_VALUE" &&
+            first_word == "FIND_BETWEEN_VALUE" && first_word == "FIND_VALUE")
         {
             file << formatted_time << " " << request << std::endl;
         }

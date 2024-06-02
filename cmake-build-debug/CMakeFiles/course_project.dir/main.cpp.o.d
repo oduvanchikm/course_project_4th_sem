@@ -1,6 +1,9 @@
 CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/9/iostream \
+ /usr/include/stdc-predef.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command.h \
+ /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -138,33 +141,47 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/containers/pool.h \
- /home/passwd/course_project/course_project_4th_sem/containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/containers/scheme.h \
- /home/passwd/course_project/course_project_4th_sem/containers/collection.h \
- /home/passwd/course_project/course_project_4th_sem/containers/wb.h \
- /usr/include/c++/9/variant /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h \
+ /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/logger_singleton.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/client_logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../logger/client_logger.h \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/bits/enable_special_members.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/set \
+ /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/pool.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/scheme.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/collection.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/wb.h \
+ /usr/include/c++/9/variant /usr/include/c++/9/bits/parse_numbers.h \
  /usr/include/c++/9/bits/stl_construct.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../enums/enums.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/associative_container.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../enums/enums.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/associative_container.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/b_tree.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
- /usr/include/c++/9/functional /usr/include/c++/9/tuple \
- /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/refwrap.h /usr/include/c++/9/bits/std_function.h \
- /usr/include/c++/9/unordered_map /usr/include/c++/9/bits/hashtable.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/b_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/search_tree.h \
+ /usr/include/c++/9/functional /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/unordered_map \
+ /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h \
- /usr/include/c++/9/bits/node_handle.h /usr/include/c++/9/optional \
  /usr/include/c++/9/bits/unordered_map.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/stack \
@@ -174,13 +191,13 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/cstddef \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_guardant.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/associative_container.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger_guardant.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/../logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../comparator/comparer.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../enums/allocator_types.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/associative_container.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/../logger/logger_guardant.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/../logger/logger.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/../logger/logger_builder.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../comparator/comparer.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../enums/allocator_types.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_with_fit_mode.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/allocator_global_heap.h \
  /home/passwd/course_project/course_project_4th_sem/allocators/../logger/logger_guardant.h \
@@ -229,62 +246,44 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /usr/include/c++/9/tr1/poly_laguerre.tcc \
  /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_string.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_fabric.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../flyweight/flyweight_string.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../tree/search_tree.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command_chain.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/command.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../containers/wb.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../validate/validate_parameters.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../flyweight/flyweight_string.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../flyweight/flyweight_fabric.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../flyweight/flyweight_string.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/search_tree.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/request_handler_with_command_chain.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/request_handler_with_command.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/handler.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/../validate/errors.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../containers/wb.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../validate/validate_parameters.h \
  /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/9/filesystem /usr/include/c++/9/bits/fs_fwd.h \
  /usr/include/c++/9/bits/fs_path.h /usr/include/c++/9/locale \
  /usr/include/c++/9/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
- /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
  /usr/include/c++/9/bits/locale_conv.h /usr/include/c++/9/iomanip \
  /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/codecvt \
  /usr/include/c++/9/bits/fs_dir.h /usr/include/c++/9/bits/fs_ops.h \
- /usr/include/c++/9/fstream \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../logger/logger_singleton.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../logger/logger.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../logger/logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../logger/client_logger.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/file_save.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../command/../validate/errors.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/../validate/errors.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/request_with_command.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../chain_of_responsibility/handler.h \
- /home/passwd/course_project/course_project_4th_sem/containers/../validate/errors.h \
- /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
- /home/passwd/course_project/course_project_4th_sem/command/command.h \
- /home/passwd/course_project/course_project_4th_sem/command/../containers/database.h \
- /home/passwd/course_project/course_project_4th_sem/command/file_save.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_add_scheme.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_delete_scheme.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_add_collection.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../validate/errors.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/request_with_command.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/../validate/errors.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/handler.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/../command/command.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/request_with_command_chain.h \
+ /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/request_with_command.h \
+ /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_handler_with_command_chain.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_collection.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_add_value.h \
- /home/passwd/course_project/course_project_4th_sem/command/../chain_of_responsibility/request_with_command_chain.h \
- /home/passwd/course_project/course_project_4th_sem/command/../chain_of_responsibility/request_with_command.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_find_time_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_add_collection.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_delete_scheme.h \
+ /home/passwd/course_project/course_project_4th_sem/logger/client_logger_builder.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_update_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_delete_pool.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_value.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_find_between_value.h \
- /home/passwd/course_project/course_project_4th_sem/command/command_find_time_value.h
+ /home/passwd/course_project/course_project_4th_sem/command/command_add_scheme.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_add_value.h \
+ /home/passwd/course_project/course_project_4th_sem/command/command_add_pool.h \
+ /home/passwd/course_project/course_project_4th_sem/containers/database.h

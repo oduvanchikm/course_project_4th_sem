@@ -157,4 +157,4 @@ public:
     }
 };
 
-#endif //COURSE_PROJECT_WB_H
+#endif //COURSE_PROJECT_WB_Hи

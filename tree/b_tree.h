@@ -1,6 +1,5 @@
 #ifndef MATH_PRACTICE_AND_OPERATING_SYSTEMS_TEMPLATE_REPO_B_TREE_H
 #define MATH_PRACTICE_AND_OPERATING_SYSTEMS_TEMPLATE_REPO_B_TREE_H
-
 #include "search_tree.h"
 #include <allocator.h>
 #include "../logger/logger_builder.h"
