@@ -34,8 +34,6 @@ public:
         std::string command;
         string_with_commands >> command;
 
-        std::cout << "command in add value " << command << std::endl;
-
         if (command == "ADD_VALUE")
         {
             std::string pool_name;
@@ -66,7 +64,6 @@ public:
 
     void execute(std::string const& request) noexcept override
     {
-        std::cout << "request     " << request << std::endl;
         logger_singleton::get_instance()->get_logger()->trace("start execute add value");
         file_save file;
 
@@ -109,6 +106,7 @@ public:
         }
         else
         {
+
             file.file_for_save("ADD_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
                                " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
 

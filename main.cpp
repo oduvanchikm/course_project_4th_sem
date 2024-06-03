@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
     logger_singleton::get_instance()->get_logger()->log("start work database", logger::severity::trace);
 
     size_t t = 3;
-    std::string operating_mode = argv[1];
     database::get_instance(t)->set_t(t);
     database *db = database::get_instance(t);
 
@@ -47,24 +46,26 @@ int main(int argc, char *argv[])
             .add_handler(new command_delete_scheme())
             .add_handler(new command_delete_pool());
 
-    if (operating_mode == "0")
-    {
-        db->set_mode(enums::mode::in_memory_cache);
-        logger_singleton::get_instance()->get_logger()->log("in memory cache mode", logger::severity::trace);
-    }
-    else if (operating_mode == "1")
-    {
-        db->set_mode(enums::mode::file_system);
-        logger_singleton::get_instance()->get_logger()->log("file system mode", logger::severity::trace);
-    }
-    else
-    {
-        logger_singleton::get_instance()->get_logger()->log("wrong mode operating", logger::severity::trace);
-        return 1;
-    }
-
     if (argc == 3)
     {
+        std::string operating_mode = argv[1];
+
+        if (operating_mode == "0")
+        {
+            db->set_mode(enums::mode::in_memory_cache);
+            logger_singleton::get_instance()->get_logger()->log("in memory cache mode", logger::severity::trace);
+        }
+        else if (operating_mode == "1")
+        {
+            db->set_mode(enums::mode::file_system);
+            logger_singleton::get_instance()->get_logger()->log("file system mode", logger::severity::trace);
+        }
+        else
+        {
+            logger_singleton::get_instance()->get_logger()->log("wrong mode operating", logger::severity::trace);
+            return 1;
+        }
+
         std::string file_path = argv[2];
         std::cout << file_path << std::endl;
 
@@ -111,6 +112,63 @@ int main(int argc, char *argv[])
                     throw std::logic_error("wrong command or smth goes bad");
                 }
             }
+
+            std::string word;
+            std::string restore;
+
+            do
+            {
+                std::cout << "Do you want to save the data? Please write 'yes' or 'no':" << std::endl;
+                std::cin >> word;
+
+                if (word == "no")
+                {
+                    std::cout << "Data will not be saved" << std::endl;
+                    file_save file;
+                    file.clean_file();
+                }
+                else if (word == "yes")
+                {
+                    std::cout << "Data will be saved" << std::endl;
+
+                    do
+                    {
+                        std::cout << "Do you want to restore the data? Please write 'yes' or 'no':" << std::endl;
+                        std::cin >> restore;
+
+                        if (restore == "no")
+                        {
+                            std::cout << "Data will not be restored" << std::endl;
+                        }
+                        else if (restore == "yes")
+                        {
+                            std::cout << "Data will be restored" << std::endl;
+
+                            std::ifstream new_file("file_save.txt");
+                            std::string command_string;
+
+                            while (std::getline(new_file, command_string))
+                            {
+                                std::cout << command_string << std::endl;
+                                std::int64_t date_time_activity_started;
+
+                                if (!_chain.handle(command_string, date_time_activity_started))
+                                {
+                                    throw std::logic_error("wrong command or smth goes bad");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            std::cout << "You entered an invalid answer. Please try again." << std::endl;
+                        }
+                    } while (restore != "yes" && restore != "no");
+                }
+                else
+                {
+                    std::cout << "You entered an invalid answer. Please try again." << std::endl;
+                }
+            } while (word != "yes" && word != "no");
         }
 
         input_file.close();
@@ -125,57 +183,18 @@ int main(int argc, char *argv[])
             std::cout << command_string << std::endl;
             std::int64_t date_time_activity_started;
 
+            if (command_string == "exit")
+            {
+                break;
+            }
+
             if (!_chain.handle(command_string, date_time_activity_started))
             {
+                std::cout << "You entered: " << command_string << std::endl;
                 throw std::logic_error("wrong command or smth goes bad");
             }
         }
     }
-
-    std::string word;
-    std::string restore;
-
-    do
-    {
-        std::cout << "Do you want to save the data? Please write 'yes' or 'no':" << std::endl;
-        std::cin >> word;
-
-        if (word == "no")
-        {
-            std::cout << "Data will not be saved" << std::endl;
-            file_save file;
-            file.clean_file();
-        }
-        else if (word == "yes")
-        {
-            std::cout << "Data will be saved" << std::endl;
-            std::cout << "Do you want to restore data?" << std::endl;
-            do
-            {
-                std::cout << "Do you want to restore data?" << std::endl;
-                std::cin >> restore;
-
-                if (restore == "no")
-                {
-                    std::cout << "Data will not be restore" << std::endl;
-                }
-                else if (restore == "yes")
-                {
-                    std::cout << "Data will be saved" << std::endl;
-                    std::cout << "Do you want to restore data?" << std::endl;
-                }
-                else
-                {
-                    std::cout << "You entered an invalid answer. Please try again." << std::endl;
-                }
-            } while (word != "yes" && word != "no");
-        }
-        else
-        {
-            std::cout << "You entered an invalid answer. Please try again." << std::endl;
-        }
-
-    } while (word != "yes" && word != "no" && word != "restore");
 
     return 0;
 }

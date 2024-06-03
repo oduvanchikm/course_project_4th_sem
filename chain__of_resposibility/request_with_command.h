@@ -76,7 +76,6 @@ public:
 
     void write_time_to_file(std::string const& request) const
     {
-        std::cout << "fuck" << std::endl;
         std::string first_word;
         std::istringstream iss(request);
         iss >> first_word;

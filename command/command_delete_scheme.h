@@ -32,14 +32,18 @@ public:
             _pool_name = pool_name;
             _scheme_name = scheme_name;
 
+            logger_singleton::get_instance()->get_logger()->information("pool name: " + _pool_name + ", scheme name: " + _scheme_name);
+
             return true;
         }
+
         else return false;
     }
 
     void execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start execute delete scheme");
+        database::get_instance(3)->delete_scheme(_pool_name, _scheme_name);
 
         if (database::get_instance(3)->get_mode() == enums::mode::file_system)
         {
@@ -59,8 +63,6 @@ public:
                 }
             }
         }
-
-        database::get_instance(3)->delete_scheme(_pool_name, _scheme_name);
 
         file_save file;
         file.file_for_save("DELETE_SCHEME " + _pool_name + " " + _scheme_name);

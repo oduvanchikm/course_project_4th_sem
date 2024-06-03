@@ -24,11 +24,8 @@ public:
         logger_singleton::get_instance()->get_logger()->trace("can_execute has started in command_add_pool");
 
         std::istringstream string_with_commands(request);
-//        std::istringstream string_with_commands("ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456");
         std::string command;
         string_with_commands >> command;
-
-        std::cout << "command in pool " << command << std::endl;
 
         if (command == "ADD_POOL")
         {
@@ -73,7 +70,6 @@ public:
 
         file_save file;
         file.file_for_save("ADD_POOL " + _pool_name);
-        std::cout << "ADD_POOL " + _pool_name << std::endl;
 
         logger_singleton::get_instance()->get_logger()->trace("execute has finished in command add pool");
     }

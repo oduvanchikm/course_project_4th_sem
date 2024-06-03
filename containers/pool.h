@@ -44,7 +44,6 @@ public:
 
     [[nodiscard]] scheme& find_scheme(std::string const &scheme_name) const
     {
-        std::cout << "be scheme" << std::endl;
         try
         {
             return const_cast<scheme&>(_pool->obtain(scheme_name));

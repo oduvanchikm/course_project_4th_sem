@@ -35,15 +35,15 @@ public:
             _pool_name = pool_name;
             _scheme_name = scheme_name;
             _collection_name = collection_name;
-        }
 
-        return true;
+            return true;
+        }
+        else return false;
     }
 
     void execute(std::string const& request) noexcept override
     {
         logger_singleton::get_instance()->get_logger()->trace("start execute delete collection");
-        database::get_instance(3)->delete_collection(_pool_name, _scheme_name, _collection_name);
 
         if (database::get_instance(3)->get_mode() == enums::mode::file_system)
         {
@@ -63,6 +63,9 @@ public:
                 }
             }
         }
+
+        database::get_instance(3)->delete_collection(_pool_name, _scheme_name, _collection_name);
+
 
         file_save file;
         file.file_for_save("DELETE_COLLECTION " + _pool_name + " " + _scheme_name + " " + _collection_name);

@@ -83,7 +83,6 @@ public:
 
     [[nodiscard]] pool& find_pool(std::string const& pool_name) const
     {
-        std::cout << "be pool" << std::endl;
         try
         {
             return const_cast<pool &>(_database_entrypoint->obtain(pool_name));
@@ -256,11 +255,9 @@ public:
     {
         try
         {
-            std::cout << "aboba1" << std::endl;
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .add_value(id_buyer, name, date, address, id_oder);
-            std::cout << "aboba2" << std::endl;
         }
         catch (const pool_error &e)
         {

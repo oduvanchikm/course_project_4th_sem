@@ -88,8 +88,6 @@ public:
             _pool_name = pool_name;
             _scheme_name = scheme_name;
             _collection_name = collection_name;
-//            _type = type;
-//            _fit_mode = fit_mode;
             _all_type_string = allocator_type;
             _all_fit_mode_string = allocator_fit_mode;
 

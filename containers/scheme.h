@@ -57,7 +57,6 @@ public:
 
     [[nodiscard]] collection& find_collection(std::string const& name_collection) const
     {
-        std::cout << "be collection" << std::endl;
         try
         {
             return const_cast<collection&>(_scheme->obtain(name_collection));
