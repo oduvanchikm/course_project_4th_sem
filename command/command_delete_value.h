@@ -61,8 +61,12 @@ public:
             std::cout << "file has deleted successfully: " << value_file_name << std::endl;
         }
 
-        file_save file;
-        file.file_for_save("DELETE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file_save file;
+            file.file_for_save("DELETE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " +
+                               std::to_string(_key));
+        }
 
         command* new_command = new command_delete_value();
         request_with_command handler(new_command);

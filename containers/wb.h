@@ -80,7 +80,7 @@ public:
     std::string _name_buyer;
     std::string _date;
 
-    value_in_memory_cache(int id_order, std::string& address, std::string& name_buyer, std::string& date) :
+    value_in_memory_cache(int id_order, std::string const& address, std::string const& name_buyer, std::string const& date) :
             _id_order(id_order),
             _address(address),
             _name_buyer(name_buyer),

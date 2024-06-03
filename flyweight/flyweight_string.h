@@ -10,15 +10,17 @@ private:
 
 public:
 
-    std::string const* get_value()
+    std::string const& get_value() const
     {
-        return &_value;
+        std::cout << _value << std::endl;
+        return _value;
     }
 
     void set_value(const std::string& value)
     {
         _value = value;
     }
+
 };
 
 #endif //COURSE_PROJECT_FLYWEIGHT_STRING_H

@@ -14,13 +14,26 @@ class database
 
 private:
 
+    bool _restore;
+
     static database* _instance;
-    allocator* _allocator_database;
+//    allocator* _allocator_database;
+    std::vector<std::pair<allocator *, std::vector<value *> *> *> _vector;
 
     size_t _t;
     enums::mode _mode;
 
 public:
+
+    void set_restore(bool result)
+    {
+        _restore = result;
+    }
+
+    bool get_restore()
+    {
+        return _restore;
+    }
 
     b_tree<std::string, pool> *_database_entrypoint;
 
@@ -41,6 +54,7 @@ public:
             _database_entrypoint(new b_tree<std::string, pool>(t, key_comparer()))
     {
         _instance = this;
+        _vector = {};
     }
 
 public:
@@ -61,6 +75,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("add pool in database");
             _database_entrypoint->insert(pool_name, pool(_t));
         }
         catch(const std::exception& e)
@@ -85,6 +100,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("find pool in database");
             return const_cast<pool &>(_database_entrypoint->obtain(pool_name));
         }
         catch(const std::exception& e)
@@ -99,6 +115,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("add scheme in database");
             find_pool(pool_name).add_scheme(scheme_name);
         }
         catch (const pool_error &e)
@@ -116,6 +133,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("delete scheme in database");
             find_pool(pool_name).remove_scheme(scheme_name);
         }
         catch (const pool_error &e)
@@ -133,6 +151,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("find scheme in database");
             return const_cast<scheme &>(find_pool(pool_name).find_scheme(scheme_name));
         }
         catch (const pool_error &e)
@@ -154,28 +173,34 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("add collection in database");
             scheme &scheme_db = const_cast<scheme &>(find_pool(pool_name).find_scheme(scheme_name));
+            allocator* allocator_database;
 
             switch (type)
             {
                 case allocator_types::BOUNDARY_TAGS:
-                    _allocator_database = new allocator_boundary_tags(3000, nullptr, nullptr, fit_mode);
+                    allocator_database = new allocator_boundary_tags(5000, nullptr, nullptr, fit_mode);
                     break;
 
                 case allocator_types::BUDDIE_SYSTEM:
-                    _allocator_database = new allocator_buddies_system(24, nullptr, nullptr, fit_mode);
+                    allocator_database = new allocator_buddies_system(54, nullptr, nullptr, fit_mode);
                     break;
 
                 case allocator_types::SORTED_LIST:
-                    _allocator_database = new allocator_sorted_list(3000, nullptr, nullptr, fit_mode);
+                    allocator_database = new allocator_sorted_list(5000, nullptr, nullptr, fit_mode);
                     break;
 
                 case allocator_types::GLOBAL_HEAP:
-                    _allocator_database = new allocator_global_heap();
+                    allocator_database = new allocator_global_heap();
                     break;
             }
 
-            scheme_db.add_collection(collection_name, type, fit_mode, _allocator_database);
+            std::vector<value*>* vector = new std::vector<value*>{};
+            std::pair<allocator*, std::vector<value*>*>* pair = new std::pair<allocator*, std::vector<value*>*>(allocator_database, vector);
+            _vector.push_back(pair);
+
+            scheme_db.add_collection(collection_name, type, fit_mode, pair);
         }
         catch (const pool_error &e)
         {
@@ -198,6 +223,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("delete collection in database");
             find_scheme(pool_name, scheme_name).remove_collection(collection_name);
         }
         catch (const pool_error &e)
@@ -221,6 +247,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("find collection in database");
             return const_cast<collection&>((find_scheme(pool_name, scheme_name)).find_collection(collection_name));
         }
         catch (const pool_error &e)
@@ -255,6 +282,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("add value in database in memory cache");
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .add_value(id_buyer, name, date, address, id_oder);
@@ -292,6 +320,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("add value in database for file system");
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .add_value(id_buyer, start_value_bytes, size_value);
@@ -329,6 +358,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("update value in database in memory cache");
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .update_value(id_buyer, id_oder, name, address, date);
@@ -364,6 +394,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("update value in database for file system");
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .update_value(id_buyer, start_value_bytes, size_value);
@@ -397,6 +428,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("obtain value in database");
             return find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .find_value(key_value);
@@ -430,6 +462,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("obtain value in database");
             return find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .find_value(key(id_buyer));
@@ -463,6 +496,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("delete value");
             find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .delete_value(id_buyer);
@@ -499,6 +533,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("obtain between value");
             return find_pool(pool_name).find_scheme(scheme_name)
                                 .find_collection(collection_name)
                                 .obtain_between(lower_bound, upper_bound,
@@ -537,6 +572,7 @@ public:
     {
         try
         {
+            logger_singleton::get_instance()->get_logger()->trace("obtain between value");
             return find_pool(pool_name).find_scheme(scheme_name)
                     .find_collection(collection_name)
                     .obtain_between(key(lower_bound), key(upper_bound),
@@ -568,6 +604,27 @@ public:
 
     ~database()
     {
+        if (!_vector.empty())
+        {
+            for (auto *each : _vector)
+            {
+                allocator *allocator_database = each->first;
+                for (value *each1 : *(each->second))
+                {
+                    if (get_mode() == enums::mode::file_system)
+                    {
+                        allocator_database->deallocate(reinterpret_cast<value_file_system *>(each1));
+                    }
+                    else
+                    {
+                        allocator_database->deallocate(reinterpret_cast<value_in_memory_cache *>(each1));
+                    }
+                }
+                delete allocator_database;
+                delete each->second;
+                delete each;
+            }
+        }
         delete _database_entrypoint;
     }
 
@@ -592,18 +649,6 @@ public:
     }
 
 public:
-
-    std::string& validate_path(std::string &sub_path)
-    {
-        for (char symbol : sub_path)
-        {
-            if (std::isalnum(symbol) && symbol == '_')
-            {
-                return sub_path;
-            }
-        }
-        throw std::logic_error("path has invalid symbols");
-    }
 
     bool validate_input_file_path(std::string &input_file_path)
     {

@@ -33,13 +33,12 @@ public:
         logger_singleton::get_instance()->get_logger()->trace("hello");
         _file_name = "file_save.txt";
 
-        std::cout << _file_name << std::endl;
-
         std::ofstream file_save(_file_name, std::ios::app);
 
         if (!file_save.is_open())
         {
             logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
+            throw file_error("error with opening file");
         }
 
         file_save << request << std::endl;
@@ -55,14 +54,12 @@ public:
         std::pair<long, long> result;
         _file_name = "file_save.txt";
 
-        std::cout << _file_name << std::endl;
-
         std::ofstream file_save(_file_name, std::ios::app);
 
         if (!file_save.is_open())
         {
             logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-            throw std::logic_error("error with opening file");
+            throw file_error("error with opening file");
         }
 
         file_save << command << " " << pool_name << " " << scheme_name << " " << collection_name << " " << key << " ";
@@ -106,7 +103,7 @@ public:
         if (!file_save.is_open())
         {
             logger_singleton::get_instance()->get_logger()->error("error with opening file for saving data");
-            throw std::logic_error("error with opening file");
+            throw file_error("error with opening file");
         }
 
         file_save.seekg(position);

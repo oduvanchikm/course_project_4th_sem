@@ -94,7 +94,6 @@ public:
 
                 logger_singleton::get_instance()->get_logger()->trace("[add_value] file: " + value_file_name + " has created");
 
-                std::cout << _pool_name << " " << _scheme_name << " " << _collection_name << " " << _key << " " << _position << " " << _size << std::endl;
                 database::get_instance(3)->add_value(_pool_name, _scheme_name, _collection_name, _key, _position, _size);
 
                 logger_singleton::get_instance()->get_logger()->debug("[add_value] the value has been added successfully");
@@ -106,13 +105,17 @@ public:
         }
         else
         {
-
-            file.file_for_save("ADD_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
-                               " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+            if (database::get_instance(3)->get_restore() == false)
+            {
+                file.file_for_save("ADD_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " +
+                                   std::to_string(_key) +
+                                   " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+            }
 
             logger_singleton::get_instance()->get_logger()->trace("execute command add value, memory cache mode");
             database::get_instance(3)->add_value(_pool_name, _scheme_name, _collection_name, _key,
                            _name, _date, _address, _id_order);
+            std::cout << "hi" << std::endl;
         }
 
         command* new_command = new command_add_value();

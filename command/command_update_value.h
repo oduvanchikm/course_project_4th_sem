@@ -99,8 +99,12 @@ public:
         }
         else
         {
-            file.file_for_save("UPDATE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key) +
-                               " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+            if (database::get_instance(3)->get_restore() == false)
+            {
+                file.file_for_save("UPDATE_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " +
+                                   std::to_string(_key) +
+                                   " " + _name + " " + _date + " " + _address + " " + std::to_string(_id_order));
+            }
 
             logger_singleton::get_instance()->get_logger()->trace("execute command update value, memory cache mode");
             database::get_instance(3)->update_value(_pool_name, _scheme_name, _collection_name, _key,

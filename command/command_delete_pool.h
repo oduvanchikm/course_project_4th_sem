@@ -61,8 +61,11 @@ public:
             }
         }
 
-        file_save file;
-        file.file_for_save("DELETE_POOL " + _pool_name);
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file_save file;
+            file.file_for_save("DELETE_POOL " + _pool_name);
+        }
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute delete pool");
     }

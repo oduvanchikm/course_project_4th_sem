@@ -27,6 +27,7 @@ public:
     std::shared_ptr<string_flyweight> get_string_flyweight(
             const std::string &value)
     {
+        std::cout << "fly fly fly " << value << std::endl;
         auto it = _string_flyweights.find(value);
 
         if (it != _string_flyweights.end())

@@ -94,7 +94,12 @@ public:
             logger_singleton::get_instance()->get_logger()->trace("Vector: < end >");
         }
 
-        file.file_for_save("FIND_BETWEEN_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_id_min) + " " + std::to_string(_id_max) + " " + std::to_string(_is_inclusive_lower) + " " + std::to_string(_is_inclusive_upper));
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file.file_for_save("FIND_BETWEEN_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " +
+                               std::to_string(_id_min) + " " + std::to_string(_id_max) + " " +
+                               std::to_string(_is_inclusive_lower) + " " + std::to_string(_is_inclusive_upper));
+        }
 
         command* new_command = new command_find_between_value();
         request_with_command handler(new_command);

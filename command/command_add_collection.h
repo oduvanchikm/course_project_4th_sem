@@ -93,6 +93,7 @@ public:
 
             return true;
         }
+        else return false;
     }
 
     void execute(std::string const& request) noexcept override
@@ -119,10 +120,15 @@ public:
             }
         }
 
-        file_save file;
-        std::string res = "ADD_COLLECTION " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + _all_type_string + " " + _all_fit_mode_string;
-        std::cout << res << std::endl;
-        file.file_for_save(res);
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file_save file;
+            std::string res = "ADD_COLLECTION " + _pool_name + " " + _scheme_name + " " + _collection_name + " " +
+                              _all_fit_mode_string + " " + _all_type_string;
+            std::cout << res << std::endl;
+            // mode, type
+            file.file_for_save(res);
+        }
 
         logger_singleton::get_instance()->get_logger()->trace("finish execute add collection");
     }

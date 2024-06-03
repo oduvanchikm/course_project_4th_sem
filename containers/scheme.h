@@ -31,11 +31,11 @@ public:
 public:
 
     void add_collection(std::string const& name_collection, allocator_types type,
-                        allocator_with_fit_mode::fit_mode fit_mode, allocator* allocator_database) const
+                        allocator_with_fit_mode::fit_mode fit_mode, std::pair<allocator*, std::vector<value*>*>* pair) const
     {
         try
         {
-            _scheme->insert(name_collection, collection(allocator_database, _t, fit_mode, type));
+            _scheme->insert(name_collection, collection(pair, _t, fit_mode, type));
         }
         catch (std::exception const &e)
         {

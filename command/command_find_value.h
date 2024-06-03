@@ -62,7 +62,10 @@ public:
         }
         else
         {
-            file.file_for_save("FIND_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
+            if (database::get_instance(3)->get_restore() == false)
+            {
+                file.file_for_save("FIND_VALUE " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + std::to_string(_key));
+            }
 
             logger_singleton::get_instance()->get_logger()->trace("execute command update value, memory cache mode");
             auto* value_memory = reinterpret_cast<value_in_memory_cache*>(database::get_instance(3)->obtain_value(_pool_name, _scheme_name, _collection_name, _key));

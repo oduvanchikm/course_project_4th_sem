@@ -93,6 +93,7 @@ int main(int argc, char *argv[])
             {
                 std::cout << command_string << std::endl;
                 std::int64_t date_time_activity_started;
+                database::get_instance(t)->set_restore(false);
 
                 if (!_chain.handle(command_string, date_time_activity_started))
                 {
@@ -106,6 +107,7 @@ int main(int argc, char *argv[])
             {
                 std::cout << command_string << std::endl;
                 std::int64_t date_time_activity_started;
+                database::get_instance(t)->set_restore(false);
 
                 if (!_chain.handle(command_string, date_time_activity_started))
                 {
@@ -147,6 +149,8 @@ int main(int argc, char *argv[])
                             std::ifstream new_file("file_save.txt");
                             std::string command_string;
 
+                            database::get_instance(t)->set_restore(true);
+
                             while (std::getline(new_file, command_string))
                             {
                                 std::cout << command_string << std::endl;
@@ -182,6 +186,7 @@ int main(int argc, char *argv[])
         {
             std::cout << command_string << std::endl;
             std::int64_t date_time_activity_started;
+            database::get_instance(t)->set_restore(false);
 
             if (command_string == "exit")
             {

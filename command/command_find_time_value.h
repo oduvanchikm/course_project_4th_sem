@@ -58,7 +58,12 @@ public:
             throw file_error("error with opening file");
         }
 
-        file.file_for_save("FIND_VALUE_IN_TIME " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + _date + " " + _time);
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file.file_for_save(
+                    "FIND_VALUE_IN_TIME " + _pool_name + " " + _scheme_name + " " + _collection_name + " " + _date +
+                    " " + _time);
+        }
 
         logger_singleton::get_instance()->get_logger()->trace("execute command update value, memory cache mode");
 

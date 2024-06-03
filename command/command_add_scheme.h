@@ -63,8 +63,11 @@ public:
             }
         }
 
-        file_save file;
-        file.file_for_save("ADD_SCHEME " + _pool_name + " " + _scheme_name);
+        if (database::get_instance(3)->get_restore() == false)
+        {
+            file_save file;
+            file.file_for_save("ADD_SCHEME " + _pool_name + " " + _scheme_name);
+        }
 
         logger_singleton::get_instance()->get_logger()->trace("execute has finished in command add scheme");
     }

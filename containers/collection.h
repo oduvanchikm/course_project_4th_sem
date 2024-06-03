@@ -22,18 +22,20 @@ class collection
 private:
 
     associative_container<key, value*> *_data;
-    allocator* _allocator_for_data_base;
+//    allocator* _allocator_for_data_base;
+    std::pair<allocator*, std::vector<value*>*>* _allocator_pair;
     allocator_with_fit_mode::fit_mode _fit_mode;
     size_t _t;
     allocator_types _type;
 
 public:
 
-    explicit collection(allocator* allocator_for_data_base, size_t t, allocator_with_fit_mode::fit_mode fit_mode, allocator_types type) :
+    explicit collection(std::pair<allocator*, std::vector<value*>*>* pair, size_t t, allocator_with_fit_mode::fit_mode fit_mode, allocator_types type) :
             _t(t),
             _fit_mode(fit_mode),
             _type(type),
-            _allocator_for_data_base(allocator_for_data_base),
+            _allocator_pair(pair),
+//            _allocator_for_data_base(allocator_for_data_base),
             _data(new b_tree<key, value*>(t, key_comparer()))
     {
 
@@ -67,7 +69,7 @@ public:
 
     void add_value(int id_buyer, long start_value_bytes, long string_size)
     {
-        auto* value_file = const_cast<value_file_system*>(reinterpret_cast<value_file_system*>(_allocator_for_data_base->allocate(
+        auto* value_file = const_cast<value_file_system*>(reinterpret_cast<value_file_system*>(_allocator_pair->first->allocate(
                 sizeof(value_file_system), 1)));
 
         value_file->_start_value_bytes = start_value_bytes;
@@ -79,21 +81,26 @@ public:
         }
         catch (const std::exception& e)
         {
-            _allocator_for_data_base->deallocate(value_file);
+            _allocator_pair->first->deallocate(value_file);
             throw std::logic_error(e.what());
         }
+
+        _allocator_pair->second->push_back(reinterpret_cast<value*>(value_file));
     }
 
     void add_value(int id_buyer, std::string const& name, std::string const& date,
                    std::string const& address, int id_oder)
     {
         auto *value_memory = reinterpret_cast<value_in_memory_cache *>(
-                _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
+                _allocator_pair->first->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
-        value_memory->_address = *(string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value());
-        value_memory->_date = *(string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value());
-        value_memory->_name_buyer = *(string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value());
+        value_memory->_date = string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value();
+        value_memory->_address = string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value();
+        value_memory->_name_buyer = string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value();
+
+//        value_memory->_address = address;
+//        value_memory->_name_buyer = name;
 
         try
         {
@@ -101,9 +108,11 @@ public:
         }
         catch (const std::exception& e)
         {
-            _allocator_for_data_base->deallocate(value_memory);
+            _allocator_pair->first->deallocate(value_memory);
             throw std::logic_error(e.what());
         }
+
+        _allocator_pair->second->push_back(reinterpret_cast<value*>(value_memory));
     }
 
     void update_value(key& key_collection, value* value_collection) const
@@ -121,7 +130,7 @@ public:
     void update_value(int id_buyer, long start_value_bytes,
                       long string_size) const
     {
-        auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_for_data_base->allocate(
+        auto* value_file = static_cast<value_file_system*>(reinterpret_cast<value*>(_allocator_pair->first->allocate(
                 sizeof(value_file_system), 1)));
 
         value_file->_start_value_bytes = start_value_bytes;
@@ -133,21 +142,24 @@ public:
         }
         catch (const std::exception& e)
         {
-            _allocator_for_data_base->deallocate(value_file);
+            _allocator_pair->first->deallocate(value_file);
             throw std::logic_error(e.what());
         }
+
+        _allocator_pair->second->push_back(reinterpret_cast<value*>(value_file));
+
     }
 
     void update_value(int id_buyer, int id_oder, std::string& name,
                       std::string& address, std::string& date) const
     {
         auto *value_memory = reinterpret_cast<value_in_memory_cache *>(
-                _allocator_for_data_base->allocate(sizeof(value_in_memory_cache), 1));
+                _allocator_pair->first->allocate(sizeof(value_in_memory_cache), 1));
 
         value_memory->_id_order = id_oder;
-        value_memory->_address = *(string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value());
-        value_memory->_date = *(string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value());
-        value_memory->_name_buyer = *(string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value());
+        value_memory->_address = string_flyweight_factory::get_instance().get_string_flyweight(address)->get_value();
+        value_memory->_date = string_flyweight_factory::get_instance().get_string_flyweight(date)->get_value();
+        value_memory->_name_buyer = string_flyweight_factory::get_instance().get_string_flyweight(name)->get_value();
 
         try
         {
@@ -155,9 +167,11 @@ public:
         }
         catch (const std::exception& e)
         {
-            _allocator_for_data_base->deallocate(value_memory);
+            _allocator_pair->first->deallocate(value_memory);
             throw std::logic_error(e.what());
         }
+
+        _allocator_pair->second->push_back(reinterpret_cast<value*>(value_memory));
     }
 
     void delete_value(key const &key_collection) const
@@ -243,7 +257,7 @@ public:
 
     collection(collection const &other) :
             _data(new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data))),
-            _allocator_for_data_base(other._allocator_for_data_base)
+            _allocator_pair(other._allocator_pair)
     {
         _t = other._t;
     }
@@ -256,9 +270,9 @@ public:
 
             delete this->_data;
 
-            if (this->_allocator_for_data_base != other._allocator_for_data_base)
+            if (this->_allocator_pair != other._allocator_pair)
             {
-                this->_allocator_for_data_base = other._allocator_for_data_base;
+                this->_allocator_pair = other._allocator_pair;
             }
 
             this->_data = new b_tree<key, value*>(*dynamic_cast<b_tree<key, value*>*>(other._data));;
@@ -273,8 +287,8 @@ public:
         this->_data = other._data;
         other._data = nullptr;
 
-        this->_allocator_for_data_base = other._allocator_for_data_base;
-        other._allocator_for_data_base = nullptr;
+        this->_allocator_pair = other._allocator_pair;
+        other._allocator_pair = nullptr;
     }
 
     collection &operator=(collection &&other) noexcept
@@ -286,9 +300,9 @@ public:
             this->_data = other._data;
             other._data = nullptr;
 
-            delete this->_allocator_for_data_base;
-            this->_allocator_for_data_base = other._allocator_for_data_base;
-            other._allocator_for_data_base = nullptr;
+            delete this->_allocator_pair;
+            this->_allocator_pair = other._allocator_pair;
+            other._allocator_pair = nullptr;
         }
 
         return *this;

@@ -1,0 +1,38 @@
+ADD_POOL pool3
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 first_fit sorted_list
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+FIND_VALUE pool3 scheme3 collection1 34
+FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+FIND_VALUE_IN_TIME pool3 scheme3 collection1 [2024-06-01 22:05:31]
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_VALUE pool3 scheme3 collection1 45
+DELETE_COLLECTION pool3 scheme3 collection1
+DELETE_SCHEME pool3 scheme3
+DELETE_POOL pool3
+ADD_POOL pool3
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 first_fit sorted_list
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+FIND_VALUE pool3 scheme3 collection1 34
+FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+FIND_VALUE_IN_TIME pool3 scheme3 collection1 [2024-06-01 22:05:31]
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_VALUE pool3 scheme3 collection1 45
+DELETE_COLLECTION pool3 scheme3 collection1
+DELETE_SCHEME pool3 scheme3
+DELETE_POOL pool3
+ADD_POOL pool3
+ADD_SCHEME pool3 scheme3
+ADD_COLLECTION pool3 scheme3 collection1 first_fit sorted_list
+ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+FIND_VALUE_IN_TIME pool3 scheme3 collection1 [2024-06-01 22:05:31]
+DELETE_VALUE pool3 scheme3 collection1 34
+DELETE_VALUE pool3 scheme3 collection1 45
+DELETE_COLLECTION pool3 scheme3 collection1
+DELETE_SCHEME pool3 scheme3
+DELETE_POOL pool3
