@@ -1,7 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_DELETE_SCHEME_H
 #define COURSE_PROJECT_COMMAND_DELETE_SCHEME_H
 #include "command.h"
-
+//
 class command_delete_scheme final :
         public command
 {

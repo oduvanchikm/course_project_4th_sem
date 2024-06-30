@@ -9,6 +9,7 @@
 class scheme
 {
 
+
 private:
 
     associative_container<std::string, collection> *_scheme;

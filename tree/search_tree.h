@@ -258,7 +258,6 @@ std::pair<typename search_tree<tkey, tvalue>::common_node *, typename associativ
     int index_increment = index < subtree_index
                           ? 1
                           : -1;
-    // TODO: kostyl o_O
     if (index_increment == -1)
     {
         --index;
@@ -269,9 +268,7 @@ std::pair<typename search_tree<tkey, tvalue>::common_node *, typename associativ
         while (index + 1 != subtree_index)
         {
             swap(std::move(node->keys_and_values[index]), std::move(node->keys_and_values[index + 1]));
-
             swap(std::move(node->subtrees[index + 1]), std::move(node->subtrees[index + 2]));
-
             ++index;
         }
     }
@@ -280,9 +277,7 @@ std::pair<typename search_tree<tkey, tvalue>::common_node *, typename associativ
         while (index != subtree_index)
         {
             swap(std::move(node->keys_and_values[index]), std::move(node->keys_and_values[index - 1]));
-
             swap(std::move(node->subtrees[index + 1]), std::move(node->subtrees[index]));
-
             --index;
         }
     }
@@ -292,7 +287,6 @@ std::pair<typename search_tree<tkey, tvalue>::common_node *, typename associativ
     {
         allocator::construct(new_node->keys_and_values + i, std::move(node->keys_and_values[t + i]));
         allocator::destruct(node->keys_and_values + t + i);
-
         swap(std::move(new_node->subtrees[1 + i]), std::move(node->subtrees[t + 1 + i]));
     }
 
@@ -311,7 +305,6 @@ void search_tree<tkey, tvalue>::merge_nodes(
         typename search_tree<tkey, tvalue>::common_node *parent,
         size_t left_subtree_index)
 {
-    // TODO: validations
     auto *left_subtree = parent->subtrees[left_subtree_index];
     auto *right_subtree = parent->subtrees[left_subtree_index + 1];
 
@@ -319,7 +312,6 @@ void search_tree<tkey, tvalue>::merge_nodes(
     for (size_t i = left_subtree_index; i < parent->virtual_size - 1; ++i)
     {
         search_tree<tkey, tvalue>::swap(std::move(parent->keys_and_values[i]), std::move(parent->keys_and_values[i + 1]));
-
         search_tree<tkey, tvalue>::swap(std::move(parent->subtrees[i + 1]), std::move(parent->subtrees[i + 2]));
     }
 

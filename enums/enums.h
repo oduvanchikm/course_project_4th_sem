@@ -14,7 +14,7 @@ public:
     enum class search_trees
     {
         b_tree
-    };
+    };//
 };
 
 #endif //COURSE_PROJECT_ENUMS_H

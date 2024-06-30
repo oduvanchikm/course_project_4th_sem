@@ -1,6 +1,7 @@
 #ifndef COURSE_PROJECT_ERRORS_H
 #define COURSE_PROJECT_ERRORS_H
 #include "iostream"
+//errors
 
 class pool_error : public std::logic_error
 {

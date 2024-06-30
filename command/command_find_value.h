@@ -3,7 +3,7 @@
 #include "command.h"
 #include "../chain__of_resposibility/request_with_command.h"
 #include "../chain__of_resposibility/request_with_command_chain.h"
-
+//
 class command_find_value final :
         public command
 {

@@ -25,6 +25,7 @@ public:
 
     virtual bool handle(std::string const &request, std::int64_t data_and_time) = 0;
 
+
 };
 
 #endif //COURSE_PROJECT_HANDLER_H

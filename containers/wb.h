@@ -3,8 +3,6 @@
 #include <iostream>
 #include <variant>
 
-// info about buyer: key - id_buyer, value - name, date, address, id_oder
-
 class value
 {
 

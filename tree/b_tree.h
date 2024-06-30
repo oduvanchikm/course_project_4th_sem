@@ -36,14 +36,6 @@ public:
             tkey const &key,
             tvalue &&value) override;
 
-//    void update(
-//            tkey const &key,
-//            tvalue const &value) override;
-//
-//    void update(
-//            tkey const &key,
-//            tvalue &&value) override;
-
     tvalue const &obtain(
             tkey const &key) override;
 
@@ -64,11 +56,7 @@ public:
 
 public:
 
-
-
     insertion_of_existent_key_attempt_strategy _insert_strategy;
-
-
 
     class infix_iterator final
     {
@@ -245,8 +233,6 @@ typename b_tree<tkey, tvalue>::infix_iterator &b_tree<tkey, tvalue>::infix_itera
 {
     if (_path.empty())
     {
-        // TODO: undefined behavior
-
         return *this;
     }
 

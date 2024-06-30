@@ -9,7 +9,6 @@ class allocator
 public:
 
     typedef size_t block_size_t;
-
     typedef void *block_pointer_t;
 
 public:

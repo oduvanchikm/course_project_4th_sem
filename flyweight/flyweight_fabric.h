@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <memory>
 #include "flyweight_string.h"
-
+//todo
 class string_flyweight_factory
 {
 
@@ -41,6 +41,22 @@ public:
             _string_flyweights[value] = flyweight;
 
             return flyweight;
+        }
+    }
+
+    void remove_string_flyweight(const std::string &value)
+    {
+        auto& factory = string_flyweight_factory::get_instance();
+        auto it = factory._string_flyweights.find(value);
+
+        if (it != factory._string_flyweights.end())
+        {
+            factory._string_flyweights.erase(it);
+            std::cout << "string flyweight with value '" << value << "' has been removed from the map." << std::endl;
+        }
+        else
+        {
+            std::cout << "string flyweight with value '" << value << "' not found in the map." << std::endl;
         }
     }
 };

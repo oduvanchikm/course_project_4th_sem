@@ -22,7 +22,6 @@ class collection
 private:
 
     associative_container<key, value*> *_data;
-//    allocator* _allocator_for_data_base;
     std::pair<allocator*, std::vector<value*>*>* _allocator_pair;
     allocator_with_fit_mode::fit_mode _fit_mode;
     size_t _t;
@@ -35,7 +34,6 @@ public:
             _fit_mode(fit_mode),
             _type(type),
             _allocator_pair(pair),
-//            _allocator_for_data_base(allocator_for_data_base),
             _data(new b_tree<key, value*>(t, key_comparer()))
     {
 
@@ -191,6 +189,7 @@ public:
         try
         {
             _data->dispose(key(id_buyer));
+
         }
         catch (const std::exception& e)
         {

@@ -2,6 +2,7 @@
 #define COURSE_PROJECT_VALIDATE_PARAMETERS_H
 #include <iostream>
 #include <cstring>
+//delete
 
 class validate_parameters
 {

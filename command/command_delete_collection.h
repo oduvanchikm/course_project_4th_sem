@@ -1,7 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_DELETE_COLLECTION_H
 #define COURSE_PROJECT_COMMAND_DELETE_COLLECTION_H
 #include "command.h"
-
+//
 class command_delete_collection final :
         public command
 {

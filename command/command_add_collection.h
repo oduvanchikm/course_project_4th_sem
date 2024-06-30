@@ -1,7 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_ADD_COLLECTION_H
 #define COURSE_PROJECT_COMMAND_ADD_COLLECTION_H
 #include "command.h"
-
+//
 class command_add_collection final :
         public command
 {

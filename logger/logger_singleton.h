@@ -1,12 +1,12 @@
 #ifndef COURSE_PROJECT_LOGGER_SINGLETON_H
 #define COURSE_PROJECT_LOGGER_SINGLETON_H
-
 #include "logger.h"
 #include "logger_builder.h"
 #include "client_logger_builder.h"
 #include "client_logger.h"
 
-class logger_singleton {
+class logger_singleton
+{
 
 private:
 

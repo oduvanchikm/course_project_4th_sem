@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    //todo
+
     logger_singleton::get_instance()->get_logger()->log("start work database", logger::severity::trace);
 
     size_t t = 3;

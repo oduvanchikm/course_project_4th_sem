@@ -17,7 +17,6 @@ private:
     bool _restore;
 
     static database* _instance;
-//    allocator* _allocator_database;
     std::vector<std::pair<allocator *, std::vector<value *> *> *> _vector;
 
     size_t _t;

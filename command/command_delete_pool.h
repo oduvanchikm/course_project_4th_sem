@@ -1,7 +1,7 @@
 #ifndef COURSE_PROJECT_COMMAND_DELETE_POOL_H
 #define COURSE_PROJECT_COMMAND_DELETE_POOL_H
 #include "command.h"
-
+//
 class command_delete_pool final :
         public command
 {

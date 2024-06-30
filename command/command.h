@@ -26,7 +26,6 @@ public:
 public:
 
     virtual bool can_execute(std::string const&) noexcept = 0;
-
     virtual void execute(std::string const&) noexcept = 0;
 };
 
