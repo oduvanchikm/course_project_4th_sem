@@ -1,5 +1,4 @@
 #include "command/command_find_between_value.h"
-#include "chain_of_responsibility/request_handler_with_command_chain.h"
 #include "command/command_delete_collection.h"
 #include "command/command_find_time_value.h"
 #include "command/command_add_collection.h"

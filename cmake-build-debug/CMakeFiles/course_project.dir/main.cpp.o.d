@@ -250,9 +250,6 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/../flyweight/flyweight_fabric.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/../flyweight/flyweight_string.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/../tree/search_tree.h \
- /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/request_handler_with_command_chain.h \
- /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/request_handler_with_command.h \
- /home/passwd/course_project/course_project_4th_sem/command/../containers/../chain_of_responsibility/handler.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/../validate/errors.h \
  /home/passwd/course_project/course_project_4th_sem/command/../containers/wb.h \
  /home/passwd/course_project/course_project_4th_sem/command/../validate/validate_parameters.h \
@@ -273,7 +270,6 @@ CMakeFiles/course_project.dir/main.cpp.o: \
  /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/../command/command.h \
  /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/request_with_command_chain.h \
  /home/passwd/course_project/course_project_4th_sem/command/../chain__of_resposibility/request_with_command.h \
- /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_handler_with_command_chain.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_delete_collection.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_find_time_value.h \
  /home/passwd/course_project/course_project_4th_sem/command/command_add_collection.h \

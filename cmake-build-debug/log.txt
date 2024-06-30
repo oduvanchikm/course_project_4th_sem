@@ -1,188 +1,188 @@
-[30.06.2024 15:24:02][TRACE]start work database
-[30.06.2024 15:24:02][TRACE]in memory cache mode
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3
-[30.06.2024 15:24:02][TRACE]can_execute has finished in command add pool
-[30.06.2024 15:24:02][TRACE]execute has started in command add pool
-[30.06.2024 15:24:02][TRACE]add pool in database
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute has finished in command add pool
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3, scheme name: scheme3
-[30.06.2024 15:24:02][TRACE]finish can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]execute has started in command add scheme
-[30.06.2024 15:24:02][TRACE]add scheme in database
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute has finished in command add scheme
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3, scheme name: scheme3, collection name: collection1, allocator fit mode: first_fit, allocator type: sorted_list
-[30.06.2024 15:24:02][TRACE]start execute add collection
-[30.06.2024 15:24:02][TRACE]add collection in database
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute add collection
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute command add value, memory cache mode
-[30.06.2024 15:24:02][TRACE]add value in database in memory cache
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute command add value, memory cache mode
-[30.06.2024 15:24:02][TRACE]add value in database in memory cache
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute update value
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute command update value, memory cache mode
-[30.06.2024 15:24:02][TRACE]update value in database in memory cache
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]finish execute update value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute command update value, memory cache mode
-[30.06.2024 15:24:02][TRACE]obtain value in database
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][INFORMATION][find_value] name: bbb, date: 01.02.2034, address: LA, id_oder: 456
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute find between value
-[30.06.2024 15:24:02][TRACE]obtain between value
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]obtain between value
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]Vector: < start >
-[30.06.2024 15:24:02][INFORMATION][find_value] name: bbb, date: 01.02.2034, address: LA, id_oder: 456
-[30.06.2024 15:24:02][INFORMATION][find_value] name: NY, date: 01.02.2034, address: sasha, id_oder: 123
-[30.06.2024 15:24:02][TRACE]Vector: < end >
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]execute command update value, memory cache mode
-[30.06.2024 15:24:02][INFORMATION]all version: 
-[30.06.2024 15:24:02][INFORMATION][2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
-[30.06.2024 15:24:02][INFORMATION][2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
-[30.06.2024 15:24:02][INFORMATION][2024-06-01 22:05:31] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
-[30.06.2024 15:24:02][INFORMATION][2024-06-01 22:05:31] FIND_VALUE pool3 scheme3 collection1 34
-[30.06.2024 15:24:02][INFORMATION][2024-06-01 22:05:31] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
-[30.06.2024 15:24:02][INFORMATION]end
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]delete value
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][ERROR]error deleting the file: pool3/scheme3/collection1/34.txt
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start execute add value
-[30.06.2024 15:24:02][TRACE]delete value
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][ERROR]error deleting the file: pool3/scheme3/collection1/45.txt
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute add value
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute delete scheme
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3, scheme name: scheme3, collection name: collection1
-[30.06.2024 15:24:02][TRACE]start execute delete collection
-[30.06.2024 15:24:02][TRACE]delete collection in database
-[30.06.2024 15:24:02][TRACE]find scheme in database
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute delete collection
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute delete scheme
-[30.06.2024 15:24:02][TRACE]start can_execute delete scheme
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3, scheme name: scheme3
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3, scheme name: scheme3
-[30.06.2024 15:24:02][TRACE]start execute delete scheme
-[30.06.2024 15:24:02][TRACE]delete scheme in database
-[30.06.2024 15:24:02][TRACE]find pool in database
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute delete scheme
-[30.06.2024 15:24:02][TRACE]can_execute has started in command_add_pool
-[30.06.2024 15:24:02][TRACE]start can execute in command add scheme
-[30.06.2024 15:24:02][TRACE]start can_execute add collection
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute add value
-[30.06.2024 15:24:02][TRACE]start can_execute delete scheme
-[30.06.2024 15:24:02][TRACE]start can_execute delete scheme
-[30.06.2024 15:24:02][TRACE]start can_execute delete pool
-[30.06.2024 15:24:02][INFORMATION]pool name: pool3
-[30.06.2024 15:24:02][TRACE]start execute delete pool
-[30.06.2024 15:24:02][TRACE]hello
-[30.06.2024 15:24:02][TRACE]finish execute delete pool
+[30.06.2024 15:31:33][TRACE]start work database
+[30.06.2024 15:31:33][TRACE]in memory cache mode
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3
+[30.06.2024 15:31:33][TRACE]can_execute has finished in command add pool
+[30.06.2024 15:31:33][TRACE]execute has started in command add pool
+[30.06.2024 15:31:33][TRACE]add pool in database
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute has finished in command add pool
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3, scheme name: scheme3
+[30.06.2024 15:31:33][TRACE]finish can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]execute has started in command add scheme
+[30.06.2024 15:31:33][TRACE]add scheme in database
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute has finished in command add scheme
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3, scheme name: scheme3, collection name: collection1, allocator fit mode: first_fit, allocator type: sorted_list
+[30.06.2024 15:31:33][TRACE]start execute add collection
+[30.06.2024 15:31:33][TRACE]add collection in database
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute add collection
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute command add value, memory cache mode
+[30.06.2024 15:31:33][TRACE]add value in database in memory cache
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute command add value, memory cache mode
+[30.06.2024 15:31:33][TRACE]add value in database in memory cache
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute update value
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute command update value, memory cache mode
+[30.06.2024 15:31:33][TRACE]update value in database in memory cache
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]finish execute update value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute command update value, memory cache mode
+[30.06.2024 15:31:33][TRACE]obtain value in database
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][INFORMATION][find_value] name: bbb, date: 01.02.2034, address: LA, id_oder: 456
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute find between value
+[30.06.2024 15:31:33][TRACE]obtain between value
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]obtain between value
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]Vector: < start >
+[30.06.2024 15:31:33][INFORMATION][find_value] name: bbb, date: 01.02.2034, address: LA, id_oder: 456
+[30.06.2024 15:31:33][INFORMATION][find_value] name: NY, date: 01.02.2034, address: sasha, id_oder: 123
+[30.06.2024 15:31:33][TRACE]Vector: < end >
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]execute command update value, memory cache mode
+[30.06.2024 15:31:33][INFORMATION]all version: 
+[30.06.2024 15:31:33][INFORMATION][2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
+[30.06.2024 15:31:33][INFORMATION][2024-06-01 22:05:31] ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
+[30.06.2024 15:31:33][INFORMATION][2024-06-01 22:05:31] UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456
+[30.06.2024 15:31:33][INFORMATION][2024-06-01 22:05:31] FIND_VALUE pool3 scheme3 collection1 34
+[30.06.2024 15:31:33][INFORMATION][2024-06-01 22:05:31] FIND_BETWEEN_VALUE pool3 scheme3 collection1 34 45 1 1
+[30.06.2024 15:31:33][INFORMATION]end
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]delete value
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][ERROR]error deleting the file: pool3/scheme3/collection1/34.txt
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start execute add value
+[30.06.2024 15:31:33][TRACE]delete value
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][ERROR]error deleting the file: pool3/scheme3/collection1/45.txt
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute add value
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute delete scheme
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3, scheme name: scheme3, collection name: collection1
+[30.06.2024 15:31:33][TRACE]start execute delete collection
+[30.06.2024 15:31:33][TRACE]delete collection in database
+[30.06.2024 15:31:33][TRACE]find scheme in database
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute delete collection
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute delete scheme
+[30.06.2024 15:31:33][TRACE]start can_execute delete scheme
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3, scheme name: scheme3
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3, scheme name: scheme3
+[30.06.2024 15:31:33][TRACE]start execute delete scheme
+[30.06.2024 15:31:33][TRACE]delete scheme in database
+[30.06.2024 15:31:33][TRACE]find pool in database
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute delete scheme
+[30.06.2024 15:31:33][TRACE]can_execute has started in command_add_pool
+[30.06.2024 15:31:33][TRACE]start can execute in command add scheme
+[30.06.2024 15:31:33][TRACE]start can_execute add collection
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute add value
+[30.06.2024 15:31:33][TRACE]start can_execute delete scheme
+[30.06.2024 15:31:33][TRACE]start can_execute delete scheme
+[30.06.2024 15:31:33][TRACE]start can_execute delete pool
+[30.06.2024 15:31:33][INFORMATION]pool name: pool3
+[30.06.2024 15:31:33][TRACE]start execute delete pool
+[30.06.2024 15:31:33][TRACE]hello
+[30.06.2024 15:31:33][TRACE]finish execute delete pool

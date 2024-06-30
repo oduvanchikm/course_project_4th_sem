@@ -1,6 +1,6 @@
 ADD_POOL pool3
 ADD_SCHEME pool3 scheme3
-ADD_COLLECTION pool3 scheme3 collection1 first_fit sorted_list
+ADD_COLLECTION pool3 scheme3 collection1 first_fit global_heap
 ADD_VALUE pool3 scheme3 collection1 34 sonya 01.02.2034 LA 456
 ADD_VALUE pool3 scheme3 collection1 45 sasha 01.02.2034 NY 123
 UPDATE_VALUE pool3 scheme3 collection1 34 bbb 01.02.2034 LA 456

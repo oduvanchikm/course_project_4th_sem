@@ -1831,9 +1831,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/handler.h \
   /home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/request_with_command.h \
   /home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/request_with_command_chain.h \
-  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h \
-  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_handler_with_command.h \
-  /home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_handler_with_command_chain.h \
   /home/passwd/course_project/course_project_4th_sem/comparator/comparer.h \
   /home/passwd/course_project/course_project_4th_sem/enums/allocator_types.h \
   /home/passwd/course_project/course_project_4th_sem/enums/enums.h \
@@ -2163,6 +2160,8 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h
 
 
+/usr/include/strings.h:
+
 /usr/include/string.h:
 
 /usr/include/c++/9/variant:
@@ -2218,12 +2217,6 @@ CMakeFiles/course_project.dir/main.cpp.o: /home/passwd/course_project/course_pro
 /home/passwd/course_project/course_project_4th_sem/tree/associative_container.h:
 
 /home/passwd/course_project/course_project_4th_sem/comparator/comparer.h:
-
-/usr/include/strings.h:
-
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/request_handler_with_command.h:
-
-/home/passwd/course_project/course_project_4th_sem/chain_of_responsibility/handler.h:
 
 /home/passwd/course_project/course_project_4th_sem/chain__of_resposibility/request_with_command_chain.h:
 
